@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NETTA — The Settlement Computer</title>
+    <meta name="description" content="NETTA is institutional cross-border settlement infrastructure built on atomic just-in-time multilateral netting.">
+    <meta name="theme-color" content="#FFFFFF">
+    <meta name="robots" content="index, follow">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="NETTA — The Settlement Computer">
+    <meta property="og:description" content="Institutional cross-border settlement infrastructure. Compute obligations. Compress exposures. Deliver finality.">
+    <meta property="og:url" content="https://netta.network">
+    <meta property="og:image" content="https://netta.network/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="NETTA">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NETTA — The Settlement Computer">
+    <meta name="twitter:description" content="Institutional cross-border settlement infrastructure.">
+    <meta name="twitter:image" content="https://netta.network/assets/og-image.png">
+    <meta name="twitter:site" content="@nettanetwork">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "NETTA",
+      "alternateName": "The Settlement Computer",
+      "url": "https://netta.network",
+      "logo": "https://netta.network/assets/netta-icon-512.png",
+      "description": "Institutional cross-border settlement infrastructure built on atomic just-in-time multilateral netting.",
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "FiatRails Foundation Ltd",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "KY",
+          "addressLocality": "Cayman Islands"
+        }
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/netta-network",
+        "https://x.com/nettanetwork"
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --navy: #0B1D33;
+            --navy-soft: #1A2D47;
+            --teal: #2AA39A;
+            --teal-deep: #1F8A82;
+            --white: #FFFFFF;
+            --off-white: #F7F8FA;
+            --light-gray: #E6E9EE;
+            --gray-mid: #6B7785;
+            --gray-soft: #9AA5B5;
+            --border: rgba(11, 29, 51, 0.10);
+            --border-soft: rgba(11, 29, 51, 0.06);
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--white);
+            color: var(--navy);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        /* Subtle background grain — very soft, institutional polish */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(42, 163, 154, 0.025) 0%, transparent 60%),
+                radial-gradient(ellipse at 100% 100%, rgba(11, 29, 51, 0.015) 0%, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 36px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--gray-mid);
+        }
+
+        .header-mark {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--navy);
+        }
+
+        .header-mark .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--teal);
+        }
+
+        .header-status {
+            color: var(--gray-soft);
+            letter-spacing: 0.18em;
+        }
+
+        /* Hero */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 64px 0;
+        }
+
+        .logo {
+            width: 100%;
+            max-width: 640px;
+            height: auto;
+            margin-bottom: 72px;
+        }
+
+        .statement {
+            font-size: 19px;
+            line-height: 1.65;
+            font-weight: 400;
+            color: var(--navy);
+            max-width: 660px;
+            margin: 0 auto 56px;
+        }
+
+        .statement strong {
+            font-weight: 600;
+        }
+
+        .mantra {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--gray-mid);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+            margin-bottom: 64px;
+        }
+
+        .mantra .divider {
+            width: 3px;
+            height: 3px;
+            background: var(--teal);
+            border-radius: 50%;
+        }
+
+        .contact {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 28px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--navy);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 2px rgba(11, 29, 51, 0.04);
+        }
+
+        .contact:hover {
+            border-color: var(--teal);
+            box-shadow: 0 4px 14px rgba(42, 163, 154, 0.12);
+            transform: translateY(-1px);
+        }
+
+        .contact-label {
+            color: var(--gray-mid);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            font-weight: 600;
+        }
+
+        .contact-arrow {
+            color: var(--teal);
+            transition: transform 0.2s ease;
+            font-size: 16px;
+        }
+
+        .contact:hover .contact-arrow {
+            transform: translateX(3px);
+        }
+
+        /* Footer */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 32px;
+            border-top: 1px solid var(--border-soft);
+            font-size: 11px;
+            color: var(--gray-mid);
+            letter-spacing: 0.04em;
+        }
+
+        footer a {
+            color: var(--gray-mid);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            color: var(--teal-deep);
+        }
+
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .footer-right {
+            display: flex;
+            gap: 28px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 720px) {
+            .container { padding: 24px 24px 28px; }
+            .logo { max-width: 380px; margin-bottom: 56px; }
+            .statement { font-size: 17px; line-height: 1.6; }
+            .mantra { font-size: 10px; letter-spacing: 0.24em; gap: 12px; margin-bottom: 48px; }
+            footer { flex-direction: column; gap: 16px; align-items: flex-start; }
+            .footer-right { gap: 20px; flex-wrap: wrap; }
+            header { font-size: 10px; }
+        }
+
+        @media (max-width: 420px) {
+            .logo { max-width: 280px; margin-bottom: 48px; }
+            .statement { font-size: 16px; }
+            .mantra { font-size: 9px; letter-spacing: 0.22em; }
+            .contact { font-size: 13px; padding: 14px 22px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <span class="header-mark">
+                <span class="dot"></span>
+                <span>NETTA</span>
+            </span>
+            <span class="header-status">Coming soon</span>
+        </header>
+
+        <main>
+            <img src="assets/netta-logo-hero.png" alt="NETTA — The Settlement Computer" class="logo">
+
+            <p class="statement">
+                Institutional cross-border settlement infrastructure built on <strong>atomic just-in-time multilateral netting</strong>. Pre-funding eliminated at the architectural level. Finality delivered at the consensus layer.
+            </p>
+
+            <div class="mantra">
+                <span>Compute obligations</span>
+                <span class="divider"></span>
+                <span>Compress exposures</span>
+                <span class="divider"></span>
+                <span>Deliver finality</span>
+            </div>
+
+            <a href="mailto:admin@netta.network" class="contact">
+                <span class="contact-label">Contact</span>
+                <span>admin@netta.network</span>
+                <span class="contact-arrow">→</span>
+            </a>
+        </main>
+
+        <footer>
+            <div class="footer-left">
+                <span>NETTA is operated by FiatRails Foundation Ltd · Cayman Islands</span>
+                <span>&copy; 2026 FiatRails Foundation Ltd · All rights reserved</span>
+            </div>
+            <div class="footer-right">
+                <a href="https://www.linkedin.com/company/netta-network" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://x.com/nettanetwork" target="_blank" rel="noopener noreferrer">X</a>
+                <a href="mailto:admin@netta.network">Email</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
