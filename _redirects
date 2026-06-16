@@ -1,8 +1,0 @@
-# Cloudflare Pages _redirects
-# Brand migration: fiatrails.network -> netta.network
-# Settlement Computer marketing site moved to NETTA brand.
-# Path-preserving 301 with forced redirect (!) so existing
-# content at netta.network does not short-circuit the rule.
-
-https://fiatrails.network/*       https://netta.network/:splat       301!
-https://www.fiatrails.network/*   https://netta.network/:splat       301!
