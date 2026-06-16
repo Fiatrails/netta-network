@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Atomic Settlement Mirage: Why Configurable Netting Beats Universal T+0 | NETTA Insights</title>
+    <meta name="description" content="The fintech narrative treats atomic T+0 settlement as the universal future. The largest production settlement systems and the empirical literature point in the opposite direction. The right answer is configurable netting with urgency lanes, not atomic-by-default.">
+    <meta name="author" content="Vincent Scaturchio">
+    <link rel="icon" type="image/png" href="/icons/favicon-32x32.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
+
+    <script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The Atomic Settlement Mirage: Why Configurable Netting Beats Universal T+0">
+    <meta property="og:description" content="By Vincent Scaturchio. The atomic settlement narrative is empirically wrong as a universal claim. CLS and CHIPS prove configurable netting wins.">
+    <meta property="og:url" content="https://netta.network/insights/atomic-settlement-mirage">
+    <meta property="og:site_name" content="NETTA Insights">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Atomic Settlement Mirage">
+    <meta name="twitter:description" content="By Vincent Scaturchio. Why configurable netting beats universal T+0 — the math, the production systems, the regulatory case.">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The Atomic Settlement Mirage: Why Configurable Netting Beats Universal T+0",
+        "description": "The fintech narrative treats atomic T+0 settlement as the universal future. The largest production settlement systems and the empirical literature point in the opposite direction.",
+        "author": {
+            "@type": "Person",
+            "name": "Vincent Scaturchio",
+            "jobTitle": "Founder and Architect, NETTA",
+            "url": "https://digitalyzelabs.com/leadership"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FiatRails Foundation Ltd",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://netta.network/logo-navy-tm.png"
+            }
+        },
+        "datePublished": "2026-05-08",
+        "dateModified": "2026-05-08",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://netta.network/insights/atomic-settlement-mirage"
+        },
+        "about": [
+            {"@type": "Thing", "name": "Atomic Settlement"},
+            {"@type": "Thing", "name": "T+0 Settlement"},
+            {"@type": "Thing", "name": "Multilateral Netting"},
+            {"@type": "Thing", "name": "CLS Bank"},
+            {"@type": "Thing", "name": "CHIPS"},
+            {"@type": "Thing", "name": "RTGS"}
+        ]
+    }
+    </script>
+
+    <style>
+        :root { --white:#fff;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151;--gray-800:#1f2937;--gray-900:#111827;--navy:#0B1D33;--navy-dark:#050E1C;--teal:#2AA39A; }
+        * { margin:0;padding:0;box-sizing:border-box; }
+        body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--white);color:var(--gray-800);line-height:1.6;-webkit-font-smoothing:antialiased; }
+        .nav{background:var(--white);border-bottom:1px solid var(--gray-200);position:sticky;top:0;z-index:100}
+        .nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;height:72px;display:flex;align-items:center;justify-content:space-between}
+        .nav-brand{display:flex;align-items:center;gap:16px;text-decoration:none}.nav-logo{height:62px;width:auto}
+        .nav-divider{width:1px;height:24px;background:var(--gray-300)}.nav-product{font-size:14px;color:var(--gray-500);font-weight:400}
+        .nav-links{display:flex;align-items:center;gap:36px}.nav-links a{color:var(--gray-600);text-decoration:none;font-size:14px;font-weight:500;transition:color .15s}
+        .nav-links a:hover{color:var(--gray-900)}.nav-cta{background:var(--navy);color:var(--white)!important;padding:10px 20px;border-radius:6px}.nav-cta:hover{background:var(--navy-dark)}
+        .article-hero{background:linear-gradient(180deg,var(--gray-50) 0%,var(--white) 100%);padding:64px 32px 40px}
+        .article-hero-inner{max-width:760px;margin:0 auto}
+        .article-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--gray-500);text-decoration:none;margin-bottom:32px}
+        .article-back:hover{color:var(--navy)}
+        .article-meta{display:flex;align-items:center;gap:12px;margin-bottom:18px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;flex-wrap:wrap}
+        .article-category{color:var(--navy);background:rgba(30,58,90,0.06);padding:4px 10px;border-radius:4px}
+        .article-byline{color:var(--gray-500)}
+        .article-date{color:var(--gray-500)}
+        .article-hero h1{font-family:'Source Serif Pro',Georgia,serif;font-size:42px;font-weight:600;color:var(--gray-900);letter-spacing:-.01em;line-height:1.2;margin-bottom:18px}
+        .article-hero .lede{font-size:18px;color:var(--gray-600);line-height:1.6;font-style:italic}
+        .article-body{padding:24px 32px 64px}
+        .article-content{max-width:680px;margin:0 auto;font-family:'Source Serif Pro',Georgia,serif;font-size:18px;line-height:1.75;color:var(--gray-800)}
+        .article-content p{margin-bottom:24px}
+        .article-content p strong{font-weight:600;color:var(--gray-900)}
+        .article-content em{font-style:italic}
+        .article-content a{color:var(--navy);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+        .article-content a:hover{color:var(--navy-dark)}
+        .article-content h2{font-family:'Source Serif Pro',Georgia,serif;font-size:28px;font-weight:600;color:var(--gray-900);letter-spacing:-.01em;line-height:1.3;margin-top:48px;margin-bottom:18px}
+        .article-content h3{font-family:'Source Serif Pro',Georgia,serif;font-size:22px;font-weight:600;color:var(--gray-900);line-height:1.3;margin-top:36px;margin-bottom:14px}
+        .article-content ul, .article-content ol{margin:0 0 24px 24px}
+        .article-content li{margin-bottom:8px;line-height:1.7}
+        .article-content blockquote{border-left:3px solid var(--navy);background:var(--gray-50);padding:16px 24px;margin:24px 0;font-style:italic;color:var(--gray-700)}
+        .article-content blockquote p{margin-bottom:0}
+        .article-content hr{border:none;border-top:1px solid var(--gray-200);margin:48px 0}
+        .article-content .author-bio{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;padding:20px 24px;margin:32px 0;font-family:'Inter',sans-serif;font-size:13px;line-height:1.6;color:var(--gray-600);font-style:normal}
+        .article-content .author-bio strong{color:var(--gray-800)}
+        .article-content .author-bio a{color:var(--navy)}
+        .newsletter-section{background:var(--gray-50);padding:56px 32px;border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200)}
+        .newsletter-inner{max-width:680px;margin:0 auto;text-align:center}
+        .newsletter-eyebrow{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:14px}
+        .newsletter-title{font-size:24px;font-weight:700;color:var(--gray-900);letter-spacing:-.02em;margin-bottom:14px}
+        .newsletter-desc{font-size:14px;color:var(--gray-600);line-height:1.7;margin-bottom:24px}
+        .newsletter-pending{background:rgba(251,191,36,0.1);border:1px solid rgba(217,119,6,0.3);border-radius:8px;padding:16px;font-size:13px;color:var(--gray-700);max-width:480px;margin:0 auto;text-align:left;line-height:1.5}
+        .newsletter-form-wrap{display:block !important;max-width:420px !important;width:100% !important;margin:0 auto !important;min-height:80px;text-align:center}
+        .newsletter-form-wrap *{margin-left:0 !important;margin-right:0 !important;float:none !important;left:auto !important;right:auto !important;position:static !important;padding-left:0 !important;padding-right:0 !important}
+        .newsletter-form-wrap iframe,.newsletter-form-wrap form,.newsletter-form-wrap > div,.newsletter-form-wrap [class*="beehiiv"],.newsletter-form-wrap [id*="beehiiv"]{display:block !important;width:100% !important;max-width:100% !important}
+        .newsletter-pending a{color:var(--navy);text-decoration:underline}
+        .newsletter-pending code{background:var(--white);padding:2px 6px;border-radius:3px;font-size:12px;font-family:'SF Mono',Menlo,Consolas,monospace}
+        .series-section{padding:56px 32px}
+        .series-inner{max-width:1000px;margin:0 auto}
+        .series-title{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--gray-500);margin-bottom:24px;text-align:center}
+        .series-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+        .series-card{background:var(--white);border:1px solid var(--gray-200);border-radius:8px;padding:24px;text-decoration:none;color:inherit;transition:border-color .15s}
+        .series-card:hover{border-color:var(--navy)}
+        .series-card-cat{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--navy);margin-bottom:10px}
+        .series-card h3{font-size:15px;font-weight:600;color:var(--gray-900);line-height:1.4}
+        .footer{background:var(--gray-900);padding:48px 32px 24px;color:var(--gray-400)}
+        .footer-inner{max-width:1200px;margin:0 auto}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}
+        .footer-brand p{font-size:13px;line-height:1.6;margin-top:12px;color:var(--gray-500)}
+        .footer-col h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--gray-300);margin-bottom:16px}
+        .footer-col a{display:block;font-size:13px;color:var(--gray-500);text-decoration:none;margin-bottom:10px}.footer-col a:hover{color:var(--gray-300)}
+        .footer-powered{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid var(--gray-800)}
+        .powered-item{display:flex;flex-direction:column;gap:12px}.powered-label{font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--gray-500)}
+        .powered-logo{display:flex;align-items:center;gap:10px}.powered-name{font-size:20px;font-weight:700;color:var(--white)}
+        .powered-desc{font-size:13px;line-height:1.6;color:var(--gray-400);max-width:360px}
+        .footer-bottom{padding-top:24px;display:flex;justify-content:space-between;font-size:12px}
+        .cookie-banner{display:block;position:fixed;bottom:0;left:0;right:0;background:var(--navy);color:var(--white);padding:20px;z-index:9999}
+        .cookie-banner.hide{display:none}.cookie-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+        .cookie-text{flex:1;font-size:14px;line-height:1.5}.cookie-text a{color:var(--white);text-decoration:underline}
+        .cookie-buttons{display:flex;gap:12px}.cookie-btn{padding:10px 20px;border-radius:6px;font-size:14px;font-weight:500;cursor:pointer;border:none}
+        .cookie-btn-accept{background:var(--white);color:var(--navy)}.cookie-btn-decline{background:transparent;color:var(--white);border:1px solid var(--gray-400)}
+        @media(max-width:1024px){.series-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr;gap:24px}.footer-powered{grid-template-columns:1fr;gap:32px}}
+        @media(max-width:640px){.nav-links{display:none}.article-hero{padding:40px 24px 24px}.article-hero h1{font-size:30px}.article-content{font-size:16px}.cookie-inner{flex-direction:column;text-align:center}.cookie-buttons{width:100%;justify-content:center}}
+    </style>
+</head>
+<body>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><div class="nav-links"><a href="https://fiatrails.com">Main Site</a><a href="https://fiatrails.foundation">Foundation</a><a href="../index.html#products">Products</a><a href="../architecture.html">Architecture</a><a href="/insights">Insights</a><a href="../apply.html" class="nav-cta">Request Briefing</a></div></div></nav>
+
+    <article>
+        <header class="article-hero">
+            <div class="article-hero-inner">
+                <a href="/insights" class="article-back">&larr; All insights</a>
+                <div class="article-meta">
+                    <span class="article-category">Industry Analysis</span>
+                    <span class="article-byline">Vincent Scaturchio</span>
+                    <span class="article-date">8 May 2026</span>
+                </div>
+                <h1>The Atomic Settlement Mirage: Why Configurable Netting Beats Universal T+0</h1>
+                <p class="lede">By Vincent Scaturchio, Founder and Architect, NETTA</p>
+            </div>
+        </header>
+
+        <div class="article-body">
+            <div class="article-content">
+
+                <p>I have spent more than two decades inside the data infrastructure of the world's largest trading rooms. I have built and re-platformed mission-critical trading and settlement systems for HSBC, Citigroup, DBS, ANZ, and National Australia Bank. The engagements at DBS and ANZ ran for years under Master Services Agreements with multiple Statements of Work — the kind of direct, exclusive relationship typically reserved for multinational vendors. NAB was a similarly long-running build across their global dealing rooms. The systems I built moved billions of dollars through clearing cycles measured in hours, not microseconds. And I have watched, with growing frustration, the public discourse on settlement infrastructure decouple almost entirely from the math.</p>
+
+                <p>The fashionable claim is that institutional settlement is moving toward T+0 — atomic, real-time, every transaction settled the moment it occurs. The narrative is intuitive. Faster is better. Instant is best. Anything else is a relic of a slower era.</p>
+
+                <p>As a universal claim, this is wrong. It is wrong empirically, structurally, and economically.</p>
+
+                <p>The problem is not atomic settlement itself. The problem is treating atomic settlement as the default architecture for all institutional obligations. Atomic has a role — for urgent flows, central bank reserve transfers, time-critical margin movements, certain large-block DVP. But as the default for high-volume institutional flow, it collapses compression, increases prefunding requirements, and destroys the very capital efficiency that the largest production settlement systems were built to achieve.</p>
+
+                <p>The loudest advocates of universal atomic settlement are often not the institutions managing the largest daily liquidity burdens. The institutions that are managing those burdens — CLS members, CHIPS participants, the major central banks operating RTGS systems alongside netted layers — have looked at the alternative and stayed with windowed netting for clear capital reasons.</p>
+
+                <p>This article walks through what the empirical and production-system evidence actually shows, what the largest settlement systems in the world actually do, and why the right answer is not atomic versus netted — it is configurable.</p>
+
+                <h2>What "T+0" and "atomic" actually mean</h2>
+
+                <p>People use "T+0," "atomic," and "real-time" interchangeably. They are not the same thing, and the conflation matters.</p>
+
+                <p><strong>T+0</strong> means trade-date settlement: the settlement leg occurs on the same calendar day as the trade. This is achievable with batched settlement at end of day. CHIPS achieves T+0 every business day. CLS achieves T+0 within its overlapping window cycle. There is nothing exotic about T+0 if "the day" is the unit of measurement.</p>
+
+                <p><strong>Atomic settlement</strong> is something different. It is the immediate, indivisible settlement of an obligation at the moment it is initiated, with no intervening processing window. The cash leg moves; the asset leg moves; finality is reached in the same instant. There is no batching, no cycle, no aggregation.</p>
+
+                <p><strong>Real-time gross settlement (RTGS)</strong> is the central-bank version. RTGS systems — TARGET2, Fedwire, CHAPS — settle every payment individually, in central bank money, with no netting. Every participant must prefund every gross obligation, every time.</p>
+
+                <p>When advocates of "atomic settlement" describe the future, what they almost always mean is gross settlement applied to every transaction, in real time, with no aggregation layer. The case for it usually invokes the elimination of settlement risk. The case against it — which is rarely made publicly — is that it is among the most capital-inefficient settlement architectures ever designed.</p>
+
+                <h2>Why netting needs windows</h2>
+
+                <p>Multilateral netting works by finding offsets across a population of obligations. If Bank A owes Bank B $100M, Bank C owes Bank A $80M, and Bank B owes Bank C $50M, multilateral netting compresses three gross movements totalling $230M into a small set of net residuals that can be settled with substantially less capital movement.</p>
+
+                <p>But the algorithm requires a population. It cannot find offsets in a population of one. If every obligation is settled the moment it arrives — atomically — the netting algorithm has nothing to work with. Compression is zero by construction.</p>
+
+                <p>This is not a weakness of netting infrastructure. It is the design.</p>
+
+                <p>The empirical and production-system evidence on settlement window optimisation repeatedly shows the same shape. Work by McLaughlin and colleagues, working papers from the BIS Committee on Payments and Market Infrastructures, and decades of operational data from production systems describe a consistent curve: capital efficiency rises sharply as windows grow from zero to roughly 5 to 10 minutes, continues rising through the 30 to 60 minute range, and asymptotes around end-of-day batches.</p>
+
+                <p>The marginal return of moving from a 30-minute window to a multi-hour window is small. The marginal return of moving from a one-minute window to a 30-minute window is significant. The marginal cost of moving from any non-zero window to atomic settlement is enormous, because compression collapses to zero at that boundary.</p>
+
+                <p>This is not opinion. It is observable in published data on netting compression as a function of window timing, and in the operational metrics of every major production netting system.</p>
+
+                <h2>What CLS and CHIPS prove</h2>
+
+                <p>CLS Bank settles over $8 trillion daily across 18 major currencies in payment-versus-payment windows, and reports funding requirement reductions of more than 96 per cent through multilateral netting. It has done this for more than two decades. It is the largest FX settlement system in the world and one of the most heavily regulated — Federal Reserve oversight, SIFI designation, member banks holding equity in the operator.</p>
+
+                <p>CLS does not settle atomically. It does not settle within seconds. It settles within hours. And the institutions that use CLS — more than 70 of the world's largest settlement members, alongside a broader third-party ecosystem — have shown no appetite to make the system atomic. The institutional reasons are clear: window-based netting delivers settlement-risk reduction and funding efficiency that gross settlement cannot match. If CLS were converted to atomic settlement, the funding capital it currently frees would have to return to nostro accounts.</p>
+
+                <p>CHIPS — the private-sector USD large-value payment system — uses a patented matching and netting algorithm and reports an average liquidity efficiency of approximately 26 to 1. In other words, one dollar of funding supports approximately twenty-six dollars of settled payment value. CHIPS does not settle atomically. It has been running this way since the 1970s. Its members include every major US bank and most major international banks operating in dollars. Like CLS, it has not been converted to atomic settlement despite decades of opportunity to do so.</p>
+
+                <p>These are not legacy systems waiting to be replaced. They are the production benchmarks against which any new settlement infrastructure has to be measured. And they have stayed netted because the people who use them have computed the capital implications of doing otherwise.</p>
+
+                <h2>The "I need it now" objection</h2>
+
+                <p>The most common objection to multilateral netting is operational: what if I need a payment to go through immediately? I cannot wait for the next netting window.</p>
+
+                <p>The objection is valid for some flows. A treasury department executing an urgent funding transfer in the middle of a five-hour window does not want to wait. A margin call settlement that triggers cascading consequences cannot tolerate delay. A wholesale CBDC transfer for monetary policy operations may need to clear within seconds.</p>
+
+                <p>The answer is not to abandon netting. It is to support both modes simultaneously: <strong>netting as the default highway for ordinary institutional flow, and atomic or gross settlement as the priced fast lane for urgent obligations.</strong></p>
+
+                <p>ISO 20022 payment messages already include fields for processing priority and category purpose, allowing infrastructures to distinguish urgent, high-priority, and normal flows where market practice supports it. The standard recognises that not all flows have the same urgency profile. RTGS systems including TARGET2 have always operated alongside batched netting layers; participants choose per-transaction which path to take. The Federal Reserve maintains both Fedwire (gross, real-time) and FedNow (instant retail) alongside the netting layers operated by CHIPS and the National Settlement Service.</p>
+
+                <p>The architecturally correct answer is configurability:</p>
+
+                <ul>
+                    <li>Most flow nets in windows, capturing the capital efficiency</li>
+                    <li>Urgent flow takes a fast lane, settling individually with appropriate fees</li>
+                    <li>The infrastructure supports both modes natively, at the protocol level</li>
+                    <li>Per-corridor configuration allows the trade-off to be calibrated to the use case</li>
+                </ul>
+
+                <p>A high-frequency FX corridor might net every 10 minutes. A trade finance corridor might net daily. A treasury operations corridor might run with hourly windows and a priced fast lane for sub-minute urgent transfers. The right answer is not one window length for everyone — it is the right window length for each flow, with an urgency bypass available where the operational profile demands it.</p>
+
+                <h2>What institutions should demand</h2>
+
+                <p>The right question for treasurers, risk officers, and settlement architects evaluating any new infrastructure is not "is it atomic?" The right questions are:</p>
+
+                <p><strong>What is the demonstrated compression rate at production-scale window lengths?</strong> Vendor claims of "instant settlement" almost always mean "no compression." Ask for the math. Demand the curve, not the headline.</p>
+
+                <p><strong>What window lengths does the platform support, and can they be configured per corridor?</strong> A platform that imposes a single window length on every flow is not architected for institutional reality.</p>
+
+                <p><strong>What is the urgency lane architecture?</strong> Can urgent flows bypass the netting window? At what cost? With what finality? If the answer is no, the platform is not actually production-ready for institutional flow that includes time-critical obligations.</p>
+
+                <p><strong>What is the alignment with ISO 20022 priority and category-purpose handling?</strong> Native support for processing priority and category purpose means the platform can distinguish urgent, high-priority, and normal flows in line with the message standard the industry has converged on.</p>
+
+                <p><strong>What is the regulator engagement model around window timing?</strong> Central banks care deeply about settlement timing because it affects intraday liquidity visibility and systemic risk concentration. BCBS 248 — the Basel Committee's framework for intraday liquidity monitoring tools — requires banks and supervisors to measure intraday liquidity usage, time-specific obligations, available liquidity, and related settlement exposures. Regulators can more readily evaluate systems with observable, configurable windows than systems where settlement timing is implicit and uniform. Opaque atomic-only systems are a regulatory concern, not an architectural feature.</p>
+
+                <p>The wrong answer to all of these questions is "we settle atomically and avoid the question." The right answer is "we configure per corridor and per obligation, and here is the data on what each configuration produces."</p>
+
+                <h2>Where atomic settlement does belong</h2>
+
+                <p>Atomic settlement has a place. There are legitimate use cases — high-value individual transfers, time-critical margin movements, certain delivery-versus-payment obligations — where the capital cost of gross settlement is justified by operational simplicity or risk-management requirements. RTGS systems exist for a reason. Atomic settlement of central bank reserve transfers is the right architecture. Atomic settlement of certain large-block tokenised asset DVP obligations is the right architecture for those specific transactions.</p>
+
+                <p>But these are exceptions. They are the urgent fast lane, not the highway. The vast majority of institutional cross-border flow — trillions of dollars per day across FX, trade finance, payments, repo, and tokenised asset settlement — benefits enormously from multilateral netting in windows that allow obligations to accumulate, offsets to be found, and capital to be deployed productively rather than locked in prefunded nostro accounts.</p>
+
+                <p>The discourse that treats atomic settlement as the inevitable end-state of all settlement infrastructure is a marketing position, not an empirical one. The math has not changed. CLS frees more than 96 per cent of funding requirements because it nets in hours, not despite that fact. CHIPS achieves a 26-to-1 liquidity efficiency for the same reason. Production-scale settlement is not moving away from netting; it is moving toward more configurable netting, with appropriate urgency lanes layered on top.</p>
+
+                <p>The next generation of settlement infrastructure will not be atomic. It will be configurable, with urgent flow taking the fast lane and most flow taking the netted highway. That is what the math demands. That is what regulators can more readily evaluate. That is what the largest institutions actually use, every day, on volumes that far exceed today's stablecoin settlement activity.</p>
+
+                <p>In many cases, the institutions promising universal atomic settlement are selling uncompressed gross settlement with better marketing.</p>
+
+                <p>NETTA is built around this principle: settlement infrastructure should determine <em>how much value actually needs to move</em> before deciding <em>how quickly it should move</em>. Some flows should settle atomically. Most institutional flows should be compressed first.</p>
+
+                <p>The future is not atomic-only. It is configurable netting — observable, corridor-specific, ISO 20022-compatible, and designed around the capital reality of institutional finance.</p>
+
+                <hr>
+
+                <div class="author-bio">
+                    <strong>Vincent Scaturchio</strong> is the founder and CEO of <a href="https://digitalyzelabs.com">Digitalyze Labs</a> and the architect of <a href="/">NETTA</a>, an institutional settlement infrastructure suite operating on a custom Avalanche L1. This article is part of the NETTA Insights series.
+                </div>
+
+            </div>
+        </div>
+    </article>
+
+    <section class="newsletter-section">
+        <div class="newsletter-inner">
+            <div class="newsletter-eyebrow">NETTA Insights · Newsletter</div>
+            <h2 class="newsletter-title">Get NETTA Insights</h2>
+            <p class="newsletter-desc">Bi-weekly institutional settlement infrastructure thought leadership. No marketing fluff.</p>
+            <div class="newsletter-form-wrap"><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="c83c5533-4a14-4498-a994-91efdf41c81c"></script></div>
+        </div>
+    </section>
+
+    <section class="series-section">
+        <div class="series-inner">
+            <div class="series-title">More from NETTA Insights</div>
+            <div class="series-grid">
+                <a href="/insights/what-is-multilateral-netting" class="series-card">
+                    <div class="series-card-cat">Educational</div>
+                    <h3>What Is Multilateral Netting? How Cross-Border Settlement Compression Works</h3>
+                </a>
+                <a href="/insights/mica-digital-asset-settlement" class="series-card">
+                    <div class="series-card-cat">Regulatory</div>
+                    <h3>MiCA Regulates the Asset. The Settlement Layer Comes Next.</h3>
+                </a>
+                <a href="/insights/settlement-computer-five-products-live" class="series-card">
+                    <div class="series-card-cat">Product Update</div>
+                    <h3>The Settlement Computer: What Is Live on Testnet and What Comes Next</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>Settlement Computer — institutional settlement infrastructure on a dedicated Avalanche L1. Technology service provider — never custodying funds.</p></div><div class="footer-col"><h4>Products</h4><a href="../settlement.html">Settlement</a><a href="../paynet.html">PayNet</a><a href="../risknet.html">RiskNet</a><a href="../trade.html">Trade</a><a href="../grid.html">Grid</a><a href="../nexus.html">Nexus</a><a href="../assetnet.html">AssetNet</a><a href="../stablenet.html">StableNet</a></div><div class="footer-col"><h4>Company</h4><a href="https://fiatrails.com/#about">About</a><a href="https://fiatrails.foundation">Foundation</a><a href="../architecture.html">Documentation</a><a href="/insights">Insights</a></div><div class="footer-col"><h4>Connect</h4><a href="https://t.me/NETTA_Bot">Telegram</a><a href="https://twitter.com/fiatrails">Twitter</a><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a></div><div class="footer-col"><h4>Legal</h4><a href="../terms.html">Terms of Service</a><a href="../privacy.html">Privacy Policy</a></div></div>
+    <div class="footer-powered"><div class="powered-item"><span class="powered-label">POWERED BY</span><div class="powered-logo"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#E84142"/><path d="M21.5 21H18.5L16 16.5L13.5 21H10.5L16 11L21.5 21Z" fill="white"/></svg><span class="powered-name">Avalanche</span></div><p class="powered-desc">Custom Avalanche L1 with 11 consensus-level native precompiles.</p></div><div class="powered-item"><span class="powered-label">BUILT BY</span><div class="powered-logo"><a href="https://digitalyzelabs.com" target="_blank" rel="noopener noreferrer"><img src="../digitalyze-labs-logo.png" alt="Digitalyze Labs" style="height:28px;width:auto"></a></div><p class="powered-desc">Enterprise blockchain development and fintech infrastructure specialists.</p></div></div>
+    <div class="footer-bottom"><span>&copy; 2026 FiatRails Foundation Ltd. All rights reserved.</span><span>CR-431901 | LEI <a href="https://search.gleif.org/#/record/894500RG1F2BKNE8P514" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">894500RG1F2BKNE8P514</a> | Cayman Islands</span></div></div></footer>
+
+    <div class="cookie-banner" id="cookieBanner"><div class="cookie-inner"><div class="cookie-text">We use cookies to enhance your experience. <a href="../privacy.html">Learn more</a></div><div class="cookie-buttons"><button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept</button><button class="cookie-btn cookie-btn-decline" onclick="declineCookies()">Decline</button></div></div></div>
+    <script>function setCookie(n,v,d){const e=new Date(Date.now()+d*864e5).toUTCString();document.cookie=n+'='+encodeURIComponent(v)+'; expires='+e+'; path=/';}function getCookie(n){return document.cookie.split('; ').reduce((r,v)=>{const p=v.split('=');return p[0]===n?decodeURIComponent(p[1]):r;},'')}function acceptCookies(){setCookie('cookieConsent','accepted',365);document.getElementById('cookieBanner').classList.add('hide');}function declineCookies(){setCookie('cookieConsent','declined',365);document.getElementById('cookieBanner').classList.add('hide');}if(getCookie('cookieConsent'))document.getElementById('cookieBanner').classList.add('hide');</script>
+</body>
+</html>

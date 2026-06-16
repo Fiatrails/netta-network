@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilot Programme | NETTA</title>
+    <meta name="description" content="Enquire about participation in the NETTA pilot programme for banks and PSPs.">
+    <link rel="icon" type="image/png" href="/icons/favicon-32x32.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --navy: #0B1D33;
+            --navy-dark: #050E1C;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-800);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+        }
+
+        .nav {
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .nav-logo { height: 62px; }
+        .nav-brand-text { font-size: 18px; font-weight: 600; color: var(--gray-900); }
+        .nav-brand-divider { width: 1px; height: 24px; background: var(--gray-300); margin: 0 12px; }
+        .nav-brand-sub { font-size: 14px; color: var(--gray-500); }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover { color: var(--gray-900); }
+
+        .main {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 64px 24px 96px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .page-label {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .page-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 16px;
+        }
+
+        .page-desc {
+            font-size: 16px;
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+
+        .form-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--gray-700);
+            margin-bottom: 8px;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--white);
+            border: 1px solid var(--gray-300);
+            border-radius: 6px;
+            color: var(--gray-900);
+            font-size: 15px;
+            font-family: inherit;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--navy);
+            box-shadow: 0 0 0 3px rgba(30, 58, 90, 0.1);
+        }
+
+        .form-input::placeholder { color: var(--gray-400); }
+        .form-textarea { min-height: 120px; resize: vertical; }
+
+        .form-select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+            background-position: right 12px center;
+            background-repeat: no-repeat;
+            background-size: 20px;
+        }
+
+        .form-checkboxes {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .form-checkbox input {
+            margin-top: 2px;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--navy);
+        }
+
+        .form-checkbox span {
+            font-size: 14px;
+            color: var(--gray-700);
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            background: var(--navy);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+
+        .form-submit:hover { background: var(--navy-dark); }
+
+        .form-note {
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--gray-500);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .footer {
+            background: var(--gray-900);
+            color: var(--gray-400);
+            padding: 64px 24px 32px;
+        }
+
+        .footer-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .footer-powered {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--gray-700);
+        }
+
+        .powered-item {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .powered-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: var(--gray-500);
+        }
+
+        .powered-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .powered-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .powered-desc {
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--gray-400);
+            max-width: 360px;
+        }
+
+        .footer-copyright {
+            text-align: center;
+            font-size: 13px;
+            color: var(--gray-500);
+        }
+
+        @media (max-width: 768px) {
+            .footer-powered {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links { display: none; }
+            .main { padding: 48px 16px 64px; }
+            .form-card { padding: 24px; }
+            .page-title { font-size: 26px; }
+        }
+    
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            padding: 48px 32px 24px;
+            color: var(--gray-400);
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            font-size: 13px;
+            line-height: 1.6;
+            margin-top: 12px;
+            color: var(--gray-500);
+        }
+
+        .footer-col h4 {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--gray-300);
+            margin-bottom: 16px;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 13px;
+            color: var(--gray-500);
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+
+        .footer-col a:hover { color: var(--gray-300); }
+
+        .footer-powered {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 40px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--gray-800);
+        }
+
+        .powered-item {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .powered-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: var(--gray-500);
+        }
+
+        .powered-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .powered-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .powered-desc {
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--gray-400);
+            max-width: 360px;
+        }
+
+        .footer-bottom {
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
+            }
+            .footer-powered {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">
+                <img src="assets/netta-logo-nav.png" alt="NETTA" class="nav-logo">
+                
+                <span class="nav-brand-divider"></span>
+                <span class="nav-brand-sub">Settlement</span>
+            </a>
+            <div class="nav-links">
+                <a href="/">Overview</a>
+                <a href="architecture.html">Architecture</a>
+                <a href="/insights">Insights</a>
+                <a href="https://fiatrails.com">Main Site</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main">
+        <div class="page-header">
+            <div class="page-label">Pilot Programme</div>
+            <h1 class="page-title">Enquire about participation</h1>
+            <p class="page-desc">We are selectively onboarding banks and payment service providers for our 2026 pilot. Please provide your details below and our team will be in touch.</p>
+        </div>
+
+        <div class="form-card">
+            <form action="https://formspree.io/f/xrbgvqbk" method="POST">
+                <div class="form-group">
+                    <label class="form-label">Institution Name</label>
+                    <input type="text" name="institution" class="form-input" required placeholder="Your organisation">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Institution Type</label>
+                    <select name="type" class="form-select" required>
+                        <option value="">Select...</option>
+                        <option value="bank">Commercial Bank</option>
+                        <option value="psp">Payment Service Provider</option>
+                        <option value="settlement">Settlement Agent</option>
+                        <option value="mmo">Mobile Money Operator</option>
+                        <option value="fintech">Licensed Fintech</option>
+                        <option value="other">Other Regulated Entity</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Primary Jurisdiction</label>
+                    <input type="text" name="jurisdiction" class="form-input" required placeholder="e.g., UAE, Kenya, Singapore">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Corridors of Interest</label>
+                    <div class="form-checkboxes">
+                        <label class="form-checkbox">
+                            <input type="checkbox" name="corridors" value="UAE-India">
+                            <span>UAE — India</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" name="corridors" value="US-Kenya">
+                            <span>United States — Kenya</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" name="corridors" value="US-Nigeria">
+                            <span>United States — Nigeria</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" name="corridors" value="UK-Philippines">
+                            <span>United Kingdom — Philippines</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" name="corridors" value="Singapore-Indonesia">
+                            <span>Singapore — Indonesia</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" name="corridors" value="other">
+                            <span>Other (please specify below)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Estimated Monthly Volume (USD)</label>
+                    <select name="volume" class="form-select" required>
+                        <option value="">Select...</option>
+                        <option value="<1M">Under $1 million</option>
+                        <option value="1-10M">$1 million — $10 million</option>
+                        <option value="10-50M">$10 million — $50 million</option>
+                        <option value="50-100M">$50 million — $100 million</option>
+                        <option value=">100M">Over $100 million</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Contact Name</label>
+                    <input type="text" name="contact_name" class="form-input" required placeholder="Your full name">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Contact Email</label>
+                    <input type="email" name="email" class="form-input" required placeholder="you@institution.com">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Additional Information</label>
+                    <textarea name="message" class="form-textarea" placeholder="Please share any relevant context about your settlement requirements or questions about the pilot programme."></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">Submit Enquiry</button>
+
+                <p class="form-note">Enquiries are reviewed within 5 business days. Technical documentation and NDA are available for qualified participants.</p>
+            </form>
+        </div>
+    </main>
+
+        <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="assets/netta-logo-nav.png" alt="NETTA" style="height: 42px; filter: brightness(0) invert(1);">
+                    <p>Non-custodial infrastructure enabling seamless access to virtual assets. Technology service provider — never custodying funds.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <a href="https://fiatrails.com/access.html">Access</a>
+                    <a href="https://netta.network">Settlement</a>
+                    <a href="https://fiatrails.com/#demo">Demo</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="https://fiatrails.com/#about">About</a>
+                    <a href="https://fiatrails.com/blog">Blog</a>
+                    <a href="/insights">Insights</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <a href="https://t.me/NETTA_Bot">Telegram</a>
+                    <a href="https://twitter.com/fiatrails">Twitter</a>
+                    <a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <a href="https://fiatrails.com/terms.html">Terms of Service</a>
+                    <a href="https://fiatrails.com/privacy.html">Privacy Policy</a>
+                </div>
+            </div>
+
+            <div class="footer-powered">
+                <div class="powered-item">
+                    <span class="powered-label">POWERED BY</span>
+                    <div class="powered-logo">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="16" cy="16" r="16" fill="#E84142"/>
+                            <path d="M21.5 21H18.5L16 16.5L13.5 21H10.5L16 11L21.5 21Z" fill="white"/>
+                        </svg>
+                        <span class="powered-name">Avalanche</span>
+                    </div>
+                    <p class="powered-desc">NETTA is built on Avalanche infrastructure. Sub-second finality, low fees, and enterprise-grade reliability for virtual asset infrastructure.</p>
+                </div>
+
+                <div class="powered-item">
+                    <span class="powered-label">BUILT BY</span>
+                    <div class="powered-logo">
+                        <a href="https://digitalyzelabs.com" target="_blank" rel="noopener noreferrer">
+                            <img src="digitalyze-labs-logo.png" alt="Digitalyze Labs" style="height: 28px; width: auto;">
+                        </a>
+                    </div>
+                    <p class="powered-desc">Enterprise blockchain development and fintech infrastructure specialists.</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2026 FiatRails Foundation Ltd. All rights reserved.</span>
+                <span>CR-431901 | LEI <a href="https://search.gleif.org/#/record/894500RG1F2BKNE8P514" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">894500RG1F2BKNE8P514</a> | Cayman Islands</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StableNet | Settlement Computer</title>
+    <meta name="description" content="Multilateral netting for stablecoin obligations with multi-source peg verification, ISO 20022 pacs.008 generation, and Travel Rule compliance. Tri-corridor stablecoin netting live on testnet.">
+    <link rel="icon" type="image/png" href="/icons/favicon-32x32.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --white:#fff;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151;--gray-800:#1f2937;--gray-900:#111827;--navy:#0B1D33;--navy-dark:#050E1C;--teal-50:#E6F4F2;--teal:#2AA39A; }
+        * { margin:0;padding:0;box-sizing:border-box; }
+        body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--white);color:var(--gray-800);line-height:1.6;-webkit-font-smoothing:antialiased; }
+
+        .nav{background:var(--white);border-bottom:1px solid var(--gray-200);position:sticky;top:0;z-index:100}
+        .nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;height:72px;display:flex;align-items:center;justify-content:space-between}
+        .nav-brand{display:flex;align-items:center;gap:16px;text-decoration:none}.nav-logo{height:62px;width:auto}
+        .nav-divider{width:1px;height:24px;background:var(--gray-300)}.nav-product{font-size:14px;color:var(--gray-500);font-weight:400}
+        .nav-links{display:flex;align-items:center;gap:36px}.nav-links a{color:var(--gray-600);text-decoration:none;font-size:14px;font-weight:500;transition:color .15s}
+        .nav-links a:hover{color:var(--gray-900)}.nav-cta{background:var(--navy);color:var(--white)!important;padding:10px 20px;border-radius:6px}.nav-cta:hover{background:var(--navy-dark)}
+
+        .section-header{text-align:center;margin-bottom:48px}.section-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:12px}
+        .section-title{font-size:32px;font-weight:700;color:var(--gray-900);letter-spacing:-.02em;margin-bottom:12px}
+        .section-desc{font-size:16px;color:var(--gray-600);max-width:640px;margin:0 auto;line-height:1.7}
+
+        .hero{background:linear-gradient(180deg,var(--gray-50) 0%,var(--white) 100%);padding:72px 32px 60px}
+        .hero-inner{max-width:900px;margin:0 auto;text-align:center}
+        .hero-badge{display:inline-block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;padding:4px 12px;border-radius:4px;margin-bottom:20px}
+        .hero-badge.design{background:var(--gray-100);color:var(--gray-500);border:1px solid var(--gray-200)}
+        .hero h1{font-size:48px;font-weight:700;color:var(--gray-900);letter-spacing:-.02em;line-height:1.1;margin-bottom:20px}
+        .hero p{font-size:18px;color:var(--gray-600);line-height:1.7;max-width:760px;margin:0 auto 28px}
+        .back-link{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--navy);text-decoration:none}.back-link:hover{text-decoration:underline}
+
+        .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+        .feature{padding:28px;background:var(--white);border:1px solid var(--gray-200);border-radius:8px}
+        .feature-num{font-size:12px;font-weight:600;color:var(--navy);margin-bottom:12px}
+        .feature h4{font-size:16px;font-weight:600;color:var(--gray-900);margin-bottom:10px}
+        .feature p{font-size:13px;color:var(--gray-600);line-height:1.6}
+
+        .two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+        .info-card{border:1px solid var(--gray-200);border-radius:8px;padding:32px;background:var(--white)}
+        .info-card h4{font-size:18px;font-weight:600;color:var(--gray-900);margin-bottom:12px}
+        .info-card p{font-size:14px;color:var(--gray-600);line-height:1.7;margin-bottom:12px}
+        .info-list{list-style:none}.info-list li{font-size:13px;color:var(--gray-600);padding:6px 0 6px 20px;position:relative}
+        .info-list li::before{content:"\2713";position:absolute;left:0;color:var(--teal);font-weight:600}
+
+        .footer{background:var(--gray-900);padding:48px 32px 24px;color:var(--gray-400)}
+        .footer-inner{max-width:1200px;margin:0 auto}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}
+        .footer-brand p{font-size:13px;line-height:1.6;margin-top:12px;color:var(--gray-500)}
+        .footer-col h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--gray-300);margin-bottom:16px}
+        .footer-col a{display:block;font-size:13px;color:var(--gray-500);text-decoration:none;margin-bottom:10px}.footer-col a:hover{color:var(--gray-300)}
+        .footer-powered{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid var(--gray-800)}
+        .powered-item{display:flex;flex-direction:column;gap:12px}.powered-label{font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--gray-500)}
+        .powered-logo{display:flex;align-items:center;gap:10px}.powered-name{font-size:20px;font-weight:700;color:var(--white)}
+        .powered-desc{font-size:13px;line-height:1.6;color:var(--gray-400);max-width:360px}
+        .footer-bottom{padding-top:24px;display:flex;justify-content:space-between;font-size:12px}
+
+        .cookie-banner{display:block;position:fixed;bottom:0;left:0;right:0;background:var(--navy);color:var(--white);padding:20px;z-index:9999}
+        .cookie-banner.hide{display:none}.cookie-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+        .cookie-text{flex:1;font-size:14px;line-height:1.5}.cookie-text a{color:var(--white);text-decoration:underline}
+        .cookie-buttons{display:flex;gap:12px}.cookie-btn{padding:10px 20px;border-radius:6px;font-size:14px;font-weight:500;cursor:pointer;border:none}
+        .cookie-btn-accept{background:var(--white);color:var(--navy)}.cookie-btn-decline{background:transparent;color:var(--white);border:1px solid var(--gray-400)}
+
+        @media(max-width:1024px){.features-grid,.two-col{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr;gap:24px}.footer-powered{grid-template-columns:1fr;gap:32px}}
+        @media(max-width:640px){.nav-links{display:none}.hero{padding:48px 24px 56px}.hero h1{font-size:32px}.cookie-inner{flex-direction:column;text-align:center}.cookie-buttons{width:100%;justify-content:center}}
+    </style>
+</head>
+<body>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><div class="nav-links"><a href="https://fiatrails.com">Main Site</a><a href="https://fiatrails.foundation">Foundation</a><a href="index.html#products">Products</a><a href="architecture.html">Architecture</a><a href="/insights">Insights</a><a href="apply.html" class="nav-cta">Request Briefing</a></div></div></nav>
+
+    <section class="hero"><div class="hero-inner">
+        <span class="hero-badge design" style="background:rgba(5,150,105,0.1);color:#2AA39A;border:1px solid rgba(5,150,105,0.3)">Live on Testnet</span>
+        <h1>StableNet</h1>
+        <p>Multilateral netting for stablecoin obligations with multi-source peg verification, ISO 20022 pacs.008 generation, and Travel Rule compliance. Tri-corridor stablecoin netting live on chain with continuous synthetic flow and auto-triggered settlement execution.</p>
+        <a href="index.html#products" class="back-link">&larr; Back to Products</a>
+    </div></section>
+
+    <!-- LIVE METRICS -->
+    <section style="background:var(--navy);padding:60px 32px"><div style="max-width:1000px;margin:0 auto">
+        <div style="text-align:center;margin-bottom:32px">
+            <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.5);margin-bottom:12px">Testnet Metrics</div>
+            <h2 style="font-size:32px;font-weight:700;color:white;letter-spacing:-.02em">Live stablecoin netting</h2>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+            <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:20px;text-align:center">
+                <div style="font-size:28px;font-weight:700;color:white;margin-bottom:4px">4.96:1</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.6)">compression — 84% capital reduction</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:20px;text-align:center">
+                <div style="font-size:28px;font-weight:700;color:white;margin-bottom:4px">3</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.6)">stablecoin corridors live</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:20px;text-align:center">
+                <div style="font-size:28px;font-weight:700;color:white;margin-bottom:4px">22</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.6)">baseline compliance rules</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:20px;text-align:center">
+                <div style="font-size:28px;font-weight:700;color:white;margin-bottom:4px">24/7</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.6)">soak running with auto-settlement</div>
+            </div>
+        </div>
+    </div></section>
+
+    <!-- CONCEPT -->
+    <section style="background:var(--gray-50);padding:60px 32px"><div style="max-width:800px;margin:0 auto;text-align:center">
+        <div class="section-label">Architecture</div>
+        <h2 class="section-title">Netting across digital currencies</h2>
+        <p class="section-desc">Stablecoins settle bilaterally and gross — every transfer is its own on-chain transaction. StableNet compresses stablecoin obligations through multilateral netting at the protocol level, normalising heterogeneous issuers into a unified netting pool while respecting each currency's regulatory framework, peg constraints, and Travel Rule provenance requirements.</p>
+    </div></section>
+
+    <!-- LIVE CORRIDORS -->
+    <section style="padding:60px 32px"><div style="max-width:800px;margin:0 auto">
+        <div class="section-header">
+            <div class="section-label">Live Corridors</div>
+            <h2 class="section-title">Tri-corridor stablecoin netting on testnet</h2>
+            <p class="section-desc">Three on-chain corridors are operating continuously with realistic obligation flow and 10-minute window closes that auto-trigger settlement execution.</p>
+        </div>
+        <div style="display:grid;gap:12px">
+            <div style="display:grid;grid-template-columns:160px 1fr;gap:16px;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;padding:20px;align-items:center"><div style="font-size:15px;font-weight:700;color:var(--gray-900)">SN-USDC-USD</div><div style="font-size:13px;color:var(--gray-600)">USDC corridor — 5-source effective consensus on peg verification, ~5/min obligation rate</div></div>
+            <div style="display:grid;grid-template-columns:160px 1fr;gap:16px;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;padding:20px;align-items:center"><div style="font-size:15px;font-weight:700;color:var(--gray-900)">SN-XSGD-SGD</div><div style="font-size:13px;color:var(--gray-600)">Singapore dollar stablecoin corridor — multi-source peg verification, ~3.3/min obligation rate</div></div>
+            <div style="display:grid;grid-template-columns:160px 1fr;gap:16px;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;padding:20px;align-items:center"><div style="font-size:15px;font-weight:700;color:var(--gray-900)">SN-RLUSD-USD</div><div style="font-size:13px;color:var(--gray-600)">RLUSD corridor — 5-source effective consensus on peg verification, ~2.5/min obligation rate</div></div>
+        </div>
+    </div></section>
+
+    <!-- CAPABILITIES -->
+    <section style="background:var(--gray-50);padding:80px 32px"><div style="max-width:1000px;margin:0 auto">
+        <div class="section-header">
+            <div class="section-label">Capabilities</div>
+            <h2 class="section-title">What StableNet delivers today</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-num">01</div>
+                <h4>Multilateral netting</h4>
+                <p>Family L core multilateral netting demonstrated at 4.96:1 compression in a representative window close — gross 88,019 units compressed to 9 net settlements (84% capital reduction).</p>
+            </div>
+            <div class="feature">
+                <div class="feature-num">02</div>
+                <h4>Multi-source peg oracle</h4>
+                <p>3-to-5 source peg verification per stablecoin corridor combining AFXO settlement-grade signed feeds (EIP-712 typed-data) with public market data sources. Peg-deviation circuit breaker enforced before netting.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-num">03</div>
+                <h4>Compliance gate</h4>
+                <p>22 baseline compliance rules: OFAC sanctioned-jurisdiction denies, US GENIUS Act stablecoin requirements, EU MiCA, Singapore stablecoin regulations, and pilot allow-lists. Allow / Review / Deny decisions with rule-source attribution.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-num">04</div>
+                <h4>ISO 20022 pacs.008</h4>
+                <p>Stateless on-chain pacs.008 generation per net settlement. Idempotent message lifecycle with explicit MsgId and InstrId derivation that transitively binds the chain-attested instruction id.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-num">05</div>
+                <h4>Travel Rule compliance</h4>
+                <p>IVMS101 records with AES-256-GCM encryption at rest, RFC 6962 Merkle proofs committed on-chain per window close. Regulators can verify any record's inclusion independently against the chain.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-num">06</div>
+                <h4>Programmable finality state machine</h4>
+                <p>PENDING → AUTHORIZED → EXECUTING → SETTLED with optimistic-CAS transitions and idempotent per-attempt retries. Settlement adapter framework wired for Stellar SEP-31, Circle Mint, and synthetic-demo modes.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-num">07</div>
+                <h4>Issuer risk scoring</h4>
+                <p>Composite weighted geometric mean over reserve quality, attestation freshness, peg stability, redemption performance, and regulatory posture. Live across 7 stablecoin issuer profiles with haircut bps.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-num">08</div>
+                <h4>Eventbus integration</h4>
+                <p>Window-close events emitted in cross-product schema for downstream consumption by RiskNet and the broader Settlement Computer. HMAC-signed, persisted-then-drained delivery.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-num">09</div>
+                <h4>Future: CBDC adapter framework</h4>
+                <p>Reserve-constrained corridor netting and monetary policy parameter enforcement (holding limits, expiry, remuneration) for both account-based and token-based CBDC architectures. Spec-defined; build-ready when pilots materialise.</p>
+            </div>
+        </div>
+    </div></section>
+
+    <!-- COMPLIANCE FRAMEWORKS -->
+    <section style="padding:80px 32px"><div style="max-width:800px;margin:0 auto">
+        <div class="section-header">
+            <div class="section-label">Regulatory Coverage</div>
+            <h2 class="section-title">Compliance frameworks enforced</h2>
+            <p class="section-desc">StableNet's compliance gate evaluates every obligation against published regulatory frameworks before admission to the netting engine. Decisions are logged with rule-source attribution and exportable for supervisory review.</p>
+        </div>
+        <div class="two-col">
+            <div class="info-card">
+                <h4>Sanctions &amp; jurisdictional</h4>
+                <p>OFAC sanctioned-jurisdiction denies are enforced at the protocol level — obligations referencing sanctioned jurisdictions are rejected before they enter a netting window.</p>
+                <ul class="info-list">
+                    <li>OFAC SDN and sectoral sanctions</li>
+                    <li>Sanctioned-jurisdiction denies</li>
+                    <li>Allow-list overrides for licensed pilots</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h4>Stablecoin-specific frameworks</h4>
+                <p>Rules derived from published stablecoin regulatory frameworks across major jurisdictions, with per-corridor configuration to reflect each pilot's licensed operating perimeter.</p>
+                <ul class="info-list">
+                    <li>EU Markets in Crypto-Assets (MiCA)</li>
+                    <li>US GENIUS Act stablecoin requirements</li>
+                    <li>Singapore stablecoin regulatory framework</li>
+                    <li>Travel Rule (IVMS101 + RFC 6962 Merkle proofs)</li>
+                </ul>
+            </div>
+        </div>
+    </div></section>
+
+    <!-- SUPPORTED STABLECOINS -->
+    <section style="background:var(--gray-50);padding:60px 32px"><div style="max-width:800px;margin:0 auto">
+        <div class="section-header">
+            <div class="section-label">Stablecoin Coverage</div>
+            <h2 class="section-title">Supported stablecoins</h2>
+            <p class="section-desc">The issuer registry seeds risk scoring profiles for the major institutional stablecoins. Adding a new stablecoin requires a peg oracle source and an issuer risk profile — no protocol changes.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px">
+            <div style="background:white;border:1px solid var(--gray-200);border-radius:8px;padding:16px;text-align:center"><div style="font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:4px">USDC</div><div style="font-size:11px;color:var(--gray-500)">USD stablecoin</div></div>
+            <div style="background:white;border:1px solid var(--gray-200);border-radius:8px;padding:16px;text-align:center"><div style="font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:4px">USDT</div><div style="font-size:11px;color:var(--gray-500)">USD stablecoin</div></div>
+            <div style="background:white;border:1px solid var(--gray-200);border-radius:8px;padding:16px;text-align:center"><div style="font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:4px">EURC</div><div style="font-size:11px;color:var(--gray-500)">EUR stablecoin</div></div>
+            <div style="background:white;border:1px solid var(--gray-200);border-radius:8px;padding:16px;text-align:center"><div style="font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:4px">PYUSD</div><div style="font-size:11px;color:var(--gray-500)">USD stablecoin</div></div>
+            <div style="background:white;border:1px solid var(--gray-200);border-radius:8px;padding:16px;text-align:center"><div style="font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:4px">XSGD</div><div style="font-size:11px;color:var(--gray-500)">SGD stablecoin</div></div>
+            <div style="background:white;border:1px solid var(--gray-200);border-radius:8px;padding:16px;text-align:center"><div style="font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:4px">RLUSD</div><div style="font-size:11px;color:var(--gray-500)">USD stablecoin</div></div>
+            <div style="background:white;border:1px solid var(--gray-200);border-radius:8px;padding:16px;text-align:center"><div style="font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:4px">USDPT</div><div style="font-size:11px;color:var(--gray-500)">Institutional USD</div></div>
+        </div>
+        <p style="font-size:13px;color:var(--gray-500);text-align:center;margin-top:24px">Stablecoin support reflects issuer risk profiles registered in the StableNet registry. NETTA has no commercial relationship with any stablecoin issuer; coverage is technical rather than partnership-based.</p>
+    </div></section>
+
+    <!-- FX ORACLE -->
+    <section style="background:var(--gray-50);padding:60px 32px"><div style="max-width:800px;margin:0 auto;text-align:center">
+        <div class="section-label">FX Pricing</div>
+        <h3 style="font-size:22px;font-weight:700;color:var(--gray-900);margin:12px 0 16px">Oracle-determined FX rates</h3>
+        <p style="font-size:15px;color:var(--gray-600);line-height:1.7">All Settlement Computer products use FX rate feeds from <a href="https://afxo.ai" style="color:var(--navy);font-weight:500;text-decoration:none">AFXO</a> — an institutional-grade FX oracle delivering deterministic rate feeds across global currency pairs. StableNet uses AFXO for cross-stablecoin peg verification and cross-currency CBDC rate determination.</p>
+    </div></section>
+
+    <!-- PATENTS -->
+    <section style="padding:60px 32px"><div style="max-width:800px;margin:0 auto;text-align:center">
+        <div class="section-label">Intellectual Property</div>
+        <h3 style="font-size:22px;font-weight:700;color:var(--gray-900);margin:12px 0 20px">Patent protected</h3>
+        <div style="max-width:320px;margin:0 auto">
+            <div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;padding:20px;text-align:left"><div style="font-size:12px;font-weight:600;color:var(--navy);margin-bottom:8px">PROV-007</div><div style="font-size:14px;font-weight:500;color:var(--gray-900);margin-bottom:4px">64/044,887</div><div style="font-size:13px;color:var(--gray-500)">Digital Currency Netting — 44 claims, 17 invention families</div></div>
+        </div>
+    </div></section>
+
+    <section style="padding:40px 32px;text-align:center"><a href="index.html#products" class="back-link">&larr; Back to all products</a></section>
+
+    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>Settlement Computer — institutional settlement infrastructure on a dedicated Avalanche L1. Technology service provider — never custodying funds.</p></div><div class="footer-col"><h4>Products</h4><a href="settlement.html">Settlement</a><a href="paynet.html">PayNet</a><a href="risknet.html">RiskNet</a><a href="trade.html">Trade</a><a href="grid.html">Grid</a><a href="nexus.html">Nexus</a><a href="assetnet.html">AssetNet</a><a href="stablenet.html">StableNet</a></div><div class="footer-col"><h4>Company</h4><a href="https://fiatrails.com/#about">About</a><a href="https://fiatrails.foundation">Foundation</a><a href="architecture.html">Documentation</a><a href="/insights">Insights</a></div><div class="footer-col"><h4>Connect</h4><a href="https://t.me/NETTA_Bot">Telegram</a><a href="https://twitter.com/fiatrails">Twitter</a><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a></div><div class="footer-col"><h4>Legal</h4><a href="terms.html">Terms of Service</a><a href="privacy.html">Privacy Policy</a></div></div>
+    <div class="footer-powered"><div class="powered-item"><span class="powered-label">POWERED BY</span><div class="powered-logo"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#E84142"/><path d="M21.5 21H18.5L16 16.5L13.5 21H10.5L16 11L21.5 21Z" fill="white"/></svg><span class="powered-name">Avalanche</span></div><p class="powered-desc">Custom Avalanche L1 with 11 consensus-level native precompiles.</p></div><div class="powered-item"><span class="powered-label">BUILT BY</span><div class="powered-logo"><a href="https://digitalyzelabs.com" target="_blank" rel="noopener noreferrer"><img src="digitalyze-labs-logo.png" alt="Digitalyze Labs" style="height:28px;width:auto"></a></div><p class="powered-desc">Enterprise blockchain development and fintech infrastructure specialists.</p></div></div>
+    <div class="footer-bottom"><span>&copy; 2026 FiatRails Foundation Ltd. All rights reserved.</span><span>CR-431901 | LEI <a href="https://search.gleif.org/#/record/894500RG1F2BKNE8P514" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">894500RG1F2BKNE8P514</a> | Cayman Islands</span></div></div></footer>
+
+    <div class="cookie-banner" id="cookieBanner"><div class="cookie-inner"><div class="cookie-text">We use cookies to enhance your experience. <a href="privacy.html">Learn more</a></div><div class="cookie-buttons"><button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept</button><button class="cookie-btn cookie-btn-decline" onclick="declineCookies()">Decline</button></div></div></div>
+    <script>function setCookie(n,v,d){const e=new Date(Date.now()+d*864e5).toUTCString();document.cookie=n+'='+encodeURIComponent(v)+'; expires='+e+'; path=/';}function getCookie(n){return document.cookie.split('; ').reduce((r,v)=>{const p=v.split('=');return p[0]===n?decodeURIComponent(p[1]):r;},'')}function acceptCookies(){setCookie('cookieConsent','accepted',365);document.getElementById('cookieBanner').classList.add('hide');}function declineCookies(){setCookie('cookieConsent','declined',365);document.getElementById('cookieBanner').classList.add('hide');}if(getCookie('cookieConsent'))document.getElementById('cookieBanner').classList.add('hide');</script>
+</body>
+</html>

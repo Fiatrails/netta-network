@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus | Settlement Computer</title>
+    <meta name="description" content="Agentic AI settlement. Autonomous clearing agents operating over causal shared state with graph-derived credit pricing and real-time decision making.">
+    <link rel="icon" type="image/png" href="/icons/favicon-32x32.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --white:#fff;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151;--gray-800:#1f2937;--gray-900:#111827;--navy:#0B1D33;--navy-dark:#050E1C;--teal-50:#E6F4F2;--teal:#2AA39A; }
+        * { margin:0;padding:0;box-sizing:border-box; }
+        body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--white);color:var(--gray-800);line-height:1.6;-webkit-font-smoothing:antialiased; }
+
+        .nav{background:var(--white);border-bottom:1px solid var(--gray-200);position:sticky;top:0;z-index:100}
+        .nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;height:72px;display:flex;align-items:center;justify-content:space-between}
+        .nav-brand{display:flex;align-items:center;gap:16px;text-decoration:none}.nav-logo{height:62px;width:auto}
+        .nav-divider{width:1px;height:24px;background:var(--gray-300)}.nav-product{font-size:14px;color:var(--gray-500);font-weight:400}
+        .nav-links{display:flex;align-items:center;gap:36px}.nav-links a{color:var(--gray-600);text-decoration:none;font-size:14px;font-weight:500;transition:color .15s}
+        .nav-links a:hover{color:var(--gray-900)}.nav-cta{background:var(--navy);color:var(--white)!important;padding:10px 20px;border-radius:6px}.nav-cta:hover{background:var(--navy-dark)}
+
+        .section-header{text-align:center;margin-bottom:48px}.section-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:12px}
+        .section-title{font-size:32px;font-weight:700;color:var(--gray-900);letter-spacing:-.02em;margin-bottom:12px}
+        .section-desc{font-size:16px;color:var(--gray-600);max-width:640px;margin:0 auto;line-height:1.7}
+
+        .hero{background:linear-gradient(180deg,var(--gray-50) 0%,var(--white) 100%);padding:72px 32px 60px}
+        .hero-inner{max-width:900px;margin:0 auto;text-align:center}
+        .hero-badge{display:inline-block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;padding:4px 12px;border-radius:4px;margin-bottom:20px}
+        .hero-badge.design{background:var(--gray-100);color:var(--gray-500);border:1px solid var(--gray-200)}
+        .hero h1{font-size:48px;font-weight:700;color:var(--gray-900);letter-spacing:-.02em;line-height:1.1;margin-bottom:20px}
+        .hero p{font-size:18px;color:var(--gray-600);line-height:1.7;max-width:760px;margin:0 auto 28px}
+        .back-link{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--navy);text-decoration:none}.back-link:hover{text-decoration:underline}
+
+        .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+        .feature{padding:28px;background:var(--white);border:1px solid var(--gray-200);border-radius:8px}
+        .feature-num{font-size:12px;font-weight:600;color:var(--navy);margin-bottom:12px}
+        .feature h4{font-size:16px;font-weight:600;color:var(--gray-900);margin-bottom:10px}
+        .feature p{font-size:13px;color:var(--gray-600);line-height:1.6}
+
+        .two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+        .info-card{border:1px solid var(--gray-200);border-radius:8px;padding:32px;background:var(--white)}
+        .info-card h4{font-size:18px;font-weight:600;color:var(--gray-900);margin-bottom:12px}
+        .info-card p{font-size:14px;color:var(--gray-600);line-height:1.7;margin-bottom:12px}
+        .info-list{list-style:none}.info-list li{font-size:13px;color:var(--gray-600);padding:6px 0 6px 20px;position:relative}
+        .info-list li::before{content:"\2713";position:absolute;left:0;color:var(--teal);font-weight:600}
+
+        .footer{background:var(--gray-900);padding:48px 32px 24px;color:var(--gray-400)}
+        .footer-inner{max-width:1200px;margin:0 auto}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}
+        .footer-brand p{font-size:13px;line-height:1.6;margin-top:12px;color:var(--gray-500)}
+        .footer-col h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--gray-300);margin-bottom:16px}
+        .footer-col a{display:block;font-size:13px;color:var(--gray-500);text-decoration:none;margin-bottom:10px}.footer-col a:hover{color:var(--gray-300)}
+        .footer-powered{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid var(--gray-800)}
+        .powered-item{display:flex;flex-direction:column;gap:12px}.powered-label{font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--gray-500)}
+        .powered-logo{display:flex;align-items:center;gap:10px}.powered-name{font-size:20px;font-weight:700;color:var(--white)}
+        .powered-desc{font-size:13px;line-height:1.6;color:var(--gray-400);max-width:360px}
+        .footer-bottom{padding-top:24px;display:flex;justify-content:space-between;font-size:12px}
+
+        .cookie-banner{display:block;position:fixed;bottom:0;left:0;right:0;background:var(--navy);color:var(--white);padding:20px;z-index:9999}
+        .cookie-banner.hide{display:none}.cookie-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+        .cookie-text{flex:1;font-size:14px;line-height:1.5}.cookie-text a{color:var(--white);text-decoration:underline}
+        .cookie-buttons{display:flex;gap:12px}.cookie-btn{padding:10px 20px;border-radius:6px;font-size:14px;font-weight:500;cursor:pointer;border:none}
+        .cookie-btn-accept{background:var(--white);color:var(--navy)}.cookie-btn-decline{background:transparent;color:var(--white);border:1px solid var(--gray-400)}
+
+        @media(max-width:1024px){.features-grid,.two-col{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr;gap:24px}.footer-powered{grid-template-columns:1fr;gap:32px}}
+        @media(max-width:640px){.nav-links{display:none}.hero{padding:48px 24px 56px}.hero h1{font-size:32px}.cookie-inner{flex-direction:column;text-align:center}.cookie-buttons{width:100%;justify-content:center}}
+    </style>
+</head>
+<body>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><div class="nav-links"><a href="https://fiatrails.com">Main Site</a><a href="https://fiatrails.foundation">Foundation</a><a href="index.html#products">Products</a><a href="architecture.html">Architecture</a><a href="/insights">Insights</a><a href="apply.html" class="nav-cta">Request Briefing</a></div></div></nav>
+
+    <section class="hero"><div class="hero-inner">
+        <span class="hero-badge design">Design Phase</span>
+        <h1>Nexus</h1>
+        <p>Agentic AI settlement. Autonomous clearing agents operating over causal shared state with graph-derived credit pricing and real-time settlement optimisation.</p>
+        <a href="index.html#products" class="back-link">&larr; Back to Products</a>
+    </div></section>
+
+    <!-- CONCEPT -->
+    <section style="background:var(--gray-50);padding:60px 32px"><div style="max-width:800px;margin:0 auto;text-align:center">
+        <div class="section-label">Concept</div>
+        <h2 class="section-title">AI-native clearing</h2>
+        <p class="section-desc">Current clearing systems execute deterministic rules. Nexus introduces autonomous AI agents that observe the full settlement graph, identify optimisation opportunities humans cannot see, and execute clearing decisions in real time. Each agent operates over causal shared state — a unified view of all obligations, positions, and counterparty relationships across the Settlement Computer.</p>
+    </div></section>
+
+    <!-- PLANNED CAPABILITIES -->
+    <section style="padding:80px 32px"><div style="max-width:1000px;margin:0 auto">
+        <div class="section-header">
+            <div class="section-label">Planned Capabilities</div>
+            <h2 class="section-title">What Nexus will deliver</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-num">01</div>
+                <h4>Causal shared state</h4>
+                <p>A unified, causally consistent view of all obligations, net positions, and counterparty relationships across every corridor and product. Agents read from the same state without conflicts or stale data.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-num">02</div>
+                <h4>Graph-derived credit pricing</h4>
+                <p>Real-time credit risk assessment derived from the obligation graph topology. Agents identify concentration risk, counterparty exposure chains, and systemic vulnerabilities that flat models miss.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-num">03</div>
+                <h4>Autonomous netting optimisation</h4>
+                <p>AI agents continuously evaluate netting window timing, participant grouping, and corridor sequencing to maximise compression. Dynamic window sizing based on real-time obligation flow patterns.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-num">04</div>
+                <h4>Predictive liquidity management</h4>
+                <p>Agents forecast net settlement positions before window close, enabling participants to pre-position liquidity. Reduces settlement failures caused by insufficient funding at settlement time.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-num">05</div>
+                <h4>Cross-product orchestration</h4>
+                <p>Nexus agents operate across Settlement, PayNet, RiskNet, Trade, and Grid simultaneously. A single agent can identify that a Trade obligation offsets a Settlement position and propose cross-product netting.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-num">06</div>
+                <h4>Anomaly detection</h4>
+                <p>Continuous monitoring of obligation patterns for anomalous behaviour — unusual volumes, atypical counterparty combinations, timing irregularities. Flagged to corridor administrators with causal explanations.</p>
+            </div>
+        </div>
+    </div></section>
+
+    <!-- MARKET -->
+    <section style="background:var(--navy);padding:60px 32px"><div style="max-width:800px;margin:0 auto;text-align:center;color:var(--white)">
+        <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.5);margin-bottom:12px">Patent Portfolio</div>
+        <div style="font-size:48px;font-weight:700;letter-spacing:-.02em;margin-bottom:12px">65 claims</div>
+        <p style="font-size:16px;color:rgba(255,255,255,.7);line-height:1.7">Nexus is protected by PROV-004, the most extensive patent filing in the Settlement Computer portfolio. 65 claims across 7 invention families covering agentic clearing, causal shared state, and graph-derived credit pricing.</p>
+    </div></section>
+
+    <!-- ARCHITECTURE -->
+    <section style="padding:80px 32px"><div style="max-width:800px;margin:0 auto">
+        <div class="section-header">
+            <div class="section-label">Architecture</div>
+            <h2 class="section-title">Agent architecture</h2>
+        </div>
+        <div class="two-col">
+            <div class="info-card">
+                <h4>Agent types</h4>
+                <p>Nexus deploys specialised agents for different clearing functions, each with defined observation scope and action authority.</p>
+                <ul class="info-list">
+                    <li>Netting optimisation agents</li>
+                    <li>Credit assessment agents</li>
+                    <li>Liquidity forecasting agents</li>
+                    <li>Anomaly detection agents</li>
+                    <li>Cross-product orchestration agents</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h4>Safety constraints</h4>
+                <p>All agent actions are bounded by configurable safety constraints. No agent can execute a settlement action that violates corridor rules or participant limits.</p>
+                <ul class="info-list">
+                    <li>Action authority scoped per agent type</li>
+                    <li>Human-in-the-loop for high-value decisions</li>
+                    <li>Full audit trail of agent reasoning</li>
+                    <li>Corridor admin override at any time</li>
+                    <li>Deterministic fallback if agents disagree</li>
+                </ul>
+            </div>
+        </div>
+    </div></section>
+
+    <!-- FX ORACLE -->
+    <section style="padding:60px 32px"><div style="max-width:800px;margin:0 auto;text-align:center">
+        <div class="section-label">FX Pricing</div>
+        <h3 style="font-size:22px;font-weight:700;color:var(--gray-900);margin:12px 0 16px">Oracle-determined FX rates</h3>
+        <p style="font-size:15px;color:var(--gray-600);line-height:1.7">All Settlement Computer products use FX rate feeds from <a href="https://afxo.ai" style="color:var(--navy);font-weight:500;text-decoration:none">AFXO</a> — an institutional-grade FX oracle delivering deterministic rate feeds across global currency pairs. Nexus agents consume real-time oracle data for cross-currency position analysis and liquidity forecasting.</p>
+    </div></section>
+
+    <!-- PATENTS -->
+    <section style="background:var(--gray-50);padding:60px 32px"><div style="max-width:800px;margin:0 auto;text-align:center">
+        <div class="section-label">Intellectual Property</div>
+        <h3 style="font-size:22px;font-weight:700;color:var(--gray-900);margin:12px 0 20px">Patent protected</h3>
+        <div style="max-width:320px;margin:0 auto">
+            <div style="background:var(--white);border:1px solid var(--gray-200);border-radius:8px;padding:20px;text-align:left"><div style="font-size:12px;font-weight:600;color:var(--navy);margin-bottom:8px">PROV-004</div><div style="font-size:14px;font-weight:500;color:var(--gray-900);margin-bottom:4px">64/013,645</div><div style="font-size:13px;color:var(--gray-500)">Agentic Clearing — 65 claims, 7 invention families</div></div>
+        </div>
+    </div></section>
+
+    <section style="padding:40px 32px;text-align:center"><a href="index.html#products" class="back-link">&larr; Back to all products</a></section>
+
+    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>Settlement Computer — institutional settlement infrastructure on a dedicated Avalanche L1. Technology service provider — never custodying funds.</p></div><div class="footer-col"><h4>Products</h4><a href="settlement.html">Settlement</a><a href="paynet.html">PayNet</a><a href="risknet.html">RiskNet</a><a href="trade.html">Trade</a><a href="grid.html">Grid</a><a href="nexus.html">Nexus</a><a href="assetnet.html">AssetNet</a><a href="stablenet.html">StableNet</a></div><div class="footer-col"><h4>Company</h4><a href="https://fiatrails.com/#about">About</a><a href="https://fiatrails.foundation">Foundation</a><a href="architecture.html">Documentation</a><a href="/insights">Insights</a></div><div class="footer-col"><h4>Connect</h4><a href="https://t.me/NETTA_Bot">Telegram</a><a href="https://twitter.com/fiatrails">Twitter</a><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a></div><div class="footer-col"><h4>Legal</h4><a href="terms.html">Terms of Service</a><a href="privacy.html">Privacy Policy</a></div></div>
+    <div class="footer-powered"><div class="powered-item"><span class="powered-label">POWERED BY</span><div class="powered-logo"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#E84142"/><path d="M21.5 21H18.5L16 16.5L13.5 21H10.5L16 11L21.5 21Z" fill="white"/></svg><span class="powered-name">Avalanche</span></div><p class="powered-desc">Custom Avalanche L1 with 11 consensus-level native precompiles.</p></div><div class="powered-item"><span class="powered-label">BUILT BY</span><div class="powered-logo"><a href="https://digitalyzelabs.com" target="_blank" rel="noopener noreferrer"><img src="digitalyze-labs-logo.png" alt="Digitalyze Labs" style="height:28px;width:auto"></a></div><p class="powered-desc">Enterprise blockchain development and fintech infrastructure specialists.</p></div></div>
+    <div class="footer-bottom"><span>&copy; 2026 FiatRails Foundation Ltd. All rights reserved.</span><span>CR-431901 | LEI <a href="https://search.gleif.org/#/record/894500RG1F2BKNE8P514" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">894500RG1F2BKNE8P514</a> | Cayman Islands</span></div></div></footer>
+
+    <div class="cookie-banner" id="cookieBanner"><div class="cookie-inner"><div class="cookie-text">We use cookies to enhance your experience. <a href="privacy.html">Learn more</a></div><div class="cookie-buttons"><button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept</button><button class="cookie-btn cookie-btn-decline" onclick="declineCookies()">Decline</button></div></div></div>
+    <script>function setCookie(n,v,d){const e=new Date(Date.now()+d*864e5).toUTCString();document.cookie=n+'='+encodeURIComponent(v)+'; expires='+e+'; path=/';}function getCookie(n){return document.cookie.split('; ').reduce((r,v)=>{const p=v.split('=');return p[0]===n?decodeURIComponent(p[1]):r;},'')}function acceptCookies(){setCookie('cookieConsent','accepted',365);document.getElementById('cookieBanner').classList.add('hide');}function declineCookies(){setCookie('cookieConsent','declined',365);document.getElementById('cookieBanner').classList.add('hide');}if(getCookie('cookieConsent'))document.getElementById('cookieBanner').classList.add('hide');</script>
+</body>
+</html>

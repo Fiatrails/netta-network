@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settlement | NETTA — Atomic Just-in-Time Counter-Attestation</title>
+    <meta name="description" content="NETTA Settlement — multilateral netting engine for cross-border institutional settlement. Built on Atomic Just-in-Time Counter-Attestation. 11 corridors, 95% compression, cryptographic privacy, post-quantum authentication.">
+    <meta name="theme-color" content="#0B1D33">
+    <link rel="canonical" href="https://netta.network/settlement.html">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="NETTA Settlement — Atomic Just-in-Time Counter-Attestation">
+    <meta property="og:description" content="Multilateral netting engine for institutional cross-border settlement. Pre-funding eliminated at architectural level. 95% compression on Avalanche L1.">
+    <meta property="og:url" content="https://netta.network/settlement.html">
+    <meta property="og:image" content="https://netta.network/assets/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NETTA Settlement — Atomic Just-in-Time Counter-Attestation">
+    <meta name="twitter:image" content="https://netta.network/assets/og-image.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --white:#fff;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151;--gray-800:#1f2937;--gray-900:#111827;--navy:#0B1D33;--navy-dark:#050E1C;--teal-50:#E6F4F2;--teal:#2AA39A; }
+        * { margin:0;padding:0;box-sizing:border-box; }
+        body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--white);color:var(--gray-800);line-height:1.6;-webkit-font-smoothing:antialiased; }
+
+        .nav{background:var(--white);border-bottom:1px solid var(--gray-200);position:sticky;top:0;z-index:100}
+        .nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;height:72px;display:flex;align-items:center;justify-content:space-between}
+        .nav-brand{display:flex;align-items:center;gap:16px;text-decoration:none}.nav-logo{height:62px;width:auto}
+        .nav-divider{width:1px;height:24px;background:var(--gray-300)}.nav-product{font-size:14px;color:var(--gray-500);font-weight:400}
+        .nav-links{display:flex;align-items:center;gap:36px}.nav-links a{color:var(--gray-600);text-decoration:none;font-size:14px;font-weight:500;transition:color .15s}
+        .nav-links a:hover{color:var(--gray-900)}.nav-cta{background:var(--navy);color:var(--white)!important;padding:10px 20px;border-radius:6px}.nav-cta:hover{background:var(--navy-dark)}
+
+        .section-header{text-align:center;margin-bottom:48px}.section-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:12px}
+        .section-title{font-size:32px;font-weight:700;color:var(--gray-900);letter-spacing:-.02em;margin-bottom:12px}
+        .section-desc{font-size:16px;color:var(--gray-600);max-width:640px;margin:0 auto;line-height:1.7}
+
+        .hero{background:linear-gradient(180deg,var(--gray-50) 0%,var(--white) 100%);padding:72px 32px 60px}
+        .hero-inner{max-width:900px;margin:0 auto;text-align:center}
+        .hero-badge{display:inline-block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;padding:4px 12px;border-radius:4px;margin-bottom:20px;background:rgba(5,150,105,.1);color:var(--teal)}
+        .hero h1{font-size:48px;font-weight:700;color:var(--gray-900);letter-spacing:-.02em;line-height:1.1;margin-bottom:20px}
+        .hero p{font-size:18px;color:var(--gray-600);line-height:1.7;max-width:760px;margin:0 auto 28px}
+        .back-link{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--navy);text-decoration:none}.back-link:hover{text-decoration:underline}
+
+        .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+        .feature{padding:28px;background:var(--white);border:1px solid var(--gray-200);border-radius:8px}
+        .feature-num{font-size:12px;font-weight:600;color:var(--navy);margin-bottom:12px}
+        .feature h4{font-size:16px;font-weight:600;color:var(--gray-900);margin-bottom:10px}
+        .feature p{font-size:13px;color:var(--gray-600);line-height:1.6}
+
+        .two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+        .info-card{border:1px solid var(--gray-200);border-radius:8px;padding:32px;background:var(--white)}
+        .info-card h4{font-size:18px;font-weight:600;color:var(--gray-900);margin-bottom:12px}
+        .info-card p{font-size:14px;color:var(--gray-600);line-height:1.7;margin-bottom:12px}
+        .info-list{list-style:none}.info-list li{font-size:13px;color:var(--gray-600);padding:6px 0 6px 20px;position:relative}
+        .info-list li::before{content:"\2713";position:absolute;left:0;color:var(--teal);font-weight:600}
+
+        .footer{background:var(--gray-900);padding:48px 32px 24px;color:var(--gray-400)}
+        .footer-inner{max-width:1200px;margin:0 auto}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}
+        .footer-brand p{font-size:13px;line-height:1.6;margin-top:12px;color:var(--gray-500)}
+        .footer-col h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--gray-300);margin-bottom:16px}
+        .footer-col a{display:block;font-size:13px;color:var(--gray-500);text-decoration:none;margin-bottom:10px}.footer-col a:hover{color:var(--gray-300)}
+        .footer-powered{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid var(--gray-800)}
+        .powered-item{display:flex;flex-direction:column;gap:12px}.powered-label{font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--gray-500)}
+        .powered-logo{display:flex;align-items:center;gap:10px}.powered-name{font-size:20px;font-weight:700;color:var(--white)}
+        .powered-desc{font-size:13px;line-height:1.6;color:var(--gray-400);max-width:360px}
+        .footer-bottom{padding-top:24px;display:flex;justify-content:space-between;font-size:12px}
+
+        .cookie-banner{display:block;position:fixed;bottom:0;left:0;right:0;background:var(--navy);color:var(--white);padding:20px;z-index:9999}
+        .cookie-banner.hide{display:none}.cookie-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+        .cookie-text{flex:1;font-size:14px;line-height:1.5}.cookie-text a{color:var(--white);text-decoration:underline}
+        .cookie-buttons{display:flex;gap:12px}.cookie-btn{padding:10px 20px;border-radius:6px;font-size:14px;font-weight:500;cursor:pointer;border:none}
+        .cookie-btn-accept{background:var(--white);color:var(--navy)}.cookie-btn-decline{background:transparent;color:var(--white);border:1px solid var(--gray-400)}
+
+        @media(max-width:1024px){.features-grid,.two-col{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr;gap:24px}.footer-powered{grid-template-columns:1fr;gap:32px}}
+        @media(max-width:640px){.nav-links{display:none}.hero{padding:48px 24px 56px}.hero h1{font-size:32px}.cookie-inner{flex-direction:column;text-align:center}.cookie-buttons{width:100%;justify-content:center}}
+    </style>
+</head>
+<body>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><div class="nav-links"><a href="https://fiatrails.com">Main Site</a><a href="https://fiatrails.foundation">Foundation</a><a href="index.html#products">Products</a><a href="architecture.html">Architecture</a><a href="/insights">Insights</a><a href="apply.html" class="nav-cta">Request Briefing</a></div></div></nav>
+
+    <section class="hero"><div class="hero-inner">
+        <span class="hero-badge">Live on Testnet</span>
+        <h1>Settlement</h1>
+        <p>Multilateral netting engine for cross-border institutional settlement. Corridor-level obligation compression with cross-corridor aggregation, bilateral pre-netting, and residual carry-forward.</p>
+        <a href="index.html#products" class="back-link">&larr; Back to Products</a>
+    </div></section>
+
+    <!-- KEY METRICS -->
+    <section style="background:var(--navy);padding:60px 32px"><div style="max-width:1000px;margin:0 auto">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+            <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:24px;text-align:center"><div style="font-size:32px;font-weight:700;color:white;margin-bottom:4px">11</div><div style="font-size:13px;color:rgba(255,255,255,.6)">corridors on testnet</div></div>
+            <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:24px;text-align:center"><div style="font-size:32px;font-weight:700;color:white;margin-bottom:4px">91.2%</div><div style="font-size:13px;color:rgba(255,255,255,.6)">average netting compression</div></div>
+            <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:24px;text-align:center"><div style="font-size:32px;font-weight:700;color:white;margin-bottom:4px">$12.13B</div><div style="font-size:13px;color:rgba(255,255,255,.6)">gross volume processed</div></div>
+            <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:24px;text-align:center"><div style="font-size:32px;font-weight:700;color:white;margin-bottom:4px">1,601</div><div style="font-size:13px;color:rgba(255,255,255,.6)">peak TPS / 301 obligation TPS</div></div>
+        </div>
+    </div></section>
+
+    <!-- CAPABILITIES -->
+    <section style="background:var(--gray-50);padding:80px 32px"><div style="max-width:1200px;margin:0 auto">
+        <div class="section-header">
+            <div class="section-label">Capabilities</div>
+            <h2 class="section-title">Settlement engine capabilities</h2>
+            <p class="section-desc">All metrics from testnet operation on the Lagrange chain. 11 precompiles deployed at the consensus layer.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature"><div class="feature-num">01</div><h4>Multilateral Netting</h4><p>Per-corridor multilateral netting with O(n) complexity. Configurable settlement windows with oracle-priced FX at window close. ISO 20022 CBPR+ native obligation recording.</p></div>
+            <div class="feature"><div class="feature-num">02</div><h4>Cross-Corridor Netting</h4><p>Second layer of netting across corridors sharing the same currency. Additional savings on residual net positions after per-corridor netting. Effect scales with every new corridor per currency.</p></div>
+            <div class="feature"><div class="feature-num">03</div><h4>Bilateral Pre-Netting</h4><p>Per-pair bilateral position tracking via recordBilateralObligation. Single transaction records sender debit + receiver credit + bilateral flow data. Foundation for SWIFT pacs.008 settlement instruction generation.</p></div>
+            <div class="feature"><div class="feature-num">04</div><h4>Residual Carry-Forward</h4><p>CHIPS-model carry-forward. Sub-threshold net positions (&lt;$100K default) carry to the next window (max 3), expanding the netting pool across windows for genuine compression improvement. Configurable per corridor.</p></div>
+            <div class="feature"><div class="feature-num">05</div><h4>Cryptographic Privacy</h4><p>Pedersen commitments (BN254) for homomorphic netting on encrypted values. AES-256-SIV metadata encryption. Bulletproofs zero-knowledge range proofs (70ms proving, no trusted setup). Shamir's Secret Sharing for key distribution.</p></div>
+            <div class="feature"><div class="feature-num">06</div><h4>Post-Quantum Authentication</h4><p>ML-DSA (FIPS 204) deployed via cloudflare/circl — not simulated. Modes 44/65/87 supported. Hybrid Dilithium+ECDSA available. Batch verification and on-chain key registry.</p></div>
+        </div>
+    </div></section>
+
+    <!-- MULTI-TENANCY -->
+    <section style="padding:80px 32px"><div style="max-width:1000px;margin:0 auto">
+        <div class="section-header">
+            <div class="section-label">Multi-Tenancy</div>
+            <h2 class="section-title">Per-corridor isolation on a shared chain</h2>
+        </div>
+        <div class="two-col">
+            <div class="info-card"><h4>Access Control</h4><p>6-level role hierarchy with per-corridor RBAC:</p>
+                <ul class="info-list"><li>GOVERNANCE — master key, sees everything</li><li>ADMIN — corridor-level administration</li><li>OPERATOR — netting window management</li><li>PARTICIPANT — obligation recording</li><li>DELEGATE — scoped, time-limited access</li><li>OBSERVER — aggregate statistics only</li></ul>
+            </div>
+            <div class="info-card"><h4>Corridor Isolation</h4><p>All eight Settlement Computer products coexist on one chain with isolated corridor configurations.</p>
+                <ul class="info-list"><li>Idempotent corridor creation</li><li>Per-corridor configuration limits</li><li>Per-corridor privacy levels (0/1/2)</li><li>Independent settlement windows</li><li>Jurisdiction-specific compliance rules</li></ul>
+            </div>
+        </div>
+    </div></section>
+
+    <!-- DATA DELEGATION -->
+    <section style="background:var(--gray-50);padding:80px 32px"><div style="max-width:1000px;margin:0 auto">
+        <div class="section-header">
+            <div class="section-label">Data Sovereignty</div>
+            <h2 class="section-title">Participant-sovereign data delegation</h2>
+            <p class="section-desc">Participants control who sees their data. Delegation is granular, time-limited, revocable, and produces an immutable on-chain audit trail.</p>
+        </div>
+        <div class="two-col">
+            <div class="info-card"><h4>Delegation Model</h4>
+                <ul class="info-list"><li>grantViewAccess — granular scope, expiry, revocable</li><li>revokeViewAccess — instant, on-chain</li><li>Scopes: ALL, CORRIDOR, COUNTERPARTY, TIME_RANGE</li><li>On-chain audit trail (DelegateDataAccessed event)</li><li>canGenerateProofs flag for proof delegation</li></ul>
+            </div>
+            <div class="info-card"><h4>Designed For</h4>
+                <ul class="info-list"><li>Regulators and central bank supervisors</li><li>External auditors and compliance officers</li><li>Correspondent banking partners</li><li>Insurers and credit assessors</li><li>Legal and dispute resolution</li></ul>
+            </div>
+        </div>
+    </div></section>
+
+    <!-- TIERED VIEW KEYS -->
+    <section style="padding:80px 32px"><div style="max-width:900px;margin:0 auto;text-align:center">
+        <div class="section-header">
+            <div class="section-label">Privacy Architecture</div>
+            <h2 class="section-title">Tiered view key model</h2>
+        </div>
+        <p style="font-size:16px;color:var(--gray-600);line-height:1.7;margin-bottom:32px">Five tiers of data access, from full visibility to aggregate-only. Each tier uses distinct cryptographic key material. Corridor privacy levels are configurable: Level 0 (plaintext), Level 1 (AES-SIV metadata), Level 2 (Pedersen + AES-SIV + range proofs).</p>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px">
+            <div style="background:var(--navy);border-radius:8px;padding:20px 12px;text-align:center"><div style="font-size:14px;font-weight:600;color:white;margin-bottom:6px">Governance</div><div style="font-size:12px;color:rgba(255,255,255,.6)">Master key — full visibility</div></div>
+            <div style="background:var(--gray-100);border:1px solid var(--gray-200);border-radius:8px;padding:20px 12px;text-align:center"><div style="font-size:14px;font-weight:600;color:var(--gray-900);margin-bottom:6px">Admin</div><div style="font-size:12px;color:var(--gray-500)">Corridor key — all obligations</div></div>
+            <div style="background:var(--gray-100);border:1px solid var(--gray-200);border-radius:8px;padding:20px 12px;text-align:center"><div style="font-size:14px;font-weight:600;color:var(--gray-900);margin-bottom:6px">Participant</div><div style="font-size:12px;color:var(--gray-500)">Own obligations + net positions</div></div>
+            <div style="background:var(--gray-100);border:1px solid var(--gray-200);border-radius:8px;padding:20px 12px;text-align:center"><div style="font-size:14px;font-weight:600;color:var(--gray-900);margin-bottom:6px">Delegate</div><div style="font-size:12px;color:var(--gray-500)">Scoped, time-limited, revocable</div></div>
+            <div style="background:var(--gray-100);border:1px solid var(--gray-200);border-radius:8px;padding:20px 12px;text-align:center"><div style="font-size:14px;font-weight:600;color:var(--gray-900);margin-bottom:6px">Observer</div><div style="font-size:12px;color:var(--gray-500)">Aggregate statistics only</div></div>
+        </div>
+    </div></section>
+
+    <!-- ISO 20022 -->
+    <section style="background:var(--gray-50);padding:60px 32px"><div style="max-width:900px;margin:0 auto;text-align:center">
+        <div class="section-label">Standards</div>
+        <h3 style="font-size:22px;font-weight:700;color:var(--gray-900);margin:12px 0 16px">ISO 20022 CBPR+ validated</h3>
+        <p style="font-size:15px;color:var(--gray-600);line-height:1.7;margin-bottom:24px">Level 1 (schema conformance) and Level 2 (SWIFT usage guidelines) validation passed across all 5 message types.</p>
+        <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
+            <span style="background:var(--white);border:1px solid var(--gray-200);border-radius:6px;padding:10px 20px;font-size:13px;font-weight:500;color:var(--gray-700)">pain.001</span>
+            <span style="background:var(--white);border:1px solid var(--gray-200);border-radius:6px;padding:10px 20px;font-size:13px;font-weight:500;color:var(--gray-700)">pacs.008</span>
+            <span style="background:var(--white);border:1px solid var(--gray-200);border-radius:6px;padding:10px 20px;font-size:13px;font-weight:500;color:var(--gray-700)">pacs.002</span>
+            <span style="background:var(--white);border:1px solid var(--gray-200);border-radius:6px;padding:10px 20px;font-size:13px;font-weight:500;color:var(--gray-700)">camt.054</span>
+            <span style="background:var(--white);border:1px solid var(--gray-200);border-radius:6px;padding:10px 20px;font-size:13px;font-weight:500;color:var(--gray-700)">camt.053</span>
+        </div>
+    </div></section>
+
+    <!-- FX ORACLE -->
+    <section style="padding:60px 32px"><div style="max-width:800px;margin:0 auto;text-align:center">
+        <div class="section-label">FX Pricing</div>
+        <h3 style="font-size:22px;font-weight:700;color:var(--gray-900);margin:12px 0 16px">Oracle-determined FX rates</h3>
+        <p style="font-size:15px;color:var(--gray-600);line-height:1.7">All Settlement Computer products use FX rate feeds from <a href="https://afxo.ai" style="color:var(--navy);font-weight:500;text-decoration:none">AFXO</a> — an institutional-grade FX oracle delivering deterministic rate feeds across global currency pairs. Rates are locked at netting window close, ensuring no execution slippage or front-running.</p>
+    </div></section>
+
+    <!-- PATENTS -->
+    <section style="padding:60px 32px"><div style="max-width:800px;margin:0 auto;text-align:center">
+        <div class="section-label">Intellectual Property</div>
+        <h3 style="font-size:22px;font-weight:700;color:var(--gray-900);margin:12px 0 20px">Patent protected</h3>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:left">
+            <div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;padding:20px"><div style="font-size:12px;font-weight:600;color:var(--navy);margin-bottom:8px">PROV-001</div><div style="font-size:14px;font-weight:500;color:var(--gray-900);margin-bottom:4px">63/943,488</div><div style="font-size:13px;color:var(--gray-500)">Settlement Determination Architecture</div></div>
+            <div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;padding:20px"><div style="font-size:12px;font-weight:600;color:var(--navy);margin-bottom:8px">PROV-002</div><div style="font-size:14px;font-weight:500;color:var(--gray-900);margin-bottom:4px">64/013,030</div><div style="font-size:13px;color:var(--gray-500)">Cross-corridor netting, bilateral tracking</div></div>
+            <div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;padding:20px"><div style="font-size:12px;font-weight:600;color:var(--navy);margin-bottom:8px">PROV-005</div><div style="font-size:14px;font-weight:500;color:var(--gray-900);margin-bottom:4px">64/032,665</div><div style="font-size:13px;color:var(--gray-500)">Privacy + PQ Crypto (49 claims)</div></div>
+        </div>
+    </div></section>
+
+    <section style="padding:40px 32px;text-align:center"><a href="index.html#products" class="back-link">&larr; Back to all products</a></section>
+
+    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>Settlement Computer — institutional settlement infrastructure on a dedicated Avalanche L1. Technology service provider — never custodying funds.</p></div><div class="footer-col"><h4>Products</h4><a href="settlement.html">Settlement</a><a href="paynet.html">PayNet</a><a href="risknet.html">RiskNet</a><a href="trade.html">Trade</a><a href="grid.html">Grid</a><a href="nexus.html">Nexus</a><a href="assetnet.html">AssetNet</a><a href="stablenet.html">StableNet</a></div><div class="footer-col"><h4>Company</h4><a href="https://fiatrails.com/#about">About</a><a href="https://fiatrails.foundation">Foundation</a><a href="architecture.html">Documentation</a><a href="/insights">Insights</a></div><div class="footer-col"><h4>Connect</h4><a href="https://t.me/NETTA_Bot">Telegram</a><a href="https://twitter.com/fiatrails">Twitter</a><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a></div><div class="footer-col"><h4>Legal</h4><a href="terms.html">Terms of Service</a><a href="privacy.html">Privacy Policy</a></div></div>
+    <div class="footer-powered"><div class="powered-item"><span class="powered-label">POWERED BY</span><div class="powered-logo"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#E84142"/><path d="M21.5 21H18.5L16 16.5L13.5 21H10.5L16 11L21.5 21Z" fill="white"/></svg><span class="powered-name">Avalanche</span></div><p class="powered-desc">Custom Avalanche L1 with 11 consensus-level native precompiles.</p></div><div class="powered-item"><span class="powered-label">BUILT BY</span><div class="powered-logo"><a href="https://digitalyzelabs.com" target="_blank" rel="noopener noreferrer"><img src="digitalyze-labs-logo.png" alt="Digitalyze Labs" style="height:28px;width:auto"></a></div><p class="powered-desc">Enterprise blockchain development and fintech infrastructure specialists.</p></div></div>
+    <div class="footer-bottom"><span>&copy; 2026 FiatRails Foundation Ltd. All rights reserved.</span><span>CR-431901 | LEI <a href="https://search.gleif.org/#/record/894500RG1F2BKNE8P514" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">894500RG1F2BKNE8P514</a> | Cayman Islands</span></div></div></footer>
+
+    <div class="cookie-banner" id="cookieBanner"><div class="cookie-inner"><div class="cookie-text">We use cookies to enhance your experience. <a href="privacy.html">Learn more</a></div><div class="cookie-buttons"><button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept</button><button class="cookie-btn cookie-btn-decline" onclick="declineCookies()">Decline</button></div></div></div>
+    <script>function setCookie(n,v,d){const e=new Date(Date.now()+d*864e5).toUTCString();document.cookie=n+'='+encodeURIComponent(v)+'; expires='+e+'; path=/';}function getCookie(n){return document.cookie.split('; ').reduce((r,v)=>{const p=v.split('=');return p[0]===n?decodeURIComponent(p[1]):r;},'')}function acceptCookies(){setCookie('cookieConsent','accepted',365);document.getElementById('cookieBanner').classList.add('hide');}function declineCookies(){setCookie('cookieConsent','declined',365);document.getElementById('cookieBanner').classList.add('hide');}if(getCookie('cookieConsent'))document.getElementById('cookieBanner').classList.add('hide');</script>
+</body>
+</html>

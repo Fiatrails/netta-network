@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Settlement Computer: What Is Live on Testnet and What Comes Next | NETTA Insights</title>
+    <meta name="description" content="A status update on the NETTA — The Settlement Computer — five product surfaces live on testnet, three in design, all running on a shared multi-tenant Avalanche L1 with multilateral netting, ISO 20022 messaging, Travel Rule data capture, and protocol-native risk analytics.">
+    <meta name="author" content="NETTA Insights">
+    <link rel="icon" type="image/png" href="/icons/favicon-32x32.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
+
+    <script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The Settlement Computer: What Is Live on Testnet and What Comes Next">
+    <meta property="og:description" content="Five product surfaces live on testnet. Shared multi-tenant Avalanche L1. Multilateral netting, ISO 20022 messaging, protocol-native risk analytics.">
+    <meta property="og:url" content="https://netta.network/insights/settlement-computer-five-products-live">
+    <meta property="og:site_name" content="NETTA Insights">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Settlement Computer: What Is Live on Testnet">
+    <meta name="twitter:description" content="A status update from NETTA on the Settlement Computer testnet.">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The Settlement Computer: What Is Live on Testnet and What Comes Next",
+        "description": "A status update on the NETTA — The Settlement Computer — five product surfaces live on testnet, three in design, all running on a shared multi-tenant Avalanche L1.",
+        "author": {
+            "@type": "Organization",
+            "name": "NETTA Insights",
+            "url": "https://netta.network/insights"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "FiatRails Foundation Ltd",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://netta.network/logo-navy-tm.png"
+            }
+        },
+        "datePublished": "2026-05-08",
+        "dateModified": "2026-05-08",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://netta.network/insights/settlement-computer-five-products-live"
+        },
+        "about": [
+            {"@type": "Thing", "name": "NETTA — The Settlement Computer"},
+            {"@type": "Thing", "name": "Multilateral Netting"},
+            {"@type": "Thing", "name": "Avalanche L1"},
+            {"@type": "Thing", "name": "Tokenised Asset DVP"},
+            {"@type": "Thing", "name": "Stablecoin Netting"}
+        ]
+    }
+    </script>
+
+    <style>
+        :root { --white:#fff;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151;--gray-800:#1f2937;--gray-900:#111827;--navy:#0B1D33;--navy-dark:#050E1C;--teal:#2AA39A; }
+        * { margin:0;padding:0;box-sizing:border-box; }
+        body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--white);color:var(--gray-800);line-height:1.6;-webkit-font-smoothing:antialiased; }
+        .nav{background:var(--white);border-bottom:1px solid var(--gray-200);position:sticky;top:0;z-index:100}
+        .nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;height:72px;display:flex;align-items:center;justify-content:space-between}
+        .nav-brand{display:flex;align-items:center;gap:16px;text-decoration:none}.nav-logo{height:62px;width:auto}
+        .nav-divider{width:1px;height:24px;background:var(--gray-300)}.nav-product{font-size:14px;color:var(--gray-500);font-weight:400}
+        .nav-links{display:flex;align-items:center;gap:36px}.nav-links a{color:var(--gray-600);text-decoration:none;font-size:14px;font-weight:500;transition:color .15s}
+        .nav-links a:hover{color:var(--gray-900)}.nav-cta{background:var(--navy);color:var(--white)!important;padding:10px 20px;border-radius:6px}.nav-cta:hover{background:var(--navy-dark)}
+        .article-hero{background:linear-gradient(180deg,var(--gray-50) 0%,var(--white) 100%);padding:64px 32px 40px}
+        .article-hero-inner{max-width:760px;margin:0 auto}
+        .article-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--gray-500);text-decoration:none;margin-bottom:32px}
+        .article-back:hover{color:var(--navy)}
+        .article-meta{display:flex;align-items:center;gap:12px;margin-bottom:18px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;flex-wrap:wrap}
+        .article-category{color:var(--navy);background:rgba(30,58,90,0.06);padding:4px 10px;border-radius:4px}
+        .article-byline{color:var(--gray-500)}
+        .article-date{color:var(--gray-500)}
+        .article-hero h1{font-family:'Source Serif Pro',Georgia,serif;font-size:42px;font-weight:600;color:var(--gray-900);letter-spacing:-.01em;line-height:1.2;margin-bottom:18px}
+        .article-hero .lede{font-size:18px;color:var(--gray-600);line-height:1.6}
+        .article-body{padding:24px 32px 64px}
+        .article-content{max-width:680px;margin:0 auto;font-family:'Source Serif Pro',Georgia,serif;font-size:18px;line-height:1.75;color:var(--gray-800)}
+        .article-content p{margin-bottom:24px}
+        .article-content p strong{font-weight:600;color:var(--gray-900)}
+        .article-content em{font-style:italic}
+        .article-content a{color:var(--navy);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+        .article-content a:hover{color:var(--navy-dark)}
+        .article-content h2{font-family:'Source Serif Pro',Georgia,serif;font-size:28px;font-weight:600;color:var(--gray-900);letter-spacing:-.01em;line-height:1.3;margin-top:48px;margin-bottom:18px}
+        .article-content h3{font-family:'Source Serif Pro',Georgia,serif;font-size:22px;font-weight:600;color:var(--gray-900);line-height:1.3;margin-top:36px;margin-bottom:14px}
+        .article-content ul, .article-content ol{margin:0 0 24px 24px}
+        .article-content li{margin-bottom:8px;line-height:1.7}
+        .article-content blockquote{border-left:3px solid var(--navy);background:var(--gray-50);padding:16px 24px;margin:24px 0;font-style:italic;color:var(--gray-700)}
+        .article-content blockquote p{margin-bottom:0}
+        .article-content blockquote strong{font-style:normal;color:var(--gray-900)}
+        .article-content hr{border:none;border-top:1px solid var(--gray-200);margin:48px 0}
+        .article-content table{width:100%;border-collapse:collapse;margin:24px 0;font-family:'Inter',sans-serif;font-size:14px}
+        .article-content th{text-align:left;padding:12px;background:var(--gray-50);border-bottom:2px solid var(--gray-200);font-weight:600;color:var(--gray-900)}
+        .article-content td{padding:12px;border-bottom:1px solid var(--gray-200);vertical-align:top}
+        .article-content .testnet-callout{background:rgba(217,119,6,0.08);border:1px solid rgba(217,119,6,0.25);border-radius:8px;padding:18px 24px;margin:32px 0;font-family:'Inter',sans-serif;font-size:14px;line-height:1.6;color:var(--gray-800);font-style:normal}
+        .article-content .testnet-callout strong{color:var(--gray-900);font-weight:600}
+        .article-content .disclosure{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;padding:20px 24px;margin:32px 0;font-family:'Inter',sans-serif;font-size:13px;line-height:1.6;color:var(--gray-600);font-style:normal}
+        .article-content .disclosure strong{color:var(--gray-800)}
+        .newsletter-section{background:var(--gray-50);padding:56px 32px;border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200)}
+        .newsletter-inner{max-width:680px;margin:0 auto;text-align:center}
+        .newsletter-eyebrow{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:14px}
+        .newsletter-title{font-size:24px;font-weight:700;color:var(--gray-900);letter-spacing:-.02em;margin-bottom:14px}
+        .newsletter-desc{font-size:14px;color:var(--gray-600);line-height:1.7;margin-bottom:24px}
+        .newsletter-pending{background:rgba(251,191,36,0.1);border:1px solid rgba(217,119,6,0.3);border-radius:8px;padding:16px;font-size:13px;color:var(--gray-700);max-width:480px;margin:0 auto;text-align:left;line-height:1.5}
+        .newsletter-form-wrap{display:block !important;max-width:420px !important;width:100% !important;margin:0 auto !important;min-height:80px;text-align:center}
+        .newsletter-form-wrap *{margin-left:0 !important;margin-right:0 !important;float:none !important;left:auto !important;right:auto !important;position:static !important;padding-left:0 !important;padding-right:0 !important}
+        .newsletter-form-wrap iframe,.newsletter-form-wrap form,.newsletter-form-wrap > div,.newsletter-form-wrap [class*="beehiiv"],.newsletter-form-wrap [id*="beehiiv"]{display:block !important;width:100% !important;max-width:100% !important}
+        .newsletter-pending a{color:var(--navy);text-decoration:underline}
+        .newsletter-pending code{background:var(--white);padding:2px 6px;border-radius:3px;font-size:12px;font-family:'SF Mono',Menlo,Consolas,monospace}
+        .series-section{padding:56px 32px}
+        .series-inner{max-width:1000px;margin:0 auto}
+        .series-title{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--gray-500);margin-bottom:24px;text-align:center}
+        .series-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+        .series-card{background:var(--white);border:1px solid var(--gray-200);border-radius:8px;padding:24px;text-decoration:none;color:inherit;transition:border-color .15s}
+        .series-card:hover{border-color:var(--navy)}
+        .series-card-cat{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--navy);margin-bottom:10px}
+        .series-card h3{font-size:15px;font-weight:600;color:var(--gray-900);line-height:1.4}
+        .footer{background:var(--gray-900);padding:48px 32px 24px;color:var(--gray-400)}
+        .footer-inner{max-width:1200px;margin:0 auto}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}
+        .footer-brand p{font-size:13px;line-height:1.6;margin-top:12px;color:var(--gray-500)}
+        .footer-col h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--gray-300);margin-bottom:16px}
+        .footer-col a{display:block;font-size:13px;color:var(--gray-500);text-decoration:none;margin-bottom:10px}.footer-col a:hover{color:var(--gray-300)}
+        .footer-powered{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid var(--gray-800)}
+        .powered-item{display:flex;flex-direction:column;gap:12px}.powered-label{font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--gray-500)}
+        .powered-logo{display:flex;align-items:center;gap:10px}.powered-name{font-size:20px;font-weight:700;color:var(--white)}
+        .powered-desc{font-size:13px;line-height:1.6;color:var(--gray-400);max-width:360px}
+        .footer-bottom{padding-top:24px;display:flex;justify-content:space-between;font-size:12px}
+        .cookie-banner{display:block;position:fixed;bottom:0;left:0;right:0;background:var(--navy);color:var(--white);padding:20px;z-index:9999}
+        .cookie-banner.hide{display:none}.cookie-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+        .cookie-text{flex:1;font-size:14px;line-height:1.5}.cookie-text a{color:var(--white);text-decoration:underline}
+        .cookie-buttons{display:flex;gap:12px}.cookie-btn{padding:10px 20px;border-radius:6px;font-size:14px;font-weight:500;cursor:pointer;border:none}
+        .cookie-btn-accept{background:var(--white);color:var(--navy)}.cookie-btn-decline{background:transparent;color:var(--white);border:1px solid var(--gray-400)}
+        @media(max-width:1024px){.series-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr;gap:24px}.footer-powered{grid-template-columns:1fr;gap:32px}}
+        @media(max-width:640px){.nav-links{display:none}.article-hero{padding:40px 24px 24px}.article-hero h1{font-size:30px}.article-content{font-size:16px}.cookie-inner{flex-direction:column;text-align:center}.cookie-buttons{width:100%;justify-content:center}}
+    </style>
+</head>
+<body>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><div class="nav-links"><a href="https://fiatrails.com">Main Site</a><a href="https://fiatrails.foundation">Foundation</a><a href="../index.html#products">Products</a><a href="../architecture.html">Architecture</a><a href="/insights">Insights</a><a href="../apply.html" class="nav-cta">Request Briefing</a></div></div></nav>
+
+    <article>
+        <header class="article-hero">
+            <div class="article-hero-inner">
+                <a href="/insights" class="article-back">&larr; All insights</a>
+                <div class="article-meta">
+                    <span class="article-category">Product Update</span>
+                    <span class="article-byline">NETTA Insights</span>
+                    <span class="article-date">8 May 2026</span>
+                </div>
+                <h1>The Settlement Computer: What Is Live on Testnet and What Comes Next</h1>
+                <p class="lede">Five product surfaces live on testnet. Three in design. One shared multi-tenant Avalanche L1.</p>
+            </div>
+        </header>
+
+        <div class="article-body">
+            <div class="article-content">
+
+                <p>The Settlement Computer is NETTA' institutional settlement infrastructure suite for bringing multilateral netting to cross-border flows, tokenised asset settlement, stablecoin obligations, and emerging digital currency rails that currently settle largely on a gross basis.</p>
+
+                <p>Five of the eight product surfaces are now live on testnet on a custom Avalanche L1. The testnet demonstrates shared netting, ISO 20022 message generation, Travel Rule data capture, multi-source peg verification, risk analytics, and corridor-level settlement configuration.</p>
+
+                <p>This article is a status update. It explains what is operating on testnet today, what remains in design, how the shared-chain architecture supports cross-product netting, and where regulatory engagement sits.</p>
+
+                <div class="testnet-callout"><strong>The Settlement Computer is not yet processing production institutional settlement flows.</strong> Production deployment will follow controlled pilots and the relevant supervisory pathway in each jurisdiction.</div>
+
+                <h2>Product status at a glance</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Status</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Settlement</td><td>Live on testnet</td><td>Cross-border multilateral netting</td></tr>
+                        <tr><td>PayNet</td><td>Live on testnet</td><td>Retail / mobile flow aggregation into ISO 20022 settlement messages</td></tr>
+                        <tr><td>RiskNet</td><td>Live on testnet</td><td>Protocol-native risk analytics and admission control</td></tr>
+                        <tr><td>AssetNet</td><td>Live on testnet</td><td>Tokenised asset DVP obligation compression</td></tr>
+                        <tr><td>StableNet</td><td>Live on testnet</td><td>Stablecoin obligation netting and peg / rule checks</td></tr>
+                        <tr><td>Trade</td><td>In design</td><td>Trade finance obligation netting</td></tr>
+                        <tr><td>Grid</td><td>In design</td><td>Energy settlement netting</td></tr>
+                        <tr><td>Nexus</td><td>In design</td><td>Agentic clearing for autonomous economic agents</td></tr>
+                    </tbody>
+                </table>
+
+                <h2>Why one chain, multiple products</h2>
+
+                <p>The Settlement Computer runs as a single multi-tenant Avalanche L1 with eleven consensus-level precompiles. Every product on the chain shares the same netting engine, compliance gate, peg oracle, and settlement state machine — but operates within isolated corridors with per-corridor configuration, role-based access control, and supervisory observability.</p>
+
+                <p>The reason the architecture is multi-tenant rather than per-product is that <strong>institutional flows do not respect product boundaries</strong>. A bank settling cross-border FX obligations is also settling tokenised asset DVP, also settling stablecoin obligations to its retail customers, also receiving micro-transaction aggregations from mobile money corridors. If each of those flows runs on a separate chain or settlement network, the bank captures only the compression available within each silo. If they run on a shared netting layer, cross-product offsets become available.</p>
+
+                <p>The shared layer also delivers operational consolidation: one set of validators, one compliance framework, one set of supervisory access controls. Institutional adoption is constrained by integration overhead more than by technology. One chain that handles five product surfaces is materially easier to evaluate, license, and connect to than five chains.</p>
+
+                <h2>What is live on testnet</h2>
+
+                <h3>Settlement</h3>
+
+                <p>Multilateral netting for cross-border institutional settlement. Eleven corridors operating on the testnet across the UAE, Africa, Asia, and Europe, with bilateral pre-netting, residual carry-forward, and cross-corridor aggregation for currencies that span multiple corridors.</p>
+
+                <p>Across synthetic testnet obligations, Settlement has demonstrated average compression above 91 per cent across active corridors, with cross-corridor netting layered on top to capture additional savings between corridors sharing the same currency. Future pilot reporting will publish methodology, window counts, gross notional, and corridor mix in detail. Privacy is enforced via Pedersen commitments and Bulletproofs zero-knowledge range proofs in the consensus layer, so amounts are committed homomorphically without being exposed.</p>
+
+                <p>Settlement is the foundation. Every other product builds on it.</p>
+
+                <h3>PayNet</h3>
+
+                <p>Micro-transaction aggregation with AI-powered ISO 20022 translation. PayNet ingests retail and mobile money flows — formats that are not natively settlement-eligible — and translates them into CBPR+-compatible pacs.008 messages that can enter the multilateral netting engine.</p>
+
+                <p>PayNet's role is not to replace mobile money. It converts fragmented retail-originated obligations into settlement-eligible institutional messages. Tens of thousands of obligations have been processed in committed mode on the testnet, with the translation pipeline running continuously and producing high cache hit rates against repeated message structures.</p>
+
+                <p>The product addresses one of the structural reasons institutional netting infrastructure has not reached emerging market corridors: the originating flows are formatted for retail rails, not interbank rails, and the translation layer between the two is the bottleneck.</p>
+
+                <h3>RiskNet</h3>
+
+                <p>Protocol-native risk analytics and closed-loop admission control. RiskNet applies network-science and stress-testing models to determine whether an obligation should be admitted, reduced, held, or rejected before it enters a settlement window.</p>
+
+                <p>Twenty-five algorithms run on the testnet every thirty seconds across all active corridors, computing counterparty risk scores, corridor concentration metrics, network and systemic risk measures, and stress test outcomes (technical models include DebtRank, multiplex DebtRank, K-shell decomposition, graph centrality, Cover-2, Cover-3, and reverse stress). The output drives a four-band admission decision per obligation: FULL_ADMIT, REDUCED, HOLD, or REJECT.</p>
+
+                <p>RiskNet's distinction from traditional settlement risk monitoring is granularity. Existing settlement infrastructures score risk at the member or portfolio level. RiskNet scores at the counterparty-corridor-window level, drawing on data only the protocol itself can see — the difference between gross and net obligations, the historical compression pattern of each corridor, and the bilateral exposure structure across the participant graph.</p>
+
+                <p>The platform is designed to support BCBS 248-style intraday liquidity reporting and PFMI-aligned risk monitoring, producing structured risk data outputs that align with supervisory reporting expectations.</p>
+
+                <h3>AssetNet</h3>
+
+                <p>Multilateral netting for tokenised financial assets with atomic delivery-versus-payment compression. AssetNet handles paired DVP obligations — cash and asset legs together — and finds offsets across counterparties while preserving atomic settlement guarantees on each pair.</p>
+
+                <p>Five tokenised asset corridors are operating on the testnet, named after major tokenised US Treasury and money market fund instruments active in institutional digital asset markets — BUIDL, OUSG, BENJI, USYC, and bIB01. Over one hundred thousand DVP obligations have been ingested across these testnet corridors. Several hundred netting windows have been completed. Several thousand on-chain settlement instructions have been executed.</p>
+
+                <blockquote><strong>References to BUIDL, OUSG, BENJI, USYC, and bIB01 describe supported testnet asset profiles and do not imply affiliation, endorsement, integration, or commercial relationship with the issuers or asset managers of these instruments.</strong></blockquote>
+
+                <p>The full participant taxonomy — custodians, central counterparties, market makers, broker-dealers, and asset managers — is supported with KYB Tier 3 verification, sanctions screening, and per-corridor permissioning.</p>
+
+                <p>Large segments of cross-border repo and tokenised collateral activity remain fragmented across venues, counterparties, and jurisdictions, without a universal cross-asset netting layer for tokenised obligations. AssetNet is designed for that gap.</p>
+
+                <h3>StableNet</h3>
+
+                <p>Multilateral netting for stablecoin obligations with multi-source peg verification, ISO 20022 message generation, and Travel Rule data capture. Three stablecoin corridors are operating on the testnet — USDC, XSGD, and RLUSD — with continuous synthetic obligation flow and auto-triggered settlement execution every ten minutes.</p>
+
+                <p>In a representative testnet window close, StableNet demonstrated compression of 4.96 to 1 — an 84 per cent capital reduction. The testnet includes twenty-two baseline compliance-rule checks mapped to sanctions screening, EU MiCA requirements, the US GENIUS Act framework and its pending implementation rules, and Singapore's stablecoin regulatory framework. Travel Rule data is structured using IVMS101-compatible fields, with AES-256-GCM at-rest encryption and RFC 6962 Merkle proofs committed on-chain per window close so that record inclusion can be verified independently.</p>
+
+                <p>The peg oracle uses three to five effective sources per stablecoin pair on the testnet, combining settlement-grade signed feeds (EIP-712 typed data) with public market data sources. Peg-deviation circuit breakers are enforced before netting.</p>
+
+                <p>Seven institutional stablecoins have issuer-risk profiles in the StableNet registry: USDC, USDT, EURC, PYUSD, XSGD, RLUSD, and USDPT.</p>
+
+                <blockquote><strong>Registry support means the testnet contains issuer-risk profiles and oracle-pair configurations for these stablecoins. It does not imply partnership, endorsement, commercial relationship, or live integration with any issuer.</strong></blockquote>
+
+                <h2>What is in design</h2>
+
+                <p>Three further products complete the eight-product Settlement Computer suite. They are scoped, the subject of provisional patent filings, and architected on the same multi-tenant chain — but build sequencing follows pilot demand:</p>
+
+                <ul>
+                    <li><strong>Trade</strong> — maturity-aware netting for trade finance. Document-anchored settlement for letters of credit, bills of lading, and documentary collections.</li>
+                    <li><strong>Grid</strong> — energy settlement netting for electricity, gas, and distributed energy resource obligations. Circular debt resolution with time-indexed settlement windows.</li>
+                    <li><strong>Nexus</strong> — agentic clearing for autonomous economic agents. Machine-native settlement with causal shared state, graph-derived credit pricing, and adaptive liquidity optimisation.</li>
+                </ul>
+
+                <p>The design-phase products share the same precompile stack as the live products, so build time is dominated by domain-specific compliance rules, message format adapters, and pilot integration rather than core protocol work.</p>
+
+                <h2>Cross-product netting</h2>
+
+                <p>The architectural advantage that justifies the multi-tenant model becomes visible when obligations span products. A bank running corridors across multiple products on the Settlement Computer can have its USD-denominated obligations from Settlement (cross-border FX), AssetNet (tokenised asset cash legs), and StableNet (stablecoin payments) aggregated at the chain layer for cross-corridor netting.</p>
+
+                <p>This is not a future feature. The Netting precompile already supports cross-corridor aggregation by currency, and per-currency netting rounds run on the testnet across multi-corridor populations. Cross-corridor netting on the Settlement product alone has demonstrated material additional compression on top of per-corridor netting.</p>
+
+                <p>The same mechanism extends across products as additional product-specific obligations enter the shared netting engine. The marginal cost of running a fifth product on the chain is modest; the marginal benefit, in terms of cross-product compression, scales with how many product surfaces a participant uses.</p>
+
+                <h2>Patent posture</h2>
+
+                <p>The Settlement Computer architecture is the subject of seven United States provisional patent applications, comprising approximately 437 draft claims that are expected to inform corresponding non-provisional filings:</p>
+
+                <ul>
+                    <li><strong>PROV-001</strong> — Core multilateral netting architecture</li>
+                    <li><strong>PROV-002</strong> — Cross-corridor netting and bilateral pre-netting with residual carry-forward</li>
+                    <li><strong>PROV-003</strong> — Trade finance and energy settlement variants</li>
+                    <li><strong>PROV-004</strong> — Agentic clearing for autonomous economic agents</li>
+                    <li><strong>PROV-005</strong> — Micro-transaction aggregation and ISO 20022 translation</li>
+                    <li><strong>PROV-006</strong> — Tokenised asset DVP netting (~106 draft claims, 26 invention families)</li>
+                    <li><strong>PROV-007</strong> — Digital currency netting for stablecoins and CBDCs (~44 draft claims, 17 invention families)</li>
+                </ul>
+
+                <p>Filing dates have been established for all seven provisional applications, subject to conversion into non-provisional filings within the applicable deadlines. The portfolio is intended to cover the entire eight-product Settlement Computer architecture, including the cryptographic privacy layer (Pedersen commitments with homomorphic netting, AES-256-SIV metadata encryption, Bulletproofs range proofs, and Shamir's Secret Sharing key distribution) and the post-quantum-ready authentication layer (ML-DSA, the lattice-based digital signature standard specified in NIST FIPS 204).</p>
+
+                <h2>Regulatory and compliance posture</h2>
+
+                <p>The Settlement Computer is designed for regulatory observability rather than against it. The compliance gate enforces sanctions screening, jurisdictional rules, and stablecoin-framework alignment before any obligation enters the netting engine. The Travel Rule layer captures IVMS101-compatible data for every cross-border movement. The risk analytics layer produces structured outputs aligned with BCBS 248-style intraday liquidity reporting and PFMI-aligned risk monitoring.</p>
+
+                <p>Tiered view keys provide cryptographic supervisory access — regulators can be granted granular, scoped, time-bounded access to the records they are entitled to see, without exposing those records to other participants or operators. The architecture is designed to support future assessment against PFMI-style finality and operational resilience expectations, including Principle 8 (Settlement Finality) and Principle 17 (Operational Risk).</p>
+
+                <p>Engagement and enquiries are active across multiple jurisdictions — central bank dialogue, sandbox enquiries, and innovation hub interactions in the Middle East, Europe, and Asia-Pacific.</p>
+
+                <div class="testnet-callout"><strong>The platform is operating on testnet, not in production.</strong> Production deployment, regulatory designation, and pilot operations are sequenced after the appropriate supervisory engagement in each jurisdiction.</div>
+
+                <h2>What comes next</h2>
+
+                <p>Three priorities for the next phase of the Settlement Computer:</p>
+
+                <ol>
+                    <li><strong>Move from testnet to controlled pilot.</strong> Bringing real institutional flows onto the live products under supervisory observation in one or more jurisdictions. The technical platform is ready; the regulatory pathway is the gating factor.</li>
+                    <li><strong>Activate the design-phase products in response to pilot demand.</strong> Trade, Grid, and Nexus are scoped and the subject of provisional filings. Build sequencing follows where institutional demand materialises first.</li>
+                    <li><strong>Extend the cross-product netting story.</strong> As more product surfaces operate on the shared chain, the cross-product offsets compound. The next round of testnet metrics will quantify this directly.</li>
+                </ol>
+
+                <p>The Settlement Computer is no longer only a design thesis. Five product surfaces are running on testnet, the shared netting layer is operational, and the next phase is controlled institutional validation.</p>
+
+                <p>The questions now move from architecture to adoption: which corridors, which participants, which supervisory pathway, and which pilot flow should come first.</p>
+
+                <p>Those are the conversations NETTA is having now.</p>
+
+                <hr>
+
+                <div class="disclosure"><strong>Disclosure:</strong> NETTA' Settlement Computer is currently operating on testnet and is not yet processing production institutional settlement flows. References to third-party stablecoins, tokenised assets, issuers, or asset managers describe technical testnet support or registry configuration only and do not imply affiliation, endorsement, commercial relationship, or production integration. Patent references relate to provisional applications and do not indicate issued patent rights unless and until patents are granted. References to PFMI, BCBS 248, ISO 20022, and other regulatory frameworks describe the architecture's design alignment and do not imply official designation, certification, or regulatory approval.</div>
+
+                <p><em>This article is part of the NETTA Insights series on institutional settlement infrastructure.</em></p>
+
+            </div>
+        </div>
+    </article>
+
+    <section class="newsletter-section">
+        <div class="newsletter-inner">
+            <div class="newsletter-eyebrow">NETTA Insights · Newsletter</div>
+            <h2 class="newsletter-title">Get NETTA Insights</h2>
+            <p class="newsletter-desc">Bi-weekly institutional settlement infrastructure thought leadership. No marketing fluff.</p>
+            <div class="newsletter-form-wrap"><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="c83c5533-4a14-4498-a994-91efdf41c81c"></script></div>
+        </div>
+    </section>
+
+    <section class="series-section">
+        <div class="series-inner">
+            <div class="series-title">More from NETTA Insights</div>
+            <div class="series-grid">
+                <a href="/insights/what-is-multilateral-netting" class="series-card">
+                    <div class="series-card-cat">Educational</div>
+                    <h3>What Is Multilateral Netting? How Cross-Border Settlement Compression Works</h3>
+                </a>
+                <a href="/insights/atomic-settlement-mirage" class="series-card">
+                    <div class="series-card-cat">Industry Analysis</div>
+                    <h3>The Atomic Settlement Mirage: Why Configurable Netting Beats Universal T+0</h3>
+                </a>
+                <a href="/insights/mica-digital-asset-settlement" class="series-card">
+                    <div class="series-card-cat">Regulatory</div>
+                    <h3>MiCA Regulates the Asset. The Settlement Layer Comes Next.</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>Settlement Computer — institutional settlement infrastructure on a dedicated Avalanche L1. Technology service provider — never custodying funds.</p></div><div class="footer-col"><h4>Products</h4><a href="../settlement.html">Settlement</a><a href="../paynet.html">PayNet</a><a href="../risknet.html">RiskNet</a><a href="../trade.html">Trade</a><a href="../grid.html">Grid</a><a href="../nexus.html">Nexus</a><a href="../assetnet.html">AssetNet</a><a href="../stablenet.html">StableNet</a></div><div class="footer-col"><h4>Company</h4><a href="https://fiatrails.com/#about">About</a><a href="https://fiatrails.foundation">Foundation</a><a href="../architecture.html">Documentation</a><a href="/insights">Insights</a></div><div class="footer-col"><h4>Connect</h4><a href="https://t.me/NETTA_Bot">Telegram</a><a href="https://twitter.com/fiatrails">Twitter</a><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a></div><div class="footer-col"><h4>Legal</h4><a href="../terms.html">Terms of Service</a><a href="../privacy.html">Privacy Policy</a></div></div>
+    <div class="footer-powered"><div class="powered-item"><span class="powered-label">POWERED BY</span><div class="powered-logo"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#E84142"/><path d="M21.5 21H18.5L16 16.5L13.5 21H10.5L16 11L21.5 21Z" fill="white"/></svg><span class="powered-name">Avalanche</span></div><p class="powered-desc">Custom Avalanche L1 with 11 consensus-level native precompiles.</p></div><div class="powered-item"><span class="powered-label">BUILT BY</span><div class="powered-logo"><a href="https://digitalyzelabs.com" target="_blank" rel="noopener noreferrer"><img src="../digitalyze-labs-logo.png" alt="Digitalyze Labs" style="height:28px;width:auto"></a></div><p class="powered-desc">Enterprise blockchain development and fintech infrastructure specialists.</p></div></div>
+    <div class="footer-bottom"><span>&copy; 2026 FiatRails Foundation Ltd. All rights reserved.</span><span>CR-431901 | LEI <a href="https://search.gleif.org/#/record/894500RG1F2BKNE8P514" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">894500RG1F2BKNE8P514</a> | Cayman Islands</span></div></div></footer>
+
+    <div class="cookie-banner" id="cookieBanner"><div class="cookie-inner"><div class="cookie-text">We use cookies to enhance your experience. <a href="../privacy.html">Learn more</a></div><div class="cookie-buttons"><button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept</button><button class="cookie-btn cookie-btn-decline" onclick="declineCookies()">Decline</button></div></div></div>
+    <script>function setCookie(n,v,d){const e=new Date(Date.now()+d*864e5).toUTCString();document.cookie=n+'='+encodeURIComponent(v)+'; expires='+e+'; path=/';}function getCookie(n){return document.cookie.split('; ').reduce((r,v)=>{const p=v.split('=');return p[0]===n?decodeURIComponent(p[1]):r;},'')}function acceptCookies(){setCookie('cookieConsent','accepted',365);document.getElementById('cookieBanner').classList.add('hide');}function declineCookies(){setCookie('cookieConsent','declined',365);document.getElementById('cookieBanner').classList.add('hide');}if(getCookie('cookieConsent'))document.getElementById('cookieBanner').classList.add('hide');</script>
+</body>
+</html>
