@@ -260,7 +260,7 @@
                 </div>
             </div>
 
-            <p>Qedis provides a substrate-agnostic hybrid privacy architecture. Amounts are protected by Pedersen commitments (BN254) enabling homomorphic netting on encrypted values. Metadata is encrypted with AES-256-SIV. Key distribution uses Shamir's Secret Sharing.</p>
+            <p>Qedis provides a substrate-agnostic hybrid privacy architecture. Amounts are protected by Pedersen commitments (BN254) enabling homomorphic netting on encrypted values. Metadata is encrypted with AES-256-SIV. Key distribution uses Shamir's Secret Sharing. Transparent post-quantum proofs via FRI-STARK, selective disclosure via BBS+ signatures, and privacy-preserving addressing via stealth addresses.</p>
 
             <div class="specs-grid">
                 <div class="spec">
@@ -273,7 +273,19 @@
                 </div>
                 <div class="spec">
                     <div class="spec-label">Range Proofs</div>
-                    <div class="spec-value">Bulletproofs — 70ms proving, no trusted setup</div>
+                    <div class="spec-value">Bulletproofs + FRI-STARK — dual proof backend, no trusted setup, post-quantum transparent proofs</div>
+                </div>
+                <div class="spec">
+                    <div class="spec-label">Selective Disclosure</div>
+                    <div class="spec-value">BBS+ signatures — prove credential attributes without revealing full data (regulatory compliance)</div>
+                </div>
+                <div class="spec">
+                    <div class="spec-label">Stealth Addresses</div>
+                    <div class="spec-value">Privacy-preserving counterparty addressing — unlinkable one-time addresses per settlement</div>
+                </div>
+                <div class="spec">
+                    <div class="spec-label">Confidential Tokens</div>
+                    <div class="spec-value">cToken — full confidential token with quorum governance, stealth minting, and authority-controlled issuance</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">Key Distribution</div>
@@ -282,6 +294,10 @@
                 <div class="spec">
                     <div class="spec-label">Key Derivation</div>
                     <div class="spec-value">HKDF for per-window and per-corridor key material</div>
+                </div>
+                <div class="spec">
+                    <div class="spec-label">Cryptographic Accumulator</div>
+                    <div class="spec-value">Sparse Merkle Tree — efficient membership and non-membership proofs for on-chain state</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">Corridor Privacy Levels</div>
@@ -294,25 +310,25 @@
 
         <!-- POST-QUANTUM -->
         <section class="section">
-            <h2>Post-Quantum Authentication</h2>
-            <p>ML-DSA (FIPS 204) deployed via cloudflare/circl — real post-quantum signatures, not simulated. This provides harvest-now-decrypt-later protection for all settlement transactions.</p>
+            <h2>Post-Quantum Cryptography</h2>
+            <p>Full post-quantum stack deployed via cloudflare/circl — ML-DSA for signatures, ML-KEM for key encapsulation, and hybrid classical+PQ modes for regulatory-aligned migration (CNSA 2.0 / BIS 158). Real post-quantum cryptography, not simulated.</p>
 
             <div class="specs-grid">
                 <div class="spec">
-                    <div class="spec-label">Algorithm</div>
-                    <div class="spec-value">ML-DSA (CRYSTALS-Dilithium, FIPS 204)</div>
+                    <div class="spec-label">Signatures</div>
+                    <div class="spec-value">ML-DSA (FIPS 204) — Modes 44/65/87, batch verification</div>
                 </div>
                 <div class="spec">
-                    <div class="spec-label">Modes</div>
-                    <div class="spec-value">ML-DSA-44, ML-DSA-65, ML-DSA-87</div>
+                    <div class="spec-label">Key Encapsulation</div>
+                    <div class="spec-value">ML-KEM (FIPS 203) — Modes 512/768/1024, post-quantum viewing key exchange</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">Implementation</div>
-                    <div class="spec-value">cloudflare/circl — production library</div>
+                    <div class="spec-value">cloudflare/circl — production FIPS-validated library</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">Hybrid Mode</div>
-                    <div class="spec-value">Dilithium + ECDSA available for transition</div>
+                    <div class="spec-value">ML-DSA + ECDSA with cryptographic key-binding — fail-closed combined-AND verification</div>
                 </div>
             </div>
         </section>
