@@ -1569,7 +1569,27 @@
             </div>
         </div>
     </section>
-    <!-- BOARD-STRIP: board cards inserted on announcement day -->
+    <section id="board" style="background:var(--gray-50);padding:80px 32px"><div style="max-width:1200px;margin:0 auto">
+        <style>.people-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+        .people-grid-2{grid-template-columns:repeat(2,1fr);max-width:640px;margin:0 auto}
+        .person{background:var(--white);border:1px solid var(--gray-200);border-radius:8px;padding:24px}
+        .person-photo{aspect-ratio:1/1;background:var(--gray-100);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:600;color:var(--gray-400);margin-bottom:16px}
+        .person-name{font-size:17px;font-weight:700;color:var(--gray-900)}
+        .person-role{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin:4px 0 10px}
+        .person-bio{font-size:13.5px;line-height:1.6;color:var(--gray-600)}
+        .entity-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+        .entity{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:24px}
+        .entity h4{font-size:15px;font-weight:700;color:var(--white);margin-bottom:6px}
+        .entity p{font-size:13px;color:rgba(255,255,255,.65);line-height:1.6}
+        .entity code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:rgba(255,255,255,.85)}
+        @media (max-width:1024px){.people-grid{grid-template-columns:repeat(2,1fr)}.entity-grid{grid-template-columns:1fr}}
+        @media (max-width:640px){.people-grid,.people-grid-2{grid-template-columns:1fr}}
+</style>
+        <div class="section-header"><div class="section-label">Board of Directors</div><h2 class="section-title">The Founder and three independent non-executive directors</h2>
+        <p class="section-desc">Drawn from the institutions that built the current generation of post-trade and settlement infrastructure. <a href="governance.html" style="color:var(--navy);font-weight:600">How the Foundation is governed &rarr;</a></p></div>
+        <div class="people-grid"><div class="person"><div class="person-photo" aria-hidden="true">VS</div><div class="person-name">Vincent Scaturchio</div><div class="person-role">Founder &amp; Chief Executive · Director</div><p class="person-bio">More than twenty years delivering settlement and trading technology into Tier-1 banks as supplier-principal under direct MSA and SOW engagements. Sole inventor of the twenty-application patent estate and architect of the five-product settlement stack.</p></div><div class="person"><div class="person-photo" aria-hidden="true">MP</div><div class="person-name">Murray Pozmanter</div><div class="person-role">Non-Executive Director</div><p class="person-bio">Former President of Clearing Agency Services and Head of Global Business Operations, DTCC. Sixteen years overseeing post-trade processing across DTC, NSCC and FICC — the netting utilities of the US securities market.</p></div><div class="person"><div class="person-photo" aria-hidden="true">SB</div><div class="person-name">Steve Bertamini</div><div class="person-role">Non-Executive Director</div><p class="person-bio">Former Group Chief Executive Officer, Al Rajhi Bank — the world's largest Islamic bank by assets. Former Group Executive Director, Standard Chartered.</p></div><div class="person"><div class="person-photo" aria-hidden="true">IL</div><div class="person-name">Iona Levine</div><div class="person-role">Non-Executive Director</div><p class="person-bio">Led the legal working party that built ECHO, the multilateral netting system that became CLS. Former General Counsel and Managing Director, LCH.Clearnet Group.</p></div></div>
+    
+    </div></section>
 
     <!-- CTA -->
     <section class="cta-section">
