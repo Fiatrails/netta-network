@@ -75,6 +75,20 @@
         @media(max-width:1024px){.features-grid,.two-col{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr;gap:24px}.footer-powered{grid-template-columns:1fr;gap:32px}}
         @media(max-width:640px){.nav-links{display:none}.hero{padding:48px 24px 56px}.hero h1{font-size:32px}.cookie-inner{flex-direction:column;text-align:center}.cookie-buttons{width:100%;justify-content:center}}
     
+        .nav-toggle{display:none}
+        .nav-burger{display:none;width:40px;height:40px;align-items:center;justify-content:center;cursor:pointer;border:1px solid var(--gray-200);border-radius:6px;margin-left:auto}
+        .nav-burger span{display:block;width:18px;height:2px;background:var(--navy);box-shadow:0 -6px 0 var(--navy),0 6px 0 var(--navy)}
+        @media (max-width:640px){
+          .nav-burger{display:flex}
+          .nav-links{display:none;position:absolute;left:0;right:0;top:72px;background:var(--white);border-bottom:1px solid var(--gray-200);flex-direction:column;align-items:stretch;gap:0;padding:8px 24px 16px}
+          .nav-links a{padding:12px 0;border-bottom:1px solid var(--gray-100)}
+          .nav-toggle:checked ~ .nav-links{display:flex}
+          .nav-inner{position:relative}
+        }
+        .skip{position:absolute;left:-9999px;top:0;background:var(--navy);color:#fff;padding:8px 12px;z-index:1000}
+        .skip:focus{left:8px;top:8px}
+        a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+    
         .people-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
         .people-grid-2{grid-template-columns:repeat(2,1fr);max-width:720px;margin:0 auto}
         .person{background:var(--white);border:1px solid var(--gray-200);border-radius:6px;padding:24px}
@@ -96,26 +110,10 @@
         .notice-list time{color:var(--gray-500);font-variant-numeric:tabular-nums}
         @media (max-width:1024px){.people-grid{grid-template-columns:repeat(2,1fr)}.entity-grid{grid-template-columns:1fr}}
         @media (max-width:640px){.people-grid,.people-grid-2{grid-template-columns:1fr}.notice-list li{grid-template-columns:1fr}}
-    
-        .nav-toggle{display:none}
-        .nav-burger{display:none;width:40px;height:40px;align-items:center;justify-content:center;cursor:pointer;border:1px solid var(--gray-200);border-radius:6px;margin-left:auto}
-        .nav-burger span{display:block;width:18px;height:2px;background:var(--navy);box-shadow:0 -6px 0 var(--navy),0 6px 0 var(--navy)}
-        @media (max-width:640px){
-          .nav-burger{display:flex}
-          .nav-links{display:none;position:absolute;left:0;right:0;top:72px;background:var(--white);border-bottom:1px solid var(--gray-200);flex-direction:column;align-items:stretch;gap:0;padding:8px 24px 16px}
-          .nav-links a{padding:12px 0;border-bottom:1px solid var(--gray-100)}
-          .nav-toggle:checked ~ .nav-links{display:flex}
-          .nav-inner{position:relative}
-        }
-        .skip{position:absolute;left:-9999px;top:0;background:var(--navy);color:#fff;padding:8px 12px;z-index:1000}
-        .skip:focus{left:8px;top:8px}
-        a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
     </style>
 </head>
 <body>
-    <a href="#main" class="skip">Skip to content</a>
-<nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Governance &amp; Board</span></a><input type="checkbox" id="nav-toggle" class="nav-toggle" hidden><label for="nav-toggle" class="nav-burger" aria-label="Menu"><span></span></label><div class="nav-links"><a href="/#products">Services</a><a href="/architecture">Architecture</a><a href="/governance">Governance</a><a href="/insights/">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="/apply" class="nav-cta">Request Briefing</a></div></div></nav>
-<main id="main">
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Governance &amp; Board</span></a><input type="checkbox" id="nav-toggle" class="nav-toggle" hidden><label for="nav-toggle" class="nav-burger" aria-label="Menu"><span></span></label><div class="nav-links"><a href="/#products">Services</a><a href="/architecture">Architecture</a><a href="/governance">Governance</a><a href="/insights/">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="/apply" class="nav-cta">Request Briefing</a></div></div></nav>
 
     <section class="hero"><div class="hero-inner">
         <span class="hero-badge">Governance</span>
@@ -189,9 +187,8 @@
     <section style="background:var(--navy);padding:64px 32px;text-align:center"><div style="max-width:720px;margin:0 auto">
         <h2 style="font-size:28px;font-weight:700;color:var(--white);letter-spacing:-.02em;margin-bottom:12px">Request an institutional briefing</h2>
         <p style="font-size:15px;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:28px">A 45-minute session covering the settlement model, the perimeter analysis for your jurisdiction and the pilot structure. Technical documentation and NDA available to qualified participants.</p>
-        <a href="/apply" style="display:inline-block;background:var(--white);color:var(--navy);padding:14px 28px;border-radius:6px;font-weight:600;text-decoration:none;font-size:15px">Request a briefing</a>
+        <a href="apply.html" style="display:inline-block;background:var(--white);color:var(--navy);padding:14px 28px;border-radius:6px;font-weight:600;text-decoration:none;font-size:15px">Request a briefing</a>
     </div></section>
-</main>
 
     <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA is a product of FiatRails Foundation Ltd.</p></div><div class="footer-col"><h4>Services</h4><a href="/#products">Settlement domains</a><a href="/settlement">Settlement model</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h4>Company</h4><a href="/governance">Governance &amp; Board</a><a href="/governance#board">Board of Directors</a><a href="https://fiatrails.foundation">Foundation</a><a href="insights/">Insights</a><a href="/apply">Request a briefing</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/netta-network" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://x.com/nettanetwork" target="_blank" rel="noopener noreferrer">X</a><a href="mailto:briefings@netta.network">briefings@netta.network</a></div><div class="footer-col"><h4>Legal</h4><a href="/terms">Terms of Use</a><a href="/privacy">Privacy Notice</a><a href="/governance#standards">PFMI self-assessment (on request)</a></div></div>
     <div class="footer-bottom"><span>&copy; 2026 FiatRails Foundation Ltd. All rights reserved.</span><span>CR-431901 | LEI <a href="https://search.gleif.org/#/record/894500RG1F2BKNE8P514" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">894500RG1F2BKNE8P514</a> | Cayman Islands</span></div></div></footer>
