@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Settlement Computer: What Is Live on Testnet and What Comes Next | NETTA Insights</title>
-    <meta name="description" content="A status update on the NETTA — The Settlement Computer — five product surfaces live on testnet, three in design, all running on a shared multi-tenant Avalanche L1 with multilateral netting, ISO 20022 messaging, Travel Rule data capture, and protocol-native risk analytics.">
+    <meta name="description" content="A status note on NETTA — The Settlement Computer: five products exercised on testnet, three domains in design, one settlement chain, twenty US patent applications, detailed documentation under NDA.">
     <meta name="author" content="Vincent Scaturchio">
     <link rel="icon" type="image/png" href="/icons/favicon-32x32.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
 
     <meta property="og:type" content="article">
     <meta property="og:title" content="The Settlement Computer: What Is Live on Testnet and What Comes Next">
-    <meta property="og:description" content="Five product surfaces live on testnet. Shared multi-tenant Avalanche L1. Multilateral netting, ISO 20022 messaging, protocol-native risk analytics.">
+    <meta property="og:description" content="Five products exercised on testnet. One settlement chain. Twenty US patent applications. Detailed documentation under NDA.">
     <meta property="og:url" content="https://netta.network/insights/settlement-computer-five-products-live">
     <meta property="og:site_name" content="NETTA Insights">
     <meta name="twitter:card" content="summary_large_image">
@@ -25,7 +25,7 @@
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": "The Settlement Computer: What Is Live on Testnet and What Comes Next",
-        "description": "A status update on the NETTA — The Settlement Computer — five product surfaces live on testnet, three in design, all running on a shared multi-tenant Avalanche L1.",
+        "description": "A status note on NETTA — The Settlement Computer: five products exercised on testnet, three domains in design, one settlement chain.",
         "author": {
             "@type": "Person",
             "name": "Vincent Scaturchio",
@@ -151,180 +151,44 @@
                     <span class="article-date">Last reviewed: 12 September 2026</span>
                 </div>
                 <h1>The Settlement Computer: What Is Live on Testnet and What Comes Next</h1>
-                <p class="lede">Five product surfaces live on testnet. Three in design. One shared multi-tenant Avalanche L1.</p>
+                <p class="lede">Five products exercised on testnet. Three domains in design. One settlement chain.</p>
             </div>
         </header>
 
         <div class="article-body">
             <div class="article-content">
 
-                <p>The Settlement Computer is NETTA's institutional settlement infrastructure suite for bringing multilateral netting to cross-border flows, tokenised asset settlement, stablecoin obligations, and emerging digital currency rails that currently settle largely on a gross basis.</p>
+                <p>This is a status note rather than an announcement. It records what the Settlement Computer is today, on a dedicated testnet, and what remains in design. Detailed technical documentation is available to qualified institutions under NDA.</p>
 
-                <p>Five of the eight product surfaces are now live on testnet on a custom Avalanche L1. The testnet demonstrates shared netting, ISO 20022 message generation, Travel Rule data capture, multi-source peg verification, risk analytics, and corridor-level settlement configuration.</p>
+                <h2>Five products exercised on testnet</h2>
 
-                <p>This article is a status update. It explains what is operating on testnet today, what remains in design, how the shared-chain architecture supports cross-product netting, and where regulatory engagement sits.</p>
+                <p>Five products run on one settlement chain, a dedicated Avalanche L1 with settlement logic implemented as native precompiles rather than smart contracts. <strong>Settlement</strong> computes multilateral net positions across corridor participants. <strong>PayNet</strong> aggregates high-volume, small-value flows into netting-eligible institutional obligations. <strong>RiskNet</strong> scores counterparty, corridor and systemic risk before an obligation enters a netting window, with admission control applied at the protocol level. <strong>AssetNet</strong> nets paired delivery-versus-payment legs for tokenised financial assets. <strong>StableNet</strong> nets heterogeneous stablecoin obligations with peg verification before netting.</p>
 
-                <div class="testnet-callout"><strong>The Settlement Computer is not yet processing production institutional settlement flows.</strong> Production use will follow controlled pilots under the supervisory engagement appropriate to each jurisdiction. NETTA is a technology service provider outside the licensable perimeter; all licensable activity remains with participating institutions. All figures are from the Lagrange testnet on generated test flow, as at September 2026. Participant profiles are synthetic.</div>
+                <p>All five share one netting engine, one compliance gate, one settlement state machine and one validator set. Settlement instructions are generated natively in ISO 20022 CBPR+ (pacs.008 and pacs.009 at the settlement layer, with pain.001, pacs.002, camt.053 and camt.054 via the institutional API). Privacy is cryptographic rather than hardware-based, with tiered supervisory view keys; the runtime is Qedis, owned by Digitalyze Labs Ltd and perpetually licensed to the NETTA group.</p>
 
-                <h2>Product status at a glance</h2>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Product</th>
-                            <th>Status</th>
-                            <th>Function</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Settlement</td><td>Live on testnet</td><td>Cross-border multilateral netting</td></tr>
-                        <tr><td>PayNet</td><td>Live on testnet</td><td>Retail / mobile flow aggregation into ISO 20022 settlement messages</td></tr>
-                        <tr><td>RiskNet</td><td>Live on testnet</td><td>Protocol-native risk analytics and admission control</td></tr>
-                        <tr><td>AssetNet</td><td>Live on testnet</td><td>Tokenised asset DVP obligation compression</td></tr>
-                        <tr><td>StableNet</td><td>Live on testnet</td><td>Stablecoin obligation netting and peg / rule checks</td></tr>
-                        <tr><td>Trade</td><td>In design</td><td>Trade finance obligation netting</td></tr>
-                        <tr><td>Grid</td><td>In design</td><td>Energy settlement netting</td></tr>
-                        <tr><td>Nexus</td><td>In design</td><td>Agentic clearing for autonomous economic agents</td></tr>
-                    </tbody>
-                </table>
-
-                <h2>Why one chain, multiple products</h2>
-
-                <p>The Settlement Computer runs as a single multi-tenant Avalanche L1 with eleven consensus-level precompiles. Every product on the chain shares the same netting engine, compliance gate, peg oracle, and settlement state machine — but operates within isolated corridors with per-corridor configuration, role-based access control, and supervisory observability.</p>
-
-                <p>The reason the architecture is multi-tenant rather than per-product is that <strong>institutional flows do not respect product boundaries</strong>. A bank settling cross-border FX obligations is also settling tokenised asset DVP, also settling stablecoin obligations to its retail customers, also receiving micro-transaction aggregations from mobile money corridors. If each of those flows runs on a separate chain or settlement network, the bank captures only the compression available within each silo. If they run on a shared netting layer, cross-product offsets become available.</p>
-
-                <p>The shared layer also delivers operational consolidation: one set of validators, one compliance framework, one set of supervisory access controls. Institutional adoption is constrained by integration overhead more than by technology. One chain that handles five product surfaces is materially easier to evaluate, license, and connect to than five chains.</p>
-
-                <h2>What is live on testnet</h2>
-
-                <h3>Settlement</h3>
-
-                <p>Multilateral netting for cross-border institutional settlement. Eleven corridors operating on the testnet across the UAE, Africa, Asia, and Europe, with bilateral pre-netting, residual carry-forward, and cross-corridor aggregation for currencies that span multiple corridors.</p>
-
-                <p>On the testnet, Settlement has demonstrated 91.2% average multilateral compression across 11 testnet corridors on balanced generated flow; directional corridors compress materially less. Cross-corridor netting is layered on top to capture additional savings between corridors sharing the same currency. Future pilot reporting will publish methodology, window counts, gross notional, and corridor mix in detail. Privacy is enforced via Pedersen commitments and Bulletproofs zero-knowledge range proofs in the consensus layer, so amounts are committed homomorphically without being exposed.</p>
-
-                <p>Settlement is the foundation. Every other product builds on it.</p>
-
-                <h3>PayNet</h3>
-
-                <p>Micro-transaction aggregation with AI-powered ISO 20022 translation. PayNet ingests retail and mobile money flows — formats that are not natively settlement-eligible — and translates them into CBPR+-compatible pacs.008 messages that can enter the multilateral netting engine.</p>
-
-                <p>PayNet's role is not to replace mobile money. It converts fragmented retail-originated obligations into settlement-eligible institutional messages. Tens of thousands of obligations have been processed in committed mode on the testnet, with the translation pipeline running continuously and producing high cache hit rates against repeated message structures.</p>
-
-                <p>The product addresses one of the structural reasons institutional netting infrastructure has not reached emerging market corridors: the originating flows are formatted for retail rails, not interbank rails, and the translation layer between the two is the bottleneck.</p>
-
-                <h3>RiskNet</h3>
-
-                <p>Protocol-native risk analytics and closed-loop admission control. RiskNet applies network-science and stress-testing models to determine whether an obligation should be admitted, reduced, held, or rejected before it enters a settlement window.</p>
-
-                <p>Twenty-five algorithms run on the testnet every thirty seconds across all active corridors, computing counterparty risk scores, corridor concentration metrics, network and systemic risk measures, and stress test outcomes (technical models include DebtRank, multiplex DebtRank, K-shell decomposition, graph centrality, Cover-2, Cover-3, and reverse stress). The output drives a four-band admission decision per obligation.</p>
-
-                <p>RiskNet's distinction from traditional settlement risk monitoring is granularity. Existing settlement infrastructures score risk at the member or portfolio level. RiskNet scores at the counterparty-corridor-window level, drawing on data only the protocol itself can see — the difference between gross and net obligations, the historical compression pattern of each corridor, and the bilateral exposure structure across the participant graph.</p>
-
-                <p>The platform is designed to support BCBS 248-style intraday liquidity reporting and PFMI-aligned risk monitoring, producing structured risk data outputs that align with supervisory reporting expectations.</p>
-
-                <h3>AssetNet</h3>
-
-                <p>Multilateral netting for tokenised financial assets with atomic delivery-versus-payment compression. AssetNet handles paired DVP obligations — cash and asset legs together — and finds offsets across counterparties while preserving atomic settlement guarantees on each pair.</p>
-
-                <p>Five tokenised asset corridors are operating on the testnet, configured as tokenised US Treasury and money-market fund profiles. Over one hundred thousand DVP obligations have been ingested across these testnet corridors and several hundred netting windows completed.</p>
-
-                <blockquote><strong>Asset profiles on the testnet describe supported instrument types only and do not imply affiliation, endorsement, integration, or commercial relationship with any issuer or asset manager.</strong></blockquote>
-
-                <p>The full participant taxonomy — custodians, central counterparties, market makers, broker-dealers, and asset managers — is supported with institutional onboarding verification, sanctions screening, and per-corridor permissioning.</p>
-
-                <p>Large segments of cross-border repo and tokenised collateral activity remain fragmented across venues, counterparties, and jurisdictions, without a universal cross-asset netting layer for tokenised obligations. AssetNet is designed for that gap.</p>
-
-                <h3>StableNet</h3>
-
-                <p>Multilateral netting for stablecoin obligations with multi-source peg verification, ISO 20022 message generation, and Travel Rule data capture. Three stablecoin corridors are operating on the testnet with generated obligation flow and settlement executed on a configurable cadence.</p>
-
-                <p>In a representative testnet window close, StableNet demonstrated compression of 4.96 to 1 — an 84 per cent capital reduction. The testnet includes twenty-two baseline compliance-rule checks mapped to sanctions screening, EU MiCA requirements, the US GENIUS Act framework and its pending implementation rules, and Singapore's stablecoin regulatory framework. Travel Rule data is structured using IVMS101-compatible fields, with AES-256-GCM at-rest encryption and RFC 6962 Merkle proofs committed on-chain per window close so that record inclusion can be verified independently.</p>
-
-                <p>The peg oracle uses three to five effective sources per stablecoin pair on the testnet, combining signed multi-source feeds with public market data sources. Peg-deviation circuit breakers are enforced before netting.</p>
-
-                <p>The StableNet registry carries seven institutional stablecoin issuer-risk profiles.</p>
-
-                <blockquote><strong>Registry support means the testnet contains issuer-risk profiles and oracle-pair configurations for these stablecoins. It does not imply partnership, endorsement, commercial relationship, or live integration with any issuer.</strong></blockquote>
-
-                <h2>What is in design</h2>
-
-                <p>Three further products complete the eight-product Settlement Computer suite. They are scoped, the subject of provisional patent filings, and architected on the same multi-tenant chain — but build sequencing follows pilot demand:</p>
-
-                <ul>
-                    <li><strong>Trade</strong> — maturity-aware netting for trade finance. Document-anchored settlement for letters of credit, bills of lading, and documentary collections.</li>
-                    <li><strong>Grid</strong> — energy settlement netting for electricity, gas, and distributed energy resource obligations. Circular debt resolution with time-indexed settlement windows.</li>
-                    <li><strong>Nexus</strong> — agentic clearing for autonomous economic agents. Machine-native settlement with causal shared state, graph-derived credit pricing, and adaptive liquidity optimisation.</li>
-                </ul>
-
-                <p>The design-phase products share the same precompile stack as the live products, so build time is dominated by domain-specific compliance rules, message format adapters, and pilot integration rather than core protocol work.</p>
-
-                <h2>Cross-product netting</h2>
-
-                <p>The architectural advantage that justifies the multi-tenant model becomes visible when obligations span products. A bank running corridors across multiple products on the Settlement Computer can have its USD-denominated obligations from Settlement (cross-border FX), AssetNet (tokenised asset cash legs), and StableNet (stablecoin payments) aggregated at the chain layer for cross-corridor netting.</p>
-
-                <p>This is not a future feature. The Netting precompile already supports cross-corridor aggregation by currency, and per-currency netting rounds run on the testnet across multi-corridor populations. Cross-corridor netting on the Settlement product alone has demonstrated material additional compression on top of per-corridor netting.</p>
-
-                <p>The same mechanism extends across products as additional product-specific obligations enter the shared netting engine. The marginal cost of running a fifth product on the chain is modest; the marginal benefit, in terms of cross-product compression, scales with how many product surfaces a participant uses.</p>
-
-                <h2>Patent posture</h2>
-
-                <p>Twenty US provisional patent applications on file (1,132 claims): sixteen held by FiatRails Foundation Ltd; four covering the Qedis privacy and post-quantum runtime, owned by Digitalyze Labs Ltd and licensed perpetually to the group. The settlement family held by the Foundation covers:</p>
-
-                <ul>
-                    <li>Settlement determination (PROV-001)</li>
-                    <li>Risk intelligence, micro-obligation aggregation and cross-product netting (PROV-002)</li>
-                    <li>Maturity-aware netting for trade and energy (PROV-003)</li>
-                    <li>Agentic clearing (PROV-004)</li>
-                    <li>Cryptographic privacy and post-quantum primitives (PROV-005)</li>
-                    <li>Tokenised-asset DvP netting and commodity settlement (PROV-006, 006.1)</li>
-                    <li>Digital-currency netting (PROV-007)</li>
-                    <li>Just-in-time atomic multilateral net settlement with counter-attestation (PROV-008, 008.1)</li>
-                    <li>Sharia-compatible settlement architecture (PROV-009, 009.1)</li>
-                    <li>Mandate-bound counter-attestation and agent-payment adapters (PROV-011)</li>
-                    <li>Net-secured settlement (PROV-012)</li>
-                    <li>Compression continuity (PROV-013)</li>
-                    <li>Cross-infrastructure multilateral liquidity coordination (PROV-014)</li>
-                </ul>
-
-                <p>The production privacy runtime is Qedis, owned by Digitalyze Labs Ltd and perpetually licensed to the group; the Foundation's own privacy filing is PROV-005. Post-quantum authentication uses ML-DSA, the lattice-based digital signature standard specified in NIST FIPS 204.</p>
+                <div class="testnet-callout"><p>All figures are from the Lagrange testnet on generated test flow, as at September 2026. Participant profiles are synthetic. No production traffic. Multilateral compression across the 11 testnet corridors averages 91.2% on balanced generated flow; directional corridors compress materially less.</p></div>
 
                 <h2>Just-in-time atomic counter-attestation</h2>
 
-                <p>The settlement model that ties the five live products together is just-in-time atomic counter-attestation. Net positions execute at window close against counter-attested standing instructions held with each participant's settlement bank. A participant whose attestation is absent at window close is excluded and the window is re-netted before execution. The residual net then settles just-in-time, so no liquidity is pre-positioned on outbound legs. Compression, admission control and privacy all operate inside that single settlement instant.</p>
+                <p>The settlement model is what the home page calls just-in-time atomic counter-attestation. Multilateral net positions execute atomically at window close against counter-attested standing instructions held with each participant's settlement bank. The residual net settles just in time; there is no pre-positioned liquidity on outbound legs, and NETTA never holds funds or acts as counterparty at any point.</p>
 
-                <h2>Regulatory and compliance posture</h2>
+                <h2>Three domains in design</h2>
 
-                <p>The Settlement Computer is designed for regulatory observability rather than against it. The compliance gate enforces sanctions screening, jurisdictional rules, and stablecoin-framework alignment before any obligation enters the netting engine. The Travel Rule layer captures IVMS101-compatible data for every cross-border movement. The risk analytics layer produces structured outputs aligned with BCBS 248-style intraday liquidity reporting and PFMI-aligned risk monitoring.</p>
+                <p>Three further settlement domains are in design and are not running: maturity-aware netting for trade finance, time-indexed netting for energy settlement, and clearing for autonomous economic agents. They share the same chain and the same netting engine. Nothing about them should be read as available.</p>
 
-                <p>Tiered view keys provide cryptographic supervisory access — regulators can be granted granular, scoped, time-bounded access to the records they are entitled to see, without exposing those records to other participants or operators. The architecture is designed to support future assessment against PFMI-style finality and operational resilience expectations, including Principle 8 (Settlement Finality) and Principle 17 (Operational Risk).</p>
+                <h2>Intellectual property</h2>
 
-                <p>Engagement and enquiries are active across multiple jurisdictions — central bank dialogue, sandbox enquiries, and innovation hub interactions in the Middle East, Europe, and Asia-Pacific.</p>
+                <p>Twenty US provisional patent applications are on file: sixteen held by FiatRails Foundation Ltd, covering multilateral settlement determination, counter-attested just-in-time settlement, risk intelligence and micro-obligation aggregation, tokenised-asset and digital-currency netting, Sharia-compatible settlement architecture and cryptographic privacy; and four covering the Qedis privacy and post-quantum runtime, owned by Digitalyze Labs Ltd and licensed perpetually to the group.</p>
 
-                <div class="testnet-callout"><strong>The platform is operating on testnet, not in production.</strong> Production use and pilot operations follow the supervisory engagement appropriate to each jurisdiction. Documented regulatory dialogue in the UAE, Singapore, the UK and the EU, with written responses in hand.</div>
+                <h2>Where this sits with regulators</h2>
+
+                <p>NETTA is a technology service provider outside the licensable perimeter; all licensable activity remains with participating institutions. The protocol has been self-assessed against all 24 CPMI-IOSCO Principles for Financial Market Infrastructures. Regulatory dialogue is documented in the UAE, Singapore, the UK and the EU. Production use will follow controlled pilots under the supervisory engagement appropriate to each jurisdiction.</p>
 
                 <h2>What comes next</h2>
 
-                <p>Three priorities for the next phase of the Settlement Computer:</p>
+                <p>Controlled pilots with banks, payment institutions and market infrastructures in 2026 to 2027. Institutions that want the technical documentation, the PFMI self-assessment and the compliance materials can request a briefing; an NDA is available to qualified participants.</p>
 
-                <ol>
-                    <li><strong>Move from testnet to controlled pilot.</strong> Bringing real institutional flows onto the live products under supervisory observation in one or more jurisdictions. The technical platform is ready; pilots proceed under the supervisory engagement appropriate to each jurisdiction.</li>
-                    <li><strong>Activate the design-phase products in response to pilot demand.</strong> Trade, Grid, and Nexus are scoped and the subject of provisional filings. Build sequencing follows where institutional demand materialises first.</li>
-                    <li><strong>Extend the cross-product netting story.</strong> As more product surfaces operate on the shared chain, the cross-product offsets compound. The next round of testnet metrics will quantify this directly.</li>
-                </ol>
-
-                <p>The Settlement Computer is no longer only a design thesis. Five product surfaces are running on testnet, the shared netting layer is operational, and the next phase is controlled institutional validation.</p>
-
-                <p>The questions now move from architecture to adoption: which corridors, which participants, which supervisory pathway, and which pilot flow should come first.</p>
-
-                <p>Those are the conversations NETTA is having now.</p>
-
-                <hr>
-
-                <div class="disclosure"><strong>Disclosure:</strong> NETTA's Settlement Computer is currently operating on testnet and is not yet processing production institutional settlement flows. References to third-party stablecoins, tokenised assets, issuers, or asset managers describe technical testnet support or registry configuration only and do not imply affiliation, endorsement, commercial relationship, or production integration. Patent references relate to provisional applications and do not indicate issued patent rights unless and until patents are granted. References to PFMI, BCBS 248, ISO 20022, and other regulatory frameworks describe the architecture's design alignment and do not imply certification or regulatory approval.</div>
-
-                <p><em>This article is part of the NETTA Insights series on institutional settlement infrastructure.</em></p>
+                <div class="disclosure"><p>Nothing in this note is an offer, a solicitation or advice. Testnet figures are not production performance. No institution named or implied here is a customer or partner of NETTA.</p></div>
 
             </div>
         </div>
@@ -359,7 +223,7 @@
         </div>
     </section>
 
-    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA — The Settlement Computer. Institutional settlement infrastructure. A product of FiatRails Foundation Ltd. Technology service provider — never custodying funds.</p></div><div class="footer-col"><h4>Products</h4><a href="../settlement.html">Settlement</a><a href="../paynet.html">PayNet</a><a href="../risknet.html">RiskNet</a><a href="../trade.html">Trade</a><a href="../grid.html">Grid</a><a href="../nexus.html">Nexus</a><a href="../assetnet.html">AssetNet</a><a href="../stablenet.html">StableNet</a></div><div class="footer-col"><h4>Company</h4><a href="../governance.html">Governance &amp; Team</a><a href="https://fiatrails.foundation">Foundation</a><a href="../architecture.html">Architecture</a><a href="/insights">Insights</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://twitter.com/fiatrails" target="_blank" rel="noopener noreferrer">X</a></div><div class="footer-col"><h4>Legal</h4><a href="../terms.html">Terms of Service</a><a href="../privacy.html">Privacy Policy</a></div></div>
+    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA — The Settlement Computer. Institutional settlement infrastructure. A product of FiatRails Foundation Ltd. Technology service provider — never custodying funds.</p></div><div class="footer-col"><h4>Products</h4><a href="../index.html#products">Settlement Computer</a><a href="../settlement.html">Settlement</a><a href="../architecture.html">Architecture</a></div><div class="footer-col"><h4>Company</h4><a href="../governance.html">Governance &amp; Team</a><a href="https://fiatrails.foundation">Foundation</a><a href="../architecture.html">Architecture</a><a href="/insights">Insights</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://twitter.com/fiatrails" target="_blank" rel="noopener noreferrer">X</a></div><div class="footer-col"><h4>Legal</h4><a href="../terms.html">Terms of Service</a><a href="../privacy.html">Privacy Policy</a></div></div>
     <div class="footer-bottom"><span>&copy; 2026 FiatRails Foundation Ltd. All rights reserved.</span><span>CR-431901 | LEI <a href="https://search.gleif.org/#/record/894500RG1F2BKNE8P514" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">894500RG1F2BKNE8P514</a> | Cayman Islands</span></div></div></footer>
 </body>
 </html>

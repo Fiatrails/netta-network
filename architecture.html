@@ -146,7 +146,7 @@
         <div class="page-header">
             <div class="page-label">Technical Architecture</div>
             <h1 class="page-title">Architecture Overview</h1>
-            <p class="page-desc">High-level technical overview of the Settlement Computer — a custom Avalanche L1 with 11 consensus-level native precompiles, institutional privacy powered by Qedis, and post-quantum authentication. Comprehensive documentation is available under NDA for qualified participants.</p>
+            <p class="page-desc">High-level technical overview of the Settlement Computer — a custom Avalanche L1 with consensus-level native precompiles, institutional privacy powered by Qedis, and post-quantum authentication. Comprehensive documentation is available under NDA for qualified participants.</p>
         </div>
 
         <!-- SETTLEMENT PROCESS -->
@@ -174,7 +174,7 @@
                     <span class="flow-arrow">&rarr;</span>
                     <div class="flow-box">
                         <h4>Price</h4>
-                        <p>AFXO oracle</p>
+                        <p>Institutional FX reference rates</p>
                     </div>
                     <span class="flow-arrow">&rarr;</span>
                     <div class="flow-box">
@@ -184,7 +184,7 @@
                 </div>
             </div>
 
-            <p>Sub-threshold net positions (&lt;$100K default) carry forward to the next window (max 3) using a CHIPS-model approach, expanding the netting pool across windows for additional compression.</p>
+            <p>Configurable carry-forward of sub-threshold residuals, on the CHIPS model, expands the netting pool across windows for additional compression.</p>
         </section>
 
         <!-- CHAIN ARCHITECTURE -->
@@ -195,15 +195,11 @@
             <div class="specs-grid">
                 <div class="spec">
                     <div class="spec-label">Chain</div>
-                    <div class="spec-value">Lagrange L1 (Avalanche, Subnet-EVM v0.7.1)</div>
+                    <div class="spec-value">Lagrange L1 (Avalanche Subnet-EVM)</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">Finality</div>
                     <div class="spec-value">Sub-second (&lt;1s)</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">Peak TPS</div>
-                    <div class="spec-value">1,601 (simple transfers) / 301 obligations per second — early-2026 benchmark</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">Gas</div>
@@ -223,7 +219,7 @@
                 </div>
                 <div class="spec">
                     <div class="spec-label">Compression</div>
-                    <div class="spec-value">91.2% average on balanced generated flow (US$12.1bn of generated gross obligations processed); directional corridors compress materially less</div>
+                    <div class="spec-value">91.2% average on balanced generated flow; directional corridors compress materially less</div>
                 </div>
             </div>
             <p style="font-size: 13px; color: var(--gray-500); margin-top: 16px;">All figures are from the Lagrange testnet on generated test flow, as at September 2026. Participant profiles are synthetic. No production traffic.</p>
@@ -234,19 +230,7 @@
             <h2>Native Precompiles</h2>
             <p>All settlement logic runs at the consensus layer as native Go precompiles — not EVM smart contracts. This provides deterministic gas costs, prevents front-running, and enables cryptographic operations that would be prohibitively expensive in the EVM.</p>
 
-            <ul class="precompile-list">
-                <li class="precompile-item"><span class="mono">0x0301</span><span>Netting Engine — multilateral + bilateral netting with O(n) complexity</span></li>
-                <li class="precompile-item"><span class="mono">0x0302</span><span>Oracle — deterministic FX rate feeds from AFXO</span></li>
-                <li class="precompile-item"><span class="mono">0x0303</span><span>Compliance — audit trail with sanctions screening hooks</span></li>
-                <li class="precompile-item"><span class="mono">0x0304</span><span>Settlement — non-transferable institutional settlement claims</span></li>
-                <li class="precompile-item"><span class="mono">0x0305</span><span>Cross-Corridor — netting across corridors sharing currencies</span></li>
-                <li class="precompile-item"><span class="mono">0x0306</span><span>Token Firewall — institutional token controls and policy enforcement</span></li>
-                <li class="precompile-item"><span class="mono">0x0307</span><span>Attestation — counter-attestation for settlement finality</span></li>
-                <li class="precompile-item"><span class="mono">0x0308</span><span>Corridor Manager — multi-tenant corridor lifecycle with role-based access control</span></li>
-                <li class="precompile-item"><span class="mono">0x0309</span><span>Validator — permissioned validator staking and management</span></li>
-                <li class="precompile-item"><span class="mono">0x030A</span><span>PQ-Auth — ML-DSA (FIPS 204) post-quantum authentication</span></li>
-                <li class="precompile-item"><span class="mono">0x030B</span><span>Privacy — Qedis integration, Pedersen commitments, delegation registry</span></li>
-            </ul>
+            <p>Eleven native precompiles cover netting, FX reference pricing, compliance hooks, settlement claims, cross-corridor netting, token controls, counter-attestation, corridor management, validator management, post-quantum authentication and privacy.</p>
         </section>
 
         <!-- PRIVACY — POWERED BY QEDIS -->
@@ -257,92 +241,49 @@
                     <img src="assets/qedis-logo-dark.png" alt="Qedis" style="height: 36px; width: auto;">
                 </a>
                 <div>
-                    <p style="font-size: 15px; color: var(--gray-800); margin: 0; line-height: 1.6;">Privacy by <a href="https://qedis.io" target="_blank" rel="noopener noreferrer" style="color: var(--navy); font-weight: 500; text-decoration: none;">Qedis</a> — the cryptographic privacy and post-quantum runtime, owned by Digitalyze Labs Ltd and perpetually licensed to the NETTA group. Verifiable confidentiality with no master key, no trusted hardware, and no trusted setup. The Foundation's own privacy filing is PROV-005.</p>
+                    <p style="font-size: 15px; color: var(--gray-800); margin: 0; line-height: 1.6;">Privacy by <a href="https://qedis.io" target="_blank" rel="noopener noreferrer" style="color: var(--navy); font-weight: 500; text-decoration: none;">Qedis</a> — the cryptographic privacy and post-quantum runtime, owned by Digitalyze Labs Ltd and perpetually licensed to the NETTA group. Verifiable confidentiality with no master key, no trusted hardware, and no trusted setup.</p>
                 </div>
             </div>
 
-            <p>Qedis provides a substrate-agnostic hybrid privacy architecture. Amounts are protected by Pedersen commitments (BN254) enabling homomorphic netting on encrypted values. Metadata is encrypted with AES-256-SIV. Key distribution uses Shamir's Secret Sharing. Transparent post-quantum proofs via FRI-STARK, selective disclosure via BBS+ signatures, and privacy-preserving addressing via stealth addresses.</p>
+            <p>Qedis provides a substrate-agnostic privacy architecture with no master key, no trusted hardware and no trusted setup. Obligation amounts are netted homomorphically on committed values; metadata is encrypted; proofs are transparent and post-quantum ready; counterparty addressing is unlinkable; key custody is distributed.</p>
 
             <div class="specs-grid">
                 <div class="spec">
-                    <div class="spec-label">Amount Privacy</div>
-                    <div class="spec-value">Pedersen commitments (BN254) — homomorphic, netting-compatible</div>
+                    <div class="spec-label">Confidentiality</div>
+                    <div class="spec-value">Homomorphic netting on committed values — amounts never disclosed to the chain</div>
                 </div>
                 <div class="spec">
-                    <div class="spec-label">Metadata Privacy</div>
-                    <div class="spec-value">AES-256-SIV — deterministic authenticated encryption</div>
+                    <div class="spec-label">Verifiability</div>
+                    <div class="spec-value">Transparent proofs with no trusted setup; post-quantum proof backend</div>
                 </div>
                 <div class="spec">
-                    <div class="spec-label">Range Proofs</div>
-                    <div class="spec-value">Bulletproofs + FRI-STARK — dual proof backend, no trusted setup, post-quantum transparent proofs</div>
+                    <div class="spec-label">Supervisory access</div>
+                    <div class="spec-value">Tiered view keys — from full supervisory visibility to aggregate-only</div>
                 </div>
                 <div class="spec">
-                    <div class="spec-label">Selective Disclosure</div>
-                    <div class="spec-value">BBS+ signatures — prove credential attributes without revealing full data (regulatory compliance)</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">Stealth Addresses</div>
-                    <div class="spec-value">Privacy-preserving counterparty addressing — unlinkable one-time addresses per settlement</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">Confidential Tokens</div>
-                    <div class="spec-value">cToken — full confidential token with quorum governance, stealth minting, and authority-controlled issuance</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">Key Distribution</div>
-                    <div class="spec-value">Shamir's Secret Sharing — threshold scheme</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">Key Derivation</div>
-                    <div class="spec-value">HKDF for per-window and per-corridor key material</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">Cryptographic Accumulator</div>
-                    <div class="spec-value">Sparse Merkle Tree — efficient membership and non-membership proofs for on-chain state</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">Corridor Privacy Levels</div>
-                    <div class="spec-value">Level 0 (plaintext), Level 1 (AES-SIV), Level 2 (Pedersen + AES-SIV + proofs)</div>
+                    <div class="spec-label">Delegation</div>
+                    <div class="spec-value">Participant-controlled, scoped, time-limited, revocable, with an on-chain audit trail</div>
                 </div>
             </div>
 
-            <p style="margin-top: 24px;">Tiered view key model with 5 access levels: Governance (master), Admin (corridor), Participant (own data), Delegate (scoped, time-limited, revocable), Observer (aggregates only). Participant-sovereign delegation — participants control who sees their data via <code>grantViewAccess</code> / <code>revokeViewAccess</code> with full on-chain audit trail.</p>
+            <p style="margin-top: 24px;">Participants control who sees their data. Corridor privacy configuration and the full cryptographic specification are documented for qualified institutions under NDA.</p>
         </section>
 
         <!-- POST-QUANTUM -->
         <section class="section">
             <h2>Post-Quantum Cryptography</h2>
-            <p>Full post-quantum stack deployed through a FIPS-validated library — ML-DSA for signatures, ML-KEM for key encapsulation, and hybrid classical+PQ modes for regulatory-aligned migration (CNSA 2.0). Real post-quantum cryptography, not simulated.</p>
-
-            <div class="specs-grid">
-                <div class="spec">
-                    <div class="spec-label">Signatures</div>
-                    <div class="spec-value">ML-DSA (FIPS 204) — Modes 44/65/87, batch verification</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">Key Encapsulation</div>
-                    <div class="spec-value">ML-KEM (FIPS 203) — Modes 512/768/1024, post-quantum viewing key exchange</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">Implementation</div>
-                    <div class="spec-value">cloudflare/circl — production FIPS-validated library</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">Hybrid Mode</div>
-                    <div class="spec-value">ML-DSA + ECDSA with cryptographic key-binding — fail-closed combined-AND verification</div>
-                </div>
-            </div>
+            <p>ML-DSA (FIPS 204) signatures and ML-KEM (FIPS 203) key encapsulation, hybrid with ECDSA for migration. Deployed on testnet through a FIPS-validated library.</p>
         </section>
 
         <!-- MULTI-TENANCY -->
         <section class="section">
             <h2>Multi-Tenancy</h2>
-            <p>All eight Settlement Computer products coexist on a single chain with per-corridor isolation. Each corridor has independent configuration, settlement windows, privacy levels, and compliance rules.</p>
+            <p>All Settlement Computer products coexist on a single chain with per-corridor isolation. Each corridor has independent configuration, settlement windows, privacy levels, and compliance rules.</p>
 
             <div class="specs-grid">
                 <div class="spec">
                     <div class="spec-label">Access Control</div>
-                    <div class="spec-value">6-level RBAC: Governance, Admin, Operator, Participant, Delegate, Observer</div>
+                    <div class="spec-value">Per-corridor role-based access control with a tiered supervisory view</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">Corridor Isolation</div>
@@ -391,7 +332,7 @@
                 </div>
                 <div class="spec">
                     <div class="spec-label">FX Oracle</div>
-                    <div class="spec-value"><a href="https://afxo.ai" style="color: var(--navy); text-decoration: none; font-weight: 500;">AFXO</a> — deterministic global FX rate feeds</div>
+                    <div class="spec-value">Institutional FX reference rates, locked at window close</div>
                 </div>
             </div>
         </section>
@@ -410,7 +351,7 @@
                 </li>
                 <li>
                     <h4>Deterministic Execution</h4>
-                    <p>FX rates are determined at window close via AFXO oracle feeds, not executed in market. Oracle prices are locked, ensuring no slippage or front-running.</p>
+                    <p>FX reference rates are locked at window close, not executed in market. Oracle prices are locked, ensuring no slippage or front-running.</p>
                 </li>
                 <li>
                     <h4>Consensus-Level Settlement Logic</h4>
@@ -426,92 +367,14 @@
         <!-- PATENTS -->
         <section class="section">
             <h2>Intellectual Property</h2>
-            <p>Twenty US provisional patent applications on file (1,132 claims): sixteen held by FiatRails Foundation Ltd; four covering the Qedis privacy and post-quantum runtime, owned by Digitalyze Labs Ltd and licensed perpetually to the group.</p>
-
-            <h3 style="font-size: 15px; font-weight: 600; color: var(--gray-800); margin: 24px 0 12px;">Held by FiatRails Foundation Ltd</h3>
-            <div class="specs-grid">
-                <div class="spec">
-                    <div class="spec-label">PROV-001 — 63/943,488</div>
-                    <div class="spec-value">Settlement determination architecture</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">PROV-002 — 64/013,030</div>
-                    <div class="spec-value">Risk intelligence, micro-obligation aggregation, cross-product netting</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">PROV-003 — 64/013,031</div>
-                    <div class="spec-value">Maturity-aware temporal netting (trade and energy)</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">PROV-004 — 64/013,645</div>
-                    <div class="spec-value">Agentic clearing</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">PROV-005 — 64/032,665</div>
-                    <div class="spec-value">Cryptographic privacy and post-quantum primitives</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">PROV-006 — 64/044,001</div>
-                    <div class="spec-value">Tokenised-asset DvP netting</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">PROV-006.1 — 64/092,424</div>
-                    <div class="spec-value">Tokenised physical-commodity settlement</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">PROV-007 — 64/044,887</div>
-                    <div class="spec-value">Heterogeneous digital-currency netting</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">PROV-008 — 64/081,242</div>
-                    <div class="spec-value">Just-in-time atomic multilateral net settlement with counter-attestation</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">PROV-008.1 — 64/127,464</div>
-                    <div class="spec-value">Counter-attestation extensions</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">PROV-009 — 64/083,987</div>
-                    <div class="spec-value">Sharia-compatible settlement architecture</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">PROV-009.1 — 64/140,276</div>
-                    <div class="spec-value">Sharia extensions</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">PROV-011 — 64/084,049</div>
-                    <div class="spec-value">Mandate-bound counter-attestation and agent-payment adapters</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">PROV-012 — 64/116,711</div>
-                    <div class="spec-value">Net-secured settlement</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">PROV-013 — 64/118,298</div>
-                    <div class="spec-value">Compression-continuity guarantee</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">PROV-014 — 64/149,458</div>
-                    <div class="spec-value">Cross-infrastructure multilateral liquidity coordination</div>
-                </div>
-            </div>
-
-            <h3 style="font-size: 15px; font-weight: 600; color: var(--gray-800); margin: 24px 0 12px;">Licensed privacy runtime (Qedis — owned by Digitalyze Labs Ltd)</h3>
-            <div class="specs-grid">
-                <div class="spec">
-                    <div class="spec-label">PROV-010 — 64/082,949</div>
-                    <div class="spec-value">Substrate-agnostic privacy and post-quantum execution runtime</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">PROV-010.1 / 010.2 / 010.3</div>
-                    <div class="spec-value">Confidential settlement, transaction-graph privacy and governance recovery supplements</div>
-                </div>
-                <div class="spec">
-                    <div class="spec-label">Status</div>
-                    <div class="spec-value">Five products exercised on testnet; three in design. Conversion programme funded; first national filings from December 2026.</div>
-                </div>
-            </div>
-            <p style="font-size: 13px; color: var(--gray-500); margin-top: 24px;">Ecosystem: first place in the L1 Builder Challenge at the Ignyte × Avalanche 2026 hackathon; Avalanche × Hub71 cohort.</p>
+            <p>Twenty US provisional patent applications on file: sixteen held by FiatRails Foundation Ltd; four covering the Qedis privacy and post-quantum runtime, owned by Digitalyze Labs Ltd and licensed perpetually to the group.</p>
+            <ul style="margin: 16px 0 0 20px; color: var(--gray-700); line-height: 1.8; font-size: 14px;">
+                <li>Settlement determination and just-in-time atomic net settlement</li>
+                <li>Risk intelligence and micro-obligation aggregation</li>
+                <li>Tokenised-asset and digital-currency netting</li>
+                <li>Sharia-compatible settlement architecture</li>
+                <li>Cryptographic privacy and post-quantum authentication</li>
+            </ul>
         </section>
 
         <div class="cta-box">
@@ -528,17 +391,7 @@
                     <img src="assets/netta-logo-nav.png" alt="NETTA" style="height: 42px; filter: brightness(0) invert(1);">
                     <p>NETTA — The Settlement Computer. Institutional settlement infrastructure. A product of FiatRails Foundation Ltd. Technology service provider — never custodying funds.</p>
                 </div>
-                <div class="footer-col">
-                    <h4>Products</h4>
-                    <a href="settlement.html">Settlement</a>
-                    <a href="paynet.html">PayNet</a>
-                    <a href="risknet.html">RiskNet</a>
-                    <a href="trade.html">Trade</a>
-                    <a href="grid.html">Grid</a>
-                    <a href="nexus.html">Nexus</a>
-                    <a href="assetnet.html">AssetNet</a>
-                    <a href="stablenet.html">StableNet</a>
-                </div>
+                <div class="footer-col"><h4>Products</h4><a href="index.html#products">Settlement Computer</a><a href="settlement.html">Settlement</a><a href="architecture.html">Architecture</a></div>
                 <div class="footer-col">
                     <h4>Company</h4><a href="governance.html">Governance &amp; Team</a>
                     <a href="https://fiatrails.foundation">Foundation</a>

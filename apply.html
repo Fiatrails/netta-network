@@ -437,7 +437,6 @@
                         <option value="mto">Money transfer operator</option>
                         <option value="fmi">Market infrastructure / CSD / CCP</option>
                         <option value="custodian">Custodian or asset manager</option>
-                        <option value="central-bank">Central bank or regulator</option>
                         <option value="tech">Technology partner</option>
                         <option value="other">Other</option>
                     </select>
@@ -451,18 +450,6 @@
                 <div class="form-group">
                     <label class="form-label">Corridors or settlement flows of interest</label>
                     <input type="text" name="corridors" class="form-input" placeholder="e.g. intra-group branch netting, GCC–South Asia, tokenised asset DvP">
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">Estimated Monthly Volume (USD)</label>
-                    <select name="volume" class="form-select" required>
-                        <option value="">Select...</option>
-                        <option value="<10M">Under US$10 million / month</option>
-                        <option value="10-50M">US$10 million — US$50 million / month</option>
-                        <option value="50-250M">US$50 million — US$250 million / month</option>
-                        <option value="250M-1B">US$250 million — US$1 billion / month</option>
-                        <option value=">1B">Over US$1 billion / month</option>
-                    </select>
                 </div>
 
                 <div class="form-group">
@@ -482,7 +469,7 @@
 
                 <button type="submit" class="form-submit">Request Briefing</button>
 
-                <p class="form-note">Enquiries are reviewed within 5 business days. Technical documentation and NDA are available for qualified participants.<br>Submissions are delivered via Formspree and handled under our <a href="privacy.html" style="color: var(--gray-600);">Privacy Notice</a>.</p>
+                <p class="form-note">Enquiries are reviewed within 5 business days. Technical documentation and NDA are available for qualified participants.<br>Submissions are delivered via a third-party form service and handled under our <a href="privacy.html" style="color: var(--gray-600);">Privacy Notice</a>.</p>
             </form>
         </div>
     </main>
@@ -493,17 +480,7 @@
                     <img src="assets/netta-logo-nav.png" alt="NETTA" style="height: 42px; filter: brightness(0) invert(1);">
                     <p>NETTA — The Settlement Computer. Institutional settlement infrastructure. A product of FiatRails Foundation Ltd. Technology service provider — never custodying funds.</p>
                 </div>
-                <div class="footer-col">
-                    <h4>Products</h4>
-                    <a href="settlement.html">Settlement</a>
-                    <a href="paynet.html">PayNet</a>
-                    <a href="risknet.html">RiskNet</a>
-                    <a href="trade.html">Trade</a>
-                    <a href="grid.html">Grid</a>
-                    <a href="nexus.html">Nexus</a>
-                    <a href="assetnet.html">AssetNet</a>
-                    <a href="stablenet.html">StableNet</a>
-                </div>
+                <div class="footer-col"><h4>Products</h4><a href="index.html#products">Settlement Computer</a><a href="settlement.html">Settlement</a><a href="architecture.html">Architecture</a></div>
                 <div class="footer-col">
                     <h4>Company</h4><a href="governance.html">Governance &amp; Team</a>
                     <a href="https://fiatrails.foundation">Foundation</a>
