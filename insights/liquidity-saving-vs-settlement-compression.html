@@ -28,7 +28,9 @@
         "description": "Liquidity saving and settlement compression use related mathematics but solve fundamentally different problems. One asks how to clear debt with less money. The other asks how to reduce the capital locked in settlement. The infrastructure they produce is architecturally distinct.",
         "author": {
             "@type": "Person",
-            "name": "Vincent Scaturchio"
+            "name": "Vincent Scaturchio",
+            "jobTitle": "Founder and Chief Executive",
+            "url": "https://netta.network/"
         },
         "publisher": {
             "@type": "Organization",
@@ -39,7 +41,7 @@
             }
         },
         "datePublished": "2026-06-06",
-        "dateModified": "2026-06-06",
+        "dateModified": "2026-09-12",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://netta.network/insights/liquidity-saving-vs-settlement-compression"
@@ -144,7 +146,7 @@
     </style>
 </head>
 <body>
-    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><div class="nav-links"><a href="../index.html#products">Products</a><a href="../architecture.html">Architecture</a><a href="/insights">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="../apply.html" class="nav-cta">Request Briefing</a></div></div></nav>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><div class="nav-links"><a href="../index.html#products">Products</a><a href="../architecture.html">Architecture</a><a href="../governance.html">Governance</a><a href="/insights">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="../apply.html" class="nav-cta">Request Briefing</a></div></div></nav>
 
     <article>
         <header class="article-hero">
@@ -152,8 +154,9 @@
                 <a href="/insights" class="article-back">&larr; All insights</a>
                 <div class="article-meta">
                     <span class="article-category">Industry Analysis</span>
-                    <span class="article-byline">Vincent Scaturchio</span>
+                    <span class="article-byline">Vincent Scaturchio, Founder and Chief Executive</span>
                     <span class="article-date">6 Jun 2026</span>
+                    <span class="article-date">Last reviewed: 12 September 2026</span>
                 </div>
                 <h1>Liquidity Saving Is Not Settlement Compression: Why the Problem You Solve Defines the Infrastructure You Build</h1>
                 <p class="lede">Liquidity saving and settlement compression are two fundamentally different problems that can be solved by graph-based netting mathematics — but the infrastructure each one produces is architecturally distinct, legally distinct, and operationally distinct.</p>
@@ -203,9 +206,9 @@
 
                 <p>No external liquidity injection is required. The volume itself provides the offsets. The more participants and the more obligations in the netting window, the more offsets the algorithm finds. This is not a liquidity multiplier — it is a mathematical reduction of the settlement value to the true net economic exposure.</p>
 
-                <p>The scaling dynamic is the opposite of liquidity saving. In a liquidity saving system, clearance starts low and increases only when external capital is injected. In a settlement compression system, compression starts high and increases with participation. Each new participant in a netting corridor adds potential offsets against every existing participant. Each new obligation adds to the population that the algorithm compresses. The result is that well-designed settlement compression systems routinely achieve 85 to 96 per cent compression in production — not because the algorithm is better, but because the problem structure is different. The participants are not short of money. They have offsetting flows. The algorithm merely computes what the net economic reality already is.</p>
+                <p>The scaling dynamic is the opposite of liquidity saving. In a liquidity saving system, clearance starts low and increases only when external capital is injected. In a settlement compression system, compression starts high and increases with participation. Each new participant in a netting corridor adds potential offsets against every existing participant. Each new obligation adds to the population that the algorithm compresses. The result is that well-designed settlement compression systems routinely achieve 85 to 96 per cent compression at established FMIs such as CLS and CHIPS — not because the algorithm is better, but because the problem structure is different. The participants are not short of money. They have offsetting flows. The algorithm merely computes what the net economic reality already is.</p>
 
-                <p>The empirical evidence from production systems is unambiguous. CLS Bank processes over $8 trillion in daily gross FX obligations and reduces participants' funding requirements by more than 96 per cent. CHIPS — the largest US dollar clearing system — achieves a liquidity efficiency ratio of approximately 26:1, meaning $26 of gross obligations are settled for every $1 of liquidity in the system. The European Central Bank's TARGET2 maintains both real-time gross settlement and liquidity-saving mechanisms precisely because institutions need both modes depending on the urgency and size of the obligation.</p>
+                <p>The empirical evidence from established systems is unambiguous. CLS settles 18 currencies for more than 70 settlement members, over US$6 trillion a day on average (CLS published figures), and reduces participants' funding requirements by more than 96 per cent. CHIPS — the largest US dollar clearing system — achieves a liquidity efficiency ratio of approximately 26:1, meaning $26 of gross obligations are settled for every $1 of liquidity in the system. The Eurosystem's T2 (formerly TARGET2) maintains both real-time gross settlement and liquidity-saving mechanisms precisely because institutions need both modes depending on the urgency and size of the obligation.</p>
 
                 <p>The output of settlement compression is not a set-off notice sent to a firm's accounting system. It is an ISO 20022 settlement instruction — a pacs.008, a pacs.009, or a camt reporting message — dispatched to institutional back-office systems that process it through existing correspondent banking, RTGS, or payment rails. The residual net positions settle through the same infrastructure the institution already uses. The compression layer sits above the settlement rail, not beside it.</p>
 
@@ -215,9 +218,9 @@
 
                 <p><strong>Different outputs.</strong> Liquidity saving produces set-off notices — records that mutual obligations have been discharged by agreement under private contract. Settlement compression produces settlement instructions — messages that direct the movement of funds through banking infrastructure to discharge net positions with legal finality. The downstream systems that consume these outputs are entirely different. A set-off notice updates a ledger. A settlement instruction triggers a funds transfer.</p>
 
-                <p><strong>Different legal frameworks.</strong> Liquidity saving operates under obligation law — private contract, mutual agreement, and in some jurisdictions statutory set-off provisions such as those codified in the UNIDROIT Principles. Settlement compression operates under financial regulation — CPMI-IOSCO PFMI Principle 8 on settlement finality, the EU Settlement Finality Directive 98/26/EC, Dodd-Frank Title VIII in the United States. The legal protections are different. The insolvency treatment is different. The enforceability of netted positions when a participant defaults — the scenario that matters most — is governed by entirely different legal architectures.</p>
+                <p><strong>Different legal frameworks.</strong> Liquidity saving operates under obligation law — private contract, mutual agreement, and in some jurisdictions set-off rules under national law and, in cross-border contracts, the UNIDROIT Principles. Settlement compression operates under financial regulation — CPMI-IOSCO PFMI Principle 8 on settlement finality, the EU Settlement Finality Directive 98/26/EC, Dodd-Frank Title VIII in the United States. The legal protections are different. The insolvency treatment is different. The enforceability of netted positions when a participant defaults — the scenario that matters most — is governed by entirely different legal architectures.</p>
 
-                <p><strong>Different regulatory requirements.</strong> Infrastructure designed for liquidity saving among commercial counterparties typically operates outside the financial regulatory perimeter. No sandbox engagement is required. No supervisory observability framework is expected. No settlement finality opinion is sought. Settlement compression infrastructure, by contrast, operates within the financial regulatory perimeter or at its edge — and every institution that uses it expects the operator to have engaged regulators, to have prepared or be preparing settlement finality opinions, and to provide tiered supervisory access consistent with PFMI Principle 17 on operational risk and Principle 18 on access and participation requirements.</p>
+                <p><strong>Different regulatory requirements.</strong> Infrastructure designed for liquidity saving among commercial counterparties typically operates outside the financial regulatory perimeter. No sandbox engagement is required. No supervisory observability framework is expected. No settlement finality opinion is sought. Settlement compression infrastructure, by contrast, operates adjacent to the financial regulatory perimeter: its participants are supervised institutions, and every one of them expects the operator to have engaged regulators, to have prepared or be preparing settlement finality opinions, and to provide tiered supervisory access consistent with PFMI Principle 17 on operational risk and Principle 18 on access and participation requirements.</p>
 
                 <p><strong>Different participants.</strong> Liquidity saving serves firms with constrained cash flow — typically SMEs, trade credit counterparties, and commercial businesses in economies where invoice payment terms create systemic cash flow delays. Settlement compression serves institutions with abundant capital but suboptimal capital deployment — banks, payment service providers, treasury operations, and central bank-adjacent infrastructure. The onboarding requirements, the compliance expectations, the credit assessment frameworks, and the operational integration points are categorically different.</p>
 
@@ -243,7 +246,7 @@
 
                 <h2>Where NETTA sits</h2>
 
-                <p>NETTA solves the settlement compression problem. The infrastructure is designed for banks, payment service providers, and institutional counterparties that settle cross-border obligations and need to reduce the capital locked in that settlement process. The output is ISO 20022 CBPR+ settlement instructions dispatched to institutional back-office systems. The regulatory posture includes active central bank engagement, sandbox participation, and a supervisory observability framework designed for tiered access by home regulators. The legal architecture is built for settlement finality, not private set-off.</p>
+                <p>NETTA solves the settlement compression problem. The infrastructure is designed for banks, payment service providers, and institutional counterparties that settle cross-border obligations and need to reduce the capital locked in that settlement process. The output is ISO 20022 CBPR+ settlement instructions dispatched to institutional back-office systems. The regulatory posture includes documented engagement with central banks and regulators in the UAE, Singapore, the UK and the EU, written regulatory responses in hand, and a supervisory observability framework designed for tiered access by home regulators. The legal architecture is built for settlement finality, not private set-off.</p>
 
                 <p>The corridors, the participants, the message standards, the regulatory engagement, and the legal framework are all designed for the institutional settlement compression problem from the ground up — not adapted from infrastructure originally designed for a different problem serving a different market.</p>
 
@@ -263,7 +266,7 @@
         <div class="newsletter-inner">
             <div class="newsletter-eyebrow">NETTA Insights · Newsletter</div>
             <h2 class="newsletter-title">Get NETTA Insights</h2>
-            <p class="newsletter-desc">Bi-weekly institutional settlement infrastructure thought leadership. No marketing fluff.</p>
+            <p class="newsletter-desc">Occasional notes on settlement infrastructure. Unsubscribe any time.</p>
             <!-- BEEHIIV EMBED PLACEHOLDER -->
             <div class="newsletter-form-wrap"><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="c83c5533-4a14-4498-a994-91efdf41c81c"></script></div>
         </div>
@@ -289,7 +292,7 @@
         </div>
     </section>
 
-    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA — The Settlement Computer. Institutional settlement infrastructure. A product of FiatRails Foundation Ltd. Technology service provider — never custodying funds.</p></div><div class="footer-col"><h4>Products</h4><a href="../settlement.html">Settlement</a><a href="../paynet.html">PayNet</a><a href="../risknet.html">RiskNet</a><a href="../trade.html">Trade</a><a href="../grid.html">Grid</a><a href="../nexus.html">Nexus</a><a href="../assetnet.html">AssetNet</a><a href="../stablenet.html">StableNet</a></div><div class="footer-col"><h4>Company</h4><a href="https://fiatrails.foundation">Foundation</a><a href="../architecture.html">Architecture</a><a href="/insights">Insights</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://twitter.com/fiatrails" target="_blank" rel="noopener noreferrer">X</a></div><div class="footer-col"><h4>Legal</h4><a href="../terms.html">Terms of Service</a><a href="../privacy.html">Privacy Policy</a></div></div>
+    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA — The Settlement Computer. Institutional settlement infrastructure. A product of FiatRails Foundation Ltd. Technology service provider — never custodying funds.</p></div><div class="footer-col"><h4>Products</h4><a href="../settlement.html">Settlement</a><a href="../paynet.html">PayNet</a><a href="../risknet.html">RiskNet</a><a href="../trade.html">Trade</a><a href="../grid.html">Grid</a><a href="../nexus.html">Nexus</a><a href="../assetnet.html">AssetNet</a><a href="../stablenet.html">StableNet</a></div><div class="footer-col"><h4>Company</h4><a href="../governance.html">Governance &amp; Team</a><a href="https://fiatrails.foundation">Foundation</a><a href="../architecture.html">Architecture</a><a href="/insights">Insights</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://twitter.com/fiatrails" target="_blank" rel="noopener noreferrer">X</a></div><div class="footer-col"><h4>Legal</h4><a href="../terms.html">Terms of Service</a><a href="../privacy.html">Privacy Policy</a></div></div>
     <div class="footer-bottom"><span>&copy; 2026 FiatRails Foundation Ltd. All rights reserved.</span><span>CR-431901 | LEI <a href="https://search.gleif.org/#/record/894500RG1F2BKNE8P514" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">894500RG1F2BKNE8P514</a> | Cayman Islands</span></div></div></footer>
 </body>
 </html>

@@ -134,7 +134,7 @@
             </a>
             <div class="nav-links">
                 <a href="index.html#products">Products</a>
-                <a href="architecture.html">Architecture</a>
+                <a href="architecture.html">Architecture</a><a href="governance.html">Governance</a>
                 <a href="/insights">Insights</a>
                 <a href="https://fiatrails.foundation">Foundation</a>
                 <a href="apply.html" class="nav-cta">Request Briefing</a>
@@ -144,7 +144,7 @@
 
     <main class="main">
         <div class="page-header">
-            <div class="page-label">Technical Documentation</div>
+            <div class="page-label">Technical Architecture</div>
             <h1 class="page-title">Architecture Overview</h1>
             <p class="page-desc">High-level technical overview of the Settlement Computer — a custom Avalanche L1 with 11 consensus-level native precompiles, institutional privacy powered by Qedis, and post-quantum authentication. Comprehensive documentation is available under NDA for qualified participants.</p>
         </div>
@@ -203,29 +203,30 @@
                 </div>
                 <div class="spec">
                     <div class="spec-label">Peak TPS</div>
-                    <div class="spec-value">1,601 (301 obligation TPS)</div>
+                    <div class="spec-value">1,601 (simple transfers) / 301 obligations per second — early-2026 benchmark</div>
                 </div>
                 <div class="spec">
-                    <div class="spec-label">Gas Token</div>
-                    <div class="spec-value">FSC (utility only, zero market value)</div>
+                    <div class="spec-label">Gas</div>
+                    <div class="spec-value">Internal metering unit on a permissioned chain; no token is issued or planned</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">Precompiles</div>
                     <div class="spec-value">11 consensus-level native precompiles</div>
                 </div>
                 <div class="spec">
-                    <div class="spec-label">Codebase</div>
-                    <div class="spec-value">24,000+ lines Go, Solidity interfaces</div>
+                    <div class="spec-label">Validators</div>
+                    <div class="spec-value">Permissioned validator set</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">Corridors</div>
-                    <div class="spec-value">11 live on testnet</div>
+                    <div class="spec-value">11 on testnet</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">Compression</div>
-                    <div class="spec-value">91.2% average ($12.13B gross processed)</div>
+                    <div class="spec-value">91.2% average on balanced generated flow (US$12.1bn of generated gross obligations processed); directional corridors compress materially less</div>
                 </div>
             </div>
+            <p style="font-size: 13px; color: var(--gray-500); margin-top: 16px;">All figures are from the Lagrange testnet on generated test flow, as at September 2026. Participant profiles are synthetic. No production traffic.</p>
         </section>
 
         <!-- PRECOMPILES -->
@@ -241,7 +242,7 @@
                 <li class="precompile-item"><span class="mono">0x0305</span><span>Cross-Corridor — netting across corridors sharing currencies</span></li>
                 <li class="precompile-item"><span class="mono">0x0306</span><span>Token Firewall — institutional token controls and policy enforcement</span></li>
                 <li class="precompile-item"><span class="mono">0x0307</span><span>Attestation — counter-attestation for settlement finality</span></li>
-                <li class="precompile-item"><span class="mono">0x0308</span><span>Corridor Manager — multi-tenant corridor lifecycle with 5-level RBAC</span></li>
+                <li class="precompile-item"><span class="mono">0x0308</span><span>Corridor Manager — multi-tenant corridor lifecycle with role-based access control</span></li>
                 <li class="precompile-item"><span class="mono">0x0309</span><span>Validator — permissioned validator staking and management</span></li>
                 <li class="precompile-item"><span class="mono">0x030A</span><span>PQ-Auth — ML-DSA (FIPS 204) post-quantum authentication</span></li>
                 <li class="precompile-item"><span class="mono">0x030B</span><span>Privacy — Qedis integration, Pedersen commitments, delegation registry</span></li>
@@ -256,7 +257,7 @@
                     <img src="assets/qedis-logo-dark.png" alt="Qedis" style="height: 36px; width: auto;">
                 </a>
                 <div>
-                    <p style="font-size: 15px; color: var(--gray-800); margin: 0; line-height: 1.6;">The Settlement Computer operates under a perpetual licence for <a href="https://qedis.io" target="_blank" rel="noopener noreferrer" style="color: var(--navy); font-weight: 500; text-decoration: none;">Qedis</a> — the most advanced privacy layer purpose-built for institutional applications in blockchain. Verifiable confidentiality with no master key, no trusted hardware, and no trusted setup. Post-quantum by design.</p>
+                    <p style="font-size: 15px; color: var(--gray-800); margin: 0; line-height: 1.6;">Privacy by <a href="https://qedis.io" target="_blank" rel="noopener noreferrer" style="color: var(--navy); font-weight: 500; text-decoration: none;">Qedis</a> — the cryptographic privacy and post-quantum runtime, owned by Digitalyze Labs Ltd and perpetually licensed to the NETTA group. Verifiable confidentiality with no master key, no trusted hardware, and no trusted setup. The Foundation's own privacy filing is PROV-005.</p>
                 </div>
             </div>
 
@@ -289,7 +290,7 @@
                 </div>
                 <div class="spec">
                     <div class="spec-label">Key Distribution</div>
-                    <div class="spec-value">Shamir's Secret Sharing (3/4 threshold active)</div>
+                    <div class="spec-value">Shamir's Secret Sharing — threshold scheme</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">Key Derivation</div>
@@ -311,7 +312,7 @@
         <!-- POST-QUANTUM -->
         <section class="section">
             <h2>Post-Quantum Cryptography</h2>
-            <p>Full post-quantum stack deployed via cloudflare/circl — ML-DSA for signatures, ML-KEM for key encapsulation, and hybrid classical+PQ modes for regulatory-aligned migration (CNSA 2.0 / BIS 158). Real post-quantum cryptography, not simulated.</p>
+            <p>Full post-quantum stack deployed through a FIPS-validated library — ML-DSA for signatures, ML-KEM for key encapsulation, and hybrid classical+PQ modes for regulatory-aligned migration (CNSA 2.0). Real post-quantum cryptography, not simulated.</p>
 
             <div class="specs-grid">
                 <div class="spec">
@@ -341,7 +342,7 @@
             <div class="specs-grid">
                 <div class="spec">
                     <div class="spec-label">Access Control</div>
-                    <div class="spec-value">5-level RBAC: Governance, Admin, Operator, Submitter, Observer</div>
+                    <div class="spec-value">6-level RBAC: Governance, Admin, Operator, Participant, Delegate, Observer</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">Corridor Isolation</div>
@@ -361,9 +362,13 @@
         <!-- ISO 20022 -->
         <section class="section">
             <h2>ISO 20022 CBPR+</h2>
-            <p>Born-native ISO 20022 CBPR+ — not a translation layer. Level 1 (schema conformance) and Level 2 (SWIFT usage guidelines) validation passed across all 5 message types. PayNet provides AI-powered translation (Haiku 4.5 / Sonnet) for non-ISO inputs.</p>
+            <p>Born-native ISO 20022 CBPR+ — not a translation layer. Native generation of pacs.008 and pacs.009 at the settlement layer; pain.001, pacs.002, camt.053 and camt.054 via the institutional API; CBPR+ Level 1 (schema) and Level 2 (usage guideline) validation passed. PayNet provides AI-assisted translation with a deterministic cache for non-ISO inputs.</p>
 
             <div class="specs-grid">
+                <div class="spec">
+                    <div class="spec-label">pacs.009</div>
+                    <div class="spec-value">FI to FI Financial Institution Credit Transfer — net settlement instruction</div>
+                </div>
                 <div class="spec">
                     <div class="spec-label">pain.001</div>
                     <div class="spec-value">Customer Credit Transfer Initiation</div>
@@ -397,7 +402,7 @@
             <ul class="principles-list">
                 <li>
                     <h4>Non-Custodial</h4>
-                    <p>The Settlement Computer coordinates settlement instructions but never holds funds. All regulated activities remain with licensed institutional partners.</p>
+                    <p>The Settlement Computer coordinates settlement instructions but never holds funds. All licensable activity remains with participating licensed institutions.</p>
                 </li>
                 <li>
                     <h4>Corridor Isolation</h4>
@@ -413,7 +418,7 @@
                 </li>
                 <li>
                     <h4>Technology Service Provider</h4>
-                    <p>NETTA is a non-custodial coordination protocol — not a bank, PSP, e-money issuer, or remittance company. We never hold fiat, never custody user funds, and never execute settlement. All regulated activities are performed exclusively by licensed partner institutions.</p>
+                    <p>NETTA is a non-custodial coordination protocol — not a bank, PSP, e-money issuer, or remittance company. We never hold fiat, never custody user funds, and never execute settlement. All licensable activity is performed by participating licensed institutions.</p>
                 </li>
             </ul>
         </section>
@@ -421,58 +426,92 @@
         <!-- PATENTS -->
         <section class="section">
             <h2>Intellectual Property</h2>
-            <p>11 U.S. patent applications pending (~737 claims) covering the Settlement Computer, cross-currency multilateral netting, agentic clearing, Sharia-compatible settlement, tokenized asset DVP netting, digital currency netting, tokenized commodity settlement, cryptographic privacy, post-quantum authentication, and mandate-bound counter-attestation.</p>
+            <p>Twenty US provisional patent applications on file (1,132 claims): sixteen held by FiatRails Foundation Ltd; four covering the Qedis privacy and post-quantum runtime, owned by Digitalyze Labs Ltd and licensed perpetually to the group.</p>
 
+            <h3 style="font-size: 15px; font-weight: 600; color: var(--gray-800); margin: 24px 0 12px;">Held by FiatRails Foundation Ltd</h3>
             <div class="specs-grid">
                 <div class="spec">
                     <div class="spec-label">PROV-001 — 63/943,488</div>
-                    <div class="spec-value">Settlement Determination Architecture</div>
+                    <div class="spec-value">Settlement determination architecture</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">PROV-002 — 64/013,030</div>
-                    <div class="spec-value">RiskNet, PayNet, Cross-Product Architecture</div>
+                    <div class="spec-value">Risk intelligence, micro-obligation aggregation, cross-product netting</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">PROV-003 — 64/013,031</div>
-                    <div class="spec-value">Trade + Grid — Maturity-Aware Temporal Netting</div>
+                    <div class="spec-value">Maturity-aware temporal netting (trade and energy)</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">PROV-004 — 64/013,645</div>
-                    <div class="spec-value">Agentic Clearing — 65 claims, 7 invention families</div>
+                    <div class="spec-value">Agentic clearing</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">PROV-005 — 64/032,665</div>
-                    <div class="spec-value">Privacy + PQ Cryptography — 49 claims, 5 invention families</div>
+                    <div class="spec-value">Cryptographic privacy and post-quantum primitives</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">PROV-006 — 64/044,001</div>
-                    <div class="spec-value">AssetNet — Tokenized DVP Netting — 106 claims, 26 invention families</div>
+                    <div class="spec-value">Tokenised-asset DvP netting</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">PROV-006.1 — 64/092,424</div>
-                    <div class="spec-value">Tokenized Physical Commodity Settlement — 42 claims</div>
+                    <div class="spec-value">Tokenised physical-commodity settlement</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">PROV-007 — 64/044,887</div>
-                    <div class="spec-value">StableNet — Digital Currency Netting — 44 claims, 17 invention families</div>
+                    <div class="spec-value">Heterogeneous digital-currency netting</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">PROV-008 — 64/081,242</div>
-                    <div class="spec-value">Cross-Currency Multilateral Netting — 71 claims</div>
+                    <div class="spec-value">Just-in-time atomic multilateral net settlement with counter-attestation</div>
+                </div>
+                <div class="spec">
+                    <div class="spec-label">PROV-008.1 — 64/127,464</div>
+                    <div class="spec-value">Counter-attestation extensions</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">PROV-009 — 64/083,987</div>
-                    <div class="spec-value">Sharia-Compatible Cryptographic Settlement — 142 claims, 27 embodiments</div>
+                    <div class="spec-value">Sharia-compatible settlement architecture</div>
+                </div>
+                <div class="spec">
+                    <div class="spec-label">PROV-009.1 — 64/140,276</div>
+                    <div class="spec-value">Sharia extensions</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">PROV-011 — 64/084,049</div>
-                    <div class="spec-value">Mandate-Bound Counter-Attestation + AI-Attributable Evidentiary Log — 45 claims</div>
+                    <div class="spec-value">Mandate-bound counter-attestation and agent-payment adapters</div>
+                </div>
+                <div class="spec">
+                    <div class="spec-label">PROV-012 — 64/116,711</div>
+                    <div class="spec-value">Net-secured settlement</div>
+                </div>
+                <div class="spec">
+                    <div class="spec-label">PROV-013 — 64/118,298</div>
+                    <div class="spec-value">Compression-continuity guarantee</div>
+                </div>
+                <div class="spec">
+                    <div class="spec-label">PROV-014 — 64/149,458</div>
+                    <div class="spec-value">Cross-infrastructure multilateral liquidity coordination</div>
+                </div>
+            </div>
+
+            <h3 style="font-size: 15px; font-weight: 600; color: var(--gray-800); margin: 24px 0 12px;">Licensed privacy runtime (Qedis — owned by Digitalyze Labs Ltd)</h3>
+            <div class="specs-grid">
+                <div class="spec">
+                    <div class="spec-label">PROV-010 — 64/082,949</div>
+                    <div class="spec-value">Substrate-agnostic privacy and post-quantum execution runtime</div>
+                </div>
+                <div class="spec">
+                    <div class="spec-label">PROV-010.1 / 010.2 / 010.3</div>
+                    <div class="spec-value">Confidential settlement, transaction-graph privacy and governance recovery supplements</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">Status</div>
-                    <div class="spec-value">All implemented and live on testnet. Non-provisional conversions in progress.</div>
+                    <div class="spec-value">Five products exercised on testnet; three in design. Conversion programme funded; first national filings from December 2026.</div>
                 </div>
             </div>
+            <p style="font-size: 13px; color: var(--gray-500); margin-top: 24px;">Ecosystem: first place in the L1 Builder Challenge at the Ignyte × Avalanche 2026 hackathon; Avalanche × Hub71 cohort.</p>
         </section>
 
         <div class="cta-box">
@@ -501,7 +540,7 @@
                     <a href="stablenet.html">StableNet</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Company</h4>
+                    <h4>Company</h4><a href="governance.html">Governance &amp; Team</a>
                     <a href="https://fiatrails.foundation">Foundation</a>
                     <a href="architecture.html">Architecture</a>
                     <a href="/insights">Insights</a>

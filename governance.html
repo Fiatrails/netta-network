@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Governance &amp; Team | NETTA — The Settlement Computer</title>
+    <meta name="description" content="How NETTA is governed: FiatRails Foundation Ltd, an independent board, a Board Governance Protocol with reserved matters and open registers, Foundation-held patents, and PFMI self-assessment.">
+    <meta name="theme-color" content="#0B1D33">
+    <link rel="canonical" href="https://netta.network/governance.html">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="NETTA — Governance &amp; Team">
+    <meta property="og:description" content="Governed as market infrastructure: an independent board, reserved matters, open registers, Foundation-held patents.">
+    <meta property="og:url" content="https://netta.network/governance.html">
+    <meta property="og:image" content="https://netta.network/assets/og-image.png">
+    >
+    >
+    >
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --white:#fff;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151;--gray-800:#1f2937;--gray-900:#111827;--navy:#0B1D33;--navy-dark:#050E1C;--teal-50:#E6F4F2;--teal:#2AA39A; }
+        * { margin:0;padding:0;box-sizing:border-box; }
+        body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--white);color:var(--gray-800);line-height:1.6;-webkit-font-smoothing:antialiased; }
+
+        .nav{background:var(--white);border-bottom:1px solid var(--gray-200);position:sticky;top:0;z-index:100}
+        .nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;height:72px;display:flex;align-items:center;justify-content:space-between}
+        .nav-brand{display:flex;align-items:center;gap:16px;text-decoration:none}.nav-logo{height:62px;width:auto}
+        .nav-divider{width:1px;height:24px;background:var(--gray-300)}.nav-product{font-size:14px;color:var(--gray-500);font-weight:400}
+        .nav-links{display:flex;align-items:center;gap:36px}.nav-links a{color:var(--gray-600);text-decoration:none;font-size:14px;font-weight:500;transition:color .15s}
+        .nav-links a:hover{color:var(--gray-900)}.nav-cta{background:var(--navy);color:var(--white)!important;padding:10px 20px;border-radius:6px}.nav-cta:hover{background:var(--navy-dark)}
+
+        .section-header{text-align:center;margin-bottom:48px}.section-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:12px}
+        .section-title{font-size:32px;font-weight:700;color:var(--gray-900);letter-spacing:-.02em;margin-bottom:12px}
+        .section-desc{font-size:16px;color:var(--gray-600);max-width:640px;margin:0 auto;line-height:1.7}
+
+        .hero{background:linear-gradient(180deg,var(--gray-50) 0%,var(--white) 100%);padding:72px 32px 60px}
+        .hero-inner{max-width:900px;margin:0 auto;text-align:center}
+        .hero-badge{display:inline-block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;padding:4px 12px;border-radius:4px;margin-bottom:20px;background:rgba(5,150,105,.1);color:var(--teal)}
+        .hero h1{font-size:48px;font-weight:700;color:var(--gray-900);letter-spacing:-.02em;line-height:1.1;margin-bottom:20px}
+        .hero p{font-size:18px;color:var(--gray-600);line-height:1.7;max-width:760px;margin:0 auto 28px}
+        .back-link{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--navy);text-decoration:none}.back-link:hover{text-decoration:underline}
+
+        .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+        .feature{padding:28px;background:var(--white);border:1px solid var(--gray-200);border-radius:8px}
+        .feature-num{font-size:12px;font-weight:600;color:var(--navy);margin-bottom:12px}
+        .feature h4{font-size:16px;font-weight:600;color:var(--gray-900);margin-bottom:10px}
+        .feature p{font-size:13px;color:var(--gray-600);line-height:1.6}
+
+        .two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+        .info-card{border:1px solid var(--gray-200);border-radius:8px;padding:32px;background:var(--white)}
+        .info-card h4{font-size:18px;font-weight:600;color:var(--gray-900);margin-bottom:12px}
+        .info-card p{font-size:14px;color:var(--gray-600);line-height:1.7;margin-bottom:12px}
+        .info-list{list-style:none}.info-list li{font-size:13px;color:var(--gray-600);padding:6px 0 6px 20px;position:relative}
+        .info-list li::before{content:"\2713";position:absolute;left:0;color:var(--teal);font-weight:600}
+
+        .footer{background:var(--gray-900);padding:48px 32px 24px;color:var(--gray-400)}
+        .footer-inner{max-width:1200px;margin:0 auto}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}
+        .footer-brand p{font-size:13px;line-height:1.6;margin-top:12px;color:var(--gray-500)}
+        .footer-col h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--gray-300);margin-bottom:16px}
+        .footer-col a{display:block;font-size:13px;color:var(--gray-500);text-decoration:none;margin-bottom:10px}.footer-col a:hover{color:var(--gray-300)}
+        .footer-powered{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid var(--gray-800)}
+        .powered-item{display:flex;flex-direction:column;gap:12px}.powered-label{font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--gray-500)}
+        .powered-logo{display:flex;align-items:center;gap:10px}.powered-name{font-size:20px;font-weight:700;color:var(--white)}
+        .powered-desc{font-size:13px;line-height:1.6;color:var(--gray-400);max-width:360px}
+        .footer-bottom{padding-top:24px;display:flex;justify-content:space-between;font-size:12px}
+
+        .cookie-banner{display:block;position:fixed;bottom:0;left:0;right:0;background:var(--navy);color:var(--white);padding:20px;z-index:9999}
+        .cookie-banner.hide{display:none}.cookie-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+        .cookie-text{flex:1;font-size:14px;line-height:1.5}.cookie-text a{color:var(--white);text-decoration:underline}
+        .cookie-buttons{display:flex;gap:12px}.cookie-btn{padding:10px 20px;border-radius:6px;font-size:14px;font-weight:500;cursor:pointer;border:none}
+        .cookie-btn-accept{background:var(--white);color:var(--navy)}.cookie-btn-decline{background:transparent;color:var(--white);border:1px solid var(--gray-400)}
+
+        @media(max-width:1024px){.features-grid,.two-col{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr;gap:24px}.footer-powered{grid-template-columns:1fr;gap:32px}}
+        @media(max-width:640px){.nav-links{display:none}.hero{padding:48px 24px 56px}.hero h1{font-size:32px}.cookie-inner{flex-direction:column;text-align:center}.cookie-buttons{width:100%;justify-content:center}}
+    
+        .people-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+        .people-grid-2{grid-template-columns:repeat(2,1fr);max-width:640px;margin:0 auto}
+        .person{background:var(--white);border:1px solid var(--gray-200);border-radius:8px;padding:24px}
+        .person-photo{aspect-ratio:1/1;background:var(--gray-100);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:600;color:var(--gray-400);margin-bottom:16px}
+        .person-name{font-size:17px;font-weight:700;color:var(--gray-900)}
+        .person-role{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin:4px 0 10px}
+        .person-bio{font-size:13.5px;line-height:1.6;color:var(--gray-600)}
+        .entity-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+        .entity{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:24px}
+        .entity h4{font-size:15px;font-weight:700;color:var(--white);margin-bottom:6px}
+        .entity p{font-size:13px;color:rgba(255,255,255,.65);line-height:1.6}
+        .entity code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:rgba(255,255,255,.85)}
+        @media (max-width:1024px){.people-grid{grid-template-columns:repeat(2,1fr)}.entity-grid{grid-template-columns:1fr}}
+        @media (max-width:640px){.people-grid,.people-grid-2{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Governance &amp; Team</span></a><div class="nav-links"><a href="index.html#products">Products</a><a href="architecture.html">Architecture</a><a href="governance.html">Governance</a><a href="/insights">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="apply.html" class="nav-cta">Request Briefing</a></div></div></nav>
+
+    <section class="hero"><div class="hero-inner">
+        <span class="hero-badge">Governance</span>
+        <h1>Governed as market infrastructure</h1>
+        <p>NETTA — The Settlement Computer — is a product of FiatRails Foundation Ltd. The Foundation is run the way settlement institutions expect their infrastructure to be run: an independent board, matters reserved to it before execution, registers every director can read, and standards that invite examination.</p>
+    </div></section>
+
+    <section style="background:var(--navy);padding:60px 32px"><div style="max-width:1200px;margin:0 auto">
+        <div class="entity-grid">
+            <div class="entity"><h4>FiatRails Foundation Ltd</h4><p>Cayman Islands exempted foundation company · Reg. 431901 · LEI <code>894500RG1F2BKNE8P514</code></p><p>Governance, custody of the patent estate, standards and supervisory engagement. No members, no shareholders, no distributions. NETTA is a product of the Foundation.</p></div>
+            <div class="entity"><h4>FiatRails Holdings Ltd</h4><p>Cayman Islands · Reg. 433608 · LEI <code>894500AC5ANE33H3EX31</code></p><p>Investment vehicle. Holds the operating entities and takes the protocol under a Master IP Licence from the Foundation.</p></div>
+            <div class="entity"><h4>FiatRails Settlement Ltd</h4><p>Abu Dhabi Global Market · Reg. 37151 · LEI <code>894500XN01CZRCRHQH56</code></p><p>Operating entity for pilots and commercial agreements with participating institutions.</p></div>
+        </div>
+    </div></section>
+
+    <section id="board" style="padding:80px 32px"><div style="max-width:1000px;margin:0 auto">
+        <div class="section-header"><div class="section-label">Board of Directors</div><h2 class="section-title">The Founder and three independent non-executive directors</h2>
+        <p class="section-desc">Drawn from the institutions that built the current generation of post-trade and settlement infrastructure. No executive chair; every non-executive director carries equal standing. The composition of the Board is published on appointment.</p></div>
+    </div></section>
+
+    <section id="protocol" style="background:var(--gray-50);padding:80px 32px"><div style="max-width:1000px;margin:0 auto">
+        <div class="section-header"><div class="section-label">How the Foundation is governed</div><h2 class="section-title">Reserved matters, written notice, open registers</h2>
+        <p class="section-desc">A Board Governance Protocol and Delegated Authority Schedule, adopted in August 2026, fixes what the Board decides before anything is executed and how the executive reports on everything else.</p></div>
+        <div class="two-col">
+            <div class="info-card"><h4>Reserved to the Board before execution</h4>
+                <ul class="info-list"><li>Every matter in which the Founder or any director has an interest, regardless of value</li><li>All intellectual-property assignments, licences and security interests</li><li>Every equity grant or issuance by any group entity</li><li>Any token-related instrument — the Foundation's token objects are dormant and no token exists or is planned</li><li>Regulatory submissions in the Foundation's name</li><li>Senior appointments, borrowing and guarantees, structural transactions, the annual budget</li></ul>
+            </div>
+            <div class="info-card"><h4>How it runs</h4>
+                <ul class="info-list"><li>Reserved matters are put to the Board by written Decision Notice with at least three business days' notice; silence is never treated as consent</li><li>A Register of Instruments, a Decision Register and a Capitalisation Register, visible to every director; every executed instrument entered within five business days</li><li>A written Board Note to all directors each week during active periods</li><li>A convened Board meeting at least quarterly and an annual general meeting each calendar year</li><li>Directors' interests declared and recorded; interested directors do not decide the matters in which they are interested</li></ul>
+            </div>
+        </div>
+        <p style="font-size:14px;color:var(--gray-600);line-height:1.7;max-width:760px;margin:32px auto 0;text-align:center">The Foundation is a Cayman Islands exempted foundation company with no members and no shareholders. Its constitution prohibits any distribution of income or property to directors or supervisors other than authorised remuneration for services, and it cannot enter enterprise, customer or revenue-generating contracts. Commercial activity sits in FiatRails Holdings Ltd and its operating subsidiaries.</p>
+    </div></section>
+
+    <section id="ip" style="padding:80px 32px"><div style="max-width:1000px;margin:0 auto">
+        <div class="section-header"><div class="section-label">Intellectual property</div><h2 class="section-title">Held by the Foundation, licensed to the group</h2></div>
+        <div class="two-col">
+            <div class="info-card"><h4>Settlement family — Foundation-held</h4><p style="font-size:13.5px;color:var(--gray-600);line-height:1.6">Sixteen US provisional patent applications held by FiatRails Foundation Ltd under assignments recorded at the United States Patent and Trademark Office: settlement determination; just-in-time atomic multilateral net settlement with counter-attestation; risk intelligence and micro-obligation aggregation; maturity-aware netting; agentic clearing; tokenised-asset and digital-currency netting; Sharia-compatible settlement architecture; net-secured settlement; compression continuity; cross-infrastructure liquidity coordination; and the Foundation's own cryptographic privacy and post-quantum filing.</p></div>
+            <div class="info-card"><h4>Privacy runtime — licensed</h4><p style="font-size:13.5px;color:var(--gray-600);line-height:1.6">The Qedis cryptographic privacy and post-quantum runtime (four further applications) is owned by Digitalyze Labs Ltd, a company controlled by the Founder, and licensed to the NETTA group perpetually and royalty-free. The arrangement is disclosed as a related-party matter and sits within the Board's reserved-matters regime. Operating entities take the estate under a Master IP Licence; twenty applications and 1,132 claims in total; the conversion programme is funded, with first national filings from December 2026.</p></div>
+        </div>
+    </div></section>
+
+    <section id="standards" style="background:var(--gray-50);padding:80px 32px"><div style="max-width:1000px;margin:0 auto">
+        <div class="section-header"><div class="section-label">Standards and supervisory engagement</div><h2 class="section-title">Built to be examined</h2></div>
+        <div class="features-grid">
+            <div class="feature"><div class="feature-num">PFMI</div><h4>Self-assessed against all 24 principles</h4><p>The protocol is self-assessed against the CPMI-IOSCO Principles for Financial Market Infrastructures, with live monitoring of Principles 4, 7 and 15 at the protocol level.</p></div>
+            <div class="feature"><div class="feature-num">ISO 20022</div><h4>CBPR+ native</h4><p>Native generation of pacs.008 and pacs.009 at the settlement layer; pain.001, pacs.002, camt.053 and camt.054 via the institutional API. Level 1 and Level 2 validation passed.</p></div>
+            <div class="feature"><div class="feature-num">Perimeter</div><h4>Technology service provider</h4><p>Documented regulatory dialogue in the UAE, Singapore, the UK and the EU, with written responses in hand. NETTA never holds funds, never executes FX and never acts as counterparty; all licensable activity remains with participating institutions.</p></div>
+        </div>
+        <p style="font-size:13px;color:var(--gray-500);max-width:760px;margin:28px auto 0;text-align:center">Engineering is delivered by Digitalyze Labs Ltd under a service arrangement disclosed to the Board. FX reference rates are supplied by AFXO, a Digitalyze Labs product, on arm's-length terms.</p>
+    </div></section>
+
+    <section style="background:var(--navy);padding:64px 32px;text-align:center"><div style="max-width:720px;margin:0 auto">
+        <h2 style="font-size:28px;font-weight:700;color:var(--white);letter-spacing:-.02em;margin-bottom:12px">Request an institutional briefing</h2>
+        <p style="font-size:15px;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:28px">Controlled pilots in 2026–27 for banks, payment institutions and market infrastructures. Technical documentation and NDA available to qualified participants.</p>
+        <a href="apply.html" style="display:inline-block;background:var(--white);color:var(--navy);padding:14px 28px;border-radius:6px;font-weight:600;text-decoration:none;font-size:15px">Request Briefing</a>
+    </div></section>
+
+    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA — The Settlement Computer. Institutional settlement infrastructure. A product of FiatRails Foundation Ltd. Technology service provider — never custodying funds.</p></div><div class="footer-col"><h4>Products</h4><a href="settlement.html">Settlement</a><a href="paynet.html">PayNet</a><a href="risknet.html">RiskNet</a><a href="trade.html">Trade</a><a href="grid.html">Grid</a><a href="nexus.html">Nexus</a><a href="assetnet.html">AssetNet</a><a href="stablenet.html">StableNet</a></div><div class="footer-col"><h4>Company</h4><a href="governance.html">Governance &amp; Team</a><a href="https://fiatrails.foundation">Foundation</a><a href="architecture.html">Architecture</a><a href="/insights">Insights</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://twitter.com/fiatrails" target="_blank" rel="noopener noreferrer">X</a></div><div class="footer-col"><h4>Legal</h4><a href="terms.html">Terms of Service</a><a href="privacy.html">Privacy Policy</a></div></div>
+    <div class="footer-bottom"><span>&copy; 2026 FiatRails Foundation Ltd. All rights reserved.</span><span>CR-431901 | LEI <a href="https://search.gleif.org/#/record/894500RG1F2BKNE8P514" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">894500RG1F2BKNE8P514</a> | Cayman Islands</span></div></div></footer>
+</body>
+</html>

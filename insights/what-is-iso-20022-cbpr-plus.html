@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What Is ISO 20022 CBPR+? The Institutional Standard That Defines Who Can Play | NETTA Insights</title>
     <meta name="description" content="ISO 20022 CBPR+ is the institutional message standard for cross-border payments and reporting. After November 2025, every bank uses it. Settlement infrastructure that doesn't generate ISO 20022 natively is infrastructure banks can't integrate.">
-    <meta name="author" content="NETTA Insights">
+    <meta name="author" content="Vincent Scaturchio">
     <link rel="icon" type="image/png" href="/icons/favicon-32x32.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
 
@@ -27,8 +27,10 @@
         "headline": "What Is ISO 20022 CBPR+? The Institutional Standard That Defines Who Can Play",
         "description": "ISO 20022 CBPR+ is the institutional message standard for cross-border payments and reporting. After November 2025, every bank uses it. Settlement infrastructure that doesn't generate ISO 20022 natively is infrastructure banks can't integrate.",
         "author": {
-            "@type": "Organization",
-            "name": "NETTA Insights"
+            "@type": "Person",
+            "name": "Vincent Scaturchio",
+            "jobTitle": "Founder and Chief Executive",
+            "url": "https://netta.network/"
         },
         "publisher": {
             "@type": "Organization",
@@ -39,7 +41,7 @@
             }
         },
         "datePublished": "2026-05-30",
-        "dateModified": "2026-05-30",
+        "dateModified": "2026-09-12",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://netta.network/insights/what-is-iso-20022-cbpr-plus"
@@ -144,7 +146,7 @@
     </style>
 </head>
 <body>
-    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><div class="nav-links"><a href="../index.html#products">Products</a><a href="../architecture.html">Architecture</a><a href="/insights">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="../apply.html" class="nav-cta">Request Briefing</a></div></div></nav>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><div class="nav-links"><a href="../index.html#products">Products</a><a href="../architecture.html">Architecture</a><a href="../governance.html">Governance</a><a href="/insights">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="../apply.html" class="nav-cta">Request Briefing</a></div></div></nav>
 
     <article>
         <header class="article-hero">
@@ -152,8 +154,9 @@
                 <a href="/insights" class="article-back">&larr; All insights</a>
                 <div class="article-meta">
                     <span class="article-category">Educational</span>
-                    <span class="article-byline">NETTA Insights</span>
+                    <span class="article-byline">Vincent Scaturchio, Founder and Chief Executive</span>
                     <span class="article-date">30 May 2026</span>
+                    <span class="article-date">Last reviewed: 12 September 2026</span>
                 </div>
                 <h1>What Is ISO 20022 CBPR+? The Institutional Standard That Defines Who Can Play</h1>
                 <p class="lede">ISO 20022 CBPR+ is not merely a message format. It is the institutional interoperability standard that determines whether settlement infrastructure can integrate with the global banking system — or whether it sits permanently outside it.</p>
@@ -167,7 +170,7 @@
 
                 <p>Together, ISO 20022 CBPR+ is not merely a message format. It is the institutional interoperability standard that determines whether settlement infrastructure can integrate with the global banking system — or whether it sits permanently outside it.</p>
 
-                <p>This distinction became operationally binding in November 2025, when the coexistence period between SWIFT's legacy MT message types and ISO 20022 ended. From that point forward, every cross-border payment and reporting message between financial institutions uses ISO 20022 CBPR+ natively. There is no longer a parallel track. There is no translation service that preserves full data fidelity between the old format and the new. The standard is the standard, and infrastructure that cannot generate it natively is infrastructure that creates an integration barrier at every bank it touches.</p>
+                <p>This distinction became operationally binding in November 2025, when the coexistence period between SWIFT's legacy MT message types and ISO 20022 ended. From that point forward, ISO 20022 CBPR+ is the interbank baseline for cross-border payment and reporting messages. There is no longer a parallel track. SWIFT's central in-flow translation for cross-border payments was withdrawn with the end of coexistence in November 2025; any remaining translation is bank-side and lossy. The standard is the standard, and infrastructure that cannot generate it natively is infrastructure that creates an integration barrier at every bank it touches.</p>
 
                 <h2>What changed in November 2025</h2>
 
@@ -179,7 +182,7 @@
 
                 <p>SWIFT began the migration to ISO 20022 for cross-border payments and reporting in March 2023, running a coexistence period during which both MT and ISO 20022 messages could be exchanged. During coexistence, SWIFT's central translation facility converted between formats — MT103 to pacs.008 and back — allowing institutions to migrate at their own pace.</p>
 
-                <p>That coexistence period ended in November 2025. The translation facility was retired. From that point, all cross-border payment and cash management messages on the SWIFT network use ISO 20022 CBPR+ natively. Institutions that had not completed their migration were required to do so. The global payments ecosystem moved to a single standard.</p>
+                <p>That coexistence period ended in November 2025. SWIFT's central in-flow translation for cross-border payments was withdrawn with it. From that point, cross-border payment and cash management messages on the SWIFT network use ISO 20022 CBPR+ as the baseline. Institutions that had not completed their migration were required to do so. The global payments ecosystem moved to a single standard.</p>
 
                 <p>The implication for settlement infrastructure is direct: any system that generates settlement instructions, position reports, or compliance data for institutional participants must generate them in ISO 20022. Not as an optional export. Not as a post-processing translation. Natively, in the message structure that every downstream system — core banking, reconciliation engines, compliance platforms, regulatory reporting feeds, supervisory interfaces — is now built to consume.</p>
 
@@ -189,7 +192,7 @@
 
                 <p><strong>pacs.008 — FI to FI Customer Credit Transfer.</strong> This is the workhorse of cross-border payments. It carries a payment instruction from one financial institution to another on behalf of a customer. For settlement infrastructure, pacs.008 is the message type used when net settlement instructions involve underlying customer obligations. It carries full structured remittance data, debtor and creditor identification, and the regulatory data elements that compliance systems require.</p>
 
-                <p><strong>pacs.009 — Financial Institution Credit Transfer.</strong> This is the institution-to-institution settlement message. Where pacs.008 carries customer-originated payments, pacs.009 carries transfers between institutions on their own account — which is precisely what net settlement instructions are. When a netting computation determines that Institution A owes Institution B a net amount of $4.2 million, the settlement instruction is a pacs.009. CLS, CHIPS, and TARGET2 all generate or consume pacs.009 messages as part of their settlement cycles.</p>
+                <p><strong>pacs.009 — Financial Institution Credit Transfer.</strong> This is the institution-to-institution settlement message. Where pacs.008 carries customer-originated payments, pacs.009 carries transfers between institutions on their own account — which is precisely what net settlement instructions are. When a netting computation determines that Institution A owes Institution B a net amount of $4.2 million, the settlement instruction is a pacs.009. CHIPS and T2 consume pacs.009; CLS members' pay-ins ride the same message on their RTGS legs.</p>
 
                 <p><strong>camt.053 — Bank to Customer Statement.</strong> This is the end-of-day account statement, replacing the legacy MT940/MT950. For settlement infrastructure, camt.053 is the message type that reports settled positions to participants — the post-netting confirmation that tells each institution what was settled, in what amount, and against which counterparties. It carries the structured detail that reconciliation engines need to match settled positions against internal books.</p>
 
@@ -203,7 +206,7 @@
 
                 <p>This framing misses what ISO 20022 actually standardises. It is not merely the syntax. It is the semantics — the meaning of each field, the business rules governing which fields are mandatory under which conditions, the code sets that classify payment types and regulatory contexts, and the usage guidelines that ensure a pacs.009 generated by one institution is interpreted identically by every other institution in the chain.</p>
 
-                <p><strong>Regulatory reporting flows directly from the message.</strong> Supervisory authorities in an increasing number of jurisdictions are building their reporting frameworks around ISO 20022 data elements. The European Central Bank's reporting requirements for TARGET2 participants reference ISO 20022 fields directly. The Bank of England's RTGS renewal programme — built on ISO 20022 — uses the structured data in pacs messages for real-time liquidity monitoring. FedNow, the US Federal Reserve's instant payment service launched in 2023, is ISO 20022 native from inception. When settlement infrastructure generates ISO 20022 messages, the data required for regulatory reporting is embedded in the settlement instruction itself. When it does not, the reporting data must be reconstructed separately — introducing reconciliation gaps and compliance risk.</p>
+                <p><strong>Regulatory reporting flows directly from the message.</strong> Supervisory authorities in an increasing number of jurisdictions are building their reporting frameworks around ISO 20022 data elements. The European Central Bank's reporting requirements for T2 participants reference ISO 20022 fields directly. The Bank of England's RTGS renewal programme — built on ISO 20022 — uses the structured data in pacs messages for real-time liquidity monitoring. FedNow, the US Federal Reserve's instant payment service launched in 2023, is ISO 20022 native from inception. When settlement infrastructure generates ISO 20022 messages, the data required for regulatory reporting is embedded in the settlement instruction itself. When it does not, the reporting data must be reconstructed separately — introducing reconciliation gaps and compliance risk.</p>
 
                 <p><strong>Reconciliation automation depends on structured fields.</strong> A bank's reconciliation engine matches incoming settlement instructions against expected positions from its internal books. ISO 20022 messages carry structured references — end-to-end transaction IDs, UETR (Unique End-to-end Transaction Reference), clearing system references — that enable automated straight-through reconciliation. Proprietary message formats require custom parsing logic per counterparty, per system, per message type. At scale, this is not an engineering problem — it is an operational risk problem that compliance and operations teams will not accept.</p>
 
@@ -231,7 +234,7 @@
 
                 <p>This is not a hypothetical workflow. It is the operational reality at every institution that receives settlement instructions from a system that does not generate ISO 20022. The consequences are measurable:</p>
 
-                <p><strong>Operational risk charges.</strong> Under Basel III operational risk frameworks, manual processing of settlement instructions attracts higher operational risk weighting than automated straight-through processing. The risk is real: manual entry introduces transcription errors, timing delays, and reconciliation breaks that automated processing eliminates.</p>
+                <p><strong>Operational risk charges.</strong> Manual processing feeds the loss and control data that drives a bank's operational-risk capital and its internal control assessments. The risk is real: manual entry introduces transcription errors, timing delays, and reconciliation breaks that automated processing eliminates.</p>
 
                 <p><strong>Compliance flags.</strong> Settlement instructions that bypass automated compliance screening — because they arrived in a format the screening engine cannot parse — must be manually reviewed. Every manually reviewed transaction is a compliance cost. At volume, these costs make the settlement system economically unviable regardless of the netting compression it achieves.</p>
 
@@ -243,7 +246,7 @@
 
                 <p>ISO 20022 CBPR+ is often discussed as a technical migration — a format change, a systems upgrade, an IT project. At the infrastructure level, it is something more fundamental. It is a qualification gate.</p>
 
-                <p>After November 2025, the global institutional payments ecosystem operates on a single message standard. Every RTGS system in the G20 either runs ISO 20022 natively or is in active migration. SWIFT's entire cross-border messaging infrastructure uses CBPR+ as the baseline. CLS, CHIPS, TARGET2, FedNow, and every major clearing and settlement system generates or consumes ISO 20022 messages. The institutional plumbing — from origination through clearing through settlement through reconciliation through regulatory reporting — assumes ISO 20022 at every node.</p>
+                <p>After November 2025, the global institutional payments ecosystem operates on a single message standard. Every major RTGS system either runs ISO 20022 natively or is in active migration. SWIFT's entire cross-border messaging infrastructure uses CBPR+ as the baseline. CLS, CHIPS, T2, FedNow, and every major clearing and settlement system generates or consumes ISO 20022 messages. The institutional plumbing — from origination through clearing through settlement through reconciliation through regulatory reporting — assumes ISO 20022 at every node.</p>
 
                 <p>Settlement infrastructure that generates ISO 20022 natively slots into this plumbing. It can dispatch net settlement instructions that every participant's systems recognise, process, reconcile, and report without adaptation. It can feed supervisory reporting frameworks directly. It can participate in the institutional ecosystem as a peer rather than an exception.</p>
 
@@ -251,7 +254,7 @@
 
                 <p>The standard does not care about the underlying technology. It does not distinguish between blockchain-based settlement and traditional batch processing. It does not preference one netting algorithm over another. What it requires is that the output — the settlement instructions, the position reports, the compliance data — conforms to the structure, semantics, and usage guidelines that every institution's downstream systems are built to process.</p>
 
-                <p>NETTA generates ISO 20022 CBPR+ settlement instructions natively, including pacs.009 net settlement messages and camt position reports, as part of its core netting computation output.</p>
+                <p>NETTA generates ISO 20022 CBPR+ settlement instructions natively: pacs.008 and pacs.009 net settlement messages are produced at the settlement layer as part of the core netting computation output, with pain.001, pacs.002, camt.053 and camt.054 generated through the institutional API.</p>
 
                 <p>For institutions evaluating settlement infrastructure: ask whether the system generates ISO 20022 natively. Not whether it can export to ISO 20022. Not whether a translation layer is planned. Whether the settlement instructions that arrive at your operations desk are CBPR+ messages that your existing systems can process without adaptation. The answer to that question determines whether the infrastructure integrates with the institutional ecosystem — or whether it requires your operations team to build around it.</p>
 
@@ -267,7 +270,7 @@
         <div class="newsletter-inner">
             <div class="newsletter-eyebrow">NETTA Insights · Newsletter</div>
             <h2 class="newsletter-title">Get NETTA Insights</h2>
-            <p class="newsletter-desc">Bi-weekly institutional settlement infrastructure thought leadership. No marketing fluff.</p>
+            <p class="newsletter-desc">Occasional notes on settlement infrastructure. Unsubscribe any time.</p>
             <!-- BEEHIIV EMBED PLACEHOLDER -->
             <div class="newsletter-form-wrap"><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="c83c5533-4a14-4498-a994-91efdf41c81c"></script></div>
         </div>
@@ -287,13 +290,13 @@
                 </a>
                 <a href="/insights/settlement-computer-five-products-live" class="series-card">
                     <div class="series-card-cat">Product Update</div>
-                    <h3>The Settlement Computer: What Is Live on Testnet</h3>
+                    <h3>The Settlement Computer: What Is Live on Testnet and What Comes Next</h3>
                 </a>
             </div>
         </div>
     </section>
 
-    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA — The Settlement Computer. Institutional settlement infrastructure. A product of FiatRails Foundation Ltd. Technology service provider — never custodying funds.</p></div><div class="footer-col"><h4>Products</h4><a href="../settlement.html">Settlement</a><a href="../paynet.html">PayNet</a><a href="../risknet.html">RiskNet</a><a href="../trade.html">Trade</a><a href="../grid.html">Grid</a><a href="../nexus.html">Nexus</a><a href="../assetnet.html">AssetNet</a><a href="../stablenet.html">StableNet</a></div><div class="footer-col"><h4>Company</h4><a href="https://fiatrails.foundation">Foundation</a><a href="../architecture.html">Architecture</a><a href="/insights">Insights</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://twitter.com/fiatrails" target="_blank" rel="noopener noreferrer">X</a></div><div class="footer-col"><h4>Legal</h4><a href="../terms.html">Terms of Service</a><a href="../privacy.html">Privacy Policy</a></div></div>
+    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA — The Settlement Computer. Institutional settlement infrastructure. A product of FiatRails Foundation Ltd. Technology service provider — never custodying funds.</p></div><div class="footer-col"><h4>Products</h4><a href="../settlement.html">Settlement</a><a href="../paynet.html">PayNet</a><a href="../risknet.html">RiskNet</a><a href="../trade.html">Trade</a><a href="../grid.html">Grid</a><a href="../nexus.html">Nexus</a><a href="../assetnet.html">AssetNet</a><a href="../stablenet.html">StableNet</a></div><div class="footer-col"><h4>Company</h4><a href="../governance.html">Governance &amp; Team</a><a href="https://fiatrails.foundation">Foundation</a><a href="../architecture.html">Architecture</a><a href="/insights">Insights</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://twitter.com/fiatrails" target="_blank" rel="noopener noreferrer">X</a></div><div class="footer-col"><h4>Legal</h4><a href="../terms.html">Terms of Service</a><a href="../privacy.html">Privacy Policy</a></div></div>
     <div class="footer-bottom"><span>&copy; 2026 FiatRails Foundation Ltd. All rights reserved.</span><span>CR-431901 | LEI <a href="https://search.gleif.org/#/record/894500RG1F2BKNE8P514" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">894500RG1F2BKNE8P514</a> | Cayman Islands</span></div></div></footer>
 </body>
 </html>

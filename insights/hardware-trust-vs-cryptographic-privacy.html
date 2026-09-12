@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hardware Trust Is Not Cryptographic Privacy: What Institutional Settlement Requires | NETTA Insights</title>
     <meta name="description" content="Settlement infrastructure that depends on trusted execution environments inherits the hardware manufacturer as a root of trust. Cryptographic privacy eliminates that dependency entirely.">
-    <meta name="author" content="NETTA Insights">
+    <meta name="author" content="Vincent Scaturchio">
     <link rel="icon" type="image/png" href="/icons/favicon-32x32.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
 
@@ -27,8 +27,10 @@
         "headline": "Hardware Trust Is Not Cryptographic Privacy: What Institutional Settlement Requires",
         "description": "Settlement infrastructure that depends on trusted execution environments inherits the hardware manufacturer as a root of trust. Cryptographic privacy eliminates that dependency entirely.",
         "author": {
-            "@type": "Organization",
-            "name": "NETTA Insights"
+            "@type": "Person",
+            "name": "Vincent Scaturchio",
+            "jobTitle": "Founder and Chief Executive",
+            "url": "https://netta.network/"
         },
         "publisher": {
             "@type": "Organization",
@@ -39,7 +41,7 @@
             }
         },
         "datePublished": "2026-06-13",
-        "dateModified": "2026-06-13",
+        "dateModified": "2026-09-12",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://netta.network/insights/hardware-trust-vs-cryptographic-privacy"
@@ -144,7 +146,7 @@
     </style>
 </head>
 <body>
-    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><div class="nav-links"><a href="../index.html#products">Products</a><a href="../architecture.html">Architecture</a><a href="/insights">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="../apply.html" class="nav-cta">Request Briefing</a></div></div></nav>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><div class="nav-links"><a href="../index.html#products">Products</a><a href="../architecture.html">Architecture</a><a href="../governance.html">Governance</a><a href="/insights">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="../apply.html" class="nav-cta">Request Briefing</a></div></div></nav>
 
     <article>
         <header class="article-hero">
@@ -152,8 +154,9 @@
                 <a href="/insights" class="article-back">&larr; All insights</a>
                 <div class="article-meta">
                     <span class="article-category">Technical Deep-Dive</span>
-                    <span class="article-byline">NETTA Insights</span>
+                    <span class="article-byline">Vincent Scaturchio, Founder and Chief Executive</span>
                     <span class="article-date">13 Jun 2026</span>
+                    <span class="article-date">Last reviewed: 12 September 2026</span>
                 </div>
                 <h1>Hardware Trust Is Not Cryptographic Privacy: What Institutional Settlement Requires</h1>
                 <p class="lede">Privacy in settlement infrastructure is not a feature. It is an architectural decision that determines the root of trust, the attack surface, the supervisory model, and the long-term viability of the system under regulatory scrutiny.</p>
@@ -195,7 +198,7 @@
                     <li><strong>AEPIC Leak (2022)</strong> demonstrated that certain data could be read from enclaves through the Advanced Programmable Interrupt Controller without any side channel at all -- a direct architectural data leak.</li>
                 </ul>
 
-                <p>Each of these attacks was disclosed, and Intel issued microcode patches and software mitigations. Each patch addressed a specific vulnerability. But the pattern is structural: the attacks exploit physical properties of the silicon, and each new processor generation introduces new microarchitectural features that create new side-channel opportunities. The patches address specific instances. They do not address the architectural class. A settlement system built on SGX today is protected against the attacks published through 2022. It is not protected against the attacks that will be published in 2024, 2026, or 2028 -- because those attacks will target microarchitectural properties that do not yet have mitigations.</p>
+                <p>Each of these attacks was disclosed, and Intel issued microcode patches and software mitigations. Each patch addressed a specific vulnerability. But the pattern is structural: the attacks exploit physical properties of the silicon, and each new processor generation introduces new microarchitectural features that create new side-channel opportunities. The patches address specific instances. They do not address the architectural class. A settlement system built on SGX today is protected against the attacks published so far. It is not protected against those still to come -- because those attacks will target microarchitectural properties that do not yet have mitigations.</p>
 
                 <p>AMD SEV has faced a parallel trajectory. SEVered (2018), SEV-SNP attacks, and CacheWarp (2023) demonstrate that AMD's approach to memory encryption and integrity is subject to similar classes of physical side-channel exploitation.</p>
 
@@ -205,7 +208,7 @@
 
                 <p>Cryptographic privacy takes a fundamentally different approach. Instead of running plaintext computation inside an isolated hardware environment, it transforms the data itself so that useful computation can be performed on encrypted values without ever decrypting them. The privacy guarantee is a property of the mathematics, not of the hardware.</p>
 
-                <p><strong>Pedersen commitments</strong> are the foundation. A Pedersen commitment on an elliptic curve (BN254 is the standard institutional choice) takes a value and a random blinding factor and produces a commitment that hides the value while preserving a critical algebraic property: the commitments are additively homomorphic. This means that the sum of commitments equals the commitment of the sum. In settlement terms: if each participant commits their obligation amounts, the netting engine can compute net positions by adding and subtracting commitments -- without ever seeing the underlying amounts. The netting computation runs on encrypted values. No enclave. No trusted hardware. No decryption step.</p>
+                <p><strong>Pedersen commitments</strong> are the foundation. A Pedersen commitment on an elliptic curve (BN254, chosen for native EVM precompile support) takes a value and a random blinding factor and produces a commitment that hides the value while preserving a critical algebraic property: the commitments are additively homomorphic. This means that the sum of commitments equals the commitment of the sum. In settlement terms: if each participant commits their obligation amounts, the netting engine can compute net positions by adding and subtracting commitments -- without ever seeing the underlying amounts. The netting computation runs on encrypted values. No enclave. No trusted hardware. No decryption step.</p>
 
                 <p><strong>Bulletproofs</strong> provide zero-knowledge range proofs -- cryptographic proofs that a committed value lies within a valid range (for example, that an obligation amount is positive and does not exceed a defined limit) without revealing the value itself. Bulletproofs are particularly well suited to settlement because they require no trusted setup. Groth16, an earlier proof system, required a ceremony to generate public parameters -- and if the ceremony was compromised, the proof system's soundness was compromised with it. Bulletproofs eliminate this dependency entirely. Proving time for a single range proof is approximately 70 milliseconds -- operationally viable for settlement windows measured in minutes or hours, where the computational overhead per obligation is negligible relative to the window duration.</p>
 
@@ -215,7 +218,7 @@
 
                 <p>The performance tradeoff is real. Cryptographic operations on committed values are slower than plaintext operations inside a TEE. Pedersen commitment arithmetic on BN254 is approximately two orders of magnitude slower than native integer arithmetic. But the relevant benchmark is not raw throughput -- it is whether the proving and verification times are compatible with the operational cadence of the settlement system. For netting windows of 30 minutes, two hours, or end-of-day, proof generation times under 100 milliseconds per obligation are operationally invisible. The bottleneck in institutional settlement is not computation. It is coordination, compliance, and finality.</p>
 
-                <p>The critical architectural difference: the privacy guarantee does not degrade with hardware generations. It does not depend on a manufacturer's attestation. It is not subject to side-channel attacks, because there is no hardware enclave to attack. The guarantee is mathematical. It holds as long as the discrete logarithm problem on the chosen curve is computationally hard -- a property that has been studied for decades and on which the security of the broader financial cryptographic infrastructure already depends.</p>
+                <p>The critical architectural difference: the privacy guarantee does not degrade with hardware generations. It does not depend on a manufacturer's attestation. It removes the enclave and the manufacturer's attestation chain as an attack surface; residual side-channel risk sits in the implementation, where it can be audited in open code rather than in silicon. The guarantee is mathematical. Commitment hiding is information-theoretic; binding rests on the discrete-logarithm assumption today, with a hash-based FRI-STARK proof backend for post-quantum binding; signatures and key encapsulation are ML-DSA (FIPS 204) and ML-KEM (FIPS 203).</p>
 
                 <h2>Why the distinction matters for institutional settlement</h2>
 
@@ -223,17 +226,17 @@
 
                 <p>For institutional settlement infrastructure -- where participants are banks, payment service providers, and central bank supervisors -- the threat model is not the same, and the tradeoff calculus changes accordingly.</p>
 
-                <p><strong>Supervisory observability requires granularity.</strong> Central banks and prudential supervisors do not want all-or-nothing access to settlement data. They require tiered, scoped, revocable access: a corridor supervisor sees positions within their corridor but not others; a participant sees their own obligations but not their counterparties'; an auditor receives time-bounded access to historical records that expires when the audit concludes. Cryptographic view keys -- derived from the Shamir's Secret Sharing threshold scheme -- support this granularity natively. A view key can be scoped to a specific corridor, a specific participant, a specific time range, and a specific data class. It can be granted and revoked on-chain with an auditable trail. TEE-based privacy is architecturally binary: either the party has access to the enclave, or it does not. The granular, scoped, revocable observability that supervisors require is not a natural property of the hardware trust model.</p>
+                <p><strong>Supervisory observability requires granularity.</strong> Central banks and prudential supervisors do not want all-or-nothing access to settlement data. They require tiered, scoped, revocable access: a corridor supervisor sees positions within their corridor but not others; a participant sees their own obligations but not their counterparties'; an auditor receives time-bounded access to historical records that expires when the audit concludes. Cryptographic view keys, with key custody distributed by threshold secret sharing, support this granularity natively. A view key can be scoped to a specific corridor, a specific participant, a specific time range, and a specific data class. It can be granted and revoked on-chain with an auditable trail. TEE-based privacy is architecturally binary: either the party has access to the enclave, or it does not. The granular, scoped, revocable observability that supervisors require is not a natural property of the hardware trust model.</p>
 
                 <p><strong>Regulatory confidence depends on verifiable guarantees.</strong> When a regulator evaluates a privacy model, they need to understand what the guarantee is, what it depends on, and how it can be verified. A mathematical proof -- this commitment hides this value, this range proof demonstrates validity, this view key grants exactly this scope of access -- is auditable by any competent cryptographer. Hardware attestation is a probabilistic trust statement: the manufacturer certifies, with a given confidence level, that this enclave is running this code on this hardware. The regulator must then evaluate the manufacturer's attestation infrastructure, the history of side-channel vulnerabilities, and the manufacturer's patching cadence. For a central bank evaluating settlement infrastructure that will process sovereign payment flows, the auditability of mathematical guarantees is a structural advantage over the opacity of hardware attestation chains.</p>
 
                 <p><strong>The adversary model is nation-state grade.</strong> Institutional settlement data -- who owes whom, how much, in which currencies, through which corridors -- is high-value intelligence. The adversaries capable of and motivated to extract this data include nation-state intelligence services with access to hardware supply chains, microarchitectural research capabilities, and the resources to develop novel side-channel attacks. The published academic literature on TEE vulnerabilities represents what researchers have found and disclosed. The classified capability of well-resourced adversaries is, by definition, unknown. Cryptographic privacy does not eliminate all attack vectors -- implementation bugs, key management failures, and protocol design errors remain possible. But it eliminates the hardware supply chain as an attack surface entirely. For institutional settlement, that reduction in attack surface is material.</p>
 
-                <p><strong>Post-quantum readiness is a deployment decision, not a hardware dependency.</strong> Lattice-based digital signature schemes -- specifically ML-DSA (FIPS 204), standardised by NIST -- are deployable today in cryptographic architectures as a software update. Post-quantum signatures can coexist with classical elliptic curve cryptography during the transition period. TEE-based systems inherit whatever post-quantum capability the hardware manufacturer has implemented in their attestation and enclave infrastructure. The timeline for post-quantum TEE hardware is determined by the manufacturer's product roadmap, not by the settlement system operator. For institutions that must demonstrate post-quantum preparedness to their supervisors -- and the timelines for this are tightening across G20 jurisdictions -- the ability to deploy FIPS 204 as a software decision, independent of hardware, is an operational advantage.</p>
+                <p><strong>Post-quantum readiness is a deployment decision, not a hardware dependency.</strong> Lattice-based digital signature schemes -- specifically ML-DSA (FIPS 204), standardised by NIST -- are deployable today in cryptographic architectures as a software update. Post-quantum signatures can coexist with classical elliptic curve cryptography during the transition period. TEE-based systems inherit whatever post-quantum capability the hardware manufacturer has implemented in their attestation and enclave infrastructure. The timeline for post-quantum TEE hardware is determined by the manufacturer's product roadmap, not by the settlement system operator. For institutions that must demonstrate post-quantum preparedness to their supervisors -- and NIST IR 8547 sets the timeline (deprecation of quantum-vulnerable algorithms from 2030, disallowed by 2035) -- the ability to deploy FIPS 204 as a software decision, independent of hardware, is an operational advantage.</p>
 
                 <h2>Where NETTA stands</h2>
 
-                <p>NETTA uses cryptographic privacy for its settlement infrastructure. The privacy model is built on Pedersen commitments for amount confidentiality with additive homomorphism on BN254, Bulletproofs for zero-knowledge range proofs without trusted setup, AES-256-SIV for metadata encryption, and Shamir's Secret Sharing for threshold key distribution. Post-quantum digital signatures using ML-DSA (FIPS 204) are deployed alongside the classical cryptographic stack.</p>
+                <p>NETTA's settlement infrastructure runs on the Qedis cryptographic privacy and post-quantum runtime, owned by Digitalyze Labs Ltd and perpetually licensed to the NETTA group; the Foundation's own privacy filing is PROV-005. The privacy model is built on Pedersen commitments for amount confidentiality with additive homomorphism on BN254, Bulletproofs for zero-knowledge range proofs without trusted setup, AES-256-SIV for metadata encryption, and Shamir's Secret Sharing for threshold key distribution. Post-quantum digital signatures using ML-DSA (FIPS 204) and key encapsulation using ML-KEM (FIPS 203) are deployed alongside the classical cryptographic stack.</p>
 
                 <p>There is no trusted execution environment in the architecture. No hardware manufacturer serves as a root of trust. No remote attestation chain is required to verify privacy. The privacy guarantee is mathematical.</p>
 
@@ -253,7 +256,7 @@
         <div class="newsletter-inner">
             <div class="newsletter-eyebrow">NETTA Insights · Newsletter</div>
             <h2 class="newsletter-title">Get NETTA Insights</h2>
-            <p class="newsletter-desc">Bi-weekly institutional settlement infrastructure thought leadership. No marketing fluff.</p>
+            <p class="newsletter-desc">Occasional notes on settlement infrastructure. Unsubscribe any time.</p>
             <!-- BEEHIIV EMBED PLACEHOLDER -->
             <div class="newsletter-form-wrap"><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="c83c5533-4a14-4498-a994-91efdf41c81c"></script></div>
         </div>
@@ -279,7 +282,7 @@
         </div>
     </section>
 
-    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA — The Settlement Computer. Institutional settlement infrastructure. A product of FiatRails Foundation Ltd. Technology service provider — never custodying funds.</p></div><div class="footer-col"><h4>Products</h4><a href="../settlement.html">Settlement</a><a href="../paynet.html">PayNet</a><a href="../risknet.html">RiskNet</a><a href="../trade.html">Trade</a><a href="../grid.html">Grid</a><a href="../nexus.html">Nexus</a><a href="../assetnet.html">AssetNet</a><a href="../stablenet.html">StableNet</a></div><div class="footer-col"><h4>Company</h4><a href="https://fiatrails.foundation">Foundation</a><a href="../architecture.html">Architecture</a><a href="/insights">Insights</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://twitter.com/fiatrails" target="_blank" rel="noopener noreferrer">X</a></div><div class="footer-col"><h4>Legal</h4><a href="../terms.html">Terms of Service</a><a href="../privacy.html">Privacy Policy</a></div></div>
+    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA — The Settlement Computer. Institutional settlement infrastructure. A product of FiatRails Foundation Ltd. Technology service provider — never custodying funds.</p></div><div class="footer-col"><h4>Products</h4><a href="../settlement.html">Settlement</a><a href="../paynet.html">PayNet</a><a href="../risknet.html">RiskNet</a><a href="../trade.html">Trade</a><a href="../grid.html">Grid</a><a href="../nexus.html">Nexus</a><a href="../assetnet.html">AssetNet</a><a href="../stablenet.html">StableNet</a></div><div class="footer-col"><h4>Company</h4><a href="../governance.html">Governance &amp; Team</a><a href="https://fiatrails.foundation">Foundation</a><a href="../architecture.html">Architecture</a><a href="/insights">Insights</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://twitter.com/fiatrails" target="_blank" rel="noopener noreferrer">X</a></div><div class="footer-col"><h4>Legal</h4><a href="../terms.html">Terms of Service</a><a href="../privacy.html">Privacy Policy</a></div></div>
     <div class="footer-bottom"><span>&copy; 2026 FiatRails Foundation Ltd. All rights reserved.</span><span>CR-431901 | LEI <a href="https://search.gleif.org/#/record/894500RG1F2BKNE8P514" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">894500RG1F2BKNE8P514</a> | Cayman Islands</span></div></div></footer>
 </body>
 </html>

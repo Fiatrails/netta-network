@@ -68,7 +68,7 @@
     </style>
 </head>
 <body>
-    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><div class="nav-links"><a href="index.html#products">Products</a><a href="architecture.html">Architecture</a><a href="/insights">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="apply.html" class="nav-cta">Request Briefing</a></div></div></nav>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><div class="nav-links"><a href="index.html#products">Products</a><a href="architecture.html">Architecture</a><a href="governance.html">Governance</a><a href="/insights">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="apply.html" class="nav-cta">Request Briefing</a></div></div></nav>
 
     <section class="hero"><div class="hero-inner">
         <span class="hero-badge design">Design Phase</span>
@@ -81,7 +81,7 @@
     <section style="background:var(--gray-50);padding:60px 32px"><div style="max-width:800px;margin:0 auto;text-align:center">
         <div class="section-label">Concept</div>
         <h2 class="section-title">AI-native clearing</h2>
-        <p class="section-desc">Current clearing systems execute deterministic rules. Nexus introduces autonomous AI agents that observe the full settlement graph, identify optimisation opportunities humans cannot see, and execute clearing decisions in real time. Each agent operates over causal shared state — a unified view of all obligations, positions, and counterparty relationships across the Settlement Computer.</p>
+        <p class="section-desc">Current clearing systems are built for human-paced participants. Nexus is clearing for autonomous economic agents — the agents are the participants; clearing rules, limits and human governance remain with the operator. Each agent operates over causal shared state — a unified view of all obligations, positions, and counterparty relationships across the Settlement Computer.</p>
     </div></section>
 
     <!-- PLANNED CAPABILITIES -->
@@ -104,7 +104,7 @@
             <div class="feature">
                 <div class="feature-num">03</div>
                 <h4>Autonomous netting optimisation</h4>
-                <p>AI agents continuously evaluate netting window timing, participant grouping, and corridor sequencing to maximise compression. Dynamic window sizing based on real-time obligation flow patterns.</p>
+                <p>Netting window timing, participant grouping, and corridor sequencing are evaluated continuously against obligation flow to maximise compression, within limits set by the operator. Dynamic window sizing based on real-time obligation flow patterns.</p>
             </div>
             <div class="feature">
                 <div class="feature-num">04</div>
@@ -127,8 +127,8 @@
     <!-- MARKET -->
     <section style="background:var(--navy);padding:60px 32px"><div style="max-width:800px;margin:0 auto;text-align:center;color:var(--white)">
         <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.5);margin-bottom:12px">Patent Portfolio</div>
-        <div style="font-size:48px;font-weight:700;letter-spacing:-.02em;margin-bottom:12px">65 claims</div>
-        <p style="font-size:16px;color:rgba(255,255,255,.7);line-height:1.7">Nexus is protected by PROV-004, the most extensive patent filing in the Settlement Computer portfolio. 65 claims across 7 invention families covering agentic clearing, causal shared state, and graph-derived credit pricing.</p>
+        <div style="font-size:40px;font-weight:700;letter-spacing:-.02em;margin-bottom:12px">PROV-004 + PROV-011</div>
+        <p style="font-size:16px;color:rgba(255,255,255,.7);line-height:1.7">Nexus is covered by PROV-004 (agentic clearing, causal shared state, graph-derived credit pricing) and PROV-011 (mandate-bound counter-attestation and agent-payment adapters). Twenty US provisional patent applications on file (1,132 claims): sixteen held by FiatRails Foundation Ltd; four covering the Qedis privacy and post-quantum runtime, owned by Digitalyze Labs Ltd and licensed perpetually to the group.</p>
     </div></section>
 
     <!-- ARCHITECTURE -->
@@ -175,13 +175,14 @@
         <div class="section-label">Intellectual Property</div>
         <h3 style="font-size:22px;font-weight:700;color:var(--gray-900);margin:12px 0 20px">Patent protected</h3>
         <div style="max-width:320px;margin:0 auto">
-            <div style="background:var(--white);border:1px solid var(--gray-200);border-radius:8px;padding:20px;text-align:left"><div style="font-size:12px;font-weight:600;color:var(--navy);margin-bottom:8px">PROV-004</div><div style="font-size:14px;font-weight:500;color:var(--gray-900);margin-bottom:4px">64/013,645</div><div style="font-size:13px;color:var(--gray-500)">Agentic Clearing — 65 claims, 7 invention families</div></div>
+            <div style="background:var(--white);border:1px solid var(--gray-200);border-radius:8px;padding:20px;text-align:left"><div style="font-size:12px;font-weight:600;color:var(--navy);margin-bottom:8px">PROV-004</div><div style="font-size:14px;font-weight:500;color:var(--gray-900);margin-bottom:4px">64/013,645</div><div style="font-size:13px;color:var(--gray-500)">Agentic clearing</div></div>
+            <div style="background:var(--white);border:1px solid var(--gray-200);border-radius:8px;padding:20px;text-align:left"><div style="font-size:12px;font-weight:600;color:var(--navy);margin-bottom:8px">PROV-011</div><div style="font-size:14px;font-weight:500;color:var(--gray-900);margin-bottom:4px">64/084,049</div><div style="font-size:13px;color:var(--gray-500)">Mandate-bound counter-attestation and agent-payment adapters</div></div>
         </div>
     </div></section>
 
     <section style="padding:40px 32px;text-align:center"><a href="index.html#products" class="back-link">&larr; Back to all products</a></section>
 
-    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA — The Settlement Computer. Institutional settlement infrastructure. A product of FiatRails Foundation Ltd. Technology service provider — never custodying funds.</p></div><div class="footer-col"><h4>Products</h4><a href="settlement.html">Settlement</a><a href="paynet.html">PayNet</a><a href="risknet.html">RiskNet</a><a href="trade.html">Trade</a><a href="grid.html">Grid</a><a href="nexus.html">Nexus</a><a href="assetnet.html">AssetNet</a><a href="stablenet.html">StableNet</a></div><div class="footer-col"><h4>Company</h4><a href="https://fiatrails.foundation">Foundation</a><a href="architecture.html">Architecture</a><a href="/insights">Insights</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://twitter.com/fiatrails" target="_blank" rel="noopener noreferrer">X</a></div><div class="footer-col"><h4>Legal</h4><a href="terms.html">Terms of Service</a><a href="privacy.html">Privacy Policy</a></div></div>
+    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA — The Settlement Computer. Institutional settlement infrastructure. A product of FiatRails Foundation Ltd. Technology service provider — never custodying funds.</p></div><div class="footer-col"><h4>Products</h4><a href="settlement.html">Settlement</a><a href="paynet.html">PayNet</a><a href="risknet.html">RiskNet</a><a href="trade.html">Trade</a><a href="grid.html">Grid</a><a href="nexus.html">Nexus</a><a href="assetnet.html">AssetNet</a><a href="stablenet.html">StableNet</a></div><div class="footer-col"><h4>Company</h4><a href="governance.html">Governance &amp; Team</a><a href="https://fiatrails.foundation">Foundation</a><a href="architecture.html">Architecture</a><a href="/insights">Insights</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://twitter.com/fiatrails" target="_blank" rel="noopener noreferrer">X</a></div><div class="footer-col"><h4>Legal</h4><a href="terms.html">Terms of Service</a><a href="privacy.html">Privacy Policy</a></div></div>
     <div class="footer-bottom"><span>&copy; 2026 FiatRails Foundation Ltd. All rights reserved.</span><span>CR-431901 | LEI <a href="https://search.gleif.org/#/record/894500RG1F2BKNE8P514" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">894500RG1F2BKNE8P514</a> | Cayman Islands</span></div></div></footer>
 </body>
 </html>

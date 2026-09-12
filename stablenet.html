@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StableNet | Settlement Computer</title>
-    <meta name="description" content="Multilateral netting for stablecoin obligations with multi-source peg verification, ISO 20022 pacs.008 generation, and Travel Rule compliance. Tri-corridor stablecoin netting live on testnet.">
+    <meta name="description" content="Multilateral netting for stablecoin obligations with multi-source peg verification, ISO 20022 pacs.008 generation, and Travel Rule record handling. Tri-corridor stablecoin netting live on testnet.">
     <link rel="icon" type="image/png" href="/icons/favicon-32x32.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -68,12 +68,12 @@
     </style>
 </head>
 <body>
-    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><div class="nav-links"><a href="index.html#products">Products</a><a href="architecture.html">Architecture</a><a href="/insights">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="apply.html" class="nav-cta">Request Briefing</a></div></div></nav>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><div class="nav-links"><a href="index.html#products">Products</a><a href="architecture.html">Architecture</a><a href="governance.html">Governance</a><a href="/insights">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="apply.html" class="nav-cta">Request Briefing</a></div></div></nav>
 
     <section class="hero"><div class="hero-inner">
         <span class="hero-badge design" style="background:rgba(5,150,105,0.1);color:#2AA39A;border:1px solid rgba(5,150,105,0.3)">Live on Testnet</span>
         <h1>StableNet</h1>
-        <p>Multilateral netting for stablecoin obligations with multi-source peg verification, ISO 20022 pacs.008 generation, and Travel Rule compliance. Tri-corridor stablecoin netting live on chain with continuous synthetic flow and auto-triggered settlement execution.</p>
+        <p>Multilateral netting for stablecoin obligations with multi-source peg verification, ISO 20022 pacs.008 generation, and Travel Rule record handling. Tri-corridor stablecoin netting exercised on chain with automated settlement execution.</p>
         <a href="index.html#products" class="back-link">&larr; Back to Products</a>
     </div></section>
 
@@ -85,8 +85,8 @@
         </div>
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
             <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:20px;text-align:center">
-                <div style="font-size:28px;font-weight:700;color:white;margin-bottom:4px">4.96:1</div>
-                <div style="font-size:12px;color:rgba(255,255,255,0.6)">compression — 84% capital reduction</div>
+                <div style="font-size:28px;font-weight:700;color:white;margin-bottom:4px">Up to 4.96:1</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.6)">compression in a representative window (84% capital reduction); period averages vary with flow balance</div>
             </div>
             <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:20px;text-align:center">
                 <div style="font-size:28px;font-weight:700;color:white;margin-bottom:4px">3</div>
@@ -97,10 +97,10 @@
                 <div style="font-size:12px;color:rgba(255,255,255,0.6)">baseline compliance rules</div>
             </div>
             <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:20px;text-align:center">
-                <div style="font-size:28px;font-weight:700;color:white;margin-bottom:4px">24/7</div>
-                <div style="font-size:12px;color:rgba(255,255,255,0.6)">soak running with auto-settlement</div>
+                <div style="font-size:28px;font-weight:700;color:white;margin-bottom:4px">10-min</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.6)">netting windows with automated settlement</div>
             </div>
-        </div>
+        </div><p style="font-size:12px;color:rgba(255,255,255,0.55);text-align:center;margin-top:20px;max-width:720px;margin-left:auto;margin-right:auto">All figures are from the Lagrange testnet on generated test flow, as at September 2026. Participant profiles are synthetic. No production traffic.</p>
     </div></section>
 
     <!-- CONCEPT -->
@@ -134,7 +134,7 @@
             <div class="feature">
                 <div class="feature-num">01</div>
                 <h4>Multilateral netting</h4>
-                <p>Family L core multilateral netting demonstrated at 4.96:1 compression in a representative window close — gross 88,019 units compressed to 9 net settlements (84% capital reduction).</p>
+                <p>Core multilateral netting demonstrated at up to 4.96:1 compression in a representative window close — gross 88,019 units compressed to 9 net settlements (84% capital reduction); period averages vary with flow balance.</p>
             </div>
             <div class="feature">
                 <div class="feature-num">02</div>
@@ -153,13 +153,13 @@
             </div>
             <div class="feature">
                 <div class="feature-num">05</div>
-                <h4>Travel Rule compliance</h4>
+                <h4>Travel Rule records</h4>
                 <p>IVMS101 records with AES-256-GCM encryption at rest, RFC 6962 Merkle proofs committed on-chain per window close. Regulators can verify any record's inclusion independently against the chain.</p>
             </div>
             <div class="feature">
                 <div class="feature-num">06</div>
                 <h4>Programmable finality state machine</h4>
-                <p>PENDING → AUTHORIZED → EXECUTING → SETTLED with optimistic-CAS transitions and idempotent per-attempt retries. Settlement adapter framework wired for Stellar SEP-31, Circle Mint, and synthetic-demo modes.</p>
+                <p>PENDING → AUTHORIZED → EXECUTING → SETTLED with optimistic-CAS transitions and idempotent per-attempt retries. Settlement adapter framework for issuer mint/redeem and network adapters, exercised in demo mode on testnet.</p>
             </div>
             <div class="feature">
                 <div class="feature-num">07</div>
@@ -183,8 +183,8 @@
     <section style="padding:80px 32px"><div style="max-width:800px;margin:0 auto">
         <div class="section-header">
             <div class="section-label">Regulatory Coverage</div>
-            <h2 class="section-title">Compliance frameworks enforced</h2>
-            <p class="section-desc">StableNet's compliance gate evaluates every obligation against published regulatory frameworks before admission to the netting engine. Decisions are logged with rule-source attribution and exportable for supervisory review.</p>
+            <h2 class="section-title">Rule sets derived from published frameworks</h2>
+            <p class="section-desc">StableNet's compliance gate evaluates every obligation against rule sets derived from OFAC, MiCA, the US GENIUS Act and Singapore's stablecoin framework, configured by participating institutions, before admission to the netting engine. Decisions are logged with rule-source attribution and exportable for supervisory review.</p>
         </div>
         <div class="two-col">
             <div class="info-card">
@@ -193,7 +193,7 @@
                 <ul class="info-list">
                     <li>OFAC SDN and sectoral sanctions</li>
                     <li>Sanctioned-jurisdiction denies</li>
-                    <li>Allow-list overrides for licensed pilots</li>
+                    <li>Pilot allow-lists apply within, never over, sanctions screening</li>
                 </ul>
             </div>
             <div class="info-card">
@@ -223,7 +223,6 @@
             <div style="background:white;border:1px solid var(--gray-200);border-radius:8px;padding:16px;text-align:center"><div style="font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:4px">PYUSD</div><div style="font-size:11px;color:var(--gray-500)">USD stablecoin</div></div>
             <div style="background:white;border:1px solid var(--gray-200);border-radius:8px;padding:16px;text-align:center"><div style="font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:4px">XSGD</div><div style="font-size:11px;color:var(--gray-500)">SGD stablecoin</div></div>
             <div style="background:white;border:1px solid var(--gray-200);border-radius:8px;padding:16px;text-align:center"><div style="font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:4px">RLUSD</div><div style="font-size:11px;color:var(--gray-500)">USD stablecoin</div></div>
-            <div style="background:white;border:1px solid var(--gray-200);border-radius:8px;padding:16px;text-align:center"><div style="font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:4px">USDPT</div><div style="font-size:11px;color:var(--gray-500)">Institutional USD</div></div>
         </div>
         <p style="font-size:13px;color:var(--gray-500);text-align:center;margin-top:24px">Stablecoin support reflects issuer risk profiles registered in the StableNet registry. NETTA has no commercial relationship with any stablecoin issuer; coverage is technical rather than partnership-based.</p>
     </div></section>
@@ -240,13 +239,13 @@
         <div class="section-label">Intellectual Property</div>
         <h3 style="font-size:22px;font-weight:700;color:var(--gray-900);margin:12px 0 20px">Patent protected</h3>
         <div style="max-width:320px;margin:0 auto">
-            <div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;padding:20px;text-align:left"><div style="font-size:12px;font-weight:600;color:var(--navy);margin-bottom:8px">PROV-007</div><div style="font-size:14px;font-weight:500;color:var(--gray-900);margin-bottom:4px">64/044,887</div><div style="font-size:13px;color:var(--gray-500)">Digital Currency Netting — 44 claims, 17 invention families</div></div>
+            <div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;padding:20px;text-align:left"><div style="font-size:12px;font-weight:600;color:var(--navy);margin-bottom:8px">PROV-007</div><div style="font-size:14px;font-weight:500;color:var(--gray-900);margin-bottom:4px">64/044,887</div><div style="font-size:13px;color:var(--gray-500)">Heterogeneous digital-currency netting</div></div>
         </div>
     </div></section>
 
     <section style="padding:40px 32px;text-align:center"><a href="index.html#products" class="back-link">&larr; Back to all products</a></section>
 
-    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA — The Settlement Computer. Institutional settlement infrastructure. A product of FiatRails Foundation Ltd. Technology service provider — never custodying funds.</p></div><div class="footer-col"><h4>Products</h4><a href="settlement.html">Settlement</a><a href="paynet.html">PayNet</a><a href="risknet.html">RiskNet</a><a href="trade.html">Trade</a><a href="grid.html">Grid</a><a href="nexus.html">Nexus</a><a href="assetnet.html">AssetNet</a><a href="stablenet.html">StableNet</a></div><div class="footer-col"><h4>Company</h4><a href="https://fiatrails.foundation">Foundation</a><a href="architecture.html">Architecture</a><a href="/insights">Insights</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://twitter.com/fiatrails" target="_blank" rel="noopener noreferrer">X</a></div><div class="footer-col"><h4>Legal</h4><a href="terms.html">Terms of Service</a><a href="privacy.html">Privacy Policy</a></div></div>
+    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA — The Settlement Computer. Institutional settlement infrastructure. A product of FiatRails Foundation Ltd. Technology service provider — never custodying funds.</p></div><div class="footer-col"><h4>Products</h4><a href="settlement.html">Settlement</a><a href="paynet.html">PayNet</a><a href="risknet.html">RiskNet</a><a href="trade.html">Trade</a><a href="grid.html">Grid</a><a href="nexus.html">Nexus</a><a href="assetnet.html">AssetNet</a><a href="stablenet.html">StableNet</a></div><div class="footer-col"><h4>Company</h4><a href="governance.html">Governance &amp; Team</a><a href="https://fiatrails.foundation">Foundation</a><a href="architecture.html">Architecture</a><a href="/insights">Insights</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://twitter.com/fiatrails" target="_blank" rel="noopener noreferrer">X</a></div><div class="footer-col"><h4>Legal</h4><a href="terms.html">Terms of Service</a><a href="privacy.html">Privacy Policy</a></div></div>
     <div class="footer-bottom"><span>&copy; 2026 FiatRails Foundation Ltd. All rights reserved.</span><span>CR-431901 | LEI <a href="https://search.gleif.org/#/record/894500RG1F2BKNE8P514" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">894500RG1F2BKNE8P514</a> | Cayman Islands</span></div></div></footer>
 </body>
 </html>

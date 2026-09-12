@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pilot Programme | NETTA</title>
-    <meta name="description" content="Enquire about participation in the NETTA pilot programme for banks and PSPs.">
+    <title>Request an Institutional Briefing | NETTA</title>
+    <meta name="description" content="Request an institutional briefing on NETTA — The Settlement Computer — for banks, payment institutions and market infrastructures.">
     <link rel="icon" type="image/png" href="/icons/favicon-32x32.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
@@ -80,6 +80,10 @@
         }
 
         .nav-links a:hover { color: var(--gray-900); }
+        .nav-divider { width: 1px; height: 24px; background: var(--gray-300); margin: 0 12px; }
+        .nav-product { font-size: 14px; color: var(--gray-500); }
+        .nav-cta { background: var(--navy); color: var(--white) !important; padding: 10px 20px; border-radius: 6px; font-weight: 600; }
+        .nav-cta:hover { background: var(--navy-dark); }
 
         .main {
             max-width: 640px;
@@ -397,24 +401,24 @@
         <div class="nav-inner">
             <a href="/" class="nav-brand">
                 <img src="assets/netta-logo-nav.png" alt="NETTA" class="nav-logo">
-                
-                <span class="nav-brand-divider"></span>
-                <span class="nav-brand-sub">Settlement</span>
+                <span class="nav-divider"></span>
+                <span class="nav-product">Settlement Computer</span>
             </a>
             <div class="nav-links">
                 <a href="index.html#products">Products</a>
-                <a href="architecture.html">Architecture</a>
+                <a href="architecture.html">Architecture</a><a href="governance.html">Governance</a>
                 <a href="/insights">Insights</a>
                 <a href="https://fiatrails.foundation">Foundation</a>
+                <a href="apply.html" class="nav-cta">Request Briefing</a>
             </div>
         </div>
     </nav>
 
     <main class="main">
         <div class="page-header">
-            <div class="page-label">Pilot Programme</div>
-            <h1 class="page-title">Enquire about participation</h1>
-            <p class="page-desc">We are selectively onboarding banks and payment service providers for our 2026 pilot. Please provide your details below and our team will be in touch.</p>
+            <div class="page-label">Institutional Briefing</div>
+            <h1 class="page-title">Request an institutional briefing</h1>
+            <p class="page-desc">NETTA is taking briefing requests from banks, payment institutions, market infrastructures and their technology partners for controlled pilots in 2026–27. Provide your details below and we will be in touch.</p>
         </div>
 
         <div class="form-card">
@@ -428,12 +432,14 @@
                     <label class="form-label">Institution Type</label>
                     <select name="type" class="form-select" required>
                         <option value="">Select...</option>
-                        <option value="bank">Commercial Bank</option>
-                        <option value="psp">Payment Service Provider</option>
-                        <option value="settlement">Settlement Agent</option>
-                        <option value="mmo">Mobile Money Operator</option>
-                        <option value="fintech">Licensed Fintech</option>
-                        <option value="other">Other Regulated Entity</option>
+                        <option value="bank">Bank</option>
+                        <option value="psp">Payment institution / PSP</option>
+                        <option value="mto">Money transfer operator</option>
+                        <option value="fmi">Market infrastructure / CSD / CCP</option>
+                        <option value="custodian">Custodian or asset manager</option>
+                        <option value="central-bank">Central bank or regulator</option>
+                        <option value="tech">Technology partner</option>
+                        <option value="other">Other</option>
                     </select>
                 </div>
 
@@ -443,44 +449,19 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">Corridors of Interest</label>
-                    <div class="form-checkboxes">
-                        <label class="form-checkbox">
-                            <input type="checkbox" name="corridors" value="UAE-India">
-                            <span>UAE — India</span>
-                        </label>
-                        <label class="form-checkbox">
-                            <input type="checkbox" name="corridors" value="US-Kenya">
-                            <span>United States — Kenya</span>
-                        </label>
-                        <label class="form-checkbox">
-                            <input type="checkbox" name="corridors" value="US-Nigeria">
-                            <span>United States — Nigeria</span>
-                        </label>
-                        <label class="form-checkbox">
-                            <input type="checkbox" name="corridors" value="UK-Philippines">
-                            <span>United Kingdom — Philippines</span>
-                        </label>
-                        <label class="form-checkbox">
-                            <input type="checkbox" name="corridors" value="Singapore-Indonesia">
-                            <span>Singapore — Indonesia</span>
-                        </label>
-                        <label class="form-checkbox">
-                            <input type="checkbox" name="corridors" value="other">
-                            <span>Other (please specify below)</span>
-                        </label>
-                    </div>
+                    <label class="form-label">Corridors or settlement flows of interest</label>
+                    <input type="text" name="corridors" class="form-input" placeholder="e.g. intra-group branch netting, GCC–South Asia, tokenised asset DvP">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Estimated Monthly Volume (USD)</label>
                     <select name="volume" class="form-select" required>
                         <option value="">Select...</option>
-                        <option value="<1M">Under $1 million</option>
-                        <option value="1-10M">$1 million — $10 million</option>
-                        <option value="10-50M">$10 million — $50 million</option>
-                        <option value="50-100M">$50 million — $100 million</option>
-                        <option value=">100M">Over $100 million</option>
+                        <option value="<10M">Under US$10 million / month</option>
+                        <option value="10-50M">US$10 million — US$50 million / month</option>
+                        <option value="50-250M">US$50 million — US$250 million / month</option>
+                        <option value="250M-1B">US$250 million — US$1 billion / month</option>
+                        <option value=">1B">Over US$1 billion / month</option>
                     </select>
                 </div>
 
@@ -496,22 +477,21 @@
 
                 <div class="form-group">
                     <label class="form-label">Additional Information</label>
-                    <textarea name="message" class="form-textarea" placeholder="Please share any relevant context about your settlement requirements or questions about the pilot programme."></textarea>
+                    <textarea name="message" class="form-textarea" placeholder="Any context on your settlement flows, current netting arrangements, or questions ahead of a briefing."></textarea>
                 </div>
 
-                <button type="submit" class="form-submit">Submit Enquiry</button>
+                <button type="submit" class="form-submit">Request Briefing</button>
 
-                <p class="form-note">Enquiries are reviewed within 5 business days. Technical documentation and NDA are available for qualified participants.</p>
+                <p class="form-note">Enquiries are reviewed within 5 business days. Technical documentation and NDA are available for qualified participants.<br>Submissions are delivered via Formspree and handled under our <a href="privacy.html" style="color: var(--gray-600);">Privacy Notice</a>.</p>
             </form>
         </div>
     </main>
-
-        <footer class="footer">
+    <footer class="footer">
         <div class="footer-inner">
             <div class="footer-grid">
                 <div class="footer-brand">
                     <img src="assets/netta-logo-nav.png" alt="NETTA" style="height: 42px; filter: brightness(0) invert(1);">
-                    <p>Non-custodial infrastructure enabling seamless access to virtual assets. Technology service provider — never custodying funds.</p>
+                    <p>NETTA — The Settlement Computer. Institutional settlement infrastructure. A product of FiatRails Foundation Ltd. Technology service provider — never custodying funds.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Products</h4>
@@ -525,7 +505,7 @@
                     <a href="stablenet.html">StableNet</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Company</h4>
+                    <h4>Company</h4><a href="governance.html">Governance &amp; Team</a>
                     <a href="https://fiatrails.foundation">Foundation</a>
                     <a href="architecture.html">Architecture</a>
                     <a href="/insights">Insights</a>
@@ -537,7 +517,6 @@
                     <a href="privacy.html">Privacy Policy</a>
                 </div>
             </div>
-
             <div class="footer-bottom">
                 <span>&copy; 2026 FiatRails Foundation Ltd. All rights reserved.</span>
                 <span>CR-431901 | LEI <a href="https://search.gleif.org/#/record/894500RG1F2BKNE8P514" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">894500RG1F2BKNE8P514</a> | Cayman Islands</span>

@@ -29,8 +29,8 @@
         "author": {
             "@type": "Person",
             "name": "Vincent Scaturchio",
-            "jobTitle": "Founder and Architect, NETTA",
-            "url": "https://digitalyzelabs.com/leadership"
+            "jobTitle": "Founder and Chief Executive, NETTA",
+            "url": "https://netta.network/"
         },
         "publisher": {
             "@type": "Organization",
@@ -41,7 +41,7 @@
             }
         },
         "datePublished": "2026-05-08",
-        "dateModified": "2026-05-08",
+        "dateModified": "2026-09-12",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://netta.network/insights/atomic-settlement-mirage"
@@ -134,7 +134,7 @@
     </style>
 </head>
 <body>
-    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><div class="nav-links"><a href="../index.html#products">Products</a><a href="../architecture.html">Architecture</a><a href="/insights">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="../apply.html" class="nav-cta">Request Briefing</a></div></div></nav>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><div class="nav-links"><a href="../index.html#products">Products</a><a href="../architecture.html">Architecture</a><a href="../governance.html">Governance</a><a href="/insights">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="../apply.html" class="nav-cta">Request Briefing</a></div></div></nav>
 
     <article>
         <header class="article-hero">
@@ -142,8 +142,9 @@
                 <a href="/insights" class="article-back">&larr; All insights</a>
                 <div class="article-meta">
                     <span class="article-category">Industry Analysis</span>
-                    <span class="article-byline">Vincent Scaturchio</span>
+                    <span class="article-byline">Vincent Scaturchio, Founder and Chief Executive</span>
                     <span class="article-date">8 May 2026</span>
+                    <span class="article-date">Last reviewed: 12 September 2026</span>
                 </div>
                 <h1>The Atomic Settlement Mirage: Why Configurable Netting Beats Universal T+0</h1>
                 <p class="lede">By Vincent Scaturchio, Founder and Architect, NETTA</p>
@@ -153,7 +154,7 @@
         <div class="article-body">
             <div class="article-content">
 
-                <p>I have spent more than two decades inside the data infrastructure of the world's largest trading rooms. I have built and re-platformed mission-critical trading and settlement systems for HSBC, Citigroup, DBS, ANZ, and National Australia Bank. The engagements at DBS and ANZ ran for years under Master Services Agreements with multiple Statements of Work — the kind of direct, exclusive relationship typically reserved for multinational vendors. NAB was a similarly long-running build across their global dealing rooms. The systems I built moved billions of dollars through clearing cycles measured in hours, not microseconds. And I have watched, with growing frustration, the public discourse on settlement infrastructure decouple almost entirely from the math.</p>
+                <p>I have spent more than two decades inside the data infrastructure of the world's largest trading rooms. I have built and re-platformed mission-critical trading and settlement systems for HSBC, Citigroup, DBS, ANZ, and National Australia Bank. The engagements at DBS and ANZ ran for years under Master Services Agreements with multiple Statements of Work — the kind of direct supplier-principal relationship typically reserved for multinational vendors. NAB was a similarly long-running build across their global dealing rooms. The systems I built moved billions of dollars through clearing cycles measured in hours, not microseconds. And I have watched, with growing frustration, the public discourse on settlement infrastructure decouple almost entirely from the math.</p>
 
                 <p>The fashionable claim is that institutional settlement is moving toward T+0 — atomic, real-time, every transaction settled the moment it occurs. The narrative is intuitive. Faster is better. Instant is best. Anything else is a relic of a slower era.</p>
 
@@ -173,7 +174,7 @@
 
                 <p><strong>Atomic settlement</strong> is something different. It is the immediate, indivisible settlement of an obligation at the moment it is initiated, with no intervening processing window. The cash leg moves; the asset leg moves; finality is reached in the same instant. There is no batching, no cycle, no aggregation.</p>
 
-                <p><strong>Real-time gross settlement (RTGS)</strong> is the central-bank version. RTGS systems — TARGET2, Fedwire, CHAPS — settle every payment individually, in central bank money, with no netting. Every participant must prefund every gross obligation, every time.</p>
+                <p><strong>Real-time gross settlement (RTGS)</strong> is the central-bank version. RTGS systems — T2 (formerly TARGET2), Fedwire, CHAPS — settle every payment individually, in central bank money, with no netting. Every participant must prefund every gross obligation, every time.</p>
 
                 <p>When advocates of "atomic settlement" describe the future, what they almost always mean is gross settlement applied to every transaction, in real time, with no aggregation layer. The case for it usually invokes the elimination of settlement risk. The case against it — which is rarely made publicly — is that it is among the most capital-inefficient settlement architectures ever designed.</p>
 
@@ -185,7 +186,7 @@
 
                 <p>This is not a weakness of netting infrastructure. It is the design.</p>
 
-                <p>The empirical and production-system evidence on settlement window optimisation repeatedly shows the same shape. Work by McLaughlin and colleagues, working papers from the BIS Committee on Payments and Market Infrastructures, and decades of operational data from production systems describe a consistent curve: capital efficiency rises sharply as windows grow from zero to roughly 5 to 10 minutes, continues rising through the 30 to 60 minute range, and asymptotes around end-of-day batches.</p>
+                <p>The empirical and production-system evidence on settlement window optimisation repeatedly shows the same shape. Published simulation studies, working papers from the BIS Committee on Payments and Market Infrastructures, and decades of operational data from production systems describe a consistent curve: capital efficiency rises sharply as windows grow from zero to roughly 5 to 10 minutes, continues rising through the 30 to 60 minute range, and asymptotes around end-of-day batches.</p>
 
                 <p>The marginal return of moving from a 30-minute window to a multi-hour window is small. The marginal return of moving from a one-minute window to a 30-minute window is significant. The marginal cost of moving from any non-zero window to atomic settlement is enormous, because compression collapses to zero at that boundary.</p>
 
@@ -193,11 +194,11 @@
 
                 <h2>What CLS and CHIPS prove</h2>
 
-                <p>CLS Bank settles over $8 trillion daily across 18 major currencies in payment-versus-payment windows, and reports funding requirement reductions of more than 96 per cent through multilateral netting. It has done this for more than two decades. It is the largest FX settlement system in the world and one of the most heavily regulated — Federal Reserve oversight, SIFI designation, member banks holding equity in the operator.</p>
+                <p>CLS settles 18 currencies for more than 70 settlement members, over US$6 trillion a day on average, and its multilateral netting reduces funding requirements by around 96% inside that perimeter (CLS published figures). It has done this for more than two decades. It is the largest FX settlement system in the world and one of the most heavily supervised — Federal Reserve oversight, designated systemically important financial market utility, member banks holding equity in the operator.</p>
 
                 <p>CLS does not settle atomically. It does not settle within seconds. It settles within hours. And the institutions that use CLS — more than 70 of the world's largest settlement members, alongside a broader third-party ecosystem — have shown no appetite to make the system atomic. The institutional reasons are clear: window-based netting delivers settlement-risk reduction and funding efficiency that gross settlement cannot match. If CLS were converted to atomic settlement, the funding capital it currently frees would have to return to nostro accounts.</p>
 
-                <p>CHIPS — the private-sector USD large-value payment system — uses a patented matching and netting algorithm and reports an average liquidity efficiency of approximately 26 to 1. In other words, one dollar of funding supports approximately twenty-six dollars of settled payment value. CHIPS does not settle atomically. It has been running this way since the 1970s. Its members include every major US bank and most major international banks operating in dollars. Like CLS, it has not been converted to atomic settlement despite decades of opportunity to do so.</p>
+                <p>CHIPS — the private-sector USD large-value payment system — uses a patented matching and netting algorithm and, per The Clearing House, reports an average liquidity efficiency of approximately 26 to 1. In other words, one dollar of funding supports approximately twenty-six dollars of settled payment value. CHIPS does not settle atomically. It has been running this way since the 1970s. Its members include every major US bank and most major international banks operating in dollars. Like CLS, it has not been converted to atomic settlement despite decades of opportunity to do so.</p>
 
                 <p>These are not legacy systems waiting to be replaced. They are the production benchmarks against which any new settlement infrastructure has to be measured. And they have stayed netted because the people who use them have computed the capital implications of doing otherwise.</p>
 
@@ -244,7 +245,7 @@
 
                 <p>But these are exceptions. They are the urgent fast lane, not the highway. The vast majority of institutional cross-border flow — trillions of dollars per day across FX, trade finance, payments, repo, and tokenised asset settlement — benefits enormously from multilateral netting in windows that allow obligations to accumulate, offsets to be found, and capital to be deployed productively rather than locked in prefunded nostro accounts.</p>
 
-                <p>The discourse that treats atomic settlement as the inevitable end-state of all settlement infrastructure is a marketing position, not an empirical one. The math has not changed. CLS frees more than 96 per cent of funding requirements because it nets in hours, not despite that fact. CHIPS achieves a 26-to-1 liquidity efficiency for the same reason. Production-scale settlement is not moving away from netting; it is moving toward more configurable netting, with appropriate urgency lanes layered on top.</p>
+                <p>The discourse that treats atomic settlement as the inevitable end-state of all settlement infrastructure is a marketing position, not an empirical one. The math has not changed. CLS frees around 96 per cent of funding requirements because it nets in hours, not despite that fact. CHIPS achieves a 26-to-1 liquidity efficiency for the same reason. Production-scale settlement is not moving away from netting; it is moving toward more configurable netting, with appropriate urgency lanes layered on top.</p>
 
                 <p>The next generation of settlement infrastructure will not be atomic. It will be configurable, with urgent flow taking the fast lane and most flow taking the netted highway. That is what the math demands. That is what regulators can more readily evaluate. That is what the largest institutions actually use, every day, on volumes that far exceed today's stablecoin settlement activity.</p>
 
@@ -257,7 +258,7 @@
                 <hr>
 
                 <div class="author-bio">
-                    <strong>Vincent Scaturchio</strong> is the founder and CEO of <a href="https://digitalyzelabs.com">Digitalyze Labs</a> and the architect of <a href="/">NETTA</a>, an institutional settlement infrastructure suite operating on a custom Avalanche L1. This article is part of the NETTA Insights series.
+                    <strong>Vincent Scaturchio</strong> is Founder and Chief Executive of <a href="/">NETTA</a> and a director of FiatRails Foundation Ltd. He spent more than twenty years delivering settlement and trading technology into Tier-1 banks as a supplier-principal and is the sole inventor of the twenty-application patent estate. This article is part of the NETTA Insights series.
                 </div>
 
             </div>
@@ -268,7 +269,7 @@
         <div class="newsletter-inner">
             <div class="newsletter-eyebrow">NETTA Insights · Newsletter</div>
             <h2 class="newsletter-title">Get NETTA Insights</h2>
-            <p class="newsletter-desc">Bi-weekly institutional settlement infrastructure thought leadership. No marketing fluff.</p>
+            <p class="newsletter-desc">Occasional notes on settlement infrastructure. Unsubscribe any time.</p>
             <div class="newsletter-form-wrap"><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="c83c5533-4a14-4498-a994-91efdf41c81c"></script></div>
         </div>
     </section>
@@ -293,7 +294,7 @@
         </div>
     </section>
 
-    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA — The Settlement Computer. Institutional settlement infrastructure. A product of FiatRails Foundation Ltd. Technology service provider — never custodying funds.</p></div><div class="footer-col"><h4>Products</h4><a href="../settlement.html">Settlement</a><a href="../paynet.html">PayNet</a><a href="../risknet.html">RiskNet</a><a href="../trade.html">Trade</a><a href="../grid.html">Grid</a><a href="../nexus.html">Nexus</a><a href="../assetnet.html">AssetNet</a><a href="../stablenet.html">StableNet</a></div><div class="footer-col"><h4>Company</h4><a href="https://fiatrails.foundation">Foundation</a><a href="../architecture.html">Architecture</a><a href="/insights">Insights</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://twitter.com/fiatrails" target="_blank" rel="noopener noreferrer">X</a></div><div class="footer-col"><h4>Legal</h4><a href="../terms.html">Terms of Service</a><a href="../privacy.html">Privacy Policy</a></div></div>
+    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA — The Settlement Computer. Institutional settlement infrastructure. A product of FiatRails Foundation Ltd. Technology service provider — never custodying funds.</p></div><div class="footer-col"><h4>Products</h4><a href="../settlement.html">Settlement</a><a href="../paynet.html">PayNet</a><a href="../risknet.html">RiskNet</a><a href="../trade.html">Trade</a><a href="../grid.html">Grid</a><a href="../nexus.html">Nexus</a><a href="../assetnet.html">AssetNet</a><a href="../stablenet.html">StableNet</a></div><div class="footer-col"><h4>Company</h4><a href="../governance.html">Governance &amp; Team</a><a href="https://fiatrails.foundation">Foundation</a><a href="../architecture.html">Architecture</a><a href="/insights">Insights</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://twitter.com/fiatrails" target="_blank" rel="noopener noreferrer">X</a></div><div class="footer-col"><h4>Legal</h4><a href="../terms.html">Terms of Service</a><a href="../privacy.html">Privacy Policy</a></div></div>
     <div class="footer-bottom"><span>&copy; 2026 FiatRails Foundation Ltd. All rights reserved.</span><span>CR-431901 | LEI <a href="https://search.gleif.org/#/record/894500RG1F2BKNE8P514" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">894500RG1F2BKNE8P514</a> | Cayman Islands</span></div></div></footer>
 </body>
 </html>

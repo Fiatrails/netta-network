@@ -28,7 +28,9 @@
         "description": "Set-off under obligation law and settlement netting under financial regulation use related mathematics but operate under entirely different legal frameworks. Banks, PSPs, and regulators distinguish between them — and so should you.",
         "author": {
             "@type": "Person",
-            "name": "Vincent Scaturchio"
+            "name": "Vincent Scaturchio",
+            "jobTitle": "Founder and Chief Executive, NETTA",
+            "url": "https://netta.network/"
         },
         "publisher": {
             "@type": "Organization",
@@ -39,7 +41,7 @@
             }
         },
         "datePublished": "2026-05-30",
-        "dateModified": "2026-05-30",
+        "dateModified": "2026-09-12",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://netta.network/insights/set-off-is-not-settlement-netting"
@@ -144,7 +146,7 @@
     </style>
 </head>
 <body>
-    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><div class="nav-links"><a href="../index.html#products">Products</a><a href="../architecture.html">Architecture</a><a href="/insights">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="../apply.html" class="nav-cta">Request Briefing</a></div></div></nav>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><div class="nav-links"><a href="../index.html#products">Products</a><a href="../architecture.html">Architecture</a><a href="../governance.html">Governance</a><a href="/insights">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="../apply.html" class="nav-cta">Request Briefing</a></div></div></nav>
 
     <article>
         <header class="article-hero">
@@ -152,8 +154,9 @@
                 <a href="/insights" class="article-back">&larr; All insights</a>
                 <div class="article-meta">
                     <span class="article-category">Regulatory Commentary</span>
-                    <span class="article-byline">Vincent Scaturchio</span>
+                    <span class="article-byline">Vincent Scaturchio, Founder and Chief Executive</span>
                     <span class="article-date">30 May 2026</span>
+                    <span class="article-date">Last reviewed: 12 September 2026</span>
                 </div>
                 <h1>Set-Off Is Not Settlement Netting: Why the Legal Framework Matters More Than the Algorithm</h1>
                 <p class="lede">Set-off under obligation law and settlement netting under financial regulation use related mathematics but operate under entirely different legal frameworks. Banks, PSPs, and regulators distinguish between them — and so should you.</p>
@@ -177,7 +180,7 @@
 
                 <p>Set-off is a private law mechanism. Under the UNIDROIT Principles of International Commercial Contracts (Article 8), a party may set off an obligation owed to another party against a reciprocal obligation owed by that party. The requirements are straightforward: the obligations must be between the same parties, they must be due and owing, and the party invoking set-off must give notice.</p>
 
-                <p>Multilateral set-off extends this to networks of three or more parties. An algorithm identifies cycles in the obligation graph — circular chains where A owes B, B owes C, and C owes A — and discharges them by mutual agreement. The academic literature on this mechanism is well established. The Slovenian national trade credit clearing system has operated a form of multilateral set-off since 1991, clearing SME invoice obligations among thousands of businesses. The Sardinian Sardex system applied similar principles to local commercial exchange. Researchers including Fleischman and Dini formalised the mathematics in peer-reviewed work published in the Journal of Risk and Financial Management in 2020 and 2021.</p>
+                <p>Multilateral set-off extends this to networks of three or more parties. An algorithm identifies cycles in the obligation graph — circular chains where A owes B, B owes C, and C owes A — and discharges them by mutual agreement. The academic literature on this mechanism is well established. The Slovenian national multilateral compensation system has operated a form of multilateral set-off for three decades, clearing invoice obligations among small and medium enterprises. The Sardinian Sardex system applied similar principles to local commercial exchange. Researchers including Fleischman and Dini formalised the mathematics in peer-reviewed work published in the Journal of Risk and Financial Management in 2020 and 2021.</p>
 
                 <p>Set-off works well in the contexts it was designed for: trade credit among commercial counterparties, invoice clearing among small and medium enterprises, and mutual obligation discharge where all parties agree to participate voluntarily. In these contexts, the simplicity of the legal framework is an advantage. No regulatory licence is required. No supervisory engagement is necessary. The mechanism operates under private obligation law, and the parties manage their own risk.</p>
 
@@ -185,7 +188,7 @@
 
                 <p>For a trade credit network serving SMEs, this is perfectly adequate. For a settlement infrastructure serving banks, payment service providers, and central banks — it is not.</p>
 
-                <h2>Settlement netting: the regulated framework</h2>
+                <h2>Settlement netting: the settlement-finality framework</h2>
 
                 <p>Settlement netting operates under a different legal architecture entirely. The governing frameworks are public, well established, and enforced:</p>
 
@@ -197,13 +200,13 @@
                     <li><strong>Principle 17 (Operational Risk):</strong> The infrastructure must identify, monitor, and manage operational risk, with systems designed for high availability and tested recovery plans.</li>
                 </ul>
 
-                <p>These are not suggestions. In jurisdictions that have adopted the PFMI — which includes every G20 economy — failure to align with these principles is a regulatory barrier to operation.</p>
+                <p>These are not suggestions. For designated FMIs in PFMI-adopting jurisdictions, alignment is a supervisory expectation, and the institutions that use any settlement infrastructure apply the same principles in their own due diligence.</p>
 
                 <p><strong>The EU Settlement Finality Directive (98/26/EC).</strong> In the European Union, settlement systems designated under this directive receive explicit legal protection: transfer orders entered into a designated system are legally enforceable even if a participant enters insolvency proceedings. This protection does not extend to private set-off arrangements.</p>
 
-                <p><strong>Dodd-Frank Title VIII.</strong> In the United States, systemically important financial market utilities — including clearing and settlement systems — operate under heightened prudential standards established by the Financial Stability Oversight Council. Designation under Title VIII brings regulatory obligations, but also legal certainty and access to Federal Reserve accounts and services.</p>
+                <p><strong>Dodd-Frank Title VIII.</strong> In the United States, systemically important financial market utilities — including clearing and settlement systems — operate under heightened prudential standards established by the Financial Stability Oversight Council. Designation under Title VIII brings regulatory obligations, but also legal certainty and potential access to Federal Reserve accounts and services.</p>
 
-                <p><strong>The ISDA Master Agreement.</strong> In derivatives markets, netting enforceability under the International Swaps and Derivatives Association framework has been tested in courts across 70-plus jurisdictions. The ISDA close-out netting opinions — jurisdiction-by-jurisdiction legal analyses of netting enforceability — represent decades of legal work. This framework exists because the financial industry learned, through experience, that netting without legal certainty of enforcement is netting on paper only.</p>
+                <p><strong>The ISDA Master Agreement.</strong> In derivatives markets, netting enforceability under the International Swaps and Derivatives Association framework is supported by netting opinions in more than 80 jurisdictions. The ISDA close-out netting opinions — jurisdiction-by-jurisdiction legal analyses of netting enforceability — represent decades of legal work. This framework exists because the financial industry learned, through experience, that netting without legal certainty of enforcement is netting on paper only.</p>
 
                 <p>The institutional lesson from all of these frameworks is the same: <strong>netting without a settlement finality framework is not settlement.</strong> It is an accounting reduction that may or may not be enforceable when enforceability matters most — which is precisely when a counterparty defaults.</p>
 
@@ -211,13 +214,13 @@
 
                 <p>When a new settlement infrastructure is proposed to a regulated institution, it does not begin with a technical evaluation. It begins with a legal and compliance review. The distinction between set-off and settlement netting is one of the first questions asked, because it determines the regulatory treatment of the entire engagement.</p>
 
-                <p><strong>The legal team</strong> asks: under what legal framework does the netting operate? If the answer is private obligation law or "international commercial law principles," the follow-up is immediate: is there a settlement finality opinion for our jurisdiction? Without one, the legal team cannot confirm that netted positions are enforceable in insolvency. A netting protocol that positions itself outside financial regulation — deliberately or otherwise — triggers a fundamentally different legal analysis than one that operates within a designated or regulated framework.</p>
+                <p><strong>The legal team</strong> asks: under what legal framework does the netting operate? If the answer is private obligation law or "international commercial law principles," the follow-up is immediate: is there a settlement finality opinion for our jurisdiction? Without one, the legal team cannot confirm that netted positions are enforceable in insolvency. The answer turns on the settlement leg: finality of the net settlement is delivered by the participants' own settlement banks under their frameworks, with the infrastructure providing observability and counter-attested settlement instructions. A netting protocol that cannot show how its net positions become final under the participants' frameworks triggers a fundamentally different legal analysis than one that can.</p>
 
-                <p><strong>The compliance team</strong> asks: does the infrastructure operator have regulatory engagement? This is not a formality. Compliance officers are personally liable in many jurisdictions for approving relationships with unregulated counterparties where regulation should apply. A netting infrastructure that describes itself as "clearing" but operates outside the clearing regulatory perimeter creates compliance risk for every institution that uses it.</p>
+                <p><strong>The compliance team</strong> asks: does the infrastructure operator have regulatory engagement? This is not a formality. Compliance officers are personally liable in many jurisdictions for approving relationships with unregulated counterparties where regulation should apply. A netting infrastructure that describes itself as "clearing" without engaging the supervisors of the institutions that use it creates compliance risk for every one of them.</p>
 
                 <p><strong>The risk officer</strong> asks: what is the supervisory treatment? Infrastructure classified as a settlement system receives different prudential treatment under Basel III than a private arrangement classified as bilateral set-off. The capital treatment of netted exposures, the liquidity treatment of prefunding requirements, and the operational risk weighting all depend on whether the netting is recognised by the institution's home supervisor. If it is not, the risk officer must treat the gross exposure as unsettled — which eliminates the capital benefit that made netting attractive in the first place.</p>
 
-                <p><strong>Treasury</strong> asks: do the settlement instructions integrate with our operations? Institutional settlement runs on ISO 20022. The CBPR+ usage guidelines — which became the institutional baseline for cross-border payment and reporting messages following the November 2025 end of the SWIFT MT coexistence period — define the message formats that every bank's downstream systems expect. Net settlement instructions that cannot be expressed in pacs.008, pacs.009, or camt message types require manual reconciliation, which negates the operational efficiency that netting is supposed to deliver.</p>
+                <p><strong>Treasury</strong> asks: do the settlement instructions integrate with our operations? Institutional settlement runs on ISO 20022. The CBPR+ usage guidelines — which became the interbank baseline for cross-border payment and reporting messages following the November 2025 end of the SWIFT MT coexistence period — define the message formats that every bank's downstream systems expect. Net settlement instructions that cannot be expressed in pacs.008, pacs.009, or camt message types require manual reconciliation, which negates the operational efficiency that netting is supposed to deliver.</p>
 
                 <p>This is not a theoretical approval workflow. It is the actual sequence of internal reviews that every new settlement infrastructure faces at every regulated institution. Infrastructure that has not prepared for these questions does not reach a pilot conversation. It stops at legal review.</p>
 
@@ -227,13 +230,17 @@
 
                 <ol>
                     <li><strong>Under what legal framework does the netting operate — obligation law or settlement finality law?</strong> This is the threshold question. Netting under obligation law (UNIDROIT, private contract) and netting under settlement finality frameworks (PFMI Principle 8, Settlement Finality Directive, Dodd-Frank Title VIII) have different enforceability, different insolvency protections, and different supervisory treatments. The answer determines whether the institution's legal team can issue an internal approval opinion.</li>
-                    <li><strong>Which regulators has the operator engaged, and in what capacity?</strong> Active regulatory engagement — sandbox applications, innovation hub conversations, formal or informal supervisory dialogue — is not optional for settlement infrastructure. It is the mechanism through which the operator demonstrates that its infrastructure is designed for the regulatory perimeter it operates within. Infrastructure that deliberately avoids financial regulation may be well designed for its intended market, but it is not designed for institutions whose home regulators expect to know what settlement systems their supervised entities use.</li>
+                    <li><strong>Which regulators has the operator engaged, and in what capacity?</strong> Active regulatory engagement — sandbox applications, innovation hub conversations, formal or informal supervisory dialogue — is not optional for settlement infrastructure. It is the mechanism through which the operator demonstrates that its infrastructure is designed for the supervised institutions that will use it. Infrastructure that avoids that engagement may be well designed for its intended market, but it is not designed for institutions whose home regulators expect to know what settlement infrastructure their supervised entities use.</li>
                     <li><strong>Is there a settlement finality opinion for the institution's jurisdiction?</strong> PFMI Principle 8 requires clear and certain final settlement. Legal opinions confirming finality in each participating jurisdiction are the standard mechanism for demonstrating this. These opinions are expensive, jurisdiction-specific, and time-consuming to obtain — which is precisely why they are a meaningful indicator of institutional seriousness. Their absence is a red flag that no amount of technical sophistication can offset.</li>
                     <li><strong>Can the institution's supervisor access the infrastructure under a defined observability framework?</strong> Central banks and prudential supervisors expect to see — in real time or near-real time — the positions, risk exposures, and compliance decisions of settlement systems their supervised institutions use. PFMI Principle 17 addresses operational risk, but supervisory observability extends beyond operations to liquidity positions (Principle 7) and access criteria (Principle 18). A netting infrastructure that cannot provide tiered, scoped, auditable access to supervisory authorities is an infrastructure that regulated institutions cannot use at scale.</li>
-                    <li><strong>Are settlement instructions generated in ISO 20022 CBPR+ format natively?</strong> This may seem like a technical detail relative to the legal questions above. It is not. ISO 20022 is not merely a message format — it is the institutional interoperability standard. Following the November 2025 CBPR+ migration, every cross-border payment and reporting message between financial institutions uses this standard. Net settlement instructions that require format translation, manual mapping, or proprietary message schemas introduce operational risk and reconciliation overhead that institutional operations teams will not accept.</li>
+                    <li><strong>Are settlement instructions generated in ISO 20022 CBPR+ format natively?</strong> This may seem like a technical detail relative to the legal questions above. It is not. ISO 20022 is not merely a message format — it is the institutional interoperability standard. Following the November 2025 CBPR+ migration, it is the interbank baseline for cross-border payment and reporting messages. Net settlement instructions that require format translation, manual mapping, or proprietary message schemas introduce operational risk and reconciliation overhead that institutional operations teams will not accept.</li>
                 </ol>
 
                 <p>These questions are pass/fail. An infrastructure that meets all five is built for institutional adoption. An infrastructure that meets some of them may be well suited for its intended market — but that market is not institutional settlement.</p>
+
+                <h2>How NETTA answers these</h2>
+
+                <p>NETTA is a technology service provider outside the licensable perimeter; all licensable activity remains with participating institutions. On the five questions: net positions become final on the settlement leg, through the participants' own settlement banks under their frameworks, with a settlement-finality analysis per corridor; the protocol has been self-assessed against all 24 PFMI principles, with live monitoring of Principles 4, 7 and 15; there is no mutualised default fund — the residual net is secured by net-secured settlement and a non-mutualised continuity backstop; settlement instructions are generated natively in ISO 20022 CBPR+; and supervisors receive tiered, scoped, auditable access through supervisory view keys. Documented regulatory dialogue in the UAE, Singapore, the UK and the EU, with written responses in hand.</p>
 
                 <h2>The framework defines the market</h2>
 
@@ -259,7 +266,7 @@
         <div class="newsletter-inner">
             <div class="newsletter-eyebrow">NETTA Insights · Newsletter</div>
             <h2 class="newsletter-title">Get NETTA Insights</h2>
-            <p class="newsletter-desc">Bi-weekly institutional settlement infrastructure thought leadership. No marketing fluff.</p>
+            <p class="newsletter-desc">Occasional notes on settlement infrastructure. Unsubscribe any time.</p>
             <!-- BEEHIIV EMBED PLACEHOLDER -->
             <div class="newsletter-form-wrap"><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="c83c5533-4a14-4498-a994-91efdf41c81c"></script></div>
         </div>
@@ -285,7 +292,7 @@
         </div>
     </section>
 
-    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA — The Settlement Computer. Institutional settlement infrastructure. A product of FiatRails Foundation Ltd. Technology service provider — never custodying funds.</p></div><div class="footer-col"><h4>Products</h4><a href="../settlement.html">Settlement</a><a href="../paynet.html">PayNet</a><a href="../risknet.html">RiskNet</a><a href="../trade.html">Trade</a><a href="../grid.html">Grid</a><a href="../nexus.html">Nexus</a><a href="../assetnet.html">AssetNet</a><a href="../stablenet.html">StableNet</a></div><div class="footer-col"><h4>Company</h4><a href="https://fiatrails.foundation">Foundation</a><a href="../architecture.html">Architecture</a><a href="/insights">Insights</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://twitter.com/fiatrails" target="_blank" rel="noopener noreferrer">X</a></div><div class="footer-col"><h4>Legal</h4><a href="../terms.html">Terms of Service</a><a href="../privacy.html">Privacy Policy</a></div></div>
+    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA — The Settlement Computer. Institutional settlement infrastructure. A product of FiatRails Foundation Ltd. Technology service provider — never custodying funds.</p></div><div class="footer-col"><h4>Products</h4><a href="../settlement.html">Settlement</a><a href="../paynet.html">PayNet</a><a href="../risknet.html">RiskNet</a><a href="../trade.html">Trade</a><a href="../grid.html">Grid</a><a href="../nexus.html">Nexus</a><a href="../assetnet.html">AssetNet</a><a href="../stablenet.html">StableNet</a></div><div class="footer-col"><h4>Company</h4><a href="../governance.html">Governance &amp; Team</a><a href="https://fiatrails.foundation">Foundation</a><a href="../architecture.html">Architecture</a><a href="/insights">Insights</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://twitter.com/fiatrails" target="_blank" rel="noopener noreferrer">X</a></div><div class="footer-col"><h4>Legal</h4><a href="../terms.html">Terms of Service</a><a href="../privacy.html">Privacy Policy</a></div></div>
     <div class="footer-bottom"><span>&copy; 2026 FiatRails Foundation Ltd. All rights reserved.</span><span>CR-431901 | LEI <a href="https://search.gleif.org/#/record/894500RG1F2BKNE8P514" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">894500RG1F2BKNE8P514</a> | Cayman Islands</span></div></div></footer>
 </body>
 </html>
