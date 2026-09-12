@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Architecture | Settlement Computer</title>
-    <meta name="description" content="Technical architecture of the Settlement Computer. Custom Avalanche L1 with 11 consensus-level precompiles, institutional privacy powered by Qedis, post-quantum authentication, and 8-product multi-tenant infrastructure.">
+    <title>Architecture | NETTA</title>
+    <meta name="description" content="Technical architecture of the Settlement Computer. Dedicated permissioned settlement network with consensus-level precompiles, institutional privacy powered by Qedis, post-quantum authentication, and multi-tenant infrastructure across five settlement domains.">
     <link rel="icon" type="image/png" href="/icons/favicon-32x32.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
@@ -122,22 +122,37 @@
 
         @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr; gap: 24px; } .footer-powered { grid-template-columns: 1fr !important; gap: 32px; } }
         @media (max-width: 640px) { .nav-links { display: none; } .main { padding: 48px 16px 64px; } .page-title { font-size: 28px; } .specs-grid, .precompile-list { grid-template-columns: 1fr; } .flow { flex-direction: column; } .flow-arrow { transform: rotate(90deg); } .cookie-inner { flex-direction: column; text-align: center; } .cookie-buttons { width: 100%; justify-content: center; } }
+    
+        .nav-toggle{display:none}
+        .nav-burger{display:none;width:40px;height:40px;align-items:center;justify-content:center;cursor:pointer;border:1px solid var(--gray-200);border-radius:6px;margin-left:auto}
+        .nav-burger span{display:block;width:18px;height:2px;background:var(--navy);box-shadow:0 -6px 0 var(--navy),0 6px 0 var(--navy)}
+        @media (max-width:640px){
+          .nav-burger{display:flex}
+          .nav-links{display:none;position:absolute;left:0;right:0;top:72px;background:var(--white);border-bottom:1px solid var(--gray-200);flex-direction:column;align-items:stretch;gap:0;padding:8px 24px 16px}
+          .nav-links a{padding:12px 0;border-bottom:1px solid var(--gray-100)}
+          .nav-toggle:checked ~ .nav-links{display:flex}
+          .nav-inner{position:relative}
+        }
+        .skip{position:absolute;left:-9999px;top:0;background:var(--navy);color:#fff;padding:8px 12px;z-index:1000}
+        .skip:focus{left:8px;top:8px}
+        a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
     </style>
 </head>
 <body>
-    <nav class="nav">
+    <a href="#main" class="skip">Skip to content</a>
+<nav class="nav">
         <div class="nav-inner">
             <a href="/" class="nav-brand">
                 <img src="assets/netta-logo-nav.png" alt="NETTA" class="nav-logo">
                 <span class="nav-divider"></span>
                 <span class="nav-product">Settlement Computer</span>
             </a>
-            <div class="nav-links">
-                <a href="index.html#products">Products</a>
-                <a href="architecture.html">Architecture</a><a href="governance.html">Governance</a>
-                <a href="/insights">Insights</a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden><label for="nav-toggle" class="nav-burger" aria-label="Menu"><span></span></label><div class="nav-links">
+                <a href="/#products">Services</a>
+                <a href="/architecture">Architecture</a><a href="/governance">Governance</a>
+                <a href="/insights/">Insights</a>
                 <a href="https://fiatrails.foundation">Foundation</a>
-                <a href="apply.html" class="nav-cta">Request Briefing</a>
+                <a href="/apply" class="nav-cta">Request Briefing</a>
             </div>
         </div>
     </nav>
@@ -146,7 +161,7 @@
         <div class="page-header">
             <div class="page-label">Technical Architecture</div>
             <h1 class="page-title">Architecture Overview</h1>
-            <p class="page-desc">High-level technical overview of the Settlement Computer — a custom Avalanche L1 with consensus-level native precompiles, institutional privacy powered by Qedis, and post-quantum authentication. Comprehensive documentation is available under NDA for qualified participants.</p>
+            <p class="page-desc">High-level technical overview of the Settlement Computer — a dedicated permissioned settlement network with consensus-level native precompiles, institutional privacy powered by Qedis, and post-quantum authentication. Comprehensive documentation is available under NDA for qualified participants.</p>
         </div>
 
         <!-- SETTLEMENT PROCESS -->
@@ -190,20 +205,20 @@
         <!-- CHAIN ARCHITECTURE -->
         <section class="section">
             <h2>Chain Architecture</h2>
-            <p>The Settlement Computer runs on the Lagrange chain — a dedicated Avalanche L1 with permissioned validators. All settlement logic is implemented as consensus-level native precompiles, not smart contracts. This provides deterministic gas costs, guaranteed execution, and prevents front-running.</p>
+            <p>The Settlement Computer runs on a dedicated settlement network with permissioned validators. All settlement logic is implemented as consensus-level native precompiles, not smart contracts. This provides deterministic execution cost, guaranteed execution, and no ordering advantage: reference rates are fixed at window open.</p>
 
             <div class="specs-grid">
                 <div class="spec">
                     <div class="spec-label">Chain</div>
-                    <div class="spec-value">Lagrange L1 (Avalanche Subnet-EVM)</div>
+                    <div class="spec-value">Dedicated permissioned settlement network (Avalanche-based)</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">Finality</div>
-                    <div class="spec-value">Sub-second (&lt;1s)</div>
+                    <div class="spec-value">Ledger determination: under one second. Legal finality: subject to per-corridor legal opinions.</div>
                 </div>
                 <div class="spec">
-                    <div class="spec-label">Gas</div>
-                    <div class="spec-value">Internal metering unit on a permissioned chain; no token is issued or planned</div>
+                    <div class="spec-label">Execution cost</div>
+                    <div class="spec-value">Deterministic; no token is issued or planned</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">Precompiles</div>
@@ -219,7 +234,7 @@
                 </div>
                 <div class="spec">
                     <div class="spec-label">Compression</div>
-                    <div class="spec-value">91.2% average on balanced generated flow; directional corridors compress materially less</div>
+                    <div class="spec-value">Up to 95% multilateral compression exercised on testnet (corridor- and flow-dependent)</div>
                 </div>
             </div>
             <p style="font-size: 13px; color: var(--gray-500); margin-top: 16px;">All figures are from the Lagrange testnet on generated test flow, as at September 2026. Participant profiles are synthetic. No production traffic.</p>
@@ -228,7 +243,7 @@
         <!-- PRECOMPILES -->
         <section class="section">
             <h2>Native Precompiles</h2>
-            <p>All settlement logic runs at the consensus layer as native Go precompiles — not EVM smart contracts. This provides deterministic gas costs, prevents front-running, and enables cryptographic operations that would be prohibitively expensive in the EVM.</p>
+            <p>All settlement logic runs at the consensus layer as consensus-level settlement logic — not EVM smart contracts. This provides deterministic execution cost, no ordering advantage (reference rates are fixed at window open), and enables cryptographic operations that would be prohibitively expensive in the EVM.</p>
 
             <p>Eleven native precompiles cover netting, FX reference pricing, compliance hooks, settlement claims, cross-corridor netting, token controls, counter-attestation, corridor management, validator management, post-quantum authentication and privacy.</p>
         </section>
@@ -241,11 +256,11 @@
                     <img src="assets/qedis-logo-dark.png" alt="Qedis" style="height: 36px; width: auto;">
                 </a>
                 <div>
-                    <p style="font-size: 15px; color: var(--gray-800); margin: 0; line-height: 1.6;">Privacy by <a href="https://qedis.io" target="_blank" rel="noopener noreferrer" style="color: var(--navy); font-weight: 500; text-decoration: none;">Qedis</a> — the cryptographic privacy and post-quantum runtime, owned by Digitalyze Labs Ltd and perpetually licensed to the NETTA group. Verifiable confidentiality with no master key, no trusted hardware, and no trusted setup.</p>
+                    <p style="font-size: 15px; color: var(--gray-800); margin: 0; line-height: 1.6;">Privacy by <a href="https://qedis.io" target="_blank" rel="noopener noreferrer" style="color: var(--navy); font-weight: 500; text-decoration: none;">Qedis</a> — the cryptographic privacy and post-quantum runtime, owned by Digitalyze Labs Ltd and perpetually licensed to the NETTA group. Verifiable confidentiality with no single-party key, no trusted hardware, and no trusted setup.</p>
                 </div>
             </div>
 
-            <p>Qedis provides a substrate-agnostic privacy architecture with no master key, no trusted hardware and no trusted setup. Obligation amounts are netted homomorphically on committed values; metadata is encrypted; proofs are transparent and post-quantum ready; counterparty addressing is unlinkable; key custody is distributed.</p>
+            <p>Qedis provides a substrate-agnostic privacy architecture with no single-party key, no trusted hardware and no trusted setup. Supervisory visibility is reconstructed only under threshold, multi-party control, with every reconstruction and delegated access recorded on-chain. Obligation amounts are netted homomorphically on committed values; metadata is encrypted; proofs are transparent and post-quantum ready; counterparty addressing is unlinkable; key custody is distributed.</p>
 
             <div class="specs-grid">
                 <div class="spec">
@@ -291,7 +306,7 @@
                 </div>
                 <div class="spec">
                     <div class="spec-label">Products</div>
-                    <div class="spec-value">Settlement, PayNet, RiskNet, Trade, Grid, Nexus, AssetNet, StableNet</div>
+                    <div class="spec-value">Settlement, PayNet, RiskNet, AssetNet, StableNet</div>
                 </div>
                 <div class="spec">
                     <div class="spec-label">Jurisdiction</div>
@@ -303,7 +318,7 @@
         <!-- ISO 20022 -->
         <section class="section">
             <h2>ISO 20022 CBPR+</h2>
-            <p>Born-native ISO 20022 CBPR+ — not a translation layer. Native generation of pacs.008 and pacs.009 at the settlement layer; pain.001, pacs.002, camt.053 and camt.054 via the institutional API; CBPR+ Level 1 (schema) and Level 2 (usage guideline) validation passed. PayNet provides AI-assisted translation with a deterministic cache for non-ISO inputs.</p>
+            <p>Born-native ISO 20022 CBPR+ — not a translation layer. Native generation of pacs.008 and pacs.009 at the settlement layer; pain.001, pacs.002, camt.053 and camt.054 via the institutional API; CBPR+ Level 1 (schema) and Level 2 (usage guideline) validation passed — validated against the official ISO 20022 schemas and the CBPR+ usage guidelines in automated testing; Swift conformance testing is a pre-pilot step and no Swift certification is claimed. Settlement instructions are generated natively and deterministically at the settlement layer. Machine-assisted translation is used only to normalise inbound payment-provider message formats into canonical obligations, with amounts and identifiers tokenised before processing and results cached deterministically; an untranslatable message is held and flagged, never settled.</p>
 
             <div class="specs-grid">
                 <div class="spec">
@@ -351,15 +366,15 @@
                 </li>
                 <li>
                     <h4>Deterministic Execution</h4>
-                    <p>FX reference rates are locked at window close, not executed in market. Oracle prices are locked, ensuring no slippage or front-running.</p>
+                    <p>FX reference rates are fixed at window open, not executed in market. Locked reference rates mean no slippage and no ordering advantage.</p>
                 </li>
                 <li>
                     <h4>Consensus-Level Settlement Logic</h4>
-                    <p>All settlement operations run as native Go precompiles, not EVM smart contracts. This guarantees deterministic gas costs, prevents MEV extraction, and enables cryptographic operations infeasible in the EVM.</p>
+                    <p>All settlement operations run as consensus-level settlement logic, not EVM smart contracts. This guarantees deterministic execution cost, no ordering advantage, and enables cryptographic operations infeasible in the EVM.</p>
                 </li>
                 <li>
                     <h4>Technology Service Provider</h4>
-                    <p>NETTA is a non-custodial coordination protocol — not a bank, PSP, e-money issuer, or remittance company. We never hold fiat, never custody user funds, and never execute settlement. All licensable activity is performed by participating licensed institutions.</p>
+                    <p>NETTA is a non-custodial coordination protocol — not a bank, PSP, e-money issuer, or remittance company. NETTA never holds fiat, never custodies user funds, and never executes settlement. All licensable activity is performed by participating licensed institutions.</p>
                 </li>
             </ul>
         </section>
@@ -380,7 +395,7 @@
         <div class="cta-box">
             <h3>Full documentation under NDA</h3>
             <p>Detailed API specifications, integration guides, precompile documentation, and compliance materials are available for qualified institutional participants.</p>
-            <a href="apply.html" class="btn">Request Briefing</a>
+            <a href="/apply" class="btn">Request Briefing</a>
         </div>
     </main>
 
@@ -389,21 +404,12 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <img src="assets/netta-logo-nav.png" alt="NETTA" style="height: 42px; filter: brightness(0) invert(1);">
-                    <p>NETTA — The Settlement Computer. Institutional settlement infrastructure. A product of FiatRails Foundation Ltd. Technology service provider — never custodying funds.</p>
+                    <p>NETTA is a product of FiatRails Foundation Ltd.</p>
                 </div>
-                <div class="footer-col"><h4>Products</h4><a href="index.html#products">Settlement Computer</a><a href="settlement.html">Settlement</a><a href="architecture.html">Architecture</a></div>
-                <div class="footer-col">
-                    <h4>Company</h4><a href="governance.html">Governance &amp; Team</a>
-                    <a href="https://fiatrails.foundation">Foundation</a>
-                    <a href="architecture.html">Architecture</a>
-                    <a href="/insights">Insights</a>
-                </div>
-                <div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://twitter.com/fiatrails" target="_blank" rel="noopener noreferrer">X</a></div>
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <a href="terms.html">Terms of Service</a>
-                    <a href="privacy.html">Privacy Policy</a>
-                </div>
+                <div class="footer-col"><h4>Services</h4><a href="/#products">Settlement domains</a><a href="/settlement">Settlement model</a><a href="/architecture">Architecture</a></div>
+                <div class="footer-col"><h4>Company</h4><a href="/governance">Governance &amp; Board</a><a href="/governance#board">Board of Directors</a><a href="https://fiatrails.foundation">Foundation</a><a href="insights/">Insights</a><a href="/apply">Request a briefing</a></div>
+                <div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/netta-network" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://x.com/nettanetwork" target="_blank" rel="noopener noreferrer">X</a><a href="mailto:briefings@netta.network">briefings@netta.network</a></div>
+                <div class="footer-col"><h4>Legal</h4><a href="/terms">Terms of Use</a><a href="/privacy">Privacy Notice</a><a href="/governance#standards">PFMI self-assessment (on request)</a></div>
             </div>
 
             <div class="footer-powered" style="grid-template-columns: 1fr 1fr 1fr;">
@@ -422,7 +428,7 @@
                             <img src="assets/qedis-logo-dark.png" alt="Qedis" style="height: 24px; width: auto; filter: brightness(0) invert(1);">
                         </a>
                     </div>
-                    <p class="powered-desc">Perpetually licensed institutional privacy layer. No master key, no trusted hardware, post-quantum.</p>
+                    <p class="powered-desc">Perpetually licensed institutional privacy layer. No single-party key, no trusted hardware, post-quantum.</p>
                 </div>
             </div>
 

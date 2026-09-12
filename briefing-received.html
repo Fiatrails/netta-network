@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Request an Institutional Briefing | NETTA</title>
+    <title>Briefing request received | NETTA</title>
     <meta name="description" content="Request an institutional briefing on NETTA — The Settlement Computer — for banks, payment institutions and market infrastructures.">
     <link rel="icon" type="image/png" href="/icons/favicon-32x32.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -415,6 +415,7 @@
         .skip:focus{left:8px;top:8px}
         a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
     </style>
+    <meta name="robots" content="noindex">
 </head>
 <body>
     <a href="#main" class="skip">Skip to content</a>
@@ -438,65 +439,9 @@
     <main class="main">
         <div class="page-header">
             <div class="page-label">Institutional Briefing</div>
-            <h1 class="page-title">Request an institutional briefing</h1>
-            <p class="page-desc">A briefing is a 45-minute session with the Founder and Chief Executive covering the settlement model, the perimeter analysis for your jurisdiction and the pilot structure. We acknowledge every request within two business days; technical documentation follows an NDA.</p>
-            <div class="page-steps"><div class="page-steps-title">What happens next</div><ol class="page-steps-list"><li><strong>Acknowledgement</strong> within two business days from briefings@netta.network.</li><li><strong>Briefing</strong> — a 45-minute session with the Founder and Chief Executive.</li><li><strong>NDA and documentation pack</strong> — the settlement model and corridor rulebook outline, the testnet corridor list, the regulatory record and the PFMI self-assessment.</li></ol><p class="page-steps-note">Prefer email? Write to <a href="mailto:briefings@netta.network">briefings@netta.network</a>. Pilots and participation agreements are contracted with FiatRails Settlement Ltd, Abu Dhabi Global Market.</p></div>
-        </div>
-
-        <div class="form-card">
-            <form action="https://formspree.io/f/xrbgvqbk" method="POST">
-                <div class="form-group">
-                    <label class="form-label" for="f-institution">Institution Name</label>
-                    <input type="text" id="f-institution" name="institution" class="form-input" autocomplete="organization" required placeholder="Your organisation">
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="f-type">Institution Type</label>
-                    <select id="f-type" name="type" class="form-select" required>
-                        <option value="">Select...</option>
-                        <option value="bank">Bank</option>
-                        <option value="psp">Payment institution / PSP</option>
-                        <option value="mto">Money transfer operator</option>
-                        <option value="fmi">Market infrastructure / CSD / CCP</option>
-                        <option value="custodian">Custodian or asset manager</option>
-                        <option value="tech">Technology partner</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="f-jurisdiction">Primary Jurisdiction</label>
-                    <input type="text" id="f-jurisdiction" name="jurisdiction" class="form-input" required placeholder="e.g., UAE, Kenya, Singapore">
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="f-corridors">Corridors or settlement flows of interest</label>
-                    <input type="text" id="f-corridors" name="corridors" class="form-input" placeholder="e.g. intra-group branch netting, GCC–South Asia, tokenised asset DvP">
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="f-contact">Contact Name</label>
-                    <input type="text" id="f-contact" name="contact_name" class="form-input" autocomplete="name" required placeholder="Your full name">
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="f-email">Contact Email</label>
-                    <input type="email" id="f-email" name="email" class="form-input" autocomplete="email" required placeholder="you@institution.com">
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="f-message">Settlement flows and current netting arrangements</label>
-                    <textarea id="f-message" name="message" class="form-textarea" placeholder="Any context on your settlement flows, current netting arrangements, or questions ahead of a briefing."></textarea>
-                </div>
-
-                <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-                <input type="hidden" name="_next" value="https://netta.network/briefing-received">
-                <div class="form-group"><label class="form-checkbox" for="f-consent"><input type="checkbox" id="f-consent" name="consent" value="yes" required><span>I consent to NETTA processing these details under its <a href="/privacy">Privacy Notice</a>.</span></label></div>
-
-                <button type="submit" class="form-submit">Request Briefing</button>
-
-                <p class="form-note">We acknowledge every request within two business days. Technical documentation and NDA are available for qualified participants.<br>Submissions are delivered via a third-party form service and handled under our <a href="/privacy" style="color: var(--gray-600);">Privacy Notice</a>.</p>
-            </form>
+            <h1 class="page-title">Your briefing request has been received</h1>
+            <p class="page-desc">We acknowledge every request within two business days from briefings@netta.network.</p>
+            <p class="page-desc"><a href="/" style="color:var(--navy);font-weight:600">&larr; Return to netta.network</a></p>
         </div>
     </main>
     <footer class="footer">

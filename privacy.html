@@ -46,20 +46,36 @@
         footer { background: var(--navy); color: var(--gray-300); padding: 40px 0 20px; margin-top: 60px; }
         .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         .footer-bottom { display: flex; justify-content: space-between; padding-top: 20px; border-top: 1px solid var(--navy-light); font-size: 13px; flex-wrap: wrap; gap: 12px; }
+    
+        .nav-toggle{display:none}
+        .nav-burger{display:none;width:40px;height:40px;align-items:center;justify-content:center;cursor:pointer;border:1px solid var(--gray-200);border-radius:6px;margin-left:auto}
+        .nav-burger span{display:block;width:18px;height:2px;background:var(--navy);box-shadow:0 -6px 0 var(--navy),0 6px 0 var(--navy)}
+        @media (max-width:640px){
+          .nav-burger{display:flex}
+          .nav-links{display:none;position:absolute;left:0;right:0;top:72px;background:var(--white);border-bottom:1px solid var(--gray-200);flex-direction:column;align-items:stretch;gap:0;padding:8px 24px 16px}
+          .nav-links a{padding:12px 0;border-bottom:1px solid var(--gray-100)}
+          .nav-toggle:checked ~ .nav-links{display:flex}
+          .nav-inner{position:relative}
+        }
+        .skip{position:absolute;left:-9999px;top:0;background:var(--navy);color:#fff;padding:8px 12px;z-index:1000}
+        .skip:focus{left:8px;top:8px}
+        a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
     </style>
 </head>
 <body>
-    <nav class="nav">
+    <a href="#main" class="skip">Skip to content</a>
+<nav class="nav">
         <div class="nav-inner">
-            <a href="index.html">
+            <a href="/">
                 <img src="assets/netta-logo-nav.png" alt="NETTA" class="nav-logo">
             </a>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="terms.html">Terms of Use</a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden><label for="nav-toggle" class="nav-burger" aria-label="Menu"><span></span></label><div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/terms">Terms of Use</a>
             </div>
         </div>
     </nav>
+<main id="main">
 
     <div class="content">
         <h1>Privacy Notice</h1>
@@ -119,6 +135,7 @@
         <h2>11. Contact</h2>
         <p>FiatRails Foundation Ltd, Landmark Square, Camana Bay, Grand Cayman, Cayman Islands. <a href="mailto:privacy@netta.network">privacy@netta.network</a></p>
     </div>
+</main>
 
     <footer>
         <div class="footer-inner">
