@@ -487,7 +487,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <img src="assets/netta-logo-nav.png" alt="NETTA" style="height: 42px; filter: brightness(0) invert(1);">
-                    <p>Settlement Computer — institutional settlement infrastructure on a dedicated Avalanche L1. Technology service provider — never custodying funds.</p>
+                    <p>NETTA — The Settlement Computer. Institutional settlement infrastructure. A product of FiatRails Foundation Ltd. Technology service provider — never custodying funds.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Products</h4>
@@ -502,17 +502,11 @@
                 </div>
                 <div class="footer-col">
                     <h4>Company</h4>
-                    <a href="/">About</a>
                     <a href="https://fiatrails.foundation">Foundation</a>
-                    <a href="architecture.html">Documentation</a>
+                    <a href="architecture.html">Architecture</a>
                     <a href="/insights">Insights</a>
                 </div>
-                <div class="footer-col">
-                    <h4>Connect</h4>
-                    <a href="https://t.me/NETTA_Bot">Telegram</a>
-                    <a href="https://twitter.com/fiatrails">Twitter</a>
-                    <a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                </div>
+                <div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://twitter.com/fiatrails" target="_blank" rel="noopener noreferrer">X</a></div>
                 <div class="footer-col">
                     <h4>Legal</h4>
                     <a href="terms.html">Terms of Service</a>
@@ -538,15 +532,6 @@
                     </div>
                     <p class="powered-desc">Perpetually licensed institutional privacy layer. No master key, no trusted hardware, post-quantum.</p>
                 </div>
-                <div class="powered-item">
-                    <span class="powered-label">BUILT BY</span>
-                    <div class="powered-logo">
-                        <a href="https://digitalyzelabs.com" target="_blank" rel="noopener noreferrer">
-                            <img src="digitalyze-labs-logo.png" alt="Digitalyze Labs" style="height: 28px; width: auto;">
-                        </a>
-                    </div>
-                    <p class="powered-desc">Enterprise blockchain development and fintech infrastructure specialists.</p>
-                </div>
             </div>
 
             <div class="footer-bottom">
@@ -555,23 +540,5 @@
             </div>
         </div>
     </footer>
-
-    <div class="cookie-banner" id="cookieBanner">
-        <div class="cookie-inner">
-            <div class="cookie-text">We use cookies to enhance your experience. <a href="privacy.html">Learn more</a></div>
-            <div class="cookie-buttons">
-                <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept</button>
-                <button class="cookie-btn cookie-btn-decline" onclick="declineCookies()">Decline</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function setCookie(n,v,d){const e=new Date(Date.now()+d*864e5).toUTCString();document.cookie=n+'='+encodeURIComponent(v)+'; expires='+e+'; path=/';}
-        function getCookie(n){return document.cookie.split('; ').reduce((r,v)=>{const p=v.split('=');return p[0]===n?decodeURIComponent(p[1]):r;},'')}
-        function acceptCookies(){setCookie('cookieConsent','accepted',365);document.getElementById('cookieBanner').classList.add('hide');}
-        function declineCookies(){setCookie('cookieConsent','declined',365);document.getElementById('cookieBanner').classList.add('hide');}
-        if(getCookie('cookieConsent'))document.getElementById('cookieBanner').classList.add('hide');
-    </script>
 </body>
 </html>

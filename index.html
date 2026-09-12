@@ -1109,7 +1109,7 @@
             </div>
             <div class="credential">
                 <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                7 U.S. Patents Pending (~437 Claims)
+                20 U.S. Patent Filings — 1,132 Claims
             </div>
             <div class="credential">
                 <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd"/><path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"/></svg>
@@ -1578,7 +1578,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <img src="assets/netta-logo-nav.png" alt="NETTA" style="height: 42px; filter: brightness(0) invert(1);">
-                    <p>Settlement Computer — institutional settlement infrastructure on a dedicated Avalanche L1. Technology service provider — never custodying funds.</p>
+                    <p>NETTA — The Settlement Computer. Institutional settlement infrastructure. A product of FiatRails Foundation Ltd. Technology service provider — never custodying funds.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Products</h4>
@@ -1593,45 +1593,15 @@
                 </div>
                 <div class="footer-col">
                     <h4>Company</h4>
-                    <a href="/">About</a>
                     <a href="https://fiatrails.foundation">Foundation</a>
-                    <a href="architecture.html">Documentation</a>
+                    <a href="architecture.html">Architecture</a>
                     <a href="/insights">Insights</a>
                 </div>
-                <div class="footer-col">
-                    <h4>Connect</h4>
-                    <a href="https://t.me/NETTA_Bot">Telegram</a>
-                    <a href="https://twitter.com/fiatrails">Twitter</a>
-                    <a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                </div>
+                <div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://twitter.com/fiatrails" target="_blank" rel="noopener noreferrer">X</a></div>
                 <div class="footer-col">
                     <h4>Legal</h4>
                     <a href="terms.html">Terms of Service</a>
                     <a href="privacy.html">Privacy Policy</a>
-                </div>
-            </div>
-
-            <div class="footer-powered">
-                <div class="powered-item">
-                    <span class="powered-label">POWERED BY</span>
-                    <div class="powered-logo">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="16" cy="16" r="16" fill="#E84142"/>
-                            <path d="M21.5 21H18.5L16 16.5L13.5 21H10.5L16 11L21.5 21Z" fill="white"/>
-                        </svg>
-                        <span class="powered-name">Avalanche</span>
-                    </div>
-                    <p class="powered-desc">The Settlement Computer runs on a custom Avalanche L1 with 11 consensus-level native precompiles — a purpose-built settlement chain, not a generic deployment. Sub-second finality and enterprise-grade reliability.</p>
-                </div>
-
-                <div class="powered-item">
-                    <span class="powered-label">BUILT BY</span>
-                    <div class="powered-logo">
-                        <a href="https://digitalyzelabs.com" target="_blank" rel="noopener noreferrer">
-                            <img src="digitalyze-labs-logo.png" alt="Digitalyze Labs" style="height: 28px; width: auto;">
-                        </a>
-                    </div>
-                    <p class="powered-desc">Enterprise blockchain development and fintech infrastructure specialists.</p>
                 </div>
             </div>
 
@@ -1643,41 +1613,5 @@
     </footer>
 
     <!-- Cookie Consent Banner -->
-    <div class="cookie-banner" id="cookieBanner">
-        <div class="cookie-inner">
-            <div class="cookie-text">
-                We use cookies to enhance your experience. By continuing to visit this site, you agree to our use of cookies.
-                <a href="privacy.html">Learn more</a>
-            </div>
-            <div class="cookie-buttons">
-                <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept</button>
-                <button class="cookie-btn cookie-btn-decline" onclick="declineCookies()">Decline</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function setCookie(name, value, days) {
-            const expires = new Date(Date.now() + days * 864e5).toUTCString();
-            document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
-        }
-        function getCookie(name) {
-            return document.cookie.split('; ').reduce((r, v) => {
-                const parts = v.split('=');
-                return parts[0] === name ? decodeURIComponent(parts[1]) : r;
-            }, '');
-        }
-        function acceptCookies() {
-            setCookie('cookieConsent', 'accepted', 365);
-            document.getElementById('cookieBanner').classList.add('hide');
-        }
-        function declineCookies() {
-            setCookie('cookieConsent', 'declined', 365);
-            document.getElementById('cookieBanner').classList.add('hide');
-        }
-        if (getCookie('cookieConsent')) {
-            document.getElementById('cookieBanner').classList.add('hide');
-        }
-    </script>
 </body>
 </html>
