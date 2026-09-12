@@ -8,8 +8,6 @@
     <link rel="icon" type="image/png" href="/icons/favicon-32x32.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
-
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -70,9 +68,6 @@
         .newsletter-disclaimer{font-size:12px;color:var(--gray-500);margin-top:14px}
         .newsletter-disclaimer a{color:var(--gray-600);text-decoration:underline}
         .newsletter-pending{background:rgba(251,191,36,0.1);border:1px solid rgba(217,119,6,0.3);border-radius:8px;padding:16px;font-size:13px;color:var(--gray-700);max-width:480px;margin:0 auto;text-align:left;line-height:1.5}
-        .newsletter-form-wrap{display:block !important;max-width:420px !important;width:100% !important;margin:0 auto !important;min-height:80px;text-align:center}
-        .newsletter-form-wrap *{margin-left:0 !important;margin-right:0 !important;float:none !important;left:auto !important;right:auto !important;position:static !important;padding-left:0 !important;padding-right:0 !important}
-        .newsletter-form-wrap iframe,.newsletter-form-wrap form,.newsletter-form-wrap > div,.newsletter-form-wrap [class*="beehiiv"],.newsletter-form-wrap [id*="beehiiv"]{display:block !important;width:100% !important;max-width:100% !important}
 
         .footer{background:var(--gray-900);padding:48px 32px 24px;color:var(--gray-400)}
         .footer-inner{max-width:1200px;margin:0 auto}
@@ -94,15 +89,33 @@
 
         @media(max-width:1024px){.articles-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr;gap:24px}.footer-powered{grid-template-columns:1fr;gap:32px}}
         @media(max-width:640px){.nav-links{display:none}.hero{padding:48px 24px 40px}.hero h1{font-size:32px}.newsletter-form{flex-direction:column}.cookie-inner{flex-direction:column;text-align:center}.cookie-buttons{width:100%;justify-content:center}}
+        .hero-standfirst{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);margin-bottom:12px}
+    
+        .nav-toggle{display:none}
+        .nav-burger{display:none;width:40px;height:40px;align-items:center;justify-content:center;cursor:pointer;border:1px solid var(--gray-200);border-radius:6px;margin-left:auto}
+        .nav-burger span{display:block;width:18px;height:2px;background:var(--navy);box-shadow:0 -6px 0 var(--navy),0 6px 0 var(--navy)}
+        @media (max-width:640px){
+          .nav-burger{display:flex}
+          .nav-links{display:none;position:absolute;left:0;right:0;top:72px;background:var(--white);border-bottom:1px solid var(--gray-200);flex-direction:column;align-items:stretch;gap:0;padding:8px 24px 16px}
+          .nav-links a{padding:12px 0;border-bottom:1px solid var(--gray-100)}
+          .nav-toggle:checked ~ .nav-links{display:flex}
+          .nav-inner{position:relative}
+        }
+        .skip{position:absolute;left:-9999px;top:0;background:var(--navy);color:#fff;padding:8px 12px;z-index:1000}
+        .skip:focus{left:8px;top:8px}
+        a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
     </style>
 </head>
 <body>
-    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><div class="nav-links"><a href="../index.html#products">Products</a><a href="../architecture.html">Architecture</a><a href="../governance.html">Governance</a><a href="/insights">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="../apply.html" class="nav-cta">Request Briefing</a></div></div></nav>
+    <a href="#main" class="skip">Skip to content</a>
+<nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><input type="checkbox" id="nav-toggle" class="nav-toggle" hidden><label for="nav-toggle" class="nav-burger" aria-label="Menu"><span></span></label><div class="nav-links"><a href="/#products">Services</a><a href="/architecture">Architecture</a><a href="/governance">Governance</a><a href="/insights/">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="/apply" class="nav-cta">Request Briefing</a></div></div></nav>
+<main id="main">
 
     <section class="hero">
         <div class="hero-inner">
             <div class="hero-eyebrow">NETTA Insights</div>
-            <h1>Institutional Settlement Infrastructure</h1>
+            <h1>Settlement Notes</h1>
+            <p class="hero-standfirst">Institutional Settlement Infrastructure</p>
             <p>Multilateral netting, regulatory frameworks, and the architecture of the next decade of institutional settlement. Long-form analysis for treasurers, risk officers, central bank technical staff, and infrastructure architects.</p>
         </div>
     </section>
@@ -113,8 +126,8 @@
 
                 <a href="/insights/hardware-trust-vs-cryptographic-privacy" class="article-card">
                     <div class="article-meta">
-                        <span class="article-category">Technical Deep-Dive</span>
-                        <span class="article-byline">NETTA</span>
+                        <span class="article-category">Analysis</span>
+                        <span class="article-byline">Vincent Scaturchio</span><span class="article-date"><time datetime="2026-06-13">13 Jun 2026</time></span>
                     </div>
                     <h2>Hardware Trust Is Not Cryptographic Privacy: What Institutional Settlement Requires</h2>
                     <p>Settlement infrastructure that depends on trusted execution environments inherits the hardware manufacturer as a root of trust. Cryptographic privacy eliminates that dependency entirely. The mechanism matters for institutions.</p>
@@ -123,8 +136,8 @@
 
                 <a href="/insights/what-is-iso-20022-cbpr-plus" class="article-card">
                     <div class="article-meta">
-                        <span class="article-category">Educational</span>
-                        <span class="article-byline">NETTA</span>
+                        <span class="article-category">Explainer</span>
+                        <span class="article-byline">NETTA</span><span class="article-date"><time datetime="2026-05-30">30 May 2026</time></span>
                     </div>
                     <h2>What Is ISO 20022 CBPR+? The Institutional Standard That Defines Who Can Play</h2>
                     <p>ISO 20022 CBPR+ is not merely a message format. It is the institutional interoperability standard that determines whether settlement infrastructure can integrate with the global banking system — or sits permanently outside it.</p>
@@ -133,8 +146,8 @@
 
                 <a href="/insights/set-off-is-not-settlement-netting" class="article-card">
                     <div class="article-meta">
-                        <span class="article-category">Regulatory Commentary</span>
-                        <span class="article-byline">Vincent Scaturchio</span>
+                        <span class="article-category">Regulatory</span>
+                        <span class="article-byline">Vincent Scaturchio</span><span class="article-date"><time datetime="2026-05-30">30 May 2026</time></span>
                     </div>
                     <h2>Set-Off Is Not Settlement Netting: Why the Legal Framework Matters More Than the Algorithm</h2>
                     <p>Set-off under obligation law and settlement netting under financial regulation use related mathematics but operate under entirely different legal frameworks. The five questions every bank should ask before engaging with a netting protocol.</p>
@@ -143,8 +156,8 @@
 
                 <a href="/insights/what-is-multilateral-netting" class="article-card">
                     <div class="article-meta">
-                        <span class="article-category">Educational</span>
-                        <span class="article-byline">NETTA</span>
+                        <span class="article-category">Explainer</span>
+                        <span class="article-byline">NETTA</span><span class="article-date"><time datetime="2026-05-08">8 May 2026</time></span>
                     </div>
                     <h2>What Is Multilateral Netting? How Cross-Border Settlement Compression Works</h2>
                     <p>Multilateral netting compresses gross financial obligations between three or more participants into the smallest set of net settlement instructions. CLS proved the model at over US$6 trillion a day inside its perimeter. So why does most of cross-border still settle gross?</p>
@@ -153,8 +166,8 @@
 
                 <a href="/insights/atomic-settlement-mirage" class="article-card">
                     <div class="article-meta">
-                        <span class="article-category">Industry Analysis</span>
-                        <span class="article-byline">Vincent Scaturchio</span>
+                        <span class="article-category">Analysis</span>
+                        <span class="article-byline">Vincent Scaturchio</span><span class="article-date"><time datetime="2026-05-08">8 May 2026</time></span>
                     </div>
                     <h2>The Atomic Settlement Mirage: Why Configurable Netting Beats Universal T+0</h2>
                     <p>The fintech narrative treats atomic T+0 settlement as the universal future. The largest production settlement systems point in the opposite direction. The right answer is configurable netting with urgency lanes — netted highway, priced fast lane.</p>
@@ -164,7 +177,7 @@
                 <a href="/insights/mica-digital-asset-settlement" class="article-card">
                     <div class="article-meta">
                         <span class="article-category">Regulatory</span>
-                        <span class="article-byline">NETTA</span>
+                        <span class="article-byline">NETTA</span><span class="article-date"><time datetime="2026-05-08">8 May 2026</time></span>
                     </div>
                     <h2>MiCA Regulates the Asset. The Settlement Layer Comes Next.</h2>
                     <p>MiCA was Phase 1 of digital asset regulation — issuers, service providers, reserves, redemption. Phase 2 is the settlement infrastructure layer that has to meet PFMI-equivalent standards of finality, liquidity transparency, and supervisory observability.</p>
@@ -173,8 +186,8 @@
 
                 <a href="/insights/settlement-computer-five-products-live" class="article-card">
                     <div class="article-meta">
-                        <span class="article-category">Product Update</span>
-                        <span class="article-byline">NETTA</span>
+                        <span class="article-category">Product</span>
+                        <span class="article-byline">NETTA</span><span class="article-date"><time datetime="2026-05-08">8 May 2026</time></span>
                     </div>
                     <h2>The Settlement Computer: What Is Live on Testnet and What Comes Next</h2>
                     <p>A status update on the NETTA — The Settlement Computer. Five products exercised on testnet, all running on a shared multi-tenant Avalanche L1 with multilateral netting, ISO 20022 messaging, and protocol-native risk analytics.</p>
@@ -184,20 +197,11 @@
             </div>
         </div>
     </section>
+</main>
 
-    <section class="newsletter-section">
-        <div class="newsletter-inner">
-            <div class="newsletter-eyebrow">NETTA Insights · Newsletter</div>
-            <h2 class="newsletter-title">Get NETTA Insights</h2>
-            <p class="newsletter-desc">Institutional settlement infrastructure analysis — multilateral netting, regulatory frameworks, and what the next decade of institutional settlement actually looks like. Occasional notes on settlement infrastructure. Unsubscribe any time.</p>
+    
 
-            <div class="newsletter-form-wrap"><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="c83c5533-4a14-4498-a994-91efdf41c81c"></script></div>
-
-            <p class="newsletter-disclaimer">By subscribing you agree to our <a href="../privacy.html">Privacy Policy</a>. Unsubscribe any time.</p>
-        </div>
-    </section>
-
-    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA — The Settlement Computer. Institutional settlement infrastructure. A product of FiatRails Foundation Ltd. Technology service provider — never custodying funds.</p></div><div class="footer-col"><h4>Products</h4><a href="../index.html#products">Settlement Computer</a><a href="../settlement.html">Settlement</a><a href="../architecture.html">Architecture</a></div><div class="footer-col"><h4>Company</h4><a href="../governance.html">Governance &amp; Team</a><a href="https://fiatrails.foundation">Foundation</a><a href="../architecture.html">Architecture</a><a href="/insights">Insights</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://twitter.com/fiatrails" target="_blank" rel="noopener noreferrer">X</a></div><div class="footer-col"><h4>Legal</h4><a href="../terms.html">Terms of Service</a><a href="../privacy.html">Privacy Policy</a></div></div>
+    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA is a product of FiatRails Foundation Ltd.</p></div><div class="footer-col"><h4>Services</h4><a href="/#products">Settlement domains</a><a href="/settlement">Settlement model</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h4>Company</h4><a href="/governance">Governance &amp; Board</a><a href="/governance#board">Board of Directors</a><a href="https://fiatrails.foundation">Foundation</a><a href="/insights/">Insights</a><a href="/apply">Request a briefing</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/netta-network" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://x.com/nettanetwork" target="_blank" rel="noopener noreferrer">X</a><a href="mailto:briefings@netta.network">briefings@netta.network</a></div><div class="footer-col"><h4>Legal</h4><a href="/terms">Terms of Use</a><a href="/privacy">Privacy Notice</a><a href="/governance#standards">PFMI self-assessment (on request)</a></div></div>
     <div class="footer-bottom"><span>&copy; 2026 FiatRails Foundation Ltd. All rights reserved.</span><span>CR-431901 | LEI <a href="https://search.gleif.org/#/record/894500RG1F2BKNE8P514" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">894500RG1F2BKNE8P514</a> | Cayman Islands</span></div></div></footer>
 </body>
 </html>

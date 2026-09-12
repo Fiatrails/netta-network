@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Settlement Computer: What Is Live on Testnet and What Comes Next | NETTA Insights</title>
     <meta name="description" content="A status note on NETTA — The Settlement Computer: five products exercised on testnet, three domains in design, one settlement chain, twenty US patent applications, detailed documentation under NDA.">
-    <meta name="author" content="Vincent Scaturchio">
+    <meta name="author" content="NETTA">
     <link rel="icon" type="image/png" href="/icons/favicon-32x32.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
-
-    <script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
 
     <meta property="og:type" content="article">
     <meta property="og:title" content="The Settlement Computer: What Is Live on Testnet and What Comes Next">
@@ -26,12 +24,7 @@
         "@type": "Article",
         "headline": "The Settlement Computer: What Is Live on Testnet and What Comes Next",
         "description": "A status note on NETTA — The Settlement Computer: five products exercised on testnet, three domains in design, one settlement chain.",
-        "author": {
-            "@type": "Person",
-            "name": "Vincent Scaturchio",
-            "jobTitle": "Founder and Chief Executive, NETTA",
-            "url": "https://netta.network/"
-        },
+        "author": {"@type": "Organization", "name": "NETTA", "url": "https://netta.network/"},
         "publisher": {
             "@type": "Organization",
             "name": "FiatRails Foundation Ltd",
@@ -104,9 +97,6 @@
         .newsletter-title{font-size:24px;font-weight:700;color:var(--gray-900);letter-spacing:-.02em;margin-bottom:14px}
         .newsletter-desc{font-size:14px;color:var(--gray-600);line-height:1.7;margin-bottom:24px}
         .newsletter-pending{background:rgba(251,191,36,0.1);border:1px solid rgba(217,119,6,0.3);border-radius:8px;padding:16px;font-size:13px;color:var(--gray-700);max-width:480px;margin:0 auto;text-align:left;line-height:1.5}
-        .newsletter-form-wrap{display:block !important;max-width:420px !important;width:100% !important;margin:0 auto !important;min-height:80px;text-align:center}
-        .newsletter-form-wrap *{margin-left:0 !important;margin-right:0 !important;float:none !important;left:auto !important;right:auto !important;position:static !important;padding-left:0 !important;padding-right:0 !important}
-        .newsletter-form-wrap iframe,.newsletter-form-wrap form,.newsletter-form-wrap > div,.newsletter-form-wrap [class*="beehiiv"],.newsletter-form-wrap [id*="beehiiv"]{display:block !important;width:100% !important;max-width:100% !important}
         .newsletter-pending a{color:var(--navy);text-decoration:underline}
         .newsletter-pending code{background:var(--white);padding:2px 6px;border-radius:3px;font-size:12px;font-family:'SF Mono',Menlo,Consolas,monospace}
         .series-section{padding:56px 32px}
@@ -135,20 +125,38 @@
         .cookie-btn-accept{background:var(--white);color:var(--navy)}.cookie-btn-decline{background:transparent;color:var(--white);border:1px solid var(--gray-400)}
         @media(max-width:1024px){.series-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr;gap:24px}.footer-powered{grid-template-columns:1fr;gap:32px}}
         @media(max-width:640px){.nav-links{display:none}.article-hero{padding:40px 24px 24px}.article-hero h1{font-size:30px}.article-content{font-size:16px}.cookie-inner{flex-direction:column;text-align:center}.cookie-buttons{width:100%;justify-content:center}}
+    
+        .nav-toggle{display:none}
+        .nav-burger{display:none;width:40px;height:40px;align-items:center;justify-content:center;cursor:pointer;border:1px solid var(--gray-200);border-radius:6px;margin-left:auto}
+        .nav-burger span{display:block;width:18px;height:2px;background:var(--navy);box-shadow:0 -6px 0 var(--navy),0 6px 0 var(--navy)}
+        @media (max-width:640px){
+          .nav-burger{display:flex}
+          .nav-links{display:none;position:absolute;left:0;right:0;top:72px;background:var(--white);border-bottom:1px solid var(--gray-200);flex-direction:column;align-items:stretch;gap:0;padding:8px 24px 16px}
+          .nav-links a{padding:12px 0;border-bottom:1px solid var(--gray-100)}
+          .nav-toggle:checked ~ .nav-links{display:flex}
+          .nav-inner{position:relative}
+        }
+        .skip{position:absolute;left:-9999px;top:0;background:var(--navy);color:#fff;padding:8px 12px;z-index:1000}
+        .skip:focus{left:8px;top:8px}
+        a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
     </style>
 </head>
 <body>
-    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><div class="nav-links"><a href="../index.html#products">Products</a><a href="../architecture.html">Architecture</a><a href="../governance.html">Governance</a><a href="/insights">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="../apply.html" class="nav-cta">Request Briefing</a></div></div></nav>
+    <a href="#main" class="skip">Skip to content</a>
+<nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><input type="checkbox" id="nav-toggle" class="nav-toggle" hidden><label for="nav-toggle" class="nav-burger" aria-label="Menu"><span></span></label><div class="nav-links"><a href="/#products">Services</a><a href="/architecture">Architecture</a><a href="/governance">Governance</a><a href="/insights/">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="/apply" class="nav-cta">Request Briefing</a></div></div></nav>
+<main id="main">
 
     <article>
         <header class="article-hero">
             <div class="article-hero-inner">
-                <a href="/insights" class="article-back">&larr; All insights</a>
+                <a href="/insights/" class="article-back">&larr; All insights</a>
                 <div class="article-meta">
-                    <span class="article-category">Product Update</span>
-                    <span class="article-byline">Vincent Scaturchio, Founder and Chief Executive</span>
-                    <span class="article-date">8 May 2026</span>
+                    <span class="article-category">Product</span>
+                    <span class="article-byline">NETTA</span>
+                    <span class="article-date"><time datetime="2026-05-08">8 May 2026</time></span>
                     <span class="article-date">Last reviewed: 12 September 2026</span>
+                    <span class="article-date">Settlement Notes · No. 2</span>
+                    <span class="article-date">3 min read</span>
                 </div>
                 <h1>The Settlement Computer: What Is Live on Testnet and What Comes Next</h1>
                 <p class="lede">Five products exercised on testnet. Three domains in design. One settlement chain.</p>
@@ -194,14 +202,11 @@
         </div>
     </article>
 
-    <section class="newsletter-section">
-        <div class="newsletter-inner">
-            <div class="newsletter-eyebrow">NETTA Insights · Newsletter</div>
-            <h2 class="newsletter-title">Get NETTA Insights</h2>
-            <p class="newsletter-desc">Occasional notes on settlement infrastructure. Unsubscribe any time.</p>
-            <div class="newsletter-form-wrap"><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="c83c5533-4a14-4498-a994-91efdf41c81c"></script></div>
-        </div>
-    </section>
+    <section class="cta-briefing" style="background:var(--navy);padding:64px 32px;text-align:center"><div style="max-width:720px;margin:0 auto">
+        <h2 style="font-size:28px;font-weight:700;color:var(--white);letter-spacing:-.02em;margin-bottom:12px">Request an institutional briefing</h2>
+        <p style="font-size:15px;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:28px">Controlled pilots in 2026–27 for banks, payment institutions and market infrastructures. Technical documentation and NDA available to qualified participants.</p>
+        <a href="/apply" style="display:inline-block;background:var(--white);color:var(--navy);padding:14px 28px;border-radius:6px;font-weight:600;text-decoration:none;font-size:15px">Request Briefing</a>
+    </div></section>
 
     <section class="series-section">
         <div class="series-inner">
@@ -222,8 +227,9 @@
             </div>
         </div>
     </section>
+</main>
 
-    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA — The Settlement Computer. Institutional settlement infrastructure. A product of FiatRails Foundation Ltd. Technology service provider — never custodying funds.</p></div><div class="footer-col"><h4>Products</h4><a href="../index.html#products">Settlement Computer</a><a href="../settlement.html">Settlement</a><a href="../architecture.html">Architecture</a></div><div class="footer-col"><h4>Company</h4><a href="../governance.html">Governance &amp; Team</a><a href="https://fiatrails.foundation">Foundation</a><a href="../architecture.html">Architecture</a><a href="/insights">Insights</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/fiatrails" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://twitter.com/fiatrails" target="_blank" rel="noopener noreferrer">X</a></div><div class="footer-col"><h4>Legal</h4><a href="../terms.html">Terms of Service</a><a href="../privacy.html">Privacy Policy</a></div></div>
+    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA is a product of FiatRails Foundation Ltd.</p></div><div class="footer-col"><h4>Services</h4><a href="/#products">Settlement domains</a><a href="/settlement">Settlement model</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h4>Company</h4><a href="/governance">Governance &amp; Board</a><a href="/governance#board">Board of Directors</a><a href="https://fiatrails.foundation">Foundation</a><a href="/insights/">Insights</a><a href="/apply">Request a briefing</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/netta-network" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://x.com/nettanetwork" target="_blank" rel="noopener noreferrer">X</a><a href="mailto:briefings@netta.network">briefings@netta.network</a></div><div class="footer-col"><h4>Legal</h4><a href="/terms">Terms of Use</a><a href="/privacy">Privacy Notice</a><a href="/governance#standards">PFMI self-assessment (on request)</a></div></div>
     <div class="footer-bottom"><span>&copy; 2026 FiatRails Foundation Ltd. All rights reserved.</span><span>CR-431901 | LEI <a href="https://search.gleif.org/#/record/894500RG1F2BKNE8P514" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">894500RG1F2BKNE8P514</a> | Cayman Islands</span></div></div></footer>
 </body>
 </html>
