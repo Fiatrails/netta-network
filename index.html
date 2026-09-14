@@ -1152,7 +1152,6 @@
             <div class="section-header">
                 <div class="section-label">How it works</div>
                 <h2 class="section-title">Compress obligations. Settle only the residual.</h2>
-                <p class="section-desc">Institutions record obligations, NETTA computes the multilateral net, and each participant's own settlement bank moves only what remains. NETTA holds no funds, executes no FX and is never a counterparty.</p>
             </div>
             <div class="diagram-wrap"><svg class="how-diagram" viewBox="0 0 960 320" role="img" aria-labelledby="diag-title diag-desc" xmlns="http://www.w3.org/2000/svg"><desc id="diag-desc">Four institutions — Bank A, PSP B, MTO C and Bank D — exchange eight gross bilateral payments, every leg of which must be pre-positioned. Multilateral netting reduces these to one position each: Bank A receives 60 and Bank D receives 20, against Bank B paying 50 and MTO C paying 30, so the set balances. Each participant&rsquo;s own settlement bank then moves only that residual over existing rails; NETTA holds nothing.</desc>
   <title id="diag-title">Gross bilateral flows are netted multilaterally; only the residual settles at each participant's settlement bank</title>
@@ -1203,7 +1202,7 @@
                 <div class="how-fact"><div class="how-fact-value">11</div><div class="how-fact-label">corridors exercised on testnet</div></div>
             </div>
             <p class="how-note">Exercised on a dedicated test network. All figures are from the Lagrange testnet on generated test flow, as at September 2026. Participant profiles are synthetic. No production traffic.</p>
-            <p class="how-note">Pilots run in fiat-only mode: participants settle the net position in fiat over conventional rails; the ledger is the coordination and instruction layer, and no digital settlement asset is required. <a href="/settlement" style="color: var(--navy); font-weight: 600;">Settlement model &rarr;</a></p>
+            <p class="how-note">Pilots run in fiat-only mode: the net position settles in fiat over conventional rails and no digital settlement asset is required. <a href="/settlement" style="color: var(--navy); font-weight: 600;">Settlement model &rarr;</a></p>
         </div>
     </section>
 
@@ -1214,8 +1213,8 @@
             <h2 class="section-title">Net exposure, your own settlement bank, existing rails</h2>
         </div>
         <div class="treasury">
-            <p>Outbound, your cash stays in normal operational use until the settlement instant; pre-positioned liquidity is eliminated where the rail permits just-in-time funding and materially reduced where it does not. Inbound, the credit you extend against payouts is shortened to the net residual. That residual settles against your own settlement bank's counter-attestation, on rails you already use. Obligations are valued at reference rates fixed at window open; the protocol executes no FX, so you hedge the net, not the gross. Instructions and statements arrive as ISO 20022 CBPR+ messages, validated end-to-end against the official schemas; Swift conformance testing is a pre-pilot step and no certification is claimed. Nothing is held by NETTA at any point.</p>
-            <p class="treasury-illus"><strong>Illustrative:</strong> a US$100M-a-month corridor under legacy arrangements typically requires US$15&ndash;25M of pre-funded nostro, T+2 to T+3 settlement and an all-in cost of several per cent in higher-cost payment corridors; netted, the same corridor requires settlement capital of US$5&ndash;10M, same-day confirmation and automated reconciliation.</p>
+            <p>Outbound, your cash stays in normal operational use until the settlement instant; pre-positioned liquidity is eliminated where the rail permits just-in-time funding and materially reduced where it does not. Inbound, the credit you extend against payouts is shortened to the net residual. Nothing is held by NETTA at any point.</p>
+            <p style="text-align: center; margin-top: 24px;"><a href="/treasury" style="color: var(--navy); font-weight: 600;">What changes on the balance sheet &rarr;</a></p>
         </div>
     </section>
 
@@ -1224,32 +1223,28 @@
         <div style="max-width: 1200px; margin: 0 auto;">
         <div class="section-header">
             <div class="section-label">Services</div>
-            <h2 class="section-title">One settlement network, five settlement domains</h2>
+            <h2 class="section-title">Five settlement domains, one network</h2>
         </div>
         <div class="products-grid services-grid">
             <div class="product-card">
                 <h3>Settlement</h3>
-                <p class="product-desc">Multilateral netting of institutional cross-border obligations. Reference rates locked at window open; counter-attested just-in-time settlement; ISO 20022 CBPR+ instructions; fiat-only mode on conventional rails.</p>
+                <p class="product-desc">Multilateral netting of institutional cross-border obligations, counter-attested and settled just-in-time on conventional rails.</p>
                 <a href="/settlement" class="product-link">Settlement model &rarr;</a>
             </div>
             <div class="product-card">
-                <h3>PayNet</h3>
-                <p class="product-desc">A licensed aggregation partner &mdash; a bank, mobile-money operator or payment institution &mdash; converts high-volume, small-value customer flows into netting-eligible institutional obligations under its own licence and compliance programme.</p>
-            </div>
-            <div class="product-card">
-                <h3>RiskNet</h3>
-                <p class="product-desc">Risk before settlement. Participant-configured exposure and concentration limits are enforced before an obligation enters a netting window; credit decisions remain with each participant.</p>
-            </div>
-            <div class="product-card">
-                <h3>AssetNet</h3>
-                <p class="product-desc">Delivery-versus-payment netting for tokenised securities, with issuer risk disclosed per asset and settlement gated on finality of both legs.</p>
-            </div>
-            <div class="product-card">
                 <h3>StableNet</h3>
-                <p class="product-desc">Netting settled in registered tokenised deposits or regulated stablecoins, tier-classified with issuer risk disclosed; never described in central-bank-money terms.</p>
+                <p class="product-desc">Netting settled in registered tokenised deposits or regulated stablecoins, tier-classified with issuer risk disclosed per asset; never described in central-bank-money terms.</p>
+                <p class="product-desc" style="margin-top: 12px; color: var(--gray-500);">Documentation under NDA.</p>
+            </div>
+            <div class="product-card">
+                <h3>Risk intelligence, micro-obligation aggregation and tokenised-asset netting</h3>
+                <p class="product-desc"><strong>RiskNet.</strong> Exposure and concentration limits enforced before an obligation enters a window; credit decisions stay with each participant.</p>
+                <p class="product-desc" style="margin-top: 10px;"><strong>PayNet.</strong> A licensed partner converts high-volume, small-value flows into netting-eligible institutional obligations under its own licence.</p>
+                <p class="product-desc" style="margin-top: 10px;"><strong>AssetNet.</strong> Delivery-versus-payment netting for tokenised securities, settlement gated on finality of both legs.</p>
+                <p class="product-desc" style="margin-top: 12px; color: var(--gray-500);">Exercised on testnet. Documentation under NDA.</p>
             </div>
         </div>
-        <p style="text-align: center; font-size: 14px; color: var(--gray-600); margin-top: 28px;">Documentation for each domain is available to qualified institutions under NDA. Further domains &mdash; trade finance, energy and autonomous-agent clearing &mdash; are in design.</p>
+        <p style="text-align: center; font-size: 14px; color: var(--gray-600); margin-top: 28px;">Three further domains &mdash; trade finance, energy and autonomous-agent clearing &mdash; are in design. Documentation for each domain is available to qualified institutions under NDA.</p>
         </div>
     </section>
 
@@ -1283,12 +1278,12 @@
                 </div>
             </div>
             <div class="standards-grid">
-                <div style="background: white; border: 1px solid var(--gray-200); border-radius: 8px; padding: 24px;"><h4 style="font-size: 15px; font-weight: 600; color: var(--gray-800); margin-bottom: 8px;">Privacy by <a href="https://qedis.io" target="_blank" rel="noopener noreferrer" style="color: var(--navy); text-decoration: underline;">Qedis</a></h4><p style="font-size: 14px; color: var(--gray-600); line-height: 1.6;">Verifiable confidentiality with no single-party key, no trusted hardware and no trusted setup; post-quantum by design. Privacy by Qedis, licensed to the NETTA group.</p></div>
+                <div style="background: white; border: 1px solid var(--gray-200); border-radius: 8px; padding: 24px;"><h4 style="font-size: 15px; font-weight: 600; color: var(--gray-800); margin-bottom: 8px;">Privacy by <a href="https://qedis.io" target="_blank" rel="noopener noreferrer" style="color: var(--navy); text-decoration: underline;">Qedis</a></h4><p style="font-size: 14px; color: var(--gray-600); line-height: 1.6;">Verifiable confidentiality with no single-party key, no trusted hardware and no trusted setup, post-quantum by design, licensed to the NETTA group.</p></div>
                 <div style="background: white; border: 1px solid var(--gray-200); border-radius: 8px; padding: 24px;"><h4 style="font-size: 15px; font-weight: 600; color: var(--gray-800); margin-bottom: 8px;">Post-quantum cryptography</h4><p style="font-size: 14px; color: var(--gray-600); line-height: 1.6;">ML-DSA (FIPS 204) signatures and ML-KEM (FIPS 203) key encapsulation, hybrid with ECDSA for migration.</p></div>
-                <div style="background: white; border: 1px solid var(--gray-200); border-radius: 8px; padding: 24px;"><h4 style="font-size: 15px; font-weight: 600; color: var(--gray-800); margin-bottom: 8px;">Risk before settlement</h4><p style="font-size: 14px; color: var(--gray-600); line-height: 1.6;">Participant-configured limits are enforced before an obligation enters a window; credit decisions remain with each participant.</p></div>
-                <div style="background: white; border: 1px solid var(--gray-200); border-radius: 8px; padding: 24px;"><h4 style="font-size: 15px; font-weight: 600; color: var(--gray-800); margin-bottom: 8px;">ISO 20022 CBPR+</h4><p style="font-size: 14px; color: var(--gray-600); line-height: 1.6;">Native pacs.008 and pacs.009; pain.001, pacs.002, camt.053 and camt.054 via the institutional API. Validated against the official schemas and CBPR+ usage guidelines; Swift conformance is a pre-pilot step and no certification is claimed. Settlement instructions are generated natively and deterministically at the settlement layer. Machine-assisted translation is used only to normalise inbound payment-provider message formats into canonical obligations, with amounts and identifiers tokenised before processing and results cached deterministically; an untranslatable message is held and flagged, never settled.</p></div>
-                <div style="background: white; border: 1px solid var(--gray-200); border-radius: 8px; padding: 24px;"><h4 style="font-size: 15px; font-weight: 600; color: var(--gray-800); margin-bottom: 8px;">PFMI</h4><p style="font-size: 14px; color: var(--gray-600); line-height: 1.6;">Designed and operated to the standard expected of a financial market infrastructure though not one: self-assessed against all 24 CPMI-IOSCO Principles, being extended to Annex F for critical service providers; available to participants and their supervisors on request.</p></div>
-                <div style="background: white; border: 1px solid var(--gray-200); border-radius: 8px; padding: 24px;"><h4 style="font-size: 15px; font-weight: 600; color: var(--gray-800); margin-bottom: 8px;">Sanctions and Travel Rule</h4><p style="font-size: 14px; color: var(--gray-600); line-height: 1.6;">NETTA performs no customer due diligence and holds no customer relationship; KYC, AML and Travel Rule obligations sit with the licensed participants. Obligations are screened at admission against published sanctions lists and rejected before they enter a netting window; every screening outcome is recorded for participants and their supervisors.</p></div>
+                <div style="background: white; border: 1px solid var(--gray-200); border-radius: 8px; padding: 24px;"><h4 style="font-size: 15px; font-weight: 600; color: var(--gray-800); margin-bottom: 8px;">Risk before settlement</h4><p style="font-size: 14px; color: var(--gray-600); line-height: 1.6;">Risk is assessed at admission rather than after the fact, so an obligation that breaches a participant’s own limits never reaches a netting window.</p></div>
+                <div style="background: white; border: 1px solid var(--gray-200); border-radius: 8px; padding: 24px;"><h4 style="font-size: 15px; font-weight: 600; color: var(--gray-800); margin-bottom: 8px;">ISO 20022 CBPR+</h4><p style="font-size: 14px; color: var(--gray-600); line-height: 1.6;">Native pacs.008 and pacs.009 with the remaining message types via the institutional API, validated against the official schemas and CBPR+ usage guidelines; Swift conformance is a pre-pilot step and no certification is claimed.</p></div>
+                <div style="background: white; border: 1px solid var(--gray-200); border-radius: 8px; padding: 24px;"><h4 style="font-size: 15px; font-weight: 600; color: var(--gray-800); margin-bottom: 8px;">PFMI</h4><p style="font-size: 14px; color: var(--gray-600); line-height: 1.6;">Designed and operated to the standard expected of a financial market infrastructure though not one: self-assessed against all 24 CPMI-IOSCO Principles and being extended to Annex F, available to participants and their supervisors on request.</p></div>
+                <div style="background: white; border: 1px solid var(--gray-200); border-radius: 8px; padding: 24px;"><h4 style="font-size: 15px; font-weight: 600; color: var(--gray-800); margin-bottom: 8px;">Sanctions and Travel Rule</h4><p style="font-size: 14px; color: var(--gray-600); line-height: 1.6;">KYC, AML and Travel Rule obligations sit with the licensed participants; obligations are screened at admission against published sanctions lists and every outcome is recorded for participants and their supervisors.</p></div>
             </div>
         </div>
     </section>
@@ -1300,12 +1295,7 @@
                 <div class="section-label">Who it's for</div>
                 <h2 class="section-title">Built for institutions constrained by capital, not scale</h2>
             </div>
-            <div class="audience-grid">
-                <div class="audience-item"><h4>Banks</h4><p>Regional and Tier-2 banks with cross-border exposure seeking to release capital held against emerging-market corridors.</p></div>
-                <div class="audience-item"><h4>Payment institutions</h4><p>Licensed payment institutions priced out of capital-inefficient corridors.</p></div>
-                <div class="audience-item"><h4>Money-transfer operators</h4><p>Operators carrying pre-positioned liquidity on outbound legs and extended credit on inbound payouts.</p></div>
-                <div class="audience-item"><h4>Settlement institutions</h4><p>Banks and settlement agents that counter-attest and execute their participants' net positions on existing rails.</p></div>
-            </div>
+            <p class="audience-note">Regional and Tier-2 banks, licensed payment institutions and money-transfer operators carrying cross-border exposure, together with the settlement institutions that counter-attest and execute their net positions on existing rails.</p>
             <p class="audience-note">Flows from mobile-money operators, custodians, asset managers and broker-dealers enter through a licensed participant.</p>
         </div>
     </section>
@@ -1316,7 +1306,7 @@
             <div class="section-header">
                 <div class="section-label">Governance</div>
                 <h2 class="section-title">Governed as market infrastructure</h2>
-                <p class="section-desc">NETTA is a product of FiatRails Foundation Ltd. The Foundation holds the protocol and its intellectual property; commercial activity sits in licensed operating entities.</p>
+                <p class="section-desc">NETTA is a product of FiatRails Foundation Ltd, which holds the protocol and its intellectual property; commercial activity sits in licensed operating entities.</p>
             </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
                 <div class="product-card">
@@ -1329,11 +1319,7 @@
                 </div>
                 <div class="product-card">
                     <h3>Reserved matters and registers</h3>
-                    <p class="product-desc">A Board Governance Protocol reserves related-party, intellectual-property, equity, token-related and regulatory matters to the Board before execution. Written Decision Notices with notice; registers open to every director.</p>
-                </div>
-                <div class="product-card">
-                    <h3>Standards</h3>
-                    <p class="product-desc">Designed and operated to the standard expected of a financial market infrastructure though not one: self-assessed against all 24 CPMI-IOSCO Principles, being extended to Annex F for critical service providers. ISO 20022 CBPR+ native. A technology service provider that never custodies funds.</p>
+                    <p class="product-desc">Related-party, intellectual-property, equity, token-related and regulatory matters are reserved to the Board before execution, by written notice, with registers open to every director.</p>
                 </div>
             </div>
             <p style="text-align: center; margin-top: 28px;"><a href="/governance" style="color: var(--navy); font-weight: 600;">How the Foundation is governed &rarr;</a></p>

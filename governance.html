@@ -89,10 +89,12 @@
         .skip:focus{left:8px;top:8px}
         a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
     
-        .people-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-        .people-grid-2{grid-template-columns:repeat(2,1fr);max-width:720px;margin:0 auto}
-        .person{background:var(--white);border:1px solid var(--gray-200);border-radius:6px;padding:24px}
-        .person-photo{aspect-ratio:4/5;background:var(--gray-100);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:600;color:var(--gray-400);margin-bottom:16px}
+        .people-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;max-width:1040px;margin:0 auto}
+        .people-grid-2{grid-template-columns:repeat(2,1fr);max-width:1040px;margin:0 auto}
+        .person{background:var(--white);border:1px solid var(--gray-200);border-radius:6px;padding:24px;display:grid;grid-template-columns:180px 1fr;gap:22px;align-items:start}
+        .person-text{min-width:0}
+        .person-photo{aspect-ratio:4/5;width:100%;background:var(--gray-100);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:600;color:var(--gray-400);margin-bottom:16px}
+        img.person-photo{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 45%;display:block;filter:grayscale(100%)}
         .person-name{font-size:18px;font-weight:700;color:var(--gray-900)}
         .person-tag{font-size:12px;color:var(--gray-700);margin:4px 0 2px}
         .person-role{font-size:12px;font-weight:600;color:var(--navy);margin:0 0 10px}
@@ -108,12 +110,12 @@
         .notice-list{list-style:none;padding:0;max-width:760px;margin:0 auto}
         .notice-list li{display:grid;grid-template-columns:140px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--gray-200);font-size:14px;color:var(--gray-700)}
         .notice-list time{color:var(--gray-500);font-variant-numeric:tabular-nums}
-        @media (max-width:1024px){.people-grid{grid-template-columns:repeat(2,1fr)}.entity-grid{grid-template-columns:1fr}}
+        @media (max-width:1024px){.entity-grid{grid-template-columns:1fr}}
         @media (max-width:640px){.people-grid,.people-grid-2{grid-template-columns:1fr}.notice-list li{grid-template-columns:1fr}}
     </style>
 </head>
 <body>
-    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Governance &amp; Board</span></a><input type="checkbox" id="nav-toggle" class="nav-toggle" hidden><label for="nav-toggle" class="nav-burger" aria-label="Menu"><span></span></label><div class="nav-links"><a href="/#products">Services</a><a href="/treasury">Treasury</a><a href="/architecture">Architecture</a><a href="/governance">Governance</a><a href="/insights/">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="/apply" class="nav-cta">Request Briefing</a></div></div></nav>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"></a><input type="checkbox" id="nav-toggle" class="nav-toggle" hidden><label for="nav-toggle" class="nav-burger" aria-label="Menu"><span></span></label><div class="nav-links"><a href="/#products">Services</a><a href="/treasury">Treasury</a><a href="/architecture">Architecture</a><a href="/governance">Governance</a><a href="/insights/">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="/apply" class="nav-cta">Request Briefing</a></div></div></nav>
 
     <section class="hero"><div class="hero-inner">
         <span class="hero-badge">Governance</span>
@@ -154,7 +156,7 @@
                 <ul class="info-list"><li>Reserved matters are put to the Board by written Decision Notice with notice; silence is never treated as consent</li><li>Registers of executed instruments and Board decisions, open to every director</li><li>Regular written reporting to all directors</li><li>A convened Board meeting at least quarterly and an annual general meeting each calendar year, as its Articles require</li><li>Directors&rsquo; interests declared and recorded; interested directors do not decide the matters in which they are interested</li></ul>
             </div>
         </div>
-        <p style="font-size:14px;color:var(--gray-600);line-height:1.7;max-width:760px;margin:32px auto 0;text-align:center">The Foundation is a Cayman Islands exempted foundation company with no members and no shareholders. Its constitution prohibits distributions to directors or supervisors, and it cannot enter enterprise, customer or revenue-generating contracts. Commercial activity sits in FiatRails Holdings Ltd and its operating subsidiaries; briefing requests are passed to FiatRails Settlement Ltd, the contracting entity.</p>
+        <p style="font-size:14px;color:var(--gray-600);line-height:1.7;max-width:760px;margin:32px auto 0;text-align:center">The Foundation is a Cayman Islands exempted foundation company with no members and no shareholders. It does not trade and does not contract with customers or end users; it is funded by licence income from the operating group under the Master IP Licence, applied to its objects. Its constitution prohibits any distribution to directors or supervisors. Commercial activity sits in FiatRails Holdings Ltd and its operating subsidiaries; briefing requests are passed to FiatRails Settlement Ltd, the contracting entity.</p>
     </div></section>
 
     <section id="ip" style="padding:80px 32px"><div style="max-width:1000px;margin:0 auto">
@@ -169,11 +171,11 @@
         <div class="section-header"><div class="section-label">Standards and supervisory engagement</div><h2 class="section-title">Built to be examined</h2>
         <p class="section-desc">NETTA is a technology service provider, not a designated financial market infrastructure, and no designation is claimed. We nonetheless design and operate to the standard expected of one.</p></div>
         <div class="features-grid">
-            <div class="feature"><div class="feature-num">PFMI</div><h4>Self-assessed against all 24 principles</h4><p>Assessed against the CPMI-IOSCO Principles for Financial Market Infrastructures using the CPMI-IOSCO Disclosure Framework, with the principles that cannot apply to a non-custodial provider identified as such, and maintained on a scheduled review cycle. Because participating institutions will treat NETTA as a critical service provider under their own regimes, the assessment is being extended to the CPMI-IOSCO Annex F oversight expectations and to the outsourcing and operational-resilience rules those institutions apply, including the UAE, Singapore, UK and EU frameworks. Available to participating institutions and their supervisors on request.</p></div>
+            <div class="feature"><div class="feature-num">PFMI</div><h4>Self-assessed against all 24 principles</h4><p>Assessed against the CPMI-IOSCO Principles for Financial Market Infrastructures using the CPMI-IOSCO Disclosure Framework, with the principles that cannot apply to a non-custodial provider identified as such, and maintained on a scheduled review cycle. Because participating institutions will treat NETTA as a critical service provider under their own regimes, the assessment is being extended to the CPMI-IOSCO Annex F oversight expectations and to the outsourcing and operational-resilience rules those institutions apply, including the UAE, Singapore, UK and EU frameworks. Available to participating institutions and their supervisors on request, at <a href="mailto:documentation@netta.network" style="color:var(--navy)">documentation@netta.network</a>.</p></div>
             <div class="feature"><div class="feature-num">ISO 20022</div><h4>CBPR+ native</h4><p>Settlement instructions and position reporting are generated natively as ISO 20022 CBPR+ messages, validated against the official schemas and the CBPR+ usage guidelines in automated testing. Swift conformance testing is a pre-pilot step and no Swift certification is claimed.</p></div>
             <div class="feature"><div class="feature-num">Perimeter</div><h4>Regulatory dialogue</h4><p>NETTA has held documented dialogue with financial regulators and central-bank innovation functions in the UAE, Singapore, the United Kingdom and the European Union, and holds a home-jurisdiction legal opinion on the regulatory perimeter of its activity. That dialogue is informal and exploratory. No regulator has licensed, approved or endorsed NETTA or any FiatRails entity, and no sandbox admission or system designation is claimed. NETTA never holds funds, never executes FX and never acts as counterparty; all licensable activity remains with participating institutions.</p></div>
         </div>
-        <p style="font-size:14px;color:var(--gray-600);line-height:1.7;max-width:760px;margin:28px auto 0;text-align:center">The architecture is designed against the settlement-risk principles of the FX Global Code, including the reduction of both the size and the duration of settlement exposure. NETTA is not a signatory to the Code&rsquo;s Statement of Commitment and claims no adherence.</p><p style="font-size:14px;color:var(--gray-600);line-height:1.7;max-width:760px;margin:28px auto 0;text-align:center">Technical execution is atomic; settlement finality and the enforceability of the net are matters for per-corridor legal opinions, commissioned as each pilot jurisdiction is confirmed.</p>
+        <p style="font-size:14px;color:var(--gray-600);line-height:1.7;max-width:760px;margin:28px auto 0;text-align:center">Technical execution is atomic; legal finality is a matter for per-corridor legal opinions, commissioned as each pilot jurisdiction is confirmed.</p>
     </div></section>
 
     <section id="resilience" style="padding:80px 32px"><div style="max-width:1000px;margin:0 auto">
