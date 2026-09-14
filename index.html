@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NETTA — The Settlement Computer</title>
-    <meta name="description" content="NETTA — The Settlement Computer. Institutional cross-border settlement infrastructure built on just-in-time atomic counter-attestation. Multilateral netting exercised on testnet across 11 corridors. A product of FiatRails Foundation Ltd.">
+    <meta name="description" content="NETTA — The Settlement Computer. Institutional cross-border settlement infrastructure built on just-in-time atomic counter-attestation. Multilateral netting across the ISO 4217 currency universe, exercised on testnet. A product of FiatRails Foundation Ltd.">
     <meta name="theme-color" content="#0B1D33">
     <meta name="robots" content="index, follow">
 
@@ -16,7 +16,7 @@
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="NETTA — The Settlement Computer">
-    <meta property="og:description" content="Institutional cross-border settlement infrastructure built on just-in-time atomic counter-attestation. Multilateral netting exercised on testnet across 11 corridors. A product of FiatRails Foundation Ltd.">
+    <meta property="og:description" content="Institutional cross-border settlement infrastructure built on just-in-time atomic counter-attestation. Multilateral netting across the ISO 4217 currency universe, exercised on testnet. A product of FiatRails Foundation Ltd.">
     <meta property="og:url" content="https://netta.network/">
     <meta property="og:image" content="https://netta.network/assets/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -25,7 +25,7 @@
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="NETTA — The Settlement Computer">
-    <meta name="twitter:description" content="Institutional cross-border settlement infrastructure built on just-in-time atomic counter-attestation. Multilateral netting exercised on testnet across 11 corridors. A product of FiatRails Foundation Ltd.">
+    <meta name="twitter:description" content="Institutional cross-border settlement infrastructure built on just-in-time atomic counter-attestation. Multilateral netting across the ISO 4217 currency universe, exercised on testnet. A product of FiatRails Foundation Ltd.">
     <meta name="twitter:image" content="https://netta.network/assets/og-image.png">
     <meta name="twitter:site" content="@nettanetwork">
 
@@ -1097,7 +1097,7 @@
             </a>
             <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden><label for="nav-toggle" class="nav-burger" aria-label="Menu"><span></span></label><div class="nav-links">
                 <a href="#products">Services</a>
-                <a href="/architecture">Architecture</a><a href="/governance">Governance</a>
+                <a href="/treasury">Treasury</a><a href="/architecture">Architecture</a><a href="/governance">Governance</a>
                 <a href="/insights/">Insights</a>
                 <a href="https://fiatrails.foundation">Foundation</a>
                 <a href="/apply" class="nav-cta">Request Briefing</a>
@@ -1126,7 +1126,7 @@
             <div class="credential">Non-custodial technology service provider</div>
             <div class="credential">Counter-attested just-in-time settlement</div>
             <div class="credential">ISO 20022 CBPR+ validated end-to-end; no Swift certification claimed</div>
-            <div class="credential">Governed by FiatRails Foundation Ltd &middot; Reg. 431901 &middot; LEI 894500RG1F2BKNE8P514</div>
+            <div class="credential">Currency-agnostic &mdash; the ISO 4217 universe</div>
             <div class="credential">Independent-majority board</div>
         </div>
     </div>
@@ -1140,7 +1140,7 @@
                 <h2 class="section-title">Multilateral netting reaches 18 currencies. Everything else nets bilaterally, or not at all.</h2>
             </div>
             <div class="problem-content">
-                <p>Multilateral net settlement is the most efficient arrangement in payments, and it is confined to one perimeter. CLS settles 18 currencies, none added since 2015, for more than 75 settlement members and some 35,000 third parties, averaging around US$8 trillion a day on its own published figures, and reduces funding requirements by around 96% inside that perimeter on its reported basis. Beyond those 18 currencies, what exists is bilateral. CLS&rsquo;s own netting-calculation service spans more than 120 currencies for 121 committed banks and reports a 43% funding reduction in its published case study &mdash; against around 96% for multilateral settlement inside the core. That gap is architectural, not operational. Bilateral netting can only offset what two parties owe each other, and a calculation service produces a number without settling it, so the benefit realised still depends on each participant&rsquo;s own payment arrangements. Beyond both, the Bank for International Settlements estimates that US$1.25 trillion a day of foreign exchange settles with no payment-versus-payment protection at all.</p>
+                <p>Multilateral net settlement is the most efficient arrangement in payments, and it is confined to one perimeter. CLS settles 18 currencies, none added since 2015, for more than 75 settlement members and some 35,000 third parties, averaging around US$8 trillion a day on its own published figures, and reduces funding requirements by around 96% inside that perimeter on its reported basis. Beyond those 18 currencies, what exists is bilateral. CLS&rsquo;s own netting-calculation service spans more than 120 currencies for 121 committed banks and reports a 43% funding reduction in its published case study &mdash; against around 96% for multilateral settlement inside the core. That gap is architectural, not operational. Bilateral netting can only offset what two parties owe each other, and a calculation service produces a number without settling it, so the benefit realised still depends on each participant&rsquo;s own payment arrangements. Beyond both, the Bank for International Settlements estimates that US$1.25 trillion a day of foreign exchange settles with no payment-versus-payment protection at all.</p><p style="margin-top:16px"><strong>NETTA is currency-agnostic by design.</strong> The protocol nets multilaterally across the ISO 4217 currency universe rather than a fixed list. A corridor opens wherever a licensed settlement institution on each side will counter-attest, so the constraint is the willingness of settlement institutions, not the architecture. Eleven corridors are exercised on testnet as demonstration, not as the limit.</p>
                 <p style="margin-top: 12px;">Gross settlement means pre-positioned liquidity. Nostro buffers run two to three times daily need in major currencies and five to ten times in volatile emerging-market currencies, on industry estimates, and every transaction carries T+2 to T+5 of exposure. The result is trapped capital, warehoused FX risk and structurally weak return on equity, even where volumes are strong.</p>
             </div>
         </div>
@@ -1200,7 +1200,7 @@
             </ol>
             <div class="how-facts">
                 <div class="how-fact"><div class="how-fact-value">Up to 95%</div><div class="how-fact-label">multilateral compression exercised on testnet; the realised figure depends on corridor and flow mix, and directional corridors compress materially less</div></div>
-                <div class="how-fact"><div class="how-fact-value">11</div><div class="how-fact-label">corridors on testnet</div></div>
+                <div class="how-fact"><div class="how-fact-value">11</div><div class="how-fact-label">corridors exercised on testnet</div></div>
             </div>
             <p class="how-note">Exercised on a dedicated test network. All figures are from the Lagrange testnet on generated test flow, as at September 2026. Participant profiles are synthetic. No production traffic.</p>
             <p class="how-note">Pilots run in fiat-only mode: participants settle the net position in fiat over conventional rails; the ledger is the coordination and instruction layer, and no digital settlement asset is required. <a href="/settlement" style="color: var(--navy); font-weight: 600;">Settlement model &rarr;</a></p>
@@ -1361,7 +1361,7 @@
                     <img src="assets/netta-logo-nav.png" alt="NETTA" style="height: 42px; filter: brightness(0) invert(1);">
                     <p>NETTA is a product of FiatRails Foundation Ltd.</p>
                 </div>
-                <div class="footer-col"><h4>Services</h4><a href="/#products">Settlement domains</a><a href="/settlement">Settlement model</a><a href="/architecture">Architecture</a></div>
+                <div class="footer-col"><h4>Services</h4><a href="/#products">Settlement domains</a><a href="/treasury">Treasury</a><a href="/settlement">Settlement model</a><a href="/architecture">Architecture</a></div>
                 <div class="footer-col"><h4>Company</h4><a href="/governance">Governance &amp; Board</a><a href="/governance#board">Board of Directors</a><a href="https://fiatrails.foundation">Foundation</a><a href="insights/">Insights</a><a href="/apply">Request a briefing</a></div>
                 <div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/netta-network" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://x.com/nettanetwork" target="_blank" rel="noopener noreferrer">X</a><a href="mailto:briefings@netta.network">briefings@netta.network</a></div>
                 <div class="footer-col"><h4>Legal</h4><a href="/terms">Terms of Use</a><a href="/privacy">Privacy Notice</a><a href="/governance#standards">PFMI self-assessment (on request)</a></div>

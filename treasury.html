@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treasury | NETTA</title>
+    <meta name="description" content="What multilateral netting changes on a bank's balance sheet: pre-positioned liquidity on outbound legs, credit extended on inbound payouts, intraday liquidity, net rather than gross FX exposure, and reconciliation via ISO 20022.">
+    <meta name="theme-color" content="#0B1D33">
+    <link rel="canonical" href="https://netta.network/treasury">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="NETTA — Treasury">
+    <meta property="og:description" content="What changes on the balance sheet: outbound liquidity, inbound credit, intraday position, net FX exposure, reconciliation.">
+    <meta property="og:url" content="https://netta.network/treasury">
+    <meta property="og:image" content="https://netta.network/assets/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NETTA Settlement — Atomic Just-in-Time Counter-Attestation">
+    <meta name="twitter:image" content="https://netta.network/assets/og-image.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --white:#fff;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151;--gray-800:#1f2937;--gray-900:#111827;--navy:#0B1D33;--navy-dark:#050E1C;--teal-50:#E6F4F2;--teal:#2AA39A; }
+        * { margin:0;padding:0;box-sizing:border-box; }
+        body { font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--white);color:var(--gray-800);line-height:1.6;-webkit-font-smoothing:antialiased; }
+
+        .nav{background:var(--white);border-bottom:1px solid var(--gray-200);position:sticky;top:0;z-index:100}
+        .nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;height:72px;display:flex;align-items:center;justify-content:space-between}
+        .nav-brand{display:flex;align-items:center;gap:16px;text-decoration:none}.nav-logo{height:62px;width:auto}
+        .nav-divider{width:1px;height:24px;background:var(--gray-300)}.nav-product{font-size:14px;color:var(--gray-500);font-weight:400}
+        .nav-links{display:flex;align-items:center;gap:36px}.nav-links a{color:var(--gray-600);text-decoration:none;font-size:14px;font-weight:500;transition:color .15s}
+        .nav-links a:hover{color:var(--gray-900)}.nav-cta{background:var(--navy);color:var(--white)!important;padding:10px 20px;border-radius:6px}.nav-cta:hover{background:var(--navy-dark)}
+
+        .section-header{text-align:center;margin-bottom:48px}.section-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:12px}
+        .section-title{font-size:32px;font-weight:700;color:var(--gray-900);letter-spacing:-.02em;margin-bottom:12px}
+        .section-desc{font-size:16px;color:var(--gray-600);max-width:640px;margin:0 auto;line-height:1.7}
+
+        .hero{background:linear-gradient(180deg,var(--gray-50) 0%,var(--white) 100%);padding:72px 32px 60px}
+        .hero-inner{max-width:900px;margin:0 auto;text-align:center}
+        .hero-badge{display:inline-block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;padding:4px 12px;border-radius:4px;margin-bottom:20px;background:rgba(5,150,105,.1);color:var(--teal)}
+        .hero h1{font-size:48px;font-weight:700;color:var(--gray-900);letter-spacing:-.02em;line-height:1.1;margin-bottom:20px}
+        .hero p{font-size:18px;color:var(--gray-600);line-height:1.7;max-width:760px;margin:0 auto 28px}
+        .back-link{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--navy);text-decoration:none}.back-link:hover{text-decoration:underline}
+
+        .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+        .feature{padding:28px;background:var(--white);border:1px solid var(--gray-200);border-radius:8px}
+        .feature-num{font-size:12px;font-weight:600;color:var(--navy);margin-bottom:12px}
+        .feature h4{font-size:16px;font-weight:600;color:var(--gray-900);margin-bottom:10px}
+        .feature p{font-size:13px;color:var(--gray-600);line-height:1.6}
+
+        .two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+        .info-card{border:1px solid var(--gray-200);border-radius:8px;padding:32px;background:var(--white)}
+        .info-card h4{font-size:18px;font-weight:600;color:var(--gray-900);margin-bottom:12px}
+        .info-card p{font-size:14px;color:var(--gray-600);line-height:1.7;margin-bottom:12px}
+        .info-list{list-style:none}.info-list li{font-size:13px;color:var(--gray-600);padding:6px 0 6px 20px;position:relative}
+        .info-list li::before{content:"\2713";position:absolute;left:0;color:var(--teal);font-weight:600}
+
+        .footer{background:var(--gray-900);padding:48px 32px 24px;color:var(--gray-400)}
+        .footer-inner{max-width:1200px;margin:0 auto}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}
+        .footer-brand p{font-size:13px;line-height:1.6;margin-top:12px;color:var(--gray-500)}
+        .footer-col h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--gray-300);margin-bottom:16px}
+        .footer-col a{display:block;font-size:13px;color:var(--gray-500);text-decoration:none;margin-bottom:10px}.footer-col a:hover{color:var(--gray-300)}
+        .footer-powered{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid var(--gray-800)}
+        .powered-item{display:flex;flex-direction:column;gap:12px}.powered-label{font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--gray-500)}
+        .powered-logo{display:flex;align-items:center;gap:10px}.powered-name{font-size:20px;font-weight:700;color:var(--white)}
+        .powered-desc{font-size:13px;line-height:1.6;color:var(--gray-400);max-width:360px}
+        .footer-bottom{padding-top:24px;display:flex;justify-content:space-between;font-size:12px}
+
+        .cookie-banner{display:block;position:fixed;bottom:0;left:0;right:0;background:var(--navy);color:var(--white);padding:20px;z-index:9999}
+        .cookie-banner.hide{display:none}.cookie-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+        .cookie-text{flex:1;font-size:14px;line-height:1.5}.cookie-text a{color:var(--white);text-decoration:underline}
+        .cookie-buttons{display:flex;gap:12px}.cookie-btn{padding:10px 20px;border-radius:6px;font-size:14px;font-weight:500;cursor:pointer;border:none}
+        .cookie-btn-accept{background:var(--white);color:var(--navy)}.cookie-btn-decline{background:transparent;color:var(--white);border:1px solid var(--gray-400)}
+
+        @media(max-width:1024px){.features-grid,.two-col{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr;gap:24px}.footer-powered{grid-template-columns:1fr;gap:32px}}
+        @media(max-width:640px){.nav-links{display:none}.hero{padding:48px 24px 56px}.hero h1{font-size:32px}.cookie-inner{flex-direction:column;text-align:center}.cookie-buttons{width:100%;justify-content:center}}
+    
+        .nav-toggle{display:none}
+        .nav-burger{display:none;width:40px;height:40px;align-items:center;justify-content:center;cursor:pointer;border:1px solid var(--gray-200);border-radius:6px;margin-left:auto}
+        .nav-burger span{display:block;width:18px;height:2px;background:var(--navy);box-shadow:0 -6px 0 var(--navy),0 6px 0 var(--navy)}
+        @media (max-width:640px){
+          .nav-burger{display:flex}
+          .nav-links{display:none;position:absolute;left:0;right:0;top:72px;background:var(--white);border-bottom:1px solid var(--gray-200);flex-direction:column;align-items:stretch;gap:0;padding:8px 24px 16px}
+          .nav-links a{padding:12px 0;border-bottom:1px solid var(--gray-100)}
+          .nav-toggle:checked ~ .nav-links{display:flex}
+          .nav-inner{position:relative}
+        }
+        .skip{position:absolute;left:-9999px;top:0;background:var(--navy);color:#fff;padding:8px 12px;z-index:1000}
+        .skip:focus{left:8px;top:8px}
+        a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+    </style>
+</head>
+<body>
+<a href="#main" class="skip">Skip to content</a>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Treasury</span></a><input type="checkbox" id="nav-toggle" class="nav-toggle" hidden><label for="nav-toggle" class="nav-burger" aria-label="Menu"><span></span></label><div class="nav-links"><a href="/#products">Services</a><a href="/treasury">Treasury</a><a href="/architecture">Architecture</a><a href="/governance">Governance</a><a href="/insights/">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="/apply" class="nav-cta">Request Briefing</a></div></div></nav>
+<main id="main">
+
+    <section class="hero"><div class="hero-inner">
+        <span class="hero-badge">For treasury and payments operations</span>
+        <h1>What changes on the balance sheet</h1>
+        <p>Multilateral netting is a liquidity instrument before it is a technology. This page sets out what it does to
+        pre-positioned liquidity, to the credit you extend, to your intraday position and to your currency exposure &mdash;
+        in the terms a treasurer measures them.</p>
+        <a href="/settlement" class="back-link">&larr; How settlement works</a>
+    </div></section>
+
+    <section style="padding:80px 32px"><div style="max-width:1000px;margin:0 auto">
+        <div class="section-header">
+            <div class="section-label">The two legs</div>
+            <h2 class="section-title">The benefit is different on each side of a corridor</h2>
+            <p class="section-desc">Compression does not do the same thing outbound and inbound, and conflating them is
+            how netting gets oversold to a treasurer who runs a post-funded book.</p>
+        </div>
+        <div class="two-col">
+            <div class="info-card"><h4>Outbound &mdash; liquidity you never position</h4>
+                <p style="font-size:13.5px;color:var(--gray-600);line-height:1.7">You fund before you pay, so the money
+                sits in a nostro account ahead of a settlement that may or may not need it. Under netting, your cash stays
+                in normal operational use until the settlement instant, and only the net residual is drawn against your
+                settlement institution&rsquo;s counter-attestation. Pre-positioned liquidity is eliminated where the rail
+                permits just-in-time funding, and materially reduced where it does not.</p></div>
+            <div class="info-card"><h4>Inbound &mdash; credit you stop extending</h4>
+                <p style="font-size:13.5px;color:var(--gray-600);line-height:1.7">On payout legs you disburse first and are
+                reimbursed afterwards, typically on a one-to-seven-day cycle. There is no pre-funding to remove. What changes
+                is the credit: the reimbursement obligation is netted against everything else owed between the same parties
+                in the same window, and the residual settles just-in-time rather than waiting out the cycle. Your exposure
+                becomes the net residual for one window instead of the gross disbursement for the cycle.</p></div>
+        </div>
+        <p style="font-size:14px;color:var(--gray-600);line-height:1.7;max-width:760px;margin:28px auto 0;text-align:center">
+        Where you are active on both legs of a corridor, the two compound: outbound instructions and inbound reimbursement
+        obligations enter the same window and offset each other directly.</p>
+    </div></section>
+
+    <section style="background:var(--gray-50);padding:80px 32px"><div style="max-width:1000px;margin:0 auto">
+        <div class="section-header">
+            <div class="section-label">Position and limits</div>
+            <h2 class="section-title">Intraday liquidity, and the exposure inside the window</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature"><div class="feature-num">01</div><h4>Intraday liquidity</h4>
+                <p>Your funding requirement is known at window close and drawn at the settlement instant rather than
+                positioned in advance. The measurement your regulator already asks for &mdash; daily maximum intraday
+                liquidity usage, available intraday liquidity, total payments &mdash; is produced per window as structured
+                data you can feed straight into BCBS 248 reporting.</p></div>
+            <div class="feature"><div class="feature-num">02</div><h4>The exposure inside the window</h4>
+                <p>Between recording an obligation and settling the residual you hold a net exposure to the other
+                participants in that corridor, not a gross one. It is bounded by the net position, it lasts for the window,
+                and it is visible to you throughout. Your own limits govern what enters: participant-configured exposure
+                and concentration limits are enforced before an obligation is admitted, and the credit decision stays with
+                you.</p></div>
+            <div class="feature"><div class="feature-num">03</div><h4>No mutualisation</h4>
+                <p>There is no default fund, no loss-sharing and no member assessment. You are never liable for another
+                participant&rsquo;s failure, and you are never asked to capitalise a central counterparty. What you carry is
+                your own net position and the liquidity risk of it, which is the exposure you already carry gross.</p></div>
+        </div>
+    </div></section>
+
+    <section style="padding:80px 32px"><div style="max-width:1000px;margin:0 auto">
+        <div class="section-header">
+            <div class="section-label">Currency</div>
+            <h2 class="section-title">You hedge the net, not the gross</h2>
+        </div>
+        <div class="two-col">
+            <div class="info-card"><h4>How value is fixed</h4>
+                <ul class="info-list">
+                    <li>Every obligation is valued at a reference rate fixed when it is recorded, so the netting is deterministic and nothing settles at a stale or off-market rate</li>
+                    <li>The protocol executes no foreign exchange and takes no currency position</li>
+                    <li>Each corridor settles its net in a single designated settlement currency or asset, named in the settlement institutions&rsquo; standing instructions</li>
+                    <li>Any conversion into that currency is sourced by you or your settlement institution on the venues you already use</li>
+                </ul></div>
+            <div class="info-card"><h4>What that changes</h4>
+                <ul class="info-list">
+                    <li>Your hedging requirement is sized to the net position, not to gross flow</li>
+                    <li>Risk notional multiplied by risk duration falls on both terms: a smaller exposure, held for a shorter window</li>
+                    <li>The corridor is defined by a currency pair rather than drawn from a fixed list &mdash; the protocol nets across the ISO 4217 universe, and a corridor opens wherever a licensed settlement institution on each side will counter-attest</li>
+                    <li>First pilots settle one-for-one in the corridor&rsquo;s settlement currency, with no foreign-exchange leg at all</li>
+                </ul></div>
+        </div>
+    </div></section>
+
+    <section style="background:var(--gray-50);padding:80px 32px"><div style="max-width:1000px;margin:0 auto">
+        <div class="section-header">
+            <div class="section-label">Illustrative</div>
+            <h2 class="section-title">A corridor running US$100 million a month</h2>
+            <p class="section-desc">An illustration of the mechanics, not a projection, and not drawn from any
+            institution&rsquo;s book. Your own figures depend on flow balance, corridor direction and your existing
+            arrangements.</p>
+        </div>
+        <div class="two-col">
+            <div class="info-card"><h4>Gross arrangements today</h4>
+                <ul class="info-list">
+                    <li>US$15&ndash;25 million of pre-funded nostro held against the corridor</li>
+                    <li>Settlement at T+2 to T+3</li>
+                    <li>Nostro buffers running two to three times daily need in major currencies, and five to ten times in volatile emerging-market currencies, on industry estimates</li>
+                    <li>Reconciliation largely manual, feeding your operational-risk loss and control data</li>
+                </ul></div>
+            <div class="info-card"><h4>Netted</h4>
+                <ul class="info-list">
+                    <li>Settlement capital sized to net positions rather than gross flow</li>
+                    <li>Same-day confirmation of the settled position</li>
+                    <li>Automated reconciliation from structured messages</li>
+                    <li>Compression of up to 95% has been exercised on testnet; the realised figure depends on corridor and flow mix, and directional corridors compress materially less</li>
+                </ul></div>
+        </div>
+        <p style="font-size:13px;color:var(--gray-500);max-width:760px;margin:24px auto 0;text-align:center">
+        All figures are from the Lagrange testnet on generated test flow, as at September 2026. Participant profiles are
+        synthetic. No production traffic.</p>
+    </div></section>
+
+    <section style="padding:80px 32px"><div style="max-width:1000px;margin:0 auto">
+        <div class="section-header">
+            <div class="section-label">Operations</div>
+            <h2 class="section-title">What your operations teams touch</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature"><div class="feature-num">01</div><h4>Integration</h4>
+                <p>Obligations are submitted by API or ISO 20022 at the treasury and payments layer. No core banking change.
+                Your existing correspondent relationships, settlement accounts and FX arrangements stay where they are.</p></div>
+            <div class="feature"><div class="feature-num">02</div><h4>Messaging and reconciliation</h4>
+                <p>Settlement instructions and position reporting arrive as ISO 20022 CBPR+ messages, validated against the
+                official schemas and the CBPR+ usage guidelines. Swift conformance testing is a pre-pilot step and no Swift
+                certification is claimed.</p></div>
+            <div class="feature"><div class="feature-num">03</div><h4>Your settlement institution</h4>
+                <p>The net instruction is executed by your own licensed settlement institution over its existing rails, under
+                a participation agreement and corridor rulebook. NETTA holds no funds and issues no payment. That institution
+                is the party whose commitment makes just-in-time settlement possible, so it is part of the conversation from
+                the start.</p></div>
+        </div>
+    </div></section>
+
+    <section style="background:var(--navy);padding:64px 32px;text-align:center"><div style="max-width:720px;margin:0 auto">
+        <h2 style="font-size:28px;font-weight:700;color:var(--white);letter-spacing:-.02em;margin-bottom:12px">Model it on your own corridor</h2>
+        <p style="font-size:15px;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:28px">A briefing covers the
+        settlement model, the perimeter analysis for your jurisdiction and the pilot structure. Bring a corridor and the
+        shape of its flow and the conversation is about your book rather than ours.</p>
+        <a href="/apply" style="display:inline-block;background:var(--white);color:var(--navy);padding:14px 28px;border-radius:6px;font-weight:600;text-decoration:none;font-size:15px">Request a briefing</a>
+    </div></section>
+
+</main>
+    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA is a product of FiatRails Foundation Ltd.</p></div><div class="footer-col"><h4>Services</h4><a href="/#products">Settlement domains</a><a href="/treasury">Treasury</a><a href="/settlement">Settlement model</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h4>Company</h4><a href="/governance">Governance &amp; Board</a><a href="/governance#board">Board of Directors</a><a href="https://fiatrails.foundation">Foundation</a><a href="insights/">Insights</a><a href="/apply">Request a briefing</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/netta-network" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://x.com/nettanetwork" target="_blank" rel="noopener noreferrer">X</a><a href="mailto:briefings@netta.network">briefings@netta.network</a></div><div class="footer-col"><h4>Legal</h4><a href="/terms">Terms of Use</a><a href="/privacy">Privacy Notice</a><a href="/governance#standards">PFMI self-assessment (on request)</a></div></div>
+    <div class="footer-bottom"><span>&copy; 2026 FiatRails Foundation Ltd. All rights reserved.</span><span>CR-431901 | LEI <a href="https://search.gleif.org/#/record/894500RG1F2BKNE8P514" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">894500RG1F2BKNE8P514</a> | Cayman Islands</span></div></div></footer>
+</body>
+</html>
