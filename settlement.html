@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settlement | NETTA</title>
-    <meta name="description" content="NETTA Settlement — multilateral netting engine for cross-border institutional settlement. Built on Atomic Just-in-Time Counter-Attestation. 11 testnet corridors, multilateral compression, cryptographic privacy, post-quantum authentication. A product of FiatRails Foundation Ltd.">
+    <meta name="description" content="NETTA Settlement — multilateral netting engine for cross-border institutional settlement. Built on Atomic Just-in-Time Counter-Attestation. Multilateral netting across the ISO 4217 currency universe, exercised on testnet. A product of FiatRails Foundation Ltd.">
     <meta name="theme-color" content="#0B1D33">
     <link rel="canonical" href="https://netta.network/settlement">
     <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
     <meta property="og:type" content="article">
     <meta property="og:title" content="NETTA Settlement — Atomic Just-in-Time Counter-Attestation">
-    <meta property="og:description" content="Multilateral netting engine for institutional cross-border settlement. Removes the need for pre-positioned liquidity on outbound legs. Multilateral netting exercised on testnet across 11 corridors.">
+    <meta property="og:description" content="Multilateral netting engine for institutional cross-border settlement. Removes the need for pre-positioned liquidity on outbound legs. Multilateral netting across the ISO 4217 currency universe, exercised on testnet across eleven corridors.">
     <meta property="og:url" content="https://netta.network/settlement">
     <meta property="og:image" content="https://netta.network/assets/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -92,7 +92,7 @@
 </head>
 <body>
     <a href="#main" class="skip">Skip to content</a>
-<nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><input type="checkbox" id="nav-toggle" class="nav-toggle" hidden><label for="nav-toggle" class="nav-burger" aria-label="Menu"><span></span></label><div class="nav-links"><a href="/#products">Services</a><a href="/architecture">Architecture</a><a href="/governance">Governance</a><a href="/insights/">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="/apply" class="nav-cta">Request Briefing</a></div></div></nav>
+<nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><input type="checkbox" id="nav-toggle" class="nav-toggle" hidden><label for="nav-toggle" class="nav-burger" aria-label="Menu"><span></span></label><div class="nav-links"><a href="/#products">Services</a><a href="/treasury">Treasury</a><a href="/architecture">Architecture</a><a href="/governance">Governance</a><a href="/insights/">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="/apply" class="nav-cta">Request Briefing</a></div></div></nav>
 <main id="main">
 
     <section class="hero"><div class="hero-inner">
@@ -105,7 +105,7 @@
     <!-- KEY METRICS -->
     <section style="background:var(--navy);padding:60px 32px"><div style="max-width:1000px;margin:0 auto">
         <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:640px;margin:0 auto">
-            <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:24px;text-align:center"><div style="font-size:32px;font-weight:700;color:white;margin-bottom:4px">11</div><div style="font-size:13px;color:rgba(255,255,255,.6)">corridors on testnet</div></div>
+            <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:24px;text-align:center"><div style="font-size:32px;font-weight:700;color:white;margin-bottom:4px">11</div><div style="font-size:13px;color:rgba(255,255,255,.6)">corridors exercised on testnet</div></div>
             <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:24px;text-align:center"><div style="font-size:32px;font-weight:700;color:white;margin-bottom:4px">Up to 95%</div><div style="font-size:13px;color:rgba(255,255,255,.6)">multilateral compression, testnet; depends on corridor and flow mix</div></div>
         </div>
         <p style="margin-top:24px;font-size:13px;color:rgba(255,255,255,.55);text-align:center">All figures are from the Lagrange testnet on generated test flow, as at September 2026. Participant profiles are synthetic. No production traffic.</p>
@@ -115,13 +115,13 @@
         <div class="section-header">
             <div class="section-label">Settlement Model</div>
             <h2 class="section-title">How a window settles, and who moves the money</h2>
-            <p class="section-desc">Technical execution is atomic; legal finality is subject to per-corridor legal opinions.</p>
+            <p class="section-desc">Technical execution is atomic; settlement finality and the enforceability of the net are subject to per-corridor legal opinions.</p>
         </div>
         <div class="two-col">
             <div class="info-card"><h4>How a window settles</h4><p style="font-size:14px;color:var(--gray-600);line-height:1.7">Institutions submit obligations by API or ISO 20022 while a corridor's netting window is open. FX reference rates are fixed at window open so every obligation carries one accounting value; NETTA never executes FX. At window close the multilateral net positions are computed on the ledger. Netting is per corridor; positions offset across corridors only where they share a settlement currency.</p></div>
             <div class="info-card"><h4>Who moves the money</h4><p style="font-size:14px;color:var(--gray-600);line-height:1.7">NETTA holds no funds and issues no payment. Each net instruction is executed by the participant's own licensed settlement institution over its existing rails, under a participation agreement and corridor rulebook, and confirmed back to the ledger. Ledger determination is final in seconds. Finality of funds occurs on the settlement institution's rail under that rail's legal framework; NETTA holds no statutory finality designation.</p></div>
             <div class="info-card"><h4>Currencies and settlement</h4><p style="font-size:14px;color:var(--gray-600);line-height:1.7">Obligations in any currency are valued at reference rates fixed when they are recorded and netted on that basis. Each corridor settles its net positions in a single designated settlement currency or asset, named in the settlement institutions' standing instructions. Any conversion into that currency is sourced by the participant or its settlement institution on existing venues; the protocol executes no FX and carries no currency risk. First pilots settle one-for-one in the corridor's settlement currency with no FX leg.</p></div>
-            <div class="info-card"><h4>If a participant cannot fund</h4><p style="font-size:14px;color:var(--gray-600);line-height:1.7">A participant whose settlement institution has not committed to its net position by window close does not settle in that window. The remaining positions are recomputed and settle; the excluded position carries forward under the rulebook. There is no loss-sharing, no default fund and no member assessment: no participant is ever liable for another's failure.</p></div>
+            <div class="info-card"><h4>If a participant cannot fund</h4><p style="font-size:14px;color:var(--gray-600);line-height:1.7">A participant whose settlement institution has not committed to its net position by window close does not settle in that window. Its position is carried forward intact at face value; it is never failed and never left half-settled.</p><p style="margin-top:12px">The remaining positions are then recomputed so that the set which does settle is fully backed. Recomputation can move a remaining participant&rsquo;s position, and it can move it adversely, because removing a participant removes both what it owed and what it was owed. The protection is the cap: <strong>no participant is ever required to fund more than the amount its own settlement institution committed in advance for that window</strong>. If recomputation would carry a position beyond that amount, that participant does not settle either, and its position carries forward on the same terms.</p><p style="margin-top:12px">There is no loss-sharing, no default fund and no member assessment. No participant is ever liable for another&rsquo;s failure. Positions are fixed when the window settles: one computation, one outcome, no intermediate state and no choice about whose position fails first. A participant may record a contest against its own exclusion.</p></div>
         </div>
         <p style="font-size:14px;color:var(--gray-600);line-height:1.7;max-width:760px;margin:32px auto 0;text-align:center"><strong>Status.</strong> Exercised on testnet with synthetic participants. No finality or netting-enforceability opinion has yet been obtained; opinions are commissioned per corridor before any live-funds pilot.</p>
     </div></section>
@@ -133,7 +133,7 @@
             <h2 class="section-title">Who may participate</h2>
         </div>
         <div class="two-col">
-            <div class="info-card"><h4>Access criteria</h4><p style="font-size:14px;color:var(--gray-600);line-height:1.7">Participation is open to licensed financial institutions — banks, payment institutions and money-transfer operators licensed in the corridor's jurisdictions — and to settlement institutions willing to counter-attest net positions. Admission requires a verified licence, a confirmed sanctions and financial-crime programme, and data-protection compliance; each corridor opens only with participants on both sides and a counter-attesting settlement institution on each side. Admission and suspension decisions are taken under the corridor rulebook, with suspension available on regulatory order, participant default or sanctions event; exclusion from a settlement window is by objective, on-chain-recorded rule, and commercial disputes are resolved under the participation agreement. Full participation criteria are set out in the Participant Access Agreement, available to institutions under NDA.</p></div>
+            <div class="info-card"><h4>Access criteria</h4><p style="font-size:14px;color:var(--gray-600);line-height:1.7">A corridor is defined by a currency pair, not drawn from a fixed list: the protocol nets across the ISO 4217 universe, and a corridor opens wherever a licensed settlement institution on each side will counter-attest. Participation is open to licensed financial institutions — banks, payment institutions and money-transfer operators licensed in the corridor's jurisdictions — and to settlement institutions willing to counter-attest net positions. Admission requires a verified licence, a confirmed sanctions and financial-crime programme, and data-protection compliance; each corridor opens only with participants on both sides and a counter-attesting settlement institution on each side. Admission and suspension decisions are taken under the corridor rulebook, with suspension available on regulatory order, participant default or sanctions event; exclusion from a settlement window is by objective, on-chain-recorded rule, and commercial disputes are resolved under the participation agreement. Full participation criteria are set out in the Participant Access Agreement, available to institutions under NDA.</p></div>
             <div class="info-card"><h4>Sanctions and financial crime</h4><p style="font-size:14px;color:var(--gray-600);line-height:1.7">NETTA performs no customer due diligence and holds no customer relationship; KYC, AML and Travel Rule obligations sit with the licensed participants. Obligations are screened at admission against published sanctions lists and rejected before they enter a netting window; every screening outcome is recorded for participants and their supervisors.</p></div>
         </div>
     </div></section>
@@ -232,6 +232,44 @@
         <p style="font-size:14px;color:var(--gray-600);line-height:1.7">Twenty US provisional patent applications on file: sixteen held by FiatRails Foundation Ltd; four covering the Qedis privacy and post-quantum runtime, owned by Digitalyze Labs Ltd and licensed perpetually to the group. Documentation for qualified institutions under NDA.</p>
     </div></section>
 
+    <section id="documentation" style="background:var(--gray-50);padding:80px 32px"><div style="max-width:1000px;margin:0 auto">
+        <div class="section-header">
+            <div class="section-label">Documentation</div>
+            <h2 class="section-title">What exists, and what a participant receives</h2>
+            <p class="section-desc">The settlement model is written down. These are the instruments and analyses that sit
+            behind it, available to institutions and their supervisors under a non-disclosure agreement. Participant-facing
+            instruments are released in a form prepared for counterparty review.</p>
+        </div>
+        <div class="two-col">
+            <div class="info-card"><h4>Legal architecture</h4>
+                <ul class="info-list">
+                    <li>Multilateral versus bilateral netting &mdash; legal memorandum</li>
+                    <li>Legal architecture executive summary</li>
+                    <li>Legal architecture master matrix, jurisdiction by jurisdiction</li>
+                    <li>Default management and recovery waterfall</li>
+                    <li>Cross-border settlement regulatory architecture brief</li>
+                    <li>Legal-opinion scoping pack</li>
+                    <li>Islamic-finance structuring memorandum</li>
+                </ul></div>
+            <div class="info-card"><h4>Operational and contractual</h4>
+                <ul class="info-list">
+                    <li>Corridor rulebook &mdash; the constitutional instrument of a corridor</li>
+                    <li>Participant access agreement</li>
+                    <li>Master counter-attestation agreement</li>
+                    <li>Participant-default and recovery framework</li>
+                    <li>Default testing policy and drill catalogue</li>
+                    <li>Operational resilience and business continuity plan</li>
+                    <li>Recovery and orderly wind-down plan</li>
+                    <li>PFMI conformance self-assessment, all 24 principles</li>
+                    <li>Pilot entry conditions, gate analysis and disclosure pack</li>
+                    <li>Obligation matrix and proposition register</li>
+                </ul></div>
+        </div>
+        <p style="font-size:13px;color:var(--gray-500);max-width:760px;margin:24px auto 0;text-align:center">
+        The pack is versioned and carries a changelog. It is legally un-opined: opinions are scoped and commissioned per
+        corridor before any live-funds pilot, and that position is stated on every document rather than hidden.</p>
+    </div></section>
+
     <section style="background:var(--navy);padding:64px 32px;text-align:center"><div style="max-width:720px;margin:0 auto">
         <h2 style="font-size:28px;font-weight:700;color:var(--white);letter-spacing:-.02em;margin-bottom:12px">Request an institutional briefing</h2>
         <p style="font-size:15px;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:28px">Controlled pilots in 2026–27 for banks, payment institutions and market infrastructures. Technical documentation and NDA available to qualified participants.</p>
@@ -239,7 +277,7 @@
     </div></section>
 </main>
 
-    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA is a product of FiatRails Foundation Ltd.</p></div><div class="footer-col"><h4>Services</h4><a href="/#products">Settlement domains</a><a href="/settlement">Settlement model</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h4>Company</h4><a href="/governance">Governance &amp; Board</a><a href="/governance#board">Board of Directors</a><a href="https://fiatrails.foundation">Foundation</a><a href="insights/">Insights</a><a href="/apply">Request a briefing</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/netta-network" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://x.com/nettanetwork" target="_blank" rel="noopener noreferrer">X</a><a href="mailto:briefings@netta.network">briefings@netta.network</a></div><div class="footer-col"><h4>Legal</h4><a href="/terms">Terms of Use</a><a href="/privacy">Privacy Notice</a><a href="/governance#standards">PFMI self-assessment (on request)</a></div></div>
+    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA is a product of FiatRails Foundation Ltd.</p></div><div class="footer-col"><h4>Services</h4><a href="/#products">Settlement domains</a><a href="/treasury">Treasury</a><a href="/settlement">Settlement model</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h4>Company</h4><a href="/governance">Governance &amp; Board</a><a href="/governance#board">Board of Directors</a><a href="https://fiatrails.foundation">Foundation</a><a href="insights/">Insights</a><a href="/apply">Request a briefing</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/netta-network" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://x.com/nettanetwork" target="_blank" rel="noopener noreferrer">X</a><a href="mailto:briefings@netta.network">briefings@netta.network</a></div><div class="footer-col"><h4>Legal</h4><a href="/terms">Terms of Use</a><a href="/privacy">Privacy Notice</a><a href="/governance#standards">PFMI self-assessment (on request)</a></div></div>
     <div class="footer-bottom"><span>&copy; 2026 FiatRails Foundation Ltd. All rights reserved.</span><span>CR-431901 | LEI <a href="https://search.gleif.org/#/record/894500RG1F2BKNE8P514" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">894500RG1F2BKNE8P514</a> | Cayman Islands</span></div></div></footer>
 </body>
 </html>

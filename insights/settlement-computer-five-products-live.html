@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Settlement Computer: What Is Live on Testnet and What Comes Next | NETTA Insights</title>
+    <meta property="og:image" content="https://netta.network/assets/og-image.png">
+    <link rel="canonical" href="https://netta.network/insights/settlement-computer-five-products-live">
     <meta name="description" content="A status note on NETTA — The Settlement Computer: five products exercised on testnet, three domains in design, one settlement chain, twenty US patent applications, detailed documentation under NDA.">
     <meta name="author" content="NETTA">
     <link rel="icon" type="image/png" href="/icons/favicon-32x32.png">
@@ -143,7 +145,7 @@
 </head>
 <body>
     <a href="#main" class="skip">Skip to content</a>
-<nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><input type="checkbox" id="nav-toggle" class="nav-toggle" hidden><label for="nav-toggle" class="nav-burger" aria-label="Menu"><span></span></label><div class="nav-links"><a href="/#products">Services</a><a href="/architecture">Architecture</a><a href="/governance">Governance</a><a href="/insights/">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="/apply" class="nav-cta">Request Briefing</a></div></div></nav>
+<nav class="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" class="nav-logo"><span class="nav-divider"></span><span class="nav-product">Settlement Computer</span></a><input type="checkbox" id="nav-toggle" class="nav-toggle" hidden><label for="nav-toggle" class="nav-burger" aria-label="Menu"><span></span></label><div class="nav-links"><a href="/#products">Services</a><a href="/treasury">Treasury</a><a href="/architecture">Architecture</a><a href="/governance">Governance</a><a href="/insights/">Insights</a><a href="https://fiatrails.foundation">Foundation</a><a href="/apply" class="nav-cta">Request Briefing</a></div></div></nav>
 <main id="main">
 
     <article>
@@ -174,11 +176,11 @@
 
                 <p>All five share one netting engine, one compliance gate, one settlement state machine and one validator set. Settlement instructions are generated natively in ISO 20022 CBPR+ (pacs.008 and pacs.009 at the settlement layer, with pain.001, pacs.002, camt.053 and camt.054 via the institutional API). Privacy is cryptographic rather than hardware-based, with tiered supervisory view keys; the runtime is Qedis, owned by Digitalyze Labs Ltd and perpetually licensed to the NETTA group.</p>
 
-                <div class="testnet-callout"><p>All figures are from the Lagrange testnet on generated test flow, as at September 2026. Participant profiles are synthetic. No production traffic. Multilateral compression across the 11 testnet corridors averages 91.2% on balanced generated flow; directional corridors compress materially less.</p></div>
+                <div class="testnet-callout"><p>All figures are from the Lagrange testnet on generated test flow, as at September 2026. Participant profiles are synthetic. No production traffic. Multilateral compression reaches up to 95% on testnet; the realised figure depends on corridor and flow mix, and directional corridors compress materially less.</p></div>
 
                 <h2>Just-in-time atomic counter-attestation</h2>
 
-                <p>The settlement model is what the home page calls just-in-time atomic counter-attestation. Multilateral net positions execute atomically at window close against counter-attested standing instructions held with each participant's settlement bank. The residual net settles just in time; there is no pre-positioned liquidity on outbound legs, and NETTA never holds funds or acts as counterparty at any point.</p>
+                <p>The settlement model is what the home page calls just-in-time atomic counter-attestation. Multilateral net positions execute atomically at window close against counter-attested standing instructions held with each participant's settlement bank. The residual net settles just in time; pre-positioned liquidity on outbound legs is eliminated where the rail permits just-in-time funding and materially reduced where it does not, and NETTA never holds funds or acts as counterparty at any point.</p>
 
                 <h2>Three domains in design</h2>
 
@@ -229,7 +231,7 @@
     </section>
 </main>
 
-    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA is a product of FiatRails Foundation Ltd.</p></div><div class="footer-col"><h4>Services</h4><a href="/#products">Settlement domains</a><a href="/settlement">Settlement model</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h4>Company</h4><a href="/governance">Governance &amp; Board</a><a href="/governance#board">Board of Directors</a><a href="https://fiatrails.foundation">Foundation</a><a href="/insights/">Insights</a><a href="/apply">Request a briefing</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/netta-network" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://x.com/nettanetwork" target="_blank" rel="noopener noreferrer">X</a><a href="mailto:briefings@netta.network">briefings@netta.network</a></div><div class="footer-col"><h4>Legal</h4><a href="/terms">Terms of Use</a><a href="/privacy">Privacy Notice</a><a href="/governance#standards">PFMI self-assessment (on request)</a></div></div>
+    <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div class="footer-brand"><img src="../assets/netta-logo-nav.png" alt="NETTA" style="height:42px;filter:brightness(0) invert(1)"><p>NETTA is a product of FiatRails Foundation Ltd.</p></div><div class="footer-col"><h4>Services</h4><a href="/#products">Settlement domains</a><a href="/treasury">Treasury</a><a href="/settlement">Settlement model</a><a href="/architecture">Architecture</a></div><div class="footer-col"><h4>Company</h4><a href="/governance">Governance &amp; Board</a><a href="/governance#board">Board of Directors</a><a href="https://fiatrails.foundation">Foundation</a><a href="/insights/">Insights</a><a href="/apply">Request a briefing</a></div><div class="footer-col"><h4>Connect</h4><a href="https://www.linkedin.com/company/netta-network" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://x.com/nettanetwork" target="_blank" rel="noopener noreferrer">X</a><a href="mailto:briefings@netta.network">briefings@netta.network</a></div><div class="footer-col"><h4>Legal</h4><a href="/terms">Terms of Use</a><a href="/privacy">Privacy Notice</a><a href="/governance#standards">PFMI self-assessment (on request)</a></div></div>
     <div class="footer-bottom"><span>&copy; 2026 FiatRails Foundation Ltd. All rights reserved.</span><span>CR-431901 | LEI <a href="https://search.gleif.org/#/record/894500RG1F2BKNE8P514" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">894500RG1F2BKNE8P514</a> | Cayman Islands</span></div></div></footer>
 </body>
 </html>
