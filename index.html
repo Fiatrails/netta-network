@@ -1119,7 +1119,7 @@
         <div class="credentials-inner">
             <div class="credential">Non-custodial technology service provider</div>
             <div class="credential">Counter-attested just-in-time settlement</div>
-            <div class="credential">ISO 20022 CBPR+ validated end-to-end (Swift certification pending)</div>
+            <div class="credential">ISO 20022 CBPR+ validated end-to-end; no Swift certification claimed</div>
             <div class="credential">Governed by FiatRails Foundation Ltd &middot; Reg. 431901 &middot; LEI 894500RG1F2BKNE8P514</div>
             <div class="credential">Independent-majority board</div>
         </div>
@@ -1134,7 +1134,7 @@
                 <h2 class="section-title">Multilateral netting reaches 18 currencies. Everything else nets bilaterally, or not at all.</h2>
             </div>
             <div class="problem-content">
-                <p>Multilateral net settlement is the most efficient arrangement in payments, and it is confined to one perimeter. CLS settles 18 currencies, none added since 2015, for more than 75 settlement members and some 35,000 third parties, averaging around US$8 trillion a day on its own published figures, and reduces funding requirements by around 96% inside that perimeter on its reported basis. Beyond those 18 currencies, what exists is bilateral. CLS&rsquo;s own netting-calculation service spans more than 120 currencies for 121 committed banks and reports a 43% funding reduction in its published case study &mdash; against around 96% for multilateral settlement inside the core. That gap is architectural, not operational: bilateral netting can only offset what two parties owe each other. Beyond both, the Bank for International Settlements estimates that US$1.25 trillion a day of foreign exchange settles with no payment-versus-payment protection at all.</p>
+                <p>Multilateral net settlement is the most efficient arrangement in payments, and it is confined to one perimeter. CLS settles 18 currencies, none added since 2015, for more than 75 settlement members and some 35,000 third parties, averaging around US$8 trillion a day on its own published figures, and reduces funding requirements by around 96% inside that perimeter on its reported basis. Beyond those 18 currencies, what exists is bilateral. CLS&rsquo;s own netting-calculation service spans more than 120 currencies for 121 committed banks and reports a 43% funding reduction in its published case study &mdash; against around 96% for multilateral settlement inside the core. That gap is architectural, not operational. Bilateral netting can only offset what two parties owe each other, and a calculation service produces a number without settling it, so the benefit realised still depends on each participant&rsquo;s own payment arrangements. Beyond both, the Bank for International Settlements estimates that US$1.25 trillion a day of foreign exchange settles with no payment-versus-payment protection at all.</p>
                 <p style="margin-top: 12px;">Gross settlement means pre-positioned liquidity. Nostro buffers run two to three times daily need in major currencies and five to ten times in volatile emerging-market currencies, on industry estimates, and every transaction carries T+2 to T+5 of exposure. The result is trapped capital, warehoused FX risk and structurally weak return on equity, even where volumes are strong.</p>
             </div>
         </div>
@@ -1190,7 +1190,7 @@
                 <li><strong>Record.</strong> Obligations are submitted by API or ISO 20022 while the corridor's netting window is open.</li>
                 <li><strong>Reference-price.</strong> Each obligation is valued at a reference rate fixed when it is recorded; the protocol never executes FX.</li>
                 <li><strong>Net.</strong> At window close the multilateral net position of every participant is computed on the ledger; positions offset across corridors only where they share a settlement currency.</li>
-                <li><strong>Settle.</strong> Each net position is executed by the participant's own licensed settlement institution over its existing rails, backed just-in-time by its counter-attestation. Technical execution is atomic; legal finality is subject to per-corridor legal opinions.</li>
+                <li><strong>Settle.</strong> Each net position is executed by the participant's own licensed settlement institution over its existing rails, backed just-in-time by its counter-attestation. Technical execution is atomic; settlement finality and the enforceability of the net are subject to per-corridor legal opinions.</li>
             </ol>
             <div class="how-facts">
                 <div class="how-fact"><div class="how-fact-value">Up to 95%</div><div class="how-fact-label">multilateral compression exercised on testnet; the realised figure depends on corridor and flow mix, and directional corridors compress materially less</div></div>
@@ -1209,7 +1209,7 @@
         </div>
         <div class="treasury">
             <p>Outbound, your cash stays in normal operational use until the settlement instant; pre-positioned liquidity is eliminated where the rail permits just-in-time funding and materially reduced where it does not. Inbound, the credit you extend against payouts is shortened to the net residual. That residual settles against your own settlement bank's counter-attestation, on rails you already use. Obligations are valued at reference rates fixed at window open; the protocol executes no FX, so you hedge the net, not the gross. Instructions and statements arrive as ISO 20022 CBPR+ messages, validated end-to-end against the official schemas; Swift conformance testing is a pre-pilot step and no certification is claimed. Nothing is held by NETTA at any point.</p>
-            <p class="treasury-illus"><strong>Illustrative:</strong> a US$100M-a-month corridor under legacy arrangements typically requires US$15&ndash;25M of pre-funded nostro, T+2 to T+3 settlement and 3&ndash;5% all-in cost; netted, the same corridor requires settlement capital of US$5&ndash;10M, same-day confirmation and automated reconciliation.</p>
+            <p class="treasury-illus"><strong>Illustrative:</strong> a US$100M-a-month corridor under legacy arrangements typically requires US$15&ndash;25M of pre-funded nostro, T+2 to T+3 settlement and an all-in cost of several per cent in higher-cost payment corridors; netted, the same corridor requires settlement capital of US$5&ndash;10M, same-day confirmation and automated reconciliation.</p>
         </div>
     </section>
 
